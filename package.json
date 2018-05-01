@@ -1,35 +1,30 @@
 {
-  "name": "styled-media-query",
-  "version": "2.0.2",
-  "description": "Beautiful media queries for styled-component",
-  "main": "dist/styled-media-query.common.js",
-  "module": "dist/styled-media-query.es.js",
-  "jsnext:main": "dist/styled-media-query.es.js",
-  "repository": "git@github.com:morajabi/styled-media-query.git",
-  "keywords": [
-    "styled-components",
-    "media-query",
-    "media",
-    "breakpoint"
-  ],
+  "name": "styled-breakpoints",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/styled-breakpoints.common.js",
+  "module": "dist/styled-breakpoints.es.js",
+  "jsnext:main": "dist/styled-breakpoints.es.js",
+  "repository": "",
+  "keywords": "",
   "scripts": {
-    "clean": "rimraf dist",
+    "unit:watch": "NODE_ENV=test jest --watch",
     "build": "yarn build:common && yarn build:es && yarn build:browser",
     "build:common": "rollup -c --environment COMMON,PRODUCTION",
     "build:es": "rollup -c --environment ES",
     "build:browser": "rollup -c --environment BROWSER,PRODUCTION"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "author": "Mohammad Rajabifard <mo.rajbi@gmail.com>",
+  "files": ["dist", "src"],
+  "author": "",
   "license": "MIT",
   "peerDependencies": {
     "styled-components": ">= 1 < 4"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -37,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
     "rimraf": "^2.6.1",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
@@ -45,5 +41,13 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
     "styled-components": "^3.1.5"
+  },
+  "jest": {
+    "collectCoverage": false,
+    "transform": {
+      "^.+\\.js$": "./node_modules/babel-jest"
+    },
+    "testFileExtensions": ["es6", "js"],
+    "moduleFileExtensions": ["js", "json", "es6"]
   }
 }

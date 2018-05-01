@@ -6,6 +6,12 @@
         "loose": true,
         "modules": false
       }
-    ]
-  ]
+    ],
+    "stage-0"
+  ],
+  "env": {
+    "test": {
+      "presets": [["env", { "modules": "commonjs" }]]
+    }
+  }
 }

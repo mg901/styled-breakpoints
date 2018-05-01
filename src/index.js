@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { pxToEm, pxToRem } from './convertors';
+import { toEm, toRem } from './convertors';
 
-export { pxToEm, pxToRem };
+export { toEm, toRem };
 
 /**
  * Default media breakpoints
@@ -14,42 +14,45 @@ export const defaultBreakpoints = {
   small: '450px',
 };
 
-function getSizeFromBreakpoint(breakpointValue, breakpoints = {}) {
+export const _getSizeFromBreakpoint = (breakpointValue, breakpoints = {}) => {
+  let result = null;
   if (breakpoints[breakpointValue]) {
-    return breakpoints[breakpointValue];
+    result = breakpoints[breakpointValue];
   } else if (parseInt(breakpointValue, 10)) {
-    return breakpointValue;
+    result = breakpointValue;
   } else {
     console.error(
-      'styled-media-query: No valid breakpoint or size specified for media.',
+      'styled-breakpoints: No valid breakpoint or size specified for media.',
     );
-    return '0';
+    result = '0';
   }
-}
+
+  return result;
+};
 
 /**
  * Media query generator
  * @param {Object} breakpoints - Map labels to breakpoint sizes
  * @return {Object} - Media generators for each breakpoint
  */
-export function generateMedia(breakpoints = defaultBreakpoints) {
-  const lessThan = breakpoint => (...args) => css`
-    @media (max-width: ${getSizeFromBreakpoint(breakpoint, breakpoints)}) {
+export const generateMedia = (breakpoints = defaultBreakpoints) => {
+  const below = breakpoint => (...args) => css`
+    @media (max-width: ${_getSizeFromBreakpoint(breakpoint, breakpoints)}) {
       ${css(...args)};
     }
   `;
 
-  const greaterThan = breakpoint => (...args) => css`
-    @media (min-width: ${getSizeFromBreakpoint(breakpoint, breakpoints)}) {
+  const above = breakpoint => (...args) => css`
+    @media (min-width: ${_getSizeFromBreakpoint(breakpoint, breakpoints)}) {
       ${css(...args)};
     }
   `;
 
   const between = (firstBreakpoint, secondBreakpoint) => (...args) => css`
-    @media (min-width: ${getSizeFromBreakpoint(
+    @media (min-width: ${_getSizeFromBreakpoint(
         firstBreakpoint,
         breakpoints,
-      )}) and (max-width: ${getSizeFromBreakpoint(
+      )}) and (max-width: ${_getSizeFromBreakpoint(
         secondBreakpoint,
         breakpoints,
       )}) {
@@ -63,7 +66,7 @@ export function generateMedia(breakpoints = defaultBreakpoints) {
 
       acc.to[label] = (...args) => {
         console.warn(
-          `styled-media-query: Use media.lessThan('${label}') instead of old media.to.${label} (Probably we'll deprecate it)`,
+          `styled-breakpoints: Use media.below('${label}') instead of old media.to.${label} (Probably we'll deprecate it)`,
         );
         return css`
           @media (max-width: ${size}) {
@@ -74,7 +77,7 @@ export function generateMedia(breakpoints = defaultBreakpoints) {
 
       acc.from[label] = (...args) => {
         console.warn(
-          `styled-media-query: Use media.greaterThan('${label}') instead of old media.from.${label} (Probably we'll deprecate it)`,
+          `styled-breakpoints: Use media.above('${label}') instead of old media.from.${label} (Probably we'll deprecate it)`,
         );
         return css`
           @media (min-width: ${size}) {
@@ -88,15 +91,8 @@ export function generateMedia(breakpoints = defaultBreakpoints) {
     { to: {}, from: {} },
   );
 
-  return Object.assign(
-    {
-      lessThan,
-      greaterThan,
-      between,
-    },
-    oldStyle,
-  );
-}
+  return { ...oldStyle, below, above, between };
+};
 
 /**
  * Media object with default breakpoints
