@@ -14,7 +14,10 @@
     "build:es": "rollup -c --environment ES",
     "build:browser": "rollup -c --environment BROWSER,PRODUCTION"
   },
-  "files": ["dist", "src"],
+  "files": [
+    "dist",
+    "src"
+  ],
   "author": "",
   "license": "MIT",
   "peerDependencies": {
@@ -47,7 +50,14 @@
     "transform": {
       "^.+\\.js$": "./node_modules/babel-jest"
     },
-    "testFileExtensions": ["es6", "js"],
-    "moduleFileExtensions": ["js", "json", "es6"]
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   }
 }
