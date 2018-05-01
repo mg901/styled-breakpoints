@@ -1,7 +1,10 @@
 import { css } from 'styled-components';
-import { toEm, toRem } from './convertors';
+import { toRem } from './convertors';
 
-export { toEm, toRem };
+export { toRem };
+
+const BROWSER_DEFAULT_FONT_SIZE = 16;
+const toEm = inPx => `${parseFloat(inPx) / BROWSER_DEFAULT_FONT_SIZE}em`;
 
 /**
  * Default media breakpoints
@@ -80,76 +83,42 @@ export const _getBreakValue = (breakpointValue, breakpoints = {}) => {
  */
 export const generateMedia = (breakpoints = defaultBreakpoints) => {
   const above = breakpointValue => (...args) => css`
-    @media screen and (min-width: ${_getBreakValue(
-        breakpointValue,
-        breakpoints,
+    @media screen and (min-width: ${toEm(
+        _getBreakValue(breakpointValue, breakpoints),
       )}) {
       ${css(...args)};
     }
   `;
 
   const below = breakpointValue => (...args) => css`
-    @media screen and (max-width: ${_getNextBreakValue(
-        breakpointValue,
-        breakpoints,
+    @media screen and (max-width: ${toEm(
+        _getNextBreakValue(breakpointValue, breakpoints),
       )}) {
       ${css(...args)};
     }
   `;
 
   const only = breakpointValue => (...args) => css`
-    @media screen and (min-width: ${_getBreakValue(
-        breakpointValue,
-        breakpoints,
-      )}) and (max-width: ${_getNextBreakValue(breakpointValue, breakpoints)}) {
-      ${css(...args)};
-    }
-  `;
-
-  const between = (firstBreakpoint, secondBreakpoint) => (...args) => css`
-    @media screen and (min-width: ${_getBreakValue(
-        firstBreakpoint,
-        breakpoints,
-      )}) and (max-width: ${_getNextBreakValue(
-        secondBreakpoint,
-        breakpoints,
+    @media screen and (min-width: ${toEm(
+        _getBreakValue(breakpointValue, breakpoints),
+      )}) and (max-width: ${toEm(
+        _getNextBreakValue(breakpointValue, breakpoints),
       )}) {
       ${css(...args)};
     }
   `;
 
-  const oldStyle = Object.keys(breakpoints).reduce(
-    (acc, label) => {
-      const size = breakpoints[label];
+  const between = (firstBreakpoint, secondBreakpoint) => (...args) => css`
+    @media screen and (min-width: ${toEm(
+        _getBreakValue(firstBreakpoint, breakpoints),
+      )}) and (max-width: ${toEm(
+        _getNextBreakValue(secondBreakpoint, breakpoints),
+      )}) {
+      ${css(...args)};
+    }
+  `;
 
-      acc.to[label] = (...args) => {
-        console.warn(
-          `styled-breakpoints: Use media.below('${label}') instead of old media.to.${label} (Probably we'll deprecate it)`,
-        );
-        return css`
-          @media (max-width: ${size}) {
-            ${css(...args)};
-          }
-        `;
-      };
-
-      acc.from[label] = (...args) => {
-        console.warn(
-          `styled-breakpoints: Use media.above('${label}') instead of old media.from.${label} (Probably we'll deprecate it)`,
-        );
-        return css`
-          @media (min-width: ${size}) {
-            ${css(...args)};
-          }
-        `;
-      };
-
-      return acc;
-    },
-    { to: {}, from: {} },
-  );
-
-  return { ...oldStyle, below, above, only, between };
+  return { below, above, only, between };
 };
 
 /**
