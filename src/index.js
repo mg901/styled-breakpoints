@@ -8,23 +8,66 @@ export { toEm, toRem };
  * @type {Object}
  */
 export const defaultBreakpoints = {
-  huge: '1440px',
-  large: '1170px',
-  medium: '768px',
-  small: '450px',
+  mobile: '576px',
+  tablet: '768px',
+  desktop: '992px',
+  lgDesktop: '1200px',
 };
 
-export const _getSizeFromBreakpoint = (breakpointValue, breakpoints = {}) => {
-  let result = null;
-  if (breakpoints[breakpointValue]) {
-    result = breakpoints[breakpointValue];
-  } else if (parseInt(breakpointValue, 10)) {
-    result = breakpointValue;
-  } else {
-    console.error(
-      'styled-breakpoints: No valid breakpoint or size specified for media.',
+const _getNextBreakName = (breakpointValue, breakpoints) => {
+  const namesOfBreakpoins = Object.keys(breakpoints);
+  const penultimateBreakName = namesOfBreakpoins[namesOfBreakpoins.length - 2];
+  const currentPosition = namesOfBreakpoins.indexOf(breakpointValue);
+
+  try {
+    if (currentPosition < namesOfBreakpoins.length - 1) {
+      const nextBreak = currentPosition + 1;
+      return namesOfBreakpoins[`${nextBreak}`];
+    }
+    throw new Error(
+      `"styled-breakpoints: ${breakpointValue}" is incorrect value. Use ${penultimateBreakName}.`,
     );
-    result = '0';
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+const _getNextBreakValue = (breakpointValue, breakpoints = {}) => {
+  let result = null;
+
+  try {
+    const breakName = _getNextBreakName(breakpointValue, breakpoints);
+    if (breakpoints[breakpointValue]) {
+      result = `${parseFloat(breakpoints[breakName]) - 0.02}px`;
+    } else if (parseInt(breakpointValue, 10)) {
+      result = `${Number(breakpointValue) - 0.02}`;
+    } else {
+      throw new Error(
+        `styled-breakpoints: ${breakpointValue} no valid breakpoint or size specified for media.`,
+      );
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+
+  return result;
+};
+
+export const _getBreakValue = (breakpointValue, breakpoints = {}) => {
+  let result = null;
+
+  try {
+    if (breakpoints[breakpointValue]) {
+      result = breakpoints[breakpointValue];
+    } else if (parseInt(breakpointValue, 10)) {
+      result = breakpointValue;
+    } else {
+      throw new Error(
+        'styled-breakpoints: No valid breakpoint or size specified for media.',
+      );
+    }
+  } catch (err) {
+    console.warn(err);
   }
 
   return result;
@@ -36,23 +79,38 @@ export const _getSizeFromBreakpoint = (breakpointValue, breakpoints = {}) => {
  * @return {Object} - Media generators for each breakpoint
  */
 export const generateMedia = (breakpoints = defaultBreakpoints) => {
-  const below = breakpoint => (...args) => css`
-    @media (max-width: ${_getSizeFromBreakpoint(breakpoint, breakpoints)}) {
+  const above = breakpointValue => (...args) => css`
+    @media screen and (min-width: ${_getBreakValue(
+        breakpointValue,
+        breakpoints,
+      )}) {
       ${css(...args)};
     }
   `;
 
-  const above = breakpoint => (...args) => css`
-    @media (min-width: ${_getSizeFromBreakpoint(breakpoint, breakpoints)}) {
+  const below = breakpointValue => (...args) => css`
+    @media screen and (max-width: ${_getNextBreakValue(
+        breakpointValue,
+        breakpoints,
+      )}) {
+      ${css(...args)};
+    }
+  `;
+
+  const only = breakpointValue => (...args) => css`
+    @media screen and (min-width: ${_getBreakValue(
+        breakpointValue,
+        breakpoints,
+      )}) and (max-width: ${_getNextBreakValue(breakpointValue, breakpoints)}) {
       ${css(...args)};
     }
   `;
 
   const between = (firstBreakpoint, secondBreakpoint) => (...args) => css`
-    @media (min-width: ${_getSizeFromBreakpoint(
+    @media screen and (min-width: ${_getBreakValue(
         firstBreakpoint,
         breakpoints,
-      )}) and (max-width: ${_getSizeFromBreakpoint(
+      )}) and (max-width: ${_getNextBreakValue(
         secondBreakpoint,
         breakpoints,
       )}) {
@@ -91,7 +149,7 @@ export const generateMedia = (breakpoints = defaultBreakpoints) => {
     { to: {}, from: {} },
   );
 
-  return { ...oldStyle, below, above, between };
+  return { ...oldStyle, below, above, only, between };
 };
 
 /**
