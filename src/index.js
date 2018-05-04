@@ -17,7 +17,7 @@ export const defaultBreakpoints = {
  * @param {Object} breakpoints - Map labels to breakpoint sizes
  * @return {Object} - Media generators for each breakpoint
  */
-export const generateMedia = (breakpoints = defaultBreakpoints) => {
+export const createBreakpoints = (breakpoints = defaultBreakpoints) => {
   const above = breakpointValue => (...args) => css`
     @media screen and (min-width: ${_toEm(
         _getBreakValue(breakpointValue, breakpoints),
@@ -61,4 +61,4 @@ export const generateMedia = (breakpoints = defaultBreakpoints) => {
  * Media object with default breakpoints
  * @return {object} - Media generators for each size
  */
-export default generateMedia();
+export default createBreakpoints();
