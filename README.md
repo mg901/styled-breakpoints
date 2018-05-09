@@ -2,7 +2,7 @@
 
 Simple and powerfull css breakpoints for [styled-components](https://github.com/styled-components/styled-components).
 
-# Installation
+## Installation
 
 Use yarn or npm
 
@@ -14,7 +14,7 @@ yarn add styled-breakpoints
 npm i styled-breakpoints
 ```
 
-# Get Started
+## Get Started
 
 Еhe following values of breakpoints are used by default.
 
@@ -36,18 +36,6 @@ const Test = styled.div`
   ${media.above('tablet')`
     background-color: hotpink;
   `};
-
-  ${media.below('desktop')`
-    background-color: lightcoral;
-  `};
-
-  ${media.only('tablet')`
-    background-color: rebeccapurple;
-  `};
-
-  ${media.between('tablet', 'desktop')`
-    background-color: hotpink;
-  `};
 `;
 ```
 
@@ -63,22 +51,57 @@ div {
     background-color: hotpink;
   }
 }
+```
 
+## Above
+
+```js
+  ${media.above('tablet')`
+    background-color: hotpink;
+  `};
+```
+
+Convert to:
+
+```css
+@media screen and (min-width: 48em) {
+  div {
+    background-color: hotpink;
+  }
+}
+```
+
+## Below
+
+```js
+  ${media.below('desktop')`
+    background-color: lightcoral;
+  `};
+```
+
+Convert to:
+
+```css
 /* (1200px - 0.02px) / 16px */
 @media screen and (max-width: 74.99875em) {
   div {
     background-color: lightcoral;
   }
 }
+```
 
-/* 778px / 16px          (992px - 0.02px) / 16px */
-@media screen and (min-width: 48em) and (max-width: 61.99875em) {
-  div {
-    background-color: rebeccapurple;
-  }
-}
+## Between
 
-/* 778px / 16px          (1200px - 0.02px) / 16px */
+```js
+  ${media.between('tablet', 'desktop')`
+    background-color: hotpink;
+  `};
+```
+
+Convert to:
+
+```css
+/* 778px / 16px                  (1200px - 0.02px) / 16px */
 @media screen and (min-width: 48em) and (max-width: 74.99875em) {
   div {
     background-color: hotpink;
@@ -86,15 +109,46 @@ div {
 }
 ```
 
-# Custom breakpoints
+## Only
 
 ```js
+  ${media.only('tablet')`
+    background-color: rebeccapurple;
+  `};
+```
+
+Convert to:
+
+```css
+/*
+  778px / 16px                  (992px - 0.02px) / 16px */
+@media screen and (min-width: 48em) and (max-width: 61.99875em) {
+  div {
+    background-color: rebeccapurple;
+  }
+}
+```
+
+## Custom breakpoints
+
+```js
+import styled from 'styled-components';
+import media from 'styled-breakpoints';
+
 const media = createBreakpoints({
   sm: '576px',
   md: '768px',
   lg: '992px',
   xl: '1200px',
 });
+
+const Test = styled.div`
+  background-color: pink;
+
+  ${media.above('md')`
+    background-color: hotpink;
+  `};
+`;
 ```
 
 MIT License
