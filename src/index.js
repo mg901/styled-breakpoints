@@ -6,7 +6,6 @@ import { _toEm, _getNextBreakValue, _getBreakValue } from './helpers';
  * @type {Object}
  */
 export const defaultBreakpoints = {
-  mobile: '576px',
   tablet: '768px',
   desktop: '992px',
   lgDesktop: '1200px',
