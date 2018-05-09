@@ -1,12 +1,17 @@
 {
   "name": "styled-breakpoints",
-  "version": "2.0.1",
-  "description": "",
+  "version": "2.0.3",
+  "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/styled-breakpoints.common.js",
   "module": "dist/styled-breakpoints.es.js",
   "jsnext:main": "dist/styled-breakpoints.es.js",
   "repository": "",
-  "keywords": "",
+  "keywords": [
+    "styled-components",
+    "media-query",
+    "media",
+    "breakpoint"
+  ],
   "scripts": {
     "unit:watch": "NODE_ENV=test jest --watch",
     "build": "yarn build:common && yarn build:es && yarn build:browser",
@@ -18,7 +23,7 @@
     "dist",
     "src"
   ],
-  "author": "",
+  "author": "Maxim Alyoshing mgreen097@gmail.com",
   "license": "MIT",
   "peerDependencies": {
     "styled-components": ">= 1 < 4"
