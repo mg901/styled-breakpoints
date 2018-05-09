@@ -16,7 +16,7 @@ npm i styled-breakpoints
 
 ## Get Started
 
-Еhe following values of breakpoints are used by default.
+The following values of breakpoints are used by default.
 
 ```js
 {
