@@ -133,7 +133,7 @@ Convert to:
 
 ```js
 import styled from 'styled-components';
-import media from 'styled-breakpoints';
+import { createBreakpoints } from 'styled-breakpoints';
 
 const media = createBreakpoints({
   sm: '576px',
