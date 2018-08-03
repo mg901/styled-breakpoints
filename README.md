@@ -1,4 +1,4 @@
-# styled-breakpoints
+# styled-breakpoints [![npm version](https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat)](https://www.npmjs.com/package/styled-breakpoints)
 
 Simple and powerfull css breakpoints for [styled-components](https://github.com/styled-components/styled-components).
 
