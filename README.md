@@ -2,6 +2,8 @@
 
 Simple and powerfull css breakpoints for [styled-components](https://github.com/styled-components/styled-components).
 
+> You can use it with [emotion](https://github.com/emotion-js/emotion) too
+
 ## Installation
 
 Use yarn or npm
@@ -19,7 +21,7 @@ npm i styled-breakpoints
 The following values of breakpoints are used by default.
 
 ```js
-{
+const defaultBreakpoints = {
   tablet: '768px',
   desktop: '992px',
   lgDesktop: '1200px',
@@ -33,13 +35,13 @@ import media from 'styled-breakpoints';
 const Test = styled.div`
   background-color: pink;
 
-  ${media.above('tablet')`
+  ${media.above('tablet')}` {
     background-color: hotpink;
-  `};
+  }
 `;
 ```
 
-Convert to pure css:
+Converts to pure css:
 
 ```css
 div {
@@ -53,15 +55,17 @@ div {
 }
 ```
 
-## Above
+### Above
 
 ```js
-  ${media.above('tablet')`
+css`
+  ${media.above('tablet')}` {
     background-color: hotpink;
-  `};
+  }
+`
 ```
 
-Convert to:
+Converts to:
 
 ```css
 @media screen and (min-width: 48em) {
@@ -71,15 +75,17 @@ Convert to:
 }
 ```
 
-## Below
+### Below
 
 ```js
-  ${media.below('desktop')`
+css`
+  ${media.below('desktop')}` {
     background-color: lightcoral;
-  `};
+  }
+`
 ```
 
-Convert to:
+Converts to:
 
 ```css
 /* (1200px - 0.02px) / 16px */
@@ -90,15 +96,17 @@ Convert to:
 }
 ```
 
-## Between
+### Between
 
 ```js
-  ${media.between('tablet', 'desktop')`
+css`
+  ${media.between('tablet', 'desktop')}` {
     background-color: hotpink;
-  `};
+  }
+`
 ```
 
-Convert to:
+Converts to:
 
 ```css
 /* 778px / 16px                  (1200px - 0.02px) / 16px */
@@ -109,15 +117,17 @@ Convert to:
 }
 ```
 
-## Only
+### Only
 
 ```js
-  ${media.only('tablet')`
+css`
+  ${media.only('tablet')}` {
     background-color: rebeccapurple;
-  `};
+  }
+`
 ```
 
-Convert to:
+Converts to:
 
 ```css
 /*
@@ -129,7 +139,7 @@ Convert to:
 }
 ```
 
-## Custom breakpoints
+### Custom breakpoints
 
 ```js
 import styled from 'styled-components';
@@ -145,11 +155,13 @@ const media = createBreakpoints({
 const Test = styled.div`
   background-color: pink;
 
-  ${media.above('md')`
+  ${media.above('md')}` {
     background-color: hotpink;
-  `};
+  }
 `;
 ```
+
+## License
 
 MIT License
 
