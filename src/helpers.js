@@ -1,8 +1,8 @@
 const BROWSER_DEFAULT_FONT_SIZE = 16;
-export const _toEm = inPx =>
+export const pixelsToEm = inPx =>
   `${parseFloat(inPx) / BROWSER_DEFAULT_FONT_SIZE}em`;
 
-const _getNextBreakName = (breakpointValue, breakpoints) => {
+const getNextBreakName = (breakpointValue, breakpoints) => {
   const namesOfBreakpoins = Object.keys(breakpoints);
   const penultimateBreakName = namesOfBreakpoins[namesOfBreakpoins.length - 2];
   const currentPosition = namesOfBreakpoins.indexOf(breakpointValue);
@@ -20,11 +20,11 @@ const _getNextBreakName = (breakpointValue, breakpoints) => {
   }
 };
 
-export const _getNextBreakValue = (breakpointValue, breakpoints = {}) => {
+export const getNextBreakValue = (breakpointValue, breakpoints = {}) => {
   let result = null;
 
   try {
-    const breakName = _getNextBreakName(breakpointValue, breakpoints);
+    const breakName = getNextBreakName(breakpointValue, breakpoints);
     if (breakpoints[breakpointValue]) {
       result = `${parseFloat(breakpoints[breakName]) - 0.02}px`;
     } else if (parseInt(breakpointValue, 10)) {
@@ -41,7 +41,7 @@ export const _getNextBreakValue = (breakpointValue, breakpoints = {}) => {
   return result;
 };
 
-export const _getBreakValue = (breakpointValue, breakpoints = {}) => {
+export const getBreakValue = (breakpointValue, breakpoints = {}) => {
   let result = null;
 
   try {
