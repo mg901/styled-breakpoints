@@ -25,25 +25,25 @@ export const createBreakpoints = (breakpoints = defaultBreakpoints) => {
 };
 
 const createAbove = breakpointsMap => breakpointKey => {
-  const pixels = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (min-width: ${pixels})`;
+  const ems = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (min-width: ${ems})`;
 };
 
 const createBelow = breakpointsMap => breakpointKey => {
-  const pixels = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (max-width: ${pixels})`;
+  const ems = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (max-width: ${ems})`;
 }
 
 const createOnly = breakpointsMap => breakpointKey => {
-  const minPixels = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
-  const maxPixels = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (min-width: ${minPixels}) and (max-width: ${maxPixels})`;
+  const minEms = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
+  const maxEms = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (min-width: ${minEms}) and (max-width: ${maxEms})`;
 }
 
 const createBetween = breakpointsMap => (fromBp, toBp) => {
-  const fromPixels = pixelsToEm(getBreakValue(fromBp, breakpointsMap));
-  const toPixels = pixelsToEm(getNextBreakValue(toBp, breakpointsMap));
-  return `@media screen and (min-width: ${fromPixels}) and (max-width: ${toPixels})`;
+  const minEms = pixelsToEm(getBreakValue(fromBp, breakpointsMap));
+  const maxEms = pixelsToEm(getNextBreakValue(toBp, breakpointsMap));
+  return `@media screen and (min-width: ${minEms}) and (max-width: ${maxEms})`;
 }
 
 /**
