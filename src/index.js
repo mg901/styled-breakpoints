@@ -1,4 +1,3 @@
-import { css } from 'styled-components';
 import { _toEm, _getNextBreakValue, _getBreakValue } from './helpers';
 
 /**
@@ -17,44 +16,35 @@ export const defaultBreakpoints = {
  * @return {Object} - Media generators for each breakpoint
  */
 export const createBreakpoints = (breakpoints = defaultBreakpoints) => {
-  const above = breakpointValue => (...args) => css`
-    @media screen and (min-width: ${_toEm(
-        _getBreakValue(breakpointValue, breakpoints),
-      )}) {
-      ${css(...args)};
-    }
-  `;
-
-  const below = breakpointValue => (...args) => css`
-    @media screen and (max-width: ${_toEm(
-        _getNextBreakValue(breakpointValue, breakpoints),
-      )}) {
-      ${css(...args)};
-    }
-  `;
-
-  const only = breakpointValue => (...args) => css`
-    @media screen and (min-width: ${_toEm(
-        _getBreakValue(breakpointValue, breakpoints),
-      )}) and (max-width: ${_toEm(
-        _getNextBreakValue(breakpointValue, breakpoints),
-      )}) {
-      ${css(...args)};
-    }
-  `;
-
-  const between = (firstBreakpoint, secondBreakpoint) => (...args) => css`
-    @media screen and (min-width: ${_toEm(
-        _getBreakValue(firstBreakpoint, breakpoints),
-      )}) and (max-width: ${_toEm(
-        _getNextBreakValue(secondBreakpoint, breakpoints),
-      )}) {
-      ${css(...args)};
-    }
-  `;
+  const above = createAbove(breakpoints);
+  const below = createBelow(breakpoints);
+  const only = createOnly(breakpoints);
+  const between = createBetween(breakpoints);
 
   return { below, above, only, between };
 };
+
+const createAbove = breakpointsMap => breakpointKey => {
+  const pixels = _toEm(_getBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (min-width: ${pixels})`;
+};
+
+const createBelow = breakpointsMap => breakpointKey => {
+  const pixels = _toEm(_getNextBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (max-width: ${pixels})`;
+}
+
+const createOnly = breakpointsMap => breakpointKey => {
+  const minPixels = _toEm(_getBreakValue(breakpointKey, breakpointsMap));
+  const maxPixels = _toEm(_getNextBreakValue(breakpointKey, breakpointsMap));
+  return `@media screen and (min-width: ${minPixels}) and (max-width: ${maxPixels})`;
+}
+
+const createBetween = breakpointsMap => (fromBp, toBp) => {
+  const fromPixels = _toEm(_getBreakValue(fromBp, breakpointsMap));
+  const toPixels = _toEm(_getNextBreakValue(toBp, breakpointsMap));
+  return `@media screen and (min-width: ${fromPixels}) and (max-width: ${toPixels})`;
+}
 
 /**
  * Media object with default breakpoints
