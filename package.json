@@ -1,11 +1,10 @@
 {
   "name": "styled-breakpoints",
-  "version": "2.0.4",
+  "version": "3.0.0-pre",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/styled-breakpoints.common.js",
   "module": "dist/styled-breakpoints.es.js",
   "jsnext:main": "dist/styled-breakpoints.es.js",
-  "repository": "",
   "keywords": [
     "styled-components",
     "media-query",
@@ -23,11 +22,15 @@
     "dist",
     "src"
   ],
-  "author": "Maxim Alyoshing mgreen097@gmail.com",
-  "license": "MIT",
-  "peerDependencies": {
-    "styled-components": ">= 1 < 4"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxinakenty/styled-breakpoints.git"
   },
+  "contributors": [
+    "Maxim Alyoshing <mgreen097@gmail.com>",
+    "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com)"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^22.4.3",
