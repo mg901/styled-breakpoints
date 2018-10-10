@@ -35,7 +35,7 @@ import media from 'styled-breakpoints';
 const Test = styled.div`
   background-color: pink;
 
-  ${media.above('tablet')}` {
+  ${media.above('tablet')} {
     background-color: hotpink;
   }
 `;
@@ -59,7 +59,7 @@ div {
 
 ```js
 css`
-  ${media.above('tablet')}` {
+  ${media.above('tablet')} {
     background-color: hotpink;
   }
 `
@@ -79,7 +79,7 @@ Converts to:
 
 ```js
 css`
-  ${media.below('desktop')}` {
+  ${media.below('desktop')} {
     background-color: lightcoral;
   }
 `
@@ -100,7 +100,7 @@ Converts to:
 
 ```js
 css`
-  ${media.between('tablet', 'desktop')}` {
+  ${media.between('tablet', 'desktop')} {
     background-color: hotpink;
   }
 `
@@ -121,7 +121,7 @@ Converts to:
 
 ```js
 css`
-  ${media.only('tablet')}` {
+  ${media.only('tablet')} {
     background-color: rebeccapurple;
   }
 `
@@ -155,7 +155,7 @@ const media = createBreakpoints({
 const Test = styled.div`
   background-color: pink;
 
-  ${media.above('md')}` {
+  ${media.above('md')} {
     background-color: hotpink;
   }
 `;
