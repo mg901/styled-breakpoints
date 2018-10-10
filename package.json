@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/styled-breakpoints.common.js",
   "module": "dist/styled-breakpoints.es.js",
