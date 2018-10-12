@@ -6,8 +6,9 @@ Simple and powerfull css breakpoints for [styled-components](https://github.com/
 
 ## Demo
 
-code (https://codesandbox.io/s/23583q00o0)
-fullscreen (https://23583q00o0.codesandbox.io/)
+[code](https://codesandbox.io/s/23583q00o0)
+
+[fullscreen](https://23583q00o0.codesandbox.io/)
 
 ## Installation
 
