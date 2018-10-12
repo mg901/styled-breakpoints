@@ -36,12 +36,12 @@ const defaultBreakpoints = {
 
 ```js
 import styled from 'styled-components';
-import media from 'styled-breakpoints';
+import { above, below, between, only } from 'styled-breakpoints';
 
-const Test = styled.div`
+const SyledComponent = styled.div`
   background-color: pink;
 
-  ${media.above('tablet')} {
+  ${above('tablet')} {
     background-color: hotpink;
   }
 `;
@@ -65,7 +65,7 @@ div {
 
 ```js
 css`
-  ${media.above('tablet')} {
+  ${above('tablet')} {
     background-color: hotpink;
   }
 `;
@@ -85,7 +85,7 @@ Converts to:
 
 ```js
 css`
-  ${media.below('desktop')} {
+  ${below('desktop')} {
     background-color: lightcoral;
   }
 `;
@@ -106,7 +106,7 @@ Converts to:
 
 ```js
 css`
-  ${media.between('tablet', 'desktop')} {
+  ${between('tablet', 'desktop')} {
     background-color: hotpink;
   }
 `;
@@ -127,7 +127,7 @@ Converts to:
 
 ```js
 css`
-  ${media.only('tablet')} {
+  ${only('tablet')} {
     background-color: rebeccapurple;
   }
 `;
@@ -151,17 +151,17 @@ Converts to:
 import styled from 'styled-components';
 import { createBreakpoints } from 'styled-breakpoints';
 
-const media = createBreakpoints({
+const { above, below, between, only } = createBreakpoints({
   sm: '576px',
   md: '768px',
   lg: '992px',
   xl: '1200px',
 });
 
-const Test = styled.div`
+const StyledComponent = styled.div`
   background-color: pink;
 
-  ${media.above('md')} {
+  ${above('md')} {
     background-color: hotpink;
   }
 `;
