@@ -4,6 +4,11 @@ Simple and powerfull css breakpoints for [styled-components](https://github.com/
 
 > You can use it with [emotion](https://github.com/emotion-js/emotion) too
 
+## Demo
+
+code (https://codesandbox.io/s/23583q00o0)
+fullscreen (https://23583q00o0.codesandbox.io/)
+
 ## Installation
 
 Use yarn or npm
@@ -25,7 +30,7 @@ const defaultBreakpoints = {
   tablet: '768px',
   desktop: '992px',
   lgDesktop: '1200px',
-}
+};
 ```
 
 ```js
@@ -62,7 +67,7 @@ css`
   ${media.above('tablet')} {
     background-color: hotpink;
   }
-`
+`;
 ```
 
 Converts to:
@@ -82,7 +87,7 @@ css`
   ${media.below('desktop')} {
     background-color: lightcoral;
   }
-`
+`;
 ```
 
 Converts to:
@@ -103,7 +108,7 @@ css`
   ${media.between('tablet', 'desktop')} {
     background-color: hotpink;
   }
-`
+`;
 ```
 
 Converts to:
@@ -124,7 +129,7 @@ css`
   ${media.only('tablet')} {
     background-color: rebeccapurple;
   }
-`
+`;
 ```
 
 Converts to:
