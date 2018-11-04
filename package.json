@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/styled-breakpoints.common.js",
   "module": "dist/styled-breakpoints.es.js",
@@ -14,10 +14,11 @@
   ],
   "scripts": {
     "unit:watch": "NODE_ENV=test jest --watch",
-    "build": "yarn build:common && yarn build:es && yarn build:browser",
-    "build:common": "rollup -c --environment COMMON,PRODUCTION",
-    "build:es": "rollup -c --environment ES",
-    "build:browser": "rollup -c --environment BROWSER,PRODUCTION"
+    "build": "npm run clean && npm run build:common && npm run build:es && npm run build:browser",
+    "build:common": "cross-env  rollup -c --environment COMMON,PRODUCTION",
+    "build:es": "cross-env  rollup -c --environment ES",
+    "build:browser": "cross-env rollup -c --environment BROWSER,PRODUCTION",
+    "clean": "cross-env rimraf dist"
   },
   "files": [
     "dist",
@@ -37,6 +38,7 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "babel-jest": "^23.6.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
@@ -45,7 +47,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^23.6.0",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "rollup": "^0.67.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
