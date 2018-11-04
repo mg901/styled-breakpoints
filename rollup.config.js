@@ -1,43 +1,48 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify';
-import gzip from 'rollup-plugin-gzip';
+import { uglify } from 'rollup-plugin-uglify';
 
 const prod = process.env.PRODUCTION;
-
 let config = {
-  entry: 'src/index.js',
-  sourceMap: true,
-  exports: 'named',
+  input: 'src/index.js',
   external: ['react', 'styled-components'],
 };
 
-let plugins = [resolve(), commonjs(), babel()];
+const plugins = [resolve(), commonjs(), babel()];
 
 if (prod) plugins.push(uglify());
 
 if (process.env.BROWSER) {
-  config = Object.assign(config, {
-    dest: 'dist/styled-breakpoints.umd.js',
-    format: 'umd',
-    moduleName: 'styled-breakpoints',
-    sourceMap: true,
-    exports: 'named',
+  config = {
+    ...config,
+    output: {
+      file: 'dist/styled-breakpoints.umd.js',
+      sourcemap: true,
+      format: 'umd',
+      exports: 'named',
+      name: 'styled-breakpoints',
+    },
     plugins,
-  });
+  };
 } else if (process.env.COMMON) {
-  config = Object.assign(config, {
+  config = {
+    ...config,
     plugins: [resolve(), commonjs(), babel()],
-    dest: 'dist/styled-breakpoints.common.js',
-    format: 'cjs',
-  });
+    output: {
+      file: 'dist/styled-breakpoints.common.js',
+      format: 'cjs',
+    },
+  };
 } else if (process.env.ES) {
-  config = Object.assign(config, {
+  config = {
+    ...config,
     plugins: [resolve(), commonjs(), babel()],
-    dest: 'dist/styled-breakpoints.es.js',
-    format: 'es',
-  });
+    output: {
+      file: 'dist/styled-breakpoints.es.js',
+      format: 'es',
+    },
+  };
 }
 
 export default config;
