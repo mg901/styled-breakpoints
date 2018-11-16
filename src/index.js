@@ -16,7 +16,7 @@ const createAbove = breakpointsMap => breakpointKey => {
 };
 
 const createBelow = breakpointsMap => breakpointKey => {
-  const ems = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
+  const ems = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
   return `@media screen and (max-width: ${ems})`;
 };
 
