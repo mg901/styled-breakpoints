@@ -1429,7 +1429,7 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.0:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.2.tgz#267988d7268323b349e20b4588211655f0e83944"
 
@@ -1780,9 +1780,9 @@ eslint-config-airbnb-base@13.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-prettier@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.3.0.tgz#41afc8d3b852e757f06274ed6c44ca16f939a57d"
+eslint-config-prettier@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.4.0.tgz#97dd5bf33d4d85862fdadf2ea89b4d6cebf3ba4f"
   dependencies:
     get-stdin "^6.0.0"
 
@@ -2566,11 +2566,11 @@ ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
-igogo@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.1.1.tgz#69644ac50146e0ed2d5535e6c90354516e660064"
+igogo@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.4.1.tgz#b92fa15ff3e4ce363d1e653a073484852902184d"
   dependencies:
-    core-js "^2.6.0"
+    core-js "^2.6.2"
 
 import-fresh@^2.0.0:
   version "2.0.0"
