@@ -1,16 +1,11 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "loose": true,
-        "modules": false
-      }
-    ]
+    ["@babel/preset-env", { "modules": false }],
+    "@babel/preset-flow"
   ],
   "env": {
     "test": {
-      "presets": [["env", { "modules": "commonjs" }]]
+      "presets": ["@babel/preset-env", "@babel/preset-flow"]
     }
   }
 }
