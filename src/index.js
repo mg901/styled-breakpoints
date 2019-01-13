@@ -2,24 +2,24 @@
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
 import { widthMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
-import type { UserTheme } from './models';
+import type { CustomTheme } from './models';
 
-type CreateAbove = (string) => (UserTheme) => string;
+type CreateAbove = (string) => (CustomTheme) => string;
 export const createAbove: CreateAbove = (breakName) => (breaks) =>
   widthMinMedia(calcMinWidthInPx(breaks, breakName));
 
-type CreateBelow = (string) => (UserTheme) => string;
+type CreateBelow = (string) => (CustomTheme) => string;
 export const createBelow: CreateBelow = (breakName) => (breaks) =>
   withMaxMedia(calcMaxWidthInPx(breaks, breakName));
 
-type CreateBetween = (string, string) => (UserTheme) => string;
+type CreateBetween = (string, string) => (CustomTheme) => string;
 export const createBetween: CreateBetween = (minBreak, maxBreak) => (breaks) =>
   widthMinAndMaxMedia(
     calcMinWidthInPx(breaks, minBreak),
     calcMaxWidthInPx(breaks, maxBreak),
   );
 
-type CreateOnly = (string) => (UserTheme) => string;
+type CreateOnly = (string) => (CustomTheme) => string;
 export const createOnly: CreateOnly = (breakName) => (breaks) =>
   widthMinAndMaxMedia(
     calcMinWidthInPx(breaks, breakName),
