@@ -16,12 +16,21 @@ export const eitherGetNextBreakName = (
   const breakNames = getBreakNames(breaks);
   const penultimateBreakName = breakNames[breakNames.length - 2];
   const currPos = breakNames.indexOf(breakName);
+  const isInvalidBreakName = currPos === -1;
+  const isNotLastBreakName = currPos > -1 && currPos >= breakNames.length - 1;
+  const result = Right(breakNames[currPos + 1]);
 
-  return currPos < breakNames.length - 1
-    ? Right(breakNames[currPos + 1])
-    : Left(
-        `Do not use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'.`,
-      );
+  if (isInvalidBreakName) {
+    return Left(makeErrorMessage(breakName, breaks));
+  }
+
+  if (isNotLastBreakName) {
+    return Left(
+      `Do not use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'.`,
+    );
+  }
+
+  return result;
 };
 
 export const eitherGetNextBreakVal = (
