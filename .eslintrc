@@ -1,8 +1,18 @@
 {
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["prettier", "jest", "flowtype"],
+  "env": {
+    "node": true,
+    "mocha": true,
+    "jasmine": true
+  },
   "rules": {
+    "no-unused-vars": 1,
+    "no-console": 0,
     "no-underscore-dangle": 0,
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0
   }
 }
