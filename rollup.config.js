@@ -1,48 +1,66 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
+import flow from 'rollup-plugin-flow';
 import commonjs from 'rollup-plugin-commonjs';
+import resolve from 'rollup-plugin-node-resolve';
 import { uglify } from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel';
+import { terser } from 'rollup-plugin-terser';
+import replace from 'rollup-plugin-replace';
+import pkg from './package.json';
 
-const prod = process.env.PRODUCTION;
-let config = {
-  input: 'src/index.js',
-  external: ['react', 'styled-components'],
-};
+const configuredFlow = flow({ all: true, pretty: true });
 
-const plugins = [resolve(), commonjs(), babel()];
-
-if (prod) plugins.push(uglify());
-
-if (process.env.BROWSER) {
-  config = {
-    ...config,
+export default [
+  // CommonJS
+  {
+    input: './src/index.js',
     output: {
-      file: 'dist/styled-breakpoints.umd.js',
-      sourcemap: true,
-      format: 'umd',
-      exports: 'named',
-      name: 'styled-breakpoints',
-    },
-    plugins,
-  };
-} else if (process.env.COMMON) {
-  config = {
-    ...config,
-    plugins: [resolve(), commonjs(), babel()],
-    output: {
-      file: 'dist/styled-breakpoints.common.js',
+      file: 'lib/styled-breakpoints.cjs.js',
       format: 'cjs',
+      indent: false,
+      sourcemap: false,
     },
-  };
-} else if (process.env.ES) {
-  config = {
-    ...config,
-    plugins: [resolve(), commonjs(), babel()],
-    output: {
-      file: 'dist/styled-breakpoints.es.js',
-      format: 'es',
-    },
-  };
-}
+    external: [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {}),
+    ],
+    plugins: [configuredFlow, babel(), uglify(), resolve(), commonjs()],
+  },
 
-export default config;
+  // ES
+  {
+    input: './src/index.js',
+    output: {
+      file: 'es/styled-breakpoints.es.js',
+      format: 'es',
+      indent: false,
+      sourcemap: false,
+    },
+    external: [
+      ...Object.keys(pkg.dependencies || {}),
+      ...Object.keys(pkg.peerDependencies || {}),
+    ],
+    plugins: [configuredFlow, resolve(), babel(), terser(), commonjs()],
+  },
+
+  // ES for Browsers
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'es/styled-breakpoints.es.mjs',
+      format: 'es',
+      indent: false,
+      sourcemap: false,
+    },
+    plugins: [
+      configuredFlow,
+      resolve({
+        jsnext: true,
+      }),
+      replace({
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
+      terser(),
+      commonjs(),
+    ],
+  },
+];
