@@ -1,4 +1,4 @@
-# styled-breakpoints
+# styled-breakpoints [![Build Status](https://travis-ci.org/mg901/styled-breakpoints.svg?branch=master)](https://travis-ci.org/mg901/styled-breakpoints) [![Coverage Status](https://coveralls.io/repos/github/mg901/styled-breakpoints/badge.svg?branch=master)](https://coveralls.io/github/mg901/styled-breakpoints?branch=master) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Simple and powerfull css breakpoints for [styled-components](https://github.com/styled-components/styled-components).
 
