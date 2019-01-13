@@ -1,5 +1,5 @@
 import { errorReport, pxToEm, getBreakNames, makeErrorMessage } from '.';
-import { DEFAULT_BREAKS } from '../constants';
+import { defaultBreaks } from '../constants';
 
 describe('helpers', () => {
   describe('errorReport', () => {
@@ -16,7 +16,7 @@ describe('helpers', () => {
 
   describe('getBreakNames', () => {
     it('return array with names of breakpoints', () => {
-      expect(getBreakNames(DEFAULT_BREAKS)).toEqual([
+      expect(getBreakNames(defaultBreaks)).toEqual([
         'phone',
         'tablet',
         'desktop',
@@ -27,7 +27,7 @@ describe('helpers', () => {
 
   describe('makeErrorMessage', () => {
     it('return string with error message', () => {
-      expect(makeErrorMessage('xs', DEFAULT_BREAKS)).toEqual(
+      expect(makeErrorMessage('xs', defaultBreaks)).toEqual(
         "'xs' is invalid breakpoint name. Use 'phone, tablet, desktop, lgDesktop'.",
       );
     });
