@@ -2,13 +2,13 @@
 
 export type BreakpointsMap = { [name: string]: string };
 
-export type UserTheme = {
+export type CustomTheme = {
   theme: {
     breakpoints?: BreakpointsMap,
   },
 };
 
-export type DefaultUserTheme = {
+export type ThemeWithBreakpoints = {
   theme: {
     breakpoints: BreakpointsMap,
   },
