@@ -1,53 +1,32 @@
-import { pixelsToEm, getNextBreakValue, getBreakValue } from './helpers';
+// @flow
 
-/**
- * Default media breakpoints
- * @type {Object}
- */
-export const defaultBreakpoints = {
-  tablet: '768px',
-  desktop: '992px',
-  lgDesktop: '1200px',
-};
+import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
+import { widthMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
+import type { UserTheme } from './models';
 
-const createAbove = breakpointsMap => breakpointKey => {
-  const ems = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (min-width: ${ems})`;
-};
+type CreateAbove = (string) => (UserTheme) => string;
+export const createAbove: CreateAbove = (breakName) => (breaks) =>
+  widthMinMedia(calcMinWidthInPx(breaks, breakName));
 
-const createBelow = breakpointsMap => breakpointKey => {
-  const ems = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (max-width: ${ems})`;
-};
+type CreateBelow = (string) => (UserTheme) => string;
+export const createBelow: CreateBelow = (breakName) => (breaks) =>
+  withMaxMedia(calcMaxWidthInPx(breaks, breakName));
 
-const createBetween = breakpointsMap => (fromBp, toBp) => {
-  const minEms = pixelsToEm(getBreakValue(fromBp, breakpointsMap));
-  const maxEms = pixelsToEm(getNextBreakValue(toBp, breakpointsMap));
-  return `@media screen and (min-width: ${minEms}) and (max-width: ${maxEms})`;
-};
+type CreateBetween = (string, string) => (UserTheme) => string;
+export const createBetween: CreateBetween = (minBreak, maxBreak) => (breaks) =>
+  widthMinAndMaxMedia(
+    calcMinWidthInPx(breaks, minBreak),
+    calcMaxWidthInPx(breaks, maxBreak),
+  );
 
-const createOnly = breakpointsMap => breakpointKey => {
-  const minEms = pixelsToEm(getBreakValue(breakpointKey, breakpointsMap));
-  const maxEms = pixelsToEm(getNextBreakValue(breakpointKey, breakpointsMap));
-  return `@media screen and (min-width: ${minEms}) and (max-width: ${maxEms})`;
-};
+type CreateOnly = (string) => (UserTheme) => string;
+export const createOnly: CreateOnly = (breakName) => (breaks) =>
+  widthMinAndMaxMedia(
+    calcMinWidthInPx(breaks, breakName),
+    calcMaxWidthInPx(breaks, breakName),
+  );
 
-/**
- * Media query generator
- * @param {Object} breakpoints - Map labels to breakpoint sizes
- * @return {Object} - Media generators for each breakpoint
- */
-export const createBreakpoints = (breakpoints = defaultBreakpoints) => {
-  const above = createAbove(breakpoints);
-  const below = createBelow(breakpoints);
-  const between = createBetween(breakpoints);
-  const only = createOnly(breakpoints);
-
-  return { above, below, between, only };
-};
-
-/**
- * Media object with default breakpoints
- * @return {object} - Media generators for each size
- */
-export const { above, below, between, only } = createBreakpoints();
+export const above = createAbove;
+export const below = createBelow;
+export const between = createBetween;
+export const only = createOnly;
