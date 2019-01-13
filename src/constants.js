@@ -1,6 +1,6 @@
 // @flow
 
-import { type BreakpointsMap, ThemeWithBreakpoints } from './models';
+import type { BreakpointsMap, ThemeWithBreakpoints } from './models';
 
 export const defaultBreaks: BreakpointsMap = {
   phone: '576px',
