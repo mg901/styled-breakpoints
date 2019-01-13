@@ -2,70 +2,86 @@
   "name": "styled-breakpoints",
   "version": "4.0.2",
   "description": "Simple and powerfull css breakpoints for styled-components",
-  "main": "dist/styled-breakpoints.common.js",
-  "module": "dist/styled-breakpoints.es.js",
-  "jsnext:main": "dist/styled-breakpoints.es.js",
-  "keywords": [
-    "styled-components",
-    "media-query",
-    "media",
-    "breakpoint",
-    "css-in-js"
-  ],
+  "main": "lib/styled-breakpoints.cjs.js",
+  "module": "es/styled-breakpoints.es.js",
   "scripts": {
-    "unit:watch": "NODE_ENV=test jest --watch",
-    "build": "yarn build:common && yarn build:es && yarn build:browser",
-    "build:common": "rollup -c --environment COMMON,PRODUCTION",
-    "build:es": "rollup -c --environment ES",
-    "build:browser": "rollup -c --environment BROWSER,PRODUCTION"
+    "build": "npm run clean && rollup -c",
+    "clean": "rimraf lib es",
+    "commit": "git-cz",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "prettier": "prettier './**/**/**.{json,js,eslintrc}' --write",
+    "semantic-release": "semantic-release",
+    "test": "npm run test:lint && flow && npm run test:code",
+    "test:watch": "jest --coverage --watch --updateSnapshot",
+    "test:code": "jest --coverage",
+    "test:lint": "eslint ."
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mg901/styled-breakpoints#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxinakenty/styled-breakpoints.git"
+    "url": "https://github.com/mg901/styled-breakpoints.git"
   },
+  "bugs": {
+    "url": "https://github.com/mg901/styled-breakpoints/issues"
+  },
+  "author": "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
   "contributors": [
-    "Maxim Alyoshing <mgreen097@gmail.com>",
+    "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
     "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com)",
+    "Abu Shamsutdinov <yakotikadot@gmail.com> (https://github.com/yakotika)",
     "Scott Dowding (https://github.com/sdowding)"
   ],
-  "license": "MIT",
+  "keywords": [
+    "media",
+    "react",
+    "media",
+    "css-in-js",
+    "breakpoint",
+    "media-query",
+    "breakpoints",
+    "css-in-react",
+    "media-queries",
+    "styled-components",
+    "styled-breakpoints"
+  ],
+  "files": [
+    "lib",
+    "es"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.2.3",
+    "@babel/preset-flow": "7.0.0",
+    "@commitlint/cli": "7.3.1",
+    "@commitlint/config-conventional": "7.3.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
     "babel-jest": "^23.6.0",
-    "eslint": "^5.8.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-react": "^7.7.0",
+    "commitizen": "3.0.5",
+    "coveralls": "3.0.2",
+    "cz-conventional-changelog": "2.1.0",
+    "eslint": "5.12.0",
+    "eslint-config-airbnb-base": "13.1.0",
+    "eslint-config-prettier": "3.3.0",
+    "eslint-plugin-flowtype": "3.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "22.1.3",
+    "eslint-plugin-prettier": "3.0.1",
+    "flow-bin": "0.90.0",
+    "husky": "1.3.1",
+    "igogo": "1.1.1",
     "jest": "^23.6.0",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.67.0",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^6.0.0",
-    "styled-components": "^4.0.3"
-  },
-  "jest": {
-    "collectCoverage": false,
-    "transform": {
-      "^.+\\.js$": "./node_modules/babel-jest"
-    },
-    "testFileExtensions": [
-      "es6",
-      "js"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "es6"
-    ]
+    "lint-staged": "8.1.0",
+    "nyc": "13.1.0",
+    "prettier": "1.15.3",
+    "rimraf": "2.6.3",
+    "rollup-plugin-babel": "4.3.0",
+    "rollup-plugin-commonjs": "9.2.0",
+    "rollup-plugin-flow": "1.1.1",
+    "rollup-plugin-node-resolve": "4.0.0",
+    "rollup-plugin-replace": "2.1.0",
+    "rollup-plugin-terser": "4.0.2",
+    "rollup-plugin-uglify": "6.0.1"
   }
 }
