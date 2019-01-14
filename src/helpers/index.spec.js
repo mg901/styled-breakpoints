@@ -17,7 +17,6 @@ describe('helpers', () => {
   describe('getBreakNames', () => {
     it('return array with names of breakpoints', () => {
       expect(getBreakNames(defaultBreaks)).toEqual([
-        'phone',
         'tablet',
         'desktop',
         'lgDesktop',
@@ -28,7 +27,7 @@ describe('helpers', () => {
   describe('makeErrorMessage', () => {
     it('return string with error message', () => {
       expect(makeErrorMessage('xs', defaultBreaks)).toEqual(
-        "'xs' is invalid breakpoint name. Use 'phone, tablet, desktop, lgDesktop'.",
+        "'xs' is invalid breakpoint name. Use 'tablet, desktop, lgDesktop'.",
       );
     });
   });
