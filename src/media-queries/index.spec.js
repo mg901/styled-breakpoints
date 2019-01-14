@@ -8,8 +8,8 @@ import { defaultBreaks } from '../constants';
 describe('media-queries', () => {
   describe('eitherGetBreakVal', () => {
     it('return breakpoint value if breakpoint name is valid', () => {
-      expect(eitherGetBreakVal(defaultBreaks, 'phone').getOr()).toEqual(
-        '576px',
+      expect(eitherGetBreakVal(defaultBreaks, 'tablet').getOr()).toEqual(
+        '768px',
       );
     });
 
@@ -20,8 +20,8 @@ describe('media-queries', () => {
 
   describe('eitherGetNextBreakName', () => {
     it('return next breakpoint name if breakpoint name is valid', () => {
-      expect(eitherGetNextBreakName(defaultBreaks, 'phone').getOr()).toEqual(
-        'tablet',
+      expect(eitherGetNextBreakName(defaultBreaks, 'tablet').getOr()).toEqual(
+        'desktop',
       );
     });
 
@@ -38,8 +38,8 @@ describe('media-queries', () => {
 
   describe('eitherGetNextBreakVal', () => {
     it('return next breakpoint value if breakpoint name is valid', () => {
-      expect(eitherGetNextBreakVal(defaultBreaks, 'phone').getOr()).toEqual(
-        '767.98px',
+      expect(eitherGetNextBreakVal(defaultBreaks, 'tablet').getOr()).toEqual(
+        '991.98px',
       );
     });
 
