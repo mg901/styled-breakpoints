@@ -49,6 +49,9 @@
     "lib",
     "es"
   ],
+  "peerDependencies": {
+    "styled-components": ">= 4"
+  },
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@babel/preset-env": "7.2.3",
