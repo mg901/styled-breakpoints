@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/mg901/styled-breakpoints/compare/v5.0.0...v6.0.0) (2019-01-14)
+
+
+### Code Refactoring
+
+* **public api:** remove above and below functions ([ca29bcc](https://github.com/mg901/styled-breakpoints/commit/ca29bcc))
+
+
+### BREAKING CHANGES
+
+* **public api:** replace 'above' fn with 'up' and 'below' with 'down'
+
 # 5.0.0 (2019-01-14)
 
 
