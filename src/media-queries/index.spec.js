@@ -13,12 +13,8 @@ describe('media-queries', () => {
       );
     });
 
-    it('returns `true` if the given Either instance is a Left', () => {
+    it('returns `true` if set invalid breakpoint name', () => {
       expect(eitherGetBreakVal(defaultBreaks, '!!!').isLeft).toEqual(true);
-    });
-
-    it('returns `true` if the given Either instance is a Right', () => {
-      expect(eitherGetBreakVal(defaultBreaks, 'tablet').isRight).toEqual(true);
     });
   });
 
@@ -29,16 +25,14 @@ describe('media-queries', () => {
       );
     });
 
-    it('returns `true` if the given Either instance is a Left', () => {
-      expect(eitherGetNextBreakName(defaultBreaks, 'xs').isRight).toEqual(
-        false,
+    it('returns `true` if set the last breakpoint', () => {
+      expect(eitherGetNextBreakName(defaultBreaks, 'lgDesktop').isLeft).toEqual(
+        true,
       );
     });
 
-    it('returns `true` if the given Either instance is a Right', () => {
-      expect(eitherGetNextBreakName(defaultBreaks, 'tablet').isRight).toEqual(
-        true,
-      );
+    it('returns `true` if set invalid breakpoint name', () => {
+      expect(eitherGetNextBreakName(defaultBreaks, '!!!').isLeft).toEqual(true);
     });
   });
 
