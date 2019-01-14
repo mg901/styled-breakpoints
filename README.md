@@ -78,7 +78,7 @@ const Component = styled.div`
 
 ### Custom breakpoints
 
-Breakpoints line [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
+Breakpoints like [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
 
 ```jsx
 import React from 'react';
