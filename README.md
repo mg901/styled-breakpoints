@@ -1,18 +1,21 @@
 <div align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 <h1>
  💅 <br>
  styled-breakpoints <br>
+ 
+ 
 <a href="https://travis-ci.org/mg901/styled-breakpoints">
-<img alt="Build Status" src="https://travis-ci.org/mg901/styled-breakpoints.svg?branch=master">
+<img alt="Build Status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
-<img alt="Coverage Status" src="https://coveralls.io/repos/github/mg901/styled-breakpoints/badge.svg?branch=master">
+<img alt="Coverage Status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
 <a href="https://github.com/prettier/prettier">
-<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg">
+<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
 </a>
 <a href="https://github.com/semantic-release/semantic-release">
-<img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+<img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square">
 </a>
 </h1>
 <strong>Simple and powerful css breakpoints for styled-components and emotion.</strong>
@@ -116,4 +119,16 @@ MIT License
 
 Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
 
-See [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) for more information.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars0.githubusercontent.com/u/7874664?v=4" width="100px;"/><br /><sub><b>Maxim</b></sub>](https://t.me/mg901)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=mg901 "Code") [🎨](#design-mg901 "Design") [📖](https://github.com/mg901/styled-breakpoints/commits?author=mg901 "Documentation") [💡](#example-mg901 "Examples") [🤔](#ideas-mg901 "Ideas, Planning, & Feedback") [📢](#talk-mg901 "Talks") | [<img src="https://avatars0.githubusercontent.com/u/22033385?v=4" width="100px;"/><br /><sub><b>Abu Shamsutdinov</b></sub>](https://github.com/yakotika)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=yakotika "Code") [💡](#example-yakotika "Examples") [🤔](#ideas-yakotika "Ideas, Planning, & Feedback") [👀](#review-yakotika "Reviewed Pull Requests") [📢](#talk-yakotika "Talks") | [<img src="https://avatars0.githubusercontent.com/u/5620073?v=4" width="100px;"/><br /><sub><b>Sergey Sova</b></sub>](https://sergeysova.com)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=sergeysova "Code") [💡](#example-sergeysova "Examples") [🤔](#ideas-sergeysova "Ideas, Planning, & Feedback") [👀](#review-sergeysova "Reviewed Pull Requests") [📢](#talk-sergeysova "Talks") |
+| :---: | :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
