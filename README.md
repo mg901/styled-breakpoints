@@ -11,6 +11,9 @@
 <a href="https://travis-ci.org/mg901/styled-breakpoints">
 <img alt="Build Status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
+<a href="https://greenkeeper.io/">
+<img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
+</a>
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
 <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
@@ -31,7 +34,7 @@
 
 ## Demo sandbox
 
-[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1) [![Greenkeeper badge](https://badges.greenkeeper.io/mg901/styled-breakpoints.svg)](https://greenkeeper.io/)
+[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1) 
 
 ## Installation
 
