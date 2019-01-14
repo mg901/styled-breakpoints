@@ -11,11 +11,11 @@
 <a href="https://travis-ci.org/mg901/styled-breakpoints">
 <img alt="Build Status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
-<a href="https://greenkeeper.io/">
-<img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
-</a>
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
 <img alt="Coverage Status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
+</a>
+<a href="https://greenkeeper.io/">
+<img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
 </a>
 <a href="https://github.com/prettier/prettier">
 <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
