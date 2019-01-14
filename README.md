@@ -12,181 +12,94 @@ Simple and powerful css breakpoints for [styled-components](https://github.com/s
 
 ## Installation
 
-Use yarn or npm
-
 ```
 yarn add styled-breakpoints
 ```
 
-```
-npm i styled-breakpoints
-```
+## Usage
 
-## Get Started
-
-The following values of breakpoints are used by default.
+### With Default breakpoints
 
 ```js
-const defaultBreakpoints = {
+{
   tablet: '768px',
   desktop: '992px',
   lgDesktop: '1200px',
-};
+}
 ```
 
 ```js
 import styled from 'styled-components';
-import { above, below, between, only } from 'styled-breakpoints';
+import { up, down, between, only } from 'styled-breakpoints';
 
-const SyledComponent = styled.div`
-  background-color: pink;
+const Component = styled.div`
+  color: black;
 
-  ${above('tablet')} {
-    background-color: hotpink;
-  }
-`;
-```
-
-Converts to pure css:
-
-```css
-div {
-  background-color: pink;
-}
-/* 768px / 16px */
-@media screen and (min-width: 48em) {
-  div {
-    background-color: hotpink;
-  }
-}
-```
-
-### Above
-
-```js
-css`
-  ${above('tablet')} {
-    background-color: hotpink;
-  }
-`;
-```
-
-Converts to:
-
-```css
-@media screen and (min-width: 48em) {
-  div {
-    background-color: hotpink;
-  }
-}
-```
-
-### Below
-
-```js
-css`
-  ${below('desktop')} {
-    background-color: lightcoral;
-  }
-`;
-```
-
-Converts to:
-
-```css
-/* (1200px - 0.02px) / 16px */
-@media screen and (max-width: 74.99875em) {
-  div {
-    background-color: lightcoral;
-  }
-}
-```
-
-### Between
-
-```js
-css`
-  ${between('tablet', 'desktop')} {
-    background-color: hotpink;
-  }
-`;
-```
-
-Converts to:
-
-```css
-/* 778px / 16px                  (1200px - 0.02px) / 16px */
-@media screen and (min-width: 48em) and (max-width: 74.99875em) {
-  div {
-    background-color: hotpink;
-  }
-}
-```
-
-### Only
-
-```js
-css`
   ${only('tablet')} {
-    background-color: rebeccapurple;
+    color: rebeccapurple;
+  }
+
+  ${between('tablet', 'desktop')} {
+    color: hotpink;
+  }
+
+  ${down('desktop')} {
+    color: lightcoral;
+  }
+
+  ${up('lgDesktop')} {
+    color: hotpink;
   }
 `;
-```
-
-Converts to:
-
-```css
-/*
-  778px / 16px                  (992px - 0.02px) / 16px */
-@media screen and (min-width: 48em) and (max-width: 61.99875em) {
-  div {
-    background-color: rebeccapurple;
-  }
-}
 ```
 
 ### Custom breakpoints
 
-```js
-import styled from 'styled-components';
-import { createBreakpoints } from 'styled-breakpoints';
+Breakpoints line [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
 
-const { above, below, between, only } = createBreakpoints({
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-});
+```jsx
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { up, down, between, only } from 'styled-breakpoints';
 
-const StyledComponent = styled.div`
-  background-color: pink;
+const theme = {
+  breakpoints: {
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+  },
+};
 
-  ${above('md')} {
-    background-color: hotpink;
+const Component = styled.div`
+  color: black;
+
+  ${only('xs')} {
+    color: rebeccapurple;
+  }
+
+  ${between('sm', 'md')} {
+    color: hotpink;
+  }
+
+  ${down('lg')} {
+    color: lightcoral;
+  }
+
+  ${up('xl')} {
+    color: hotpink;
   }
 `;
+
+<ThemeProvider theme={theme}>
+  <Component>This is cool!</Component>
+</ThemeProvider>;
 ```
 
 ## License
 
 MIT License
 
-Copyright (c) 2018 Maxim Alyoshin
+Copyright (c) 2018 [Maxim Alyoshin](https://github.com/mg901).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+See [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) for more information.
