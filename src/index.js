@@ -26,7 +26,7 @@ export const createOnly: CreateOnly = (breakName) => (breaks) =>
     calcMaxWidthInPx(breaks, breakName),
   );
 
-export const above = createAbove;
-export const below = createBelow;
+export const up = createAbove;
+export const down = createBelow;
 export const between = createBetween;
 export const only = createOnly;
