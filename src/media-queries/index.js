@@ -18,7 +18,6 @@ export const eitherGetNextBreakName = (
   const currPos = breakNames.indexOf(breakName);
   const isInvalidBreakName = currPos === -1;
   const isNotLastBreakName = currPos > -1 && currPos >= breakNames.length - 1;
-  const result = Right(breakNames[currPos + 1]);
 
   if (isInvalidBreakName) {
     return Left(makeErrorMessage(breakName, breaks));
@@ -30,7 +29,7 @@ export const eitherGetNextBreakName = (
     );
   }
 
-  return result;
+  return Right(breakNames[currPos + 1]);
 };
 
 export const eitherGetNextBreakVal = (
