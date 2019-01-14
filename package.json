@@ -14,7 +14,9 @@
     "test": "npm run test:lint && flow && npm run test:code",
     "test:watch": "jest --coverage --watch --updateSnapshot",
     "test:code": "jest --coverage",
-    "test:lint": "eslint ."
+    "test:lint": "eslint .",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "license": "MIT",
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
@@ -29,8 +31,7 @@
   "contributors": [
     "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
     "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com)",
-    "Abu Shamsutdinov <yakotikadot@gmail.com> (https://github.com/yakotika)",
-    "Scott Dowding (https://github.com/sdowding)"
+    "Abu Shamsutdinov <yakotikadot@gmail.com> (https://github.com/yakotika)"
   ],
   "keywords": [
     "media",
@@ -64,6 +65,7 @@
     "@semantic-release/github": "5.2.9",
     "@semantic-release/npm": "5.1.3",
     "@semantic-release/release-notes-generator": "^7.1.4",
+    "all-contributors-cli": "5.7.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "^23.6.0",
