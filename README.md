@@ -1,14 +1,28 @@
-# styled-breakpoints [![Build Status](https://travis-ci.org/mg901/styled-breakpoints.svg?branch=master)](https://travis-ci.org/mg901/styled-breakpoints) [![Coverage Status](https://coveralls.io/repos/github/mg901/styled-breakpoints/badge.svg?branch=master)](https://coveralls.io/github/mg901/styled-breakpoints?branch=master) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+<div align="center">
+<h1>
+ 💅 <br>
+ styled-breakpoints <br>
+<a href="https://travis-ci.org/mg901/styled-breakpoints">
+<img alt="Build Status" src="https://travis-ci.org/mg901/styled-breakpoints.svg?branch=master">
+</a>
+<a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
+<img alt="Coverage Status" src="https://coveralls.io/repos/github/mg901/styled-breakpoints/badge.svg?branch=master">
+</a>
+<a href="https://github.com/prettier/prettier">
+<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg">
+</a>
+<a href="https://github.com/semantic-release/semantic-release">
+<img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+</a>
+</h1>
+<strong>Simple and powerful css breakpoints for styled-components and emotion.</strong>
+</div>
+<br>
+<br>
 
-Simple and powerful css breakpoints for [styled-components](https://github.com/styled-components/styled-components).
+## Demo sandbox
 
-> You can use it with [emotion](https://github.com/emotion-js/emotion) too
-
-## Demo Sandbox
-
-[code](https://codesandbox.io/s/23583q00o0)
-
-[fullscreen](https://23583q00o0.codesandbox.io/)
+[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1)
 
 ## Installation
 
@@ -100,6 +114,6 @@ const Component = styled.div`
 
 MIT License
 
-Copyright (c) 2018 [Maxim Alyoshin](https://github.com/mg901).
+Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
 
 See [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) for more information.
