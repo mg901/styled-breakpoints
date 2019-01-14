@@ -31,7 +31,7 @@
 
 ## Demo sandbox
 
-[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1)
+[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1) [![Greenkeeper badge](https://badges.greenkeeper.io/mg901/styled-breakpoints.svg)](https://greenkeeper.io/)
 
 ## Installation
 
