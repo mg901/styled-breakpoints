@@ -1,6 +1,6 @@
 // @flow
 
-export const widthMinMedia = (minWidth: string) =>
+export const withMinMedia = (minWidth: string) =>
   `@media (min-width: ${minWidth})`;
 
 export const withMaxMedia = (maxWidth: string) =>

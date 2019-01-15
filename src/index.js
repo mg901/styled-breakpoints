@@ -1,12 +1,12 @@
 // @flow
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
-import { widthMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
+import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
 import type { CustomTheme } from './models';
 
 type CreateAbove = (string) => (CustomTheme) => string;
 export const createAbove: CreateAbove = (breakName) => (breaks) =>
-  widthMinMedia(calcMinWidthInPx(breaks, breakName));
+  withMinMedia(calcMinWidthInPx(breaks, breakName));
 
 type CreateBelow = (string) => (CustomTheme) => string;
 export const createBelow: CreateBelow = (breakName) => (breaks) =>
