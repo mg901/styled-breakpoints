@@ -1,9 +1,9 @@
-import { widthMinMedia, withMaxMedia, widthMinAndMaxMedia } from '.';
+import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from '.';
 
 describe('HOFs', () => {
-  describe('widthMinMedia', () => {
+  describe('withMinMedia', () => {
     it('should return string containing the breakpoint value  with media query', () => {
-      expect(widthMinMedia('40em')).toEqual('@media (min-width: 40em)');
+      expect(withMinMedia('40em')).toEqual('@media (min-width: 40em)');
     });
   });
 
