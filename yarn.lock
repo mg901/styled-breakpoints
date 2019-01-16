@@ -885,10 +885,10 @@ ajv@^6.5.3, ajv@^6.5.5, ajv@^6.6.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-all-contributors-cli@5.9.0:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-5.9.0.tgz#d972ba6cec2125899778cb90b9107c7e8314cea2"
-  integrity sha512-Z6/XLZaDTQ6f5m2NBhcjBmoOLR5CZOQDcKGjvvfTmQc90kq+MvnFtxxsCuB5i5b16MNIVYIH9K2KUagPCvD/Ew==
+all-contributors-cli@5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/all-contributors-cli/-/all-contributors-cli-5.10.0.tgz#925bd0ec3432dc912dddfc7aef45f2d76d9586c6"
+  integrity sha512-skU+Ui4ZY3EAKl3NqHm57N5/UiynGI1mh1PJncFWVY3GJeKuyCfoMd6WvO+ZDNJXxXmPv0smX5BSbNfudBmQYg==
   dependencies:
     async "^2.0.0-rc.1"
     chalk "^2.3.0"
