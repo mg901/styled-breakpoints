@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/mg901/styled-breakpoints/compare/v6.0.0...v6.1.0) (2019-01-17)
+
+
+### Features
+
+* added flow support ([ec7b06b](https://github.com/mg901/styled-breakpoints/commit/ec7b06b))
+
 # [6.0.0](https://github.com/mg901/styled-breakpoints/compare/v5.0.0...v6.0.0) (2019-01-14)
 
 
