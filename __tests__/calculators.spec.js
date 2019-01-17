@@ -1,5 +1,5 @@
-import { calcMinWidthInPx, calcMaxWidthInPx } from '.';
-import { customTheme } from '../models';
+import { calcMinWidthInPx, calcMaxWidthInPx } from '../src/calculators';
+import { CUSTOM_THEME } from '../src/constants';
 
 describe('calculators', () => {
   describe('calcMinWidthInPx', () => {
@@ -8,7 +8,7 @@ describe('calculators', () => {
     });
 
     it('calculate min with in pixels from defualt theme', () => {
-      expect(calcMinWidthInPx(customTheme, 'sm')).toEqual('48em');
+      expect(calcMinWidthInPx(CUSTOM_THEME, 'sm')).toEqual('48em');
     });
   });
 
@@ -17,7 +17,7 @@ describe('calculators', () => {
       expect(calcMaxWidthInPx(undefined, 'tablet')).toEqual('61.99875em');
     });
     it('calculate max with in pixels from defualt theme', () => {
-      expect(calcMaxWidthInPx(customTheme, 'sm')).toEqual('61.99875em');
+      expect(calcMaxWidthInPx(CUSTOM_THEME, 'sm')).toEqual('61.99875em');
     });
   });
 });
