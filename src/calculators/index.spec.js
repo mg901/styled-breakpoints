@@ -1,5 +1,5 @@
 import { calcMinWidthInPx, calcMaxWidthInPx } from '.';
-import { customTheme } from '../mocks';
+import { customTheme } from '../models';
 
 describe('calculators', () => {
   describe('calcMinWidthInPx', () => {
