@@ -5,13 +5,16 @@
   "main": "lib/styled-breakpoints.cjs.js",
   "module": "es/styled-breakpoints.es.js",
   "scripts": {
-    "build": "npm run clean && rollup -c",
+    "build": "npx rollup -c",
+    "postbuild:cjs": "npx flow gen-flow-files src/index.js > lib/styled-breakpoints.cjs.js.flow",
+    "postbuild:es": "npx flow gen-flow-files src/index.js > es/styled-breakpoints.es.js.flow",
+    "postbuild": "npm run postbuild:cjs && npm run postbuild:es",
     "clean": "rimraf lib es",
     "commit": "git-cz",
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "prettier": "prettier './**/**/**.{json,js,eslintrc}' --write",
     "semantic-release": "semantic-release",
-    "test": "npm run test:lint && flow && npm run test:code",
+    "test": "npm run test:lint && npx flow && npm run test:code",
     "test:watch": "jest --coverage --watch --updateSnapshot",
     "test:code": "jest --coverage",
     "test:lint": "eslint .",
@@ -47,6 +50,7 @@
     "styled-breakpoints"
   ],
   "files": [
+    "src",
     "lib",
     "es"
   ],
@@ -79,7 +83,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "22.1.3",
     "eslint-plugin-prettier": "3.0.1",
-    "flow-bin": "0.90.0",
+    "flow-bin": "0.88.0",
     "husky": "1.3.1",
     "jest": "^23.6.0",
     "lint-staged": "8.1.0",
