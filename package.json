@@ -6,9 +6,6 @@
   "module": "es/styled-breakpoints.es.js",
   "scripts": {
     "build": "npx rollup -c",
-    "postbuild:cjs": "npx flow gen-flow-files src/index.js > lib/styled-breakpoints.cjs.js.flow",
-    "postbuild:es": "npx flow gen-flow-files src/index.js > es/styled-breakpoints.es.js.flow",
-    "postbuild": "npm run postbuild:cjs && npm run postbuild:es",
     "clean": "rimraf lib es",
     "commit": "git-cz",
     "coverage": "cat ./coverage/lcov.info | coveralls",
@@ -31,11 +28,6 @@
     "url": "https://github.com/mg901/styled-breakpoints/issues"
   },
   "author": "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
-  "contributors": [
-    "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
-    "Sergey Sova <mail@sergeysova.com> (https://sergeysova.com)",
-    "Abu Shamsutdinov <yakotikadot@gmail.com> (https://github.com/yakotika)"
-  ],
   "keywords": [
     "media",
     "react",
@@ -93,6 +85,7 @@
     "rollup-plugin-babel": "4.3.0",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-flow": "1.1.1",
+    "rollup-plugin-flow-entry": "0.2.0",
     "rollup-plugin-node-resolve": "4.0.0",
     "rollup-plugin-replace": "2.1.0",
     "rollup-plugin-terser": "4.0.2",

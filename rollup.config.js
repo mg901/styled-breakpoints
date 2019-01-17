@@ -5,6 +5,7 @@ import { uglify } from 'rollup-plugin-uglify';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import replace from 'rollup-plugin-replace';
+import flowEntry from 'rollup-plugin-flow-entry';
 import pkg from './package.json';
 
 const configuredFlow = flow({ all: true, pretty: true });
@@ -23,7 +24,14 @@ export default [
       ...Object.keys(pkg.dependencies || {}),
       ...Object.keys(pkg.peerDependencies || {}),
     ],
-    plugins: [configuredFlow, babel(), uglify(), resolve(), commonjs()],
+    plugins: [
+      configuredFlow,
+      babel(),
+      uglify(),
+      resolve(),
+      commonjs(),
+      flowEntry(),
+    ],
   },
 
   // ES
@@ -39,7 +47,14 @@ export default [
       ...Object.keys(pkg.dependencies || {}),
       ...Object.keys(pkg.peerDependencies || {}),
     ],
-    plugins: [configuredFlow, resolve(), babel(), terser(), commonjs()],
+    plugins: [
+      configuredFlow,
+      resolve(),
+      babel(),
+      terser(),
+      commonjs(),
+      flowEntry(),
+    ],
   },
 
   // ES for Browsers
@@ -61,6 +76,7 @@ export default [
       }),
       terser(),
       commonjs(),
+      flowEntry(),
     ],
   },
 ];
