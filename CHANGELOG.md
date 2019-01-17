@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/mg901/styled-breakpoints/compare/v6.1.0...v6.1.1) (2019-01-17)
+
+
+### Bug Fixes
+
+* **travis:** fix build and postbuild scripts ([fc67aa8](https://github.com/mg901/styled-breakpoints/commit/fc67aa8))
+
 # [6.1.0](https://github.com/mg901/styled-breakpoints/compare/v6.0.0...v6.1.0) (2019-01-17)
 
 
