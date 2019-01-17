@@ -2,7 +2,6 @@
 
 import { Right, Left } from 'igogo';
 import { makeErrorMessage, getBreakNames, errorReport } from './helpers';
-
 import { type BreakpointsMap } from './models';
 
 export const eitherGetBreakVal = (breaks: BreakpointsMap, breakVal: string) =>
