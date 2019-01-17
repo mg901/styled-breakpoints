@@ -1,3 +1,10 @@
+## [6.1.2](https://github.com/mg901/styled-breakpoints/compare/v6.1.1...v6.1.2) (2019-01-17)
+
+
+### Bug Fixes
+
+* remove postbuild script ([2e7343d](https://github.com/mg901/styled-breakpoints/commit/2e7343d))
+
 ## [6.1.1](https://github.com/mg901/styled-breakpoints/compare/v6.1.0...v6.1.1) (2019-01-17)
 
 
