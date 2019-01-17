@@ -1,4 +1,4 @@
-import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from '.';
+import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from '../src/HOFs';
 
 describe('HOFs', () => {
   describe('withMinMedia', () => {
