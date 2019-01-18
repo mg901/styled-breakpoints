@@ -1,3 +1,10 @@
+## [6.1.3](https://github.com/mg901/styled-breakpoints/compare/v6.1.2...v6.1.3) (2019-01-18)
+
+
+### Bug Fixes
+
+* **travis:** change npm token ([2eb9736](https://github.com/mg901/styled-breakpoints/commit/2eb9736))
+
 ## [6.1.2](https://github.com/mg901/styled-breakpoints/compare/v6.1.1...v6.1.2) (2019-01-17)
 
 
