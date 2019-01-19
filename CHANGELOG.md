@@ -1,3 +1,10 @@
+## [6.1.4](https://github.com/mg901/styled-breakpoints/compare/v6.1.3...v6.1.4) (2019-01-19)
+
+
+### Bug Fixes
+
+* **src:** small fix ([2bdad30](https://github.com/mg901/styled-breakpoints/commit/2bdad30))
+
 ## [6.1.3](https://github.com/mg901/styled-breakpoints/compare/v6.1.2...v6.1.3) (2019-01-18)
 
 
