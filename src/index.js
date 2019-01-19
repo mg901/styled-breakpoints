@@ -1,7 +1,7 @@
 // @flow
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
-import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
+import { withMinMedia, withMaxMedia, withMinAndMaxMedia } from './HOFs';
 import type { ThemeWithOptionalBreakpoints } from './models';
 
 type Up = (string) => (ThemeWithOptionalBreakpoints) => ?string;
@@ -14,14 +14,14 @@ export const down: Down = (breakName) => (breaks) =>
 
 type Between = (string, string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const between: Between = (minBreak, maxBreak) => (breaks) =>
-  widthMinAndMaxMedia(
+  withMinAndMaxMedia(
     calcMinWidthInPx(minBreak, breaks.theme),
     calcMaxWidthInPx(maxBreak, breaks.theme),
   );
 
 type Only = (string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const only: Only = (breakName) => (breaks) =>
-  widthMinAndMaxMedia(
+  withMinAndMaxMedia(
     calcMinWidthInPx(breakName, breaks.theme),
     calcMaxWidthInPx(breakName, breaks.theme),
   );
