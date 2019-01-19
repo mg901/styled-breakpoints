@@ -2,27 +2,26 @@
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
 import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from './HOFs';
+import type { ThemeWithOptionalBreakpoints } from './models';
 
-import { type CustomTheme } from './models';
-
-type Up = (string) => (CustomTheme) => string;
+type Up = (string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const up: Up = (breakName) => (breaks) =>
-  withMinMedia(calcMinWidthInPx(breaks, breakName));
+  withMinMedia(calcMinWidthInPx(breakName, breaks.theme));
 
-type Down = (string) => (CustomTheme) => string;
+type Down = (string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const down: Down = (breakName) => (breaks) =>
-  withMaxMedia(calcMaxWidthInPx(breaks, breakName));
+  withMaxMedia(calcMaxWidthInPx(breakName, breaks.theme));
 
-type Between = (string, string) => (CustomTheme) => string;
+type Between = (string, string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const between: Between = (minBreak, maxBreak) => (breaks) =>
   widthMinAndMaxMedia(
-    calcMinWidthInPx(breaks, minBreak),
-    calcMaxWidthInPx(breaks, maxBreak),
+    calcMinWidthInPx(minBreak, breaks.theme),
+    calcMaxWidthInPx(maxBreak, breaks.theme),
   );
 
-type Only = (string) => (CustomTheme) => string;
+type Only = (string) => (ThemeWithOptionalBreakpoints) => ?string;
 export const only: Only = (breakName) => (breaks) =>
   widthMinAndMaxMedia(
-    calcMinWidthInPx(breaks, breakName),
-    calcMaxWidthInPx(breaks, breakName),
+    calcMinWidthInPx(breakName, breaks.theme),
+    calcMaxWidthInPx(breakName, breaks.theme),
   );
