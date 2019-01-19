@@ -1,4 +1,4 @@
-import { withMinMedia, withMaxMedia, widthMinAndMaxMedia } from '../src/HOFs';
+import { withMinMedia, withMaxMedia, withMinAndMaxMedia } from '../src/HOFs';
 
 describe('HOFs', () => {
   describe('withMinMedia', () => {
@@ -13,9 +13,9 @@ describe('HOFs', () => {
     });
   });
 
-  describe('widthMinAndMaxMedia', () => {
+  describe('withMinAndMaxMedia', () => {
     it('should return string containing the breakpoint value  with media query', () => {
-      expect(widthMinAndMaxMedia('40em', '60em')).toEqual(
+      expect(withMinAndMaxMedia('40em', '60em')).toEqual(
         '@media (min-width: 40em) and (max-width: 60em)',
       );
     });

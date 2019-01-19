@@ -11,10 +11,10 @@
     "coverage": "cat ./coverage/lcov.info | coveralls",
     "prettier": "prettier './**/**/**.{json,js,eslintrc}' --write",
     "semantic-release": "semantic-release",
-    "test": "npm run test:lint && flow && npm run test:code",
+    "test": "npx flow && npm run test:code",
     "test:watch": "jest --coverage --watch --updateSnapshot",
     "test:code": "jest --coverage",
-    "test:lint": "eslint .",
+    "lint": "eslint .",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
   },
