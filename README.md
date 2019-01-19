@@ -100,7 +100,7 @@ const theme = {
 const Component = styled.div`
   color: black;
 
-  ${only('xs')} {
+  ${only('sm')} {
     color: rebeccapurple;
   }
 
