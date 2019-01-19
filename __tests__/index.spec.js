@@ -1,4 +1,4 @@
-import { up, down, between, only } from '../es/styled-breakpoints.es.js';
+import { up, down, between, only } from '../src';
 
 const CUSTOM_THEME = {
   theme: {
