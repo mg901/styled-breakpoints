@@ -6,7 +6,7 @@ import type {
   ExactBreakpoints,
 } from './models';
 
-export const errorReport = (message: string) => {
+export const errorReporter = (message: string) => {
   throw new Error(`Styled breakpoints >>> ${message}`);
 };
 

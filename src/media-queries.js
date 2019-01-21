@@ -1,7 +1,7 @@
 // @flow
 
 import { Right, Left } from 'igogo';
-import { makeErrorMessage, getBreakNames, errorReport } from './helpers';
+import { makeErrorMessage, getBreakNames, errorReporter } from './helpers';
 import type { BreakpointsMap } from './models';
 
 export const eitherGetBreakVal = (breaks: BreakpointsMap, breakVal: string) =>
@@ -44,7 +44,7 @@ export const eitherGetNextBreakVal = (
   breakName: string,
 ) => {
   const breakpointName = eitherGetNextBreakName(breaks, breakName).fold(
-    errorReport,
+    errorReporter,
     (x) => x,
   );
 
