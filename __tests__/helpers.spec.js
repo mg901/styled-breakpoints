@@ -1,5 +1,5 @@
 import {
-  errorReport,
+  errorReporter,
   pxToEm,
   getBreakNames,
   makeErrorMessage,
@@ -7,9 +7,9 @@ import {
 import { DEFAULT_BREAKS_MAP } from '../src/constants';
 
 describe('helpers', () => {
-  describe('errorReport', () => {
+  describe('errorReporter', () => {
     it('return object Error with error message', () => {
-      expect(errorReport).toThrow();
+      expect(errorReporter).toThrow();
     });
   });
 
