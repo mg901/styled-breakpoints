@@ -1,3 +1,10 @@
+## [6.1.5](https://github.com/mg901/styled-breakpoints/compare/v6.1.4...v6.1.5) (2019-01-22)
+
+
+### Bug Fixes
+
+* **helpers:** fix flow-types ([580e59a](https://github.com/mg901/styled-breakpoints/commit/580e59a))
+
 ## [6.1.4](https://github.com/mg901/styled-breakpoints/compare/v6.1.3...v6.1.4) (2019-01-19)
 
 
