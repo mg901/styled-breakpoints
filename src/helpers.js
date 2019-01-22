@@ -1,4 +1,5 @@
 // @flow
+
 import { DEFAULT_BREAKS } from './constants';
 import type {
   BreakpointsMap,
@@ -23,8 +24,8 @@ export const makeErrorMessage = (
     breaks,
   ).join(', ')}'.`;
 
-const isString = (value: any) => typeof value === 'string';
-const isObject = (value: any) =>
+const isString = (value: mixed) => typeof value === 'string';
+const isObject = (value: mixed) =>
   Object.prototype.toString.call(value).slice(8, -1) === 'Object';
 
 type SetDefaultTheme = (OptionalBreakpoints) => ExactBreakpoints;
