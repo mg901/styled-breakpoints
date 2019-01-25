@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/mg901/styled-breakpoints/compare/v6.1.5...v6.2.0) (2019-01-25)
+
+
+### Features
+
+* **src:** add custom msg for error ([638b573](https://github.com/mg901/styled-breakpoints/commit/638b573))
+
 ## [6.1.5](https://github.com/mg901/styled-breakpoints/compare/v6.1.4...v6.1.5) (2019-01-22)
 
 
