@@ -42,9 +42,10 @@ export const eitherGetNextBreakName = (
 export const eitherGetNextBreakVal = (
   breaks: BreakpointsMap,
   breakName: string,
+  errorPrefix: ?string,
 ) => {
   const breakpointName = eitherGetNextBreakName(breaks, breakName).fold(
-    errorReporter,
+    errorReporter(errorPrefix),
     (x) => x,
   );
 

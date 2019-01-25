@@ -9,7 +9,21 @@ import { DEFAULT_BREAKS_MAP } from '../src/constants';
 describe('helpers', () => {
   describe('errorReporter', () => {
     it('return object Error with error message', () => {
-      expect(errorReporter).toThrow();
+      try {
+        errorReporter()('error message');
+        expect(true).toBe(false);
+      } catch (e) {
+        expect(e.message).toBe(`[styled-breakpoints]: error message`);
+      }
+    });
+
+    it('return object Error with custom error message', () => {
+      try {
+        errorReporter('custom')('error message');
+        expect(true).toBe(false);
+      } catch (e) {
+        expect(e.message).toBe(`[custom]: error message`);
+      }
     });
   });
 

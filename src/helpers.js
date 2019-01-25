@@ -1,14 +1,16 @@
 // @flow
 
-import { DEFAULT_BREAKS } from './constants';
+import { DEFAULT_BREAKS, DEFAULR_PREFIX_FOR_ERROR_MSG } from './constants';
 import type {
   BreakpointsMap,
   OptionalBreakpoints,
   ExactBreakpoints,
 } from './models';
 
-export const errorReporter = (message: string) => {
-  throw new Error(`Styled breakpoints >>> ${message}`);
+export const errorReporter = (
+  prefix: ?string = DEFAULR_PREFIX_FOR_ERROR_MSG,
+) => (message: string) => {
+  throw new Error(`[${String(prefix)}]: ${message}`);
 };
 
 export const pxToEm = (inPx: string) => `${parseFloat(inPx) / 16}em`;
