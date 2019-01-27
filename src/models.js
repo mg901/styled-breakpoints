@@ -6,11 +6,11 @@ export type ExactBreakpoints = {
   breakpoints: BreakpointsMap,
 };
 
-export type OptionalBreakpoints = {
+export type CustomBreakpoints = {
   ERROR_PREFIX_FOR_STYLED_BREAKPOINTS?: string,
   breakpoints?: BreakpointsMap,
 };
 
-export type ThemeWithOptionalBreakpoints = {
-  theme: OptionalBreakpoints,
+export type ThemeWithCustomBreakpoints = {
+  theme: CustomBreakpoints,
 };
