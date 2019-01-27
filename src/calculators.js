@@ -1,9 +1,9 @@
 // @flow
 import { errorReporter, pxToEm, setDefaultTheme } from './helpers';
 import { eitherGetBreakVal, eitherGetNextBreakVal } from './media-queries';
-import type { OptionalBreakpoints } from './models';
+import type { CustomBreakpoints } from './models';
 
-type CalcMinWidthInPx = (string, OptionalBreakpoints, ?string) => string;
+type CalcMinWidthInPx = (string, CustomBreakpoints, ?string) => string;
 export const calcMinWidthInPx: CalcMinWidthInPx = (
   breakName,
   theme,
@@ -16,7 +16,7 @@ export const calcMinWidthInPx: CalcMinWidthInPx = (
   );
 };
 
-type CalcMaxWidthInPx = (string, OptionalBreakpoints, ?string) => string;
+type CalcMaxWidthInPx = (string, CustomBreakpoints, ?string) => string;
 export const calcMaxWidthInPx: CalcMaxWidthInPx = (
   breakName,
   theme,
