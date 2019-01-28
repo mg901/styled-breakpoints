@@ -19,16 +19,13 @@ export const errorReporter = (
   throw new Error(`[${String(prefix)}]: ${message}`);
 };
 
-type GetBreakNames = (BreakpointsMap) => string[];
-export const getBreakNames: GetBreakNames = (breaks) => Object.keys(breaks);
+export const getBreakNames: (BreakpointsMap) => string[] = (breaks) =>
+  Object.keys(breaks);
 
-export const makeErrorMessage = (
-  invalidBreakName: string,
-  breaks: BreakpointsMap,
-) =>
-  `'${invalidBreakName}' is invalid breakpoint name. Use '${getBreakNames(
-    breaks,
-  ).join(', ')}'.`;
+export const makeErrorMessage = (breakName: string, breaks: BreakpointsMap) =>
+  `'${breakName}' is invalid breakpoint name. Use '${getBreakNames(breaks).join(
+    ', ',
+  )}'.`;
 
 type SetDefaultTheme = (CustomBreakpoints) => ExactBreakpoints;
 export const setDefaultTheme: SetDefaultTheme = (theme) => {
