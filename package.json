@@ -46,8 +46,14 @@
     "lib",
     "es"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "styled-components": ">= 4"
+  },
+  "dependencies": {
+    "igogo": "1.4.13"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
@@ -90,8 +96,5 @@
     "rollup-plugin-replace": "2.1.0",
     "rollup-plugin-terser": "4.0.2",
     "rollup-plugin-uglify": "6.0.1"
-  },
-  "dependencies": {
-    "igogo": "1.4.13"
   }
 }
