@@ -2,9 +2,9 @@
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
 import { withMinMedia, withMaxMedia, withMinAndMaxMedia } from './HOFs';
-import type { ThemeWithCustomBreakpoints } from './models';
+import type { Props } from './models';
 
-type Up = (string) => (ThemeWithCustomBreakpoints) => string;
+type Up = (string) => (Props) => string;
 export const up: Up = (breakName) => ({ theme }) =>
   withMinMedia(
     calcMinWidthInPx(
@@ -14,7 +14,7 @@ export const up: Up = (breakName) => ({ theme }) =>
     ),
   );
 
-type Down = (string) => (ThemeWithCustomBreakpoints) => string;
+type Down = (string) => (Props) => string;
 export const down: Down = (breakName) => ({ theme }) =>
   withMaxMedia(
     calcMaxWidthInPx(
@@ -24,7 +24,7 @@ export const down: Down = (breakName) => ({ theme }) =>
     ),
   );
 
-type Between = (string, string) => (ThemeWithCustomBreakpoints) => string;
+type Between = (string, string) => (Props) => string;
 export const between: Between = (minBreak, maxBreak) => ({ theme }) =>
   withMinAndMaxMedia(
     calcMinWidthInPx(
@@ -39,7 +39,7 @@ export const between: Between = (minBreak, maxBreak) => ({ theme }) =>
     ),
   );
 
-type Only = (string) => (ThemeWithCustomBreakpoints) => string;
+type Only = (string) => (Props) => string;
 export const only: Only = (breakName) => ({ theme }) =>
   withMinAndMaxMedia(
     calcMinWidthInPx(

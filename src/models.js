@@ -11,6 +11,6 @@ export type CustomBreakpoints = {
   breakpoints?: BreakpointsMap,
 };
 
-export type ThemeWithCustomBreakpoints = {
+export type Props = {
   theme: CustomBreakpoints,
 };
