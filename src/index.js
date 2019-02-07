@@ -2,9 +2,11 @@
 
 import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
 import { withMinMedia, withMaxMedia, withMinAndMaxMedia } from './HOFs';
-import type { Props } from './models';
+import type { BpProps } from './models';
 
-type Up = (string) => (Props) => string;
+export type { BpProps } from './models';
+
+type Up = (string) => (BpProps) => string;
 export const up: Up = (breakName) => ({ theme }) =>
   withMinMedia(
     calcMinWidthInPx(
@@ -14,7 +16,7 @@ export const up: Up = (breakName) => ({ theme }) =>
     ),
   );
 
-type Down = (string) => (Props) => string;
+type Down = (string) => (BpProps) => string;
 export const down: Down = (breakName) => ({ theme }) =>
   withMaxMedia(
     calcMaxWidthInPx(
@@ -24,7 +26,7 @@ export const down: Down = (breakName) => ({ theme }) =>
     ),
   );
 
-type Between = (string, string) => (Props) => string;
+type Between = (string, string) => (BpProps) => string;
 export const between: Between = (minBreak, maxBreak) => ({ theme }) =>
   withMinAndMaxMedia(
     calcMinWidthInPx(
@@ -39,7 +41,7 @@ export const between: Between = (minBreak, maxBreak) => ({ theme }) =>
     ),
   );
 
-type Only = (string) => (Props) => string;
+type Only = (string) => (BpProps) => string;
 export const only: Only = (breakName) => ({ theme }) =>
   withMinAndMaxMedia(
     calcMinWidthInPx(
