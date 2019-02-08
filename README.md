@@ -158,7 +158,6 @@ Similarly, media queries may span multiple breakpoint widths:
 ### between
 
   ```js
-  // (from tablet to desktop )
   between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
   ```
 
