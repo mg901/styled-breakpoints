@@ -60,6 +60,10 @@ import { up, down, between, only } from 'styled-breakpoints';
 
 const Component = styled.div`
   color: black;
+  
+  ${down('tablet')} {
+    color: lightcoral;
+  }
 
   ${only('tablet')} {
     color: rebeccapurple;
@@ -67,10 +71,6 @@ const Component = styled.div`
 
   ${between('tablet', 'desktop')} {
     color: hotpink;
-  }
-
-  ${down('desktop')} {
-    color: lightcoral;
   }
 
   ${up('lgDesktop')} {
