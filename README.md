@@ -122,6 +122,52 @@ const Component = styled.div`
 </ThemeProvider>;
 ```
 
+## API
+
+  <strong>All incoming values are converted to em.</strong>
+
+
+  For example, let's take default values of breakpoints.
+
+### up
+
+  ```js
+  // (tablets, 768px and up)
+  up('tablet') => '@media (min-width: 768px) { ... }'
+  ```
+
+### down
+
+  We occasionally use media queries that go in the other direction (the given screen size or smaller):
+  
+```js
+  // (tablets, from 768px to 991.98px)
+  down('tablet') => '@media (max-width: 991.98px) { ... }'
+  ```
+
+
+<br/>
+
+  >Note that since browsers do not currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision for these comparisons.
+
+<br/>
+
+
+Similarly, media queries may span multiple breakpoint widths:
+
+### between
+
+  ```js
+  // (from tablet to desktop )
+  between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
+  ```
+
+### only
+
+  ```js
+  only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
+  ```
+
 ## License
 
 MIT License
