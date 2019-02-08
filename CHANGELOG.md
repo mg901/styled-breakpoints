@@ -1,3 +1,10 @@
+# [6.3.0](https://github.com/mg901/styled-breakpoints/compare/v6.2.0...v6.3.0) (2019-02-08)
+
+
+### Features
+
+* add import BpProps ([dbce067](https://github.com/mg901/styled-breakpoints/commit/dbce067))
+
 # [6.2.0](https://github.com/mg901/styled-breakpoints/compare/v6.1.5...v6.2.0) (2019-01-25)
 
 
