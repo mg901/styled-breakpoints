@@ -1,3 +1,10 @@
+# [6.4.0](https://github.com/mg901/styled-breakpoints/compare/v6.3.0...v6.4.0) (2019-02-08)
+
+
+### Features
+
+* add an API description to the readme ([8dbfdc2](https://github.com/mg901/styled-breakpoints/commit/8dbfdc2))
+
 # [6.3.0](https://github.com/mg901/styled-breakpoints/compare/v6.2.0...v6.3.0) (2019-02-08)
 
 
