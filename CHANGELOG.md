@@ -1,3 +1,10 @@
+## [6.4.1](https://github.com/mg901/styled-breakpoints/compare/v6.4.0...v6.4.1) (2019-02-09)
+
+
+### Bug Fixes
+
+* **docs:** fix readme ([a18c697](https://github.com/mg901/styled-breakpoints/commit/a18c697))
+
 # [6.4.0](https://github.com/mg901/styled-breakpoints/compare/v6.3.0...v6.4.0) (2019-02-08)
 
 
