@@ -132,7 +132,7 @@ const Component = styled.div`
 ### up
 
   ```js
-  // >= 768px
+  // tablets, 768px and up
   up('tablet') => '@media (min-width: 768px) { ... }'
   ```
 
@@ -141,7 +141,6 @@ const Component = styled.div`
   We occasionally use media queries that go in the other direction (the given screen size or smaller):
   
 ```js
-  //  >= 768px && <= 991.98px
   down('tablet') => '@media (max-width: 991.98px) { ... }'
   ```
 
@@ -158,7 +157,6 @@ Similarly, media queries may span multiple breakpoint widths:
 ### between
 
   ```js
-  // (from tablet to desktop )
   between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
   ```
 
