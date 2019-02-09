@@ -1,16 +1,16 @@
 // @flow
 
-export type BreakpointsMap = { [name: string]: string };
+export type Breakpoints = { [name: string]: string };
 
-export type ExactBreakpoints = {
-  breakpoints: BreakpointsMap,
+export type ThemeWithBreaks = {
+  breakpoints: Breakpoints,
 };
 
-export type CustomBreakpoints = {
+export type CustomTheme = {
   ERROR_PREFIX_FOR_STYLED_BREAKPOINTS?: string,
-  breakpoints?: BreakpointsMap,
+  breakpoints?: Breakpoints,
 };
 
 export type BpProps = {
-  theme: CustomBreakpoints,
+  theme: CustomTheme,
 };

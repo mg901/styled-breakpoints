@@ -4,8 +4,6 @@ import { calcMinWidthInPx, calcMaxWidthInPx } from './calculators';
 import { withMinMedia, withMaxMedia, withMinAndMaxMedia } from './HOFs';
 import type { BpProps } from './models';
 
-export type { BpProps } from './models';
-
 type Up = (string) => (BpProps) => string;
 export const up: Up = (breakName) => ({ theme }) =>
   withMinMedia(

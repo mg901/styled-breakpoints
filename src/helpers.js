@@ -1,11 +1,7 @@
 // @flow
 
 import { DEFAULT_BREAKS, DEFAULT_PREFIX_FOR_ERROR_MSG } from './constants';
-import type {
-  BreakpointsMap,
-  CustomBreakpoints,
-  ExactBreakpoints,
-} from './models';
+import type { Breakpoints, CustomTheme, ThemeWithBreaks } from './models';
 
 const isString = (value: mixed) => typeof value === 'string';
 const isObject = (value: mixed) =>
@@ -19,16 +15,16 @@ export const errorReporter = (
   throw new Error(`[${String(prefix)}]: ${message}`);
 };
 
-export const getBreakNames: (BreakpointsMap) => string[] = (breaks) =>
+export const getBreakNames: (Breakpoints) => string[] = (breaks) =>
   Object.keys(breaks);
 
-export const makeErrorMessage = (breakName: string, breaks: BreakpointsMap) =>
+export const makeErrorMessage = (breakName: string, breaks: Breakpoints) =>
   `'${breakName}' is invalid breakpoint name. Use '${getBreakNames(breaks).join(
     ', ',
   )}'.`;
 
-type SetDefaultTheme = (CustomBreakpoints) => ExactBreakpoints;
-export const setDefaultTheme: SetDefaultTheme = (theme) => {
+type SetCustomOrDefaultTheme = (CustomTheme) => ThemeWithBreaks;
+export const setCustomOrDefaultTheme: SetCustomOrDefaultTheme = (theme) => {
   if (
     theme &&
     theme.breakpoints &&
