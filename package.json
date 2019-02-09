@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "6.3.0",
+  "version": "6.4.1",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "lib/styled-breakpoints.cjs.js",
   "module": "es/styled-breakpoints.es.js",
@@ -67,7 +67,7 @@
     "@semantic-release/github": "5.2.10",
     "@semantic-release/npm": "5.1.4",
     "@semantic-release/release-notes-generator": "^7.1.4",
-    "all-contributors-cli": "6.1.0",
+    "all-contributors-cli": "6.1.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.1.0",
