@@ -2,15 +2,15 @@
 
 import { Right, Left } from 'igogo';
 import { makeErrorMessage, getBreakNames, errorReporter } from './helpers';
-import type { BreakpointsMap } from './models';
+import type { Breakpoints } from './models';
 
-export const eitherGetBreakVal = (breaks: BreakpointsMap, breakVal: string) =>
+export const eitherGetBreakVal = (breaks: Breakpoints, breakVal: string) =>
   breaks[breakVal]
     ? Right(breaks[breakVal])
     : Left(makeErrorMessage(breakVal, breaks));
 
 export const eitherGetNextBreakName = (
-  breaks: BreakpointsMap,
+  breaks: Breakpoints,
   breakName: string,
 ) => {
   const breakNames = getBreakNames(breaks);
@@ -40,7 +40,7 @@ export const eitherGetNextBreakName = (
 // See https://bugs.webkit.org/show_bug.cgi?id=178261
 //
 export const eitherGetNextBreakVal = (
-  breaks: BreakpointsMap,
+  breaks: Breakpoints,
   breakName: string,
   errorPrefix: ?string,
 ) => {
