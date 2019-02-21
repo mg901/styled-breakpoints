@@ -1851,9 +1851,14 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.2:
+core-js@^2.4.0, core-js@^2.5.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.2.tgz#267988d7268323b349e20b4588211655f0e83944"
+
+core-js@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
+  integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -3260,12 +3265,12 @@ ignore@^4.0.3, ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
-igogo@1.4.13:
-  version "1.4.13"
-  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.4.13.tgz#a03c3e640b7490a51cb73319b1184540a161b875"
-  integrity sha512-r+hmpnR7sxxW3aA43E8gJAC5ZW68P+jCwx6QTbzeuTNsrfk2yFguRkYoM+mf2cQeQDF3ifGWlVFxJTGnGb+yMA==
+igogo@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.5.0.tgz#3cbd4ccd771c1659e79747f3128f2aba1f54c5ef"
+  integrity sha512-FCaR4rXWWH6qTdnzocGVPKokTqE3BdkZWo5FGU+yt9LiOhIMY67KqJfQc82lvbtC0A15+O9mFJZphBMoMuzAtg==
   dependencies:
-    core-js "^2.6.2"
+    core-js "^2.6.5"
 
 import-fresh@^2.0.0:
   version "2.0.0"
