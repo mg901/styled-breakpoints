@@ -3265,10 +3265,10 @@ ignore@^4.0.3, ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
 
-igogo@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.5.0.tgz#3cbd4ccd771c1659e79747f3128f2aba1f54c5ef"
-  integrity sha512-FCaR4rXWWH6qTdnzocGVPKokTqE3BdkZWo5FGU+yt9LiOhIMY67KqJfQc82lvbtC0A15+O9mFJZphBMoMuzAtg==
+igogo@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.6.0.tgz#a72b9e8291112adfa9286a5c184ccb2939e83afe"
+  integrity sha512-kWIZpSFFLReMRJFfMYQ19LGY5NbhoAMAJQCAjQgVK6OSFn1nWaFPFnAdrLlxfLBFLDIQqAPCYMPyO98GXO7nQQ==
   dependencies:
     core-js "^2.6.5"
 
