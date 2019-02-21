@@ -1,3 +1,10 @@
+## [6.4.2](https://github.com/mg901/styled-breakpoints/compare/v6.4.1...v6.4.2) (2019-02-21)
+
+
+### Bug Fixes
+
+* **package:** update igogo to version 1.5.0 ([7967952](https://github.com/mg901/styled-breakpoints/commit/7967952))
+
 ## [6.4.1](https://github.com/mg901/styled-breakpoints/compare/v6.4.0...v6.4.1) (2019-02-09)
 
 
