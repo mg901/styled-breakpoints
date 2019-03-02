@@ -6448,10 +6448,10 @@ rollup-plugin-commonjs@9.2.1:
     resolve "^1.10.0"
     rollup-pluginutils "^2.3.3"
 
-rollup-plugin-flow-entry@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-flow-entry/-/rollup-plugin-flow-entry-0.3.0.tgz#af36b73bd307e9d72d5f47151da817c765db5f64"
-  integrity sha512-RIHWJ42pE/iP7ApNBFRr3j3wQIfbRRiemulqAWWcpxMQhMy/8B600VGYvgl7jsiSqGFK9cfzse6sRFDw0eWbOQ==
+rollup-plugin-flow-entry@0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-flow-entry/-/rollup-plugin-flow-entry-0.3.1.tgz#59c6faf4a2eb69bb478ace53055aaa37e53ff54c"
+  integrity sha512-CCih1+GDYWm5axQEwmZrMCz0ez7rBgT8QLcnLw0sn2N+MBchRBCTSfNDvtCbOCQGZoxi1jbgaddsYqSMMAuMqA==
 
 rollup-plugin-flow@1.1.1:
   version "1.1.1"
