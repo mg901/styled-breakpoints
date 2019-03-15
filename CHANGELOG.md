@@ -1,3 +1,10 @@
+## [6.5.1](https://github.com/mg901/styled-breakpoints/compare/v6.5.0...v6.5.1) (2019-03-15)
+
+
+### Bug Fixes
+
+* **typescript:** typings ([d1f160a](https://github.com/mg901/styled-breakpoints/commit/d1f160a))
+
 # [6.5.0](https://github.com/mg901/styled-breakpoints/compare/v6.4.3...v6.5.0) (2019-03-13)
 
 
