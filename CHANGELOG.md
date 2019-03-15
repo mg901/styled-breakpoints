@@ -1,3 +1,10 @@
+## [6.5.2](https://github.com/mg901/styled-breakpoints/compare/v6.5.1...v6.5.2) (2019-03-15)
+
+
+### Bug Fixes
+
+* **readme:** mention support for ts and flow ([f7bdba4](https://github.com/mg901/styled-breakpoints/commit/f7bdba4))
+
 ## [6.5.1](https://github.com/mg901/styled-breakpoints/compare/v6.5.0...v6.5.1) (2019-03-15)
 
 
