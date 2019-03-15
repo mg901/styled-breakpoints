@@ -1,25 +1,26 @@
-type Breakpoints = { [key: string]: string };
+interface IBreakpoints {
+  [key: string]: string;
+}
 
-type ThemeWithBreaks = {
-  breakpoints: Breakpoints;
-};
+interface IThemeWithBreaks {
+  breakpoints: IBreakpoints;
+}
 
-type CustomTheme = {
+interface ICustomTheme {
   ERROR_PREFIX_FOR_STYLED_BREAKPOINTS?: string;
-  breakpoints?: Breakpoints;
-};
+  breakpoints?: IBreakpoints;
+}
 
-export declare type BpProps = {
-  theme: CustomTheme;
-};
+export interface IBpProps {
+  theme: ICustomTheme;
+}
 
-export declare type Up = (breakName: string) => (props: BpProps) => string;
+type RuleFnType = (props: IBpProps) => string;
 
-export declare type Down = (breakName: string) => (props: BpProps) => string;
+export function up(breakName: string): RuleFnType;
 
-export declare type Between = (
-  minBreak: string,
-  maxBreak: string,
-) => (props: BpProps) => string;
+export function down(breakName: string): RuleFnType;
 
-export declare type Only = (breakName: string) => (props: BpProps) => string;
+export function between(minBreak: string, maxBreak: string): RuleFnType;
+
+export function only(breakName: string): RuleFnType;
