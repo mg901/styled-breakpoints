@@ -3748,10 +3748,10 @@ ignore@^4.0.3, ignore@^4.0.6:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
-igogo@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.6.0.tgz#a72b9e8291112adfa9286a5c184ccb2939e83afe"
-  integrity sha512-kWIZpSFFLReMRJFfMYQ19LGY5NbhoAMAJQCAjQgVK6OSFn1nWaFPFnAdrLlxfLBFLDIQqAPCYMPyO98GXO7nQQ==
+igogo@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.7.0.tgz#8132c781d53501aa7e8e55c59b41c0e65e662277"
+  integrity sha512-n6rhVPzDDq9w8ii5IWVYX9QL3K5gYLwCzEUkMCTzwZtgkv0KoU27GSF8BhWbnBJTanG9lIGiMm32S+ZJY5cQXA==
   dependencies:
     core-js "^2.6.5"
 
