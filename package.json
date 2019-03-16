@@ -54,7 +54,7 @@
     "styled-components": ">= 4"
   },
   "dependencies": {
-    "igogo": "1.6.0"
+    "igogo": "1.7.0"
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
