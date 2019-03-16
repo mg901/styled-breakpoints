@@ -1,3 +1,10 @@
+## [6.5.3](https://github.com/mg901/styled-breakpoints/compare/v6.5.2...v6.5.3) (2019-03-16)
+
+
+### Bug Fixes
+
+* fix readme ([a09350f](https://github.com/mg901/styled-breakpoints/commit/a09350f))
+
 ## [6.5.2](https://github.com/mg901/styled-breakpoints/compare/v6.5.1...v6.5.2) (2019-03-15)
 
 
