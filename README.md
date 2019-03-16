@@ -28,8 +28,11 @@
 <img alt="All Contributors" src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square">
 </a>
 </h1>
-<strong>Simple and powerful css breakpoints for <a href="https://github.com/styled-components/styled-components">styled-components</a> and <a href="https://github.com/emotion-js/emotion">emotion</a> with  TypeScript and Flow type annotations out of the box.</strong>
 </div>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -38,11 +41,18 @@
 
 [![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1)
 
+## Introduction
+<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">styled-components</a> or <a href="https://github.com/emotion-js/emotion">emotion</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
+
 
 ## Installation
 
 ```
 yarn add styled-breakpoints
+```
+
+```
+npm i styled-breakpoints
 ```
 
 ## Usage
