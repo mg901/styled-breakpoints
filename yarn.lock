@@ -2318,12 +2318,12 @@ core-js-pure@3.0.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.0.0.tgz#a5679adb4875427c8c0488afc93e6f5b7125859b"
   integrity sha512-yPiS3fQd842RZDgo/TAKGgS0f3p2nxssF1H65DIZvZv0Od5CygP8puHXn3IQiM/39VAvgCbdaMQpresrbGgt9g==
 
-core-js@3.0.0:
+core-js@3.0.0, core-js@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.0.0.tgz#a8dbfa978d29bfc263bfb66c556d0ca924c28957"
   integrity sha512-WBmxlgH2122EzEJ6GH8o9L/FeoUKxxxZ6q6VUxoTlsE4EvbTWKJb447eyVxTEuq0LpXjlq/kCB2qgBvsYRkLvQ==
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
+core-js@^2.4.0, core-js@^2.5.0:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
   integrity sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
@@ -3856,12 +3856,12 @@ ignore@^4.0.3, ignore@^4.0.6:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
-igogo@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.7.0.tgz#8132c781d53501aa7e8e55c59b41c0e65e662277"
-  integrity sha512-n6rhVPzDDq9w8ii5IWVYX9QL3K5gYLwCzEUkMCTzwZtgkv0KoU27GSF8BhWbnBJTanG9lIGiMm32S+ZJY5cQXA==
+igogo@1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/igogo/-/igogo-1.7.1.tgz#29633f789c0976ed9a59171bf328f42094e828a1"
+  integrity sha512-mc3YBn8+WuCX/dbYjs+yGd8PSNv0QZ6JXPA0dZw1ROI6imZ6lM7JnBqTj6m9gyVyMh8FrCn7Kcv2ETwFIjZfqA==
   dependencies:
-    core-js "^2.6.5"
+    core-js "^3.0.0"
 
 import-fresh@^2.0.0:
   version "2.0.0"
