@@ -1,3 +1,10 @@
+# [6.6.0](https://github.com/mg901/styled-breakpoints/compare/v6.5.8...v6.6.0) (2019-03-30)
+
+
+### Features
+
+* add test for last breakpoint ([02969de](https://github.com/mg901/styled-breakpoints/commit/02969de))
+
 ## [6.5.8](https://github.com/mg901/styled-breakpoints/compare/v6.5.7...v6.5.8) (2019-03-30)
 
 
