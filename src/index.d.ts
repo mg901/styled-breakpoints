@@ -7,7 +7,6 @@ interface IThemeWithBreaks {
 }
 
 interface ICustomTheme {
-  ERROR_PREFIX_FOR_STYLED_BREAKPOINTS?: string;
   breakpoints?: IBreakpoints;
 }
 
