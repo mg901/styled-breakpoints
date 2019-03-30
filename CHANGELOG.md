@@ -1,3 +1,10 @@
+## [6.6.1](https://github.com/mg901/styled-breakpoints/compare/v6.6.0...v6.6.1) (2019-03-30)
+
+
+### Bug Fixes
+
+* fix export types for ([9c8083e](https://github.com/mg901/styled-breakpoints/commit/9c8083e))
+
 # [6.6.0](https://github.com/mg901/styled-breakpoints/compare/v6.5.8...v6.6.0) (2019-03-30)
 
 
