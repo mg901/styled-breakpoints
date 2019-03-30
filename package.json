@@ -4,20 +4,21 @@
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
-  "types": "src/index.d.ts",
   "scripts": {
-    "build": "npx rollup -c",
-    "clean": "rimraf dist",
-    "commit": "git-cz",
-    "coverage": "cat ./coverage/lcov.info | coveralls",
-    "prettier": "prettier './**/**/**.{json,js,eslintrc}' --write",
-    "semantic-release": "semantic-release",
-    "test": "npx flow && npm run test:code",
-    "test:watch": "jest --coverage --watch --updateSnapshot",
-    "test:code": "jest --coverage",
-    "lint": "eslint .",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "build": "npm run clean && npx rollup -c && npm run build:ts-types && npm run build:flow-types",
+    "build:ts-types": "cpx src/index.d.ts dist",
+    "build:flow-types": "cpx src/index.js.flow dist",
+    "clean": "cross-env rimraf dist",
+    "commit": "cross-env git-cz",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "prettier": "cross-env prettier './**/**/**.{json,js,eslintrc}' --write",
+    "semantic-release": "cross-env semantic-release",
+    "test": "cross-env npx flow && npm run test:code",
+    "test:watch": "cross-env jest --coverage --watch --updateSnapshot",
+    "test:code": "cross-env jest --coverage",
+    "lint": "cross-env eslint .",
+    "contributors:add": "cross-env all-contributors add",
+    "contributors:generate": "cross-env all-contributors generate"
   },
   "license": "MIT",
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
@@ -43,9 +44,7 @@
     "styled-breakpoints"
   ],
   "files": [
-    "src",
-    "lib",
-    "es"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -53,12 +52,15 @@
   "peerDependencies": {
     "styled-components": ">= 4"
   },
-  "dependencies": {
-    "igogo": "1.7.0"
-  },
+  "size-limit": [
+    {
+      "limit": "9 KB",
+      "path": "dist"
+    }
+  ],
   "devDependencies": {
     "@babel/core": "7.4.0",
-    "@babel/preset-env": "7.4.1",
+    "@babel/preset-env": "7.4.2",
     "@babel/preset-flow": "7.0.0",
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
@@ -74,6 +76,8 @@
     "babel-jest": "24.5.0",
     "commitizen": "3.0.7",
     "coveralls": "3.0.3",
+    "cpx": "1.5.0",
+    "cross-env": "5.2.0",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "5.15.3",
     "eslint-config-airbnb-base": "13.1.0",
@@ -90,9 +94,7 @@
     "prettier": "1.16.4",
     "rimraf": "2.6.3",
     "rollup-plugin-babel": "4.3.2",
-    "rollup-plugin-commonjs": "9.2.1",
-    "rollup-plugin-flow": "1.1.1",
-    "rollup-plugin-flow-entry": "0.3.1",
+    "rollup-plugin-commonjs": "9.2.2",
     "rollup-plugin-node-resolve": "4.0.1",
     "rollup-plugin-terser": "4.0.4",
     "rollup-plugin-uglify": "6.0.2"
