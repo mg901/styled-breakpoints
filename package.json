@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "6.5.4",
+  "version": "6.5.5",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
@@ -52,12 +52,6 @@
   "peerDependencies": {
     "styled-components": ">= 4"
   },
-  "size-limit": [
-    {
-      "limit": "9 KB",
-      "path": "dist"
-    }
-  ],
   "devDependencies": {
     "@babel/core": "7.4.0",
     "@babel/preset-env": "7.4.2",
