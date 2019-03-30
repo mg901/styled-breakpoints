@@ -1,3 +1,10 @@
+## [6.5.8](https://github.com/mg901/styled-breakpoints/compare/v6.5.7...v6.5.8) (2019-03-30)
+
+
+### Bug Fixes
+
+* **types:** add types for es and lib folder ([f68c1df](https://github.com/mg901/styled-breakpoints/commit/f68c1df))
+
 ## [6.5.7](https://github.com/mg901/styled-breakpoints/compare/v6.5.6...v6.5.7) (2019-03-30)
 
 
