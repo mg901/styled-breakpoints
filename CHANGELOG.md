@@ -1,3 +1,10 @@
+## [6.5.7](https://github.com/mg901/styled-breakpoints/compare/v6.5.6...v6.5.7) (2019-03-30)
+
+
+### Bug Fixes
+
+* add export for BpProps ([5a08677](https://github.com/mg901/styled-breakpoints/commit/5a08677))
+
 ## [6.5.6](https://github.com/mg901/styled-breakpoints/compare/v6.5.5...v6.5.6) (2019-03-30)
 
 
