@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export type Breakpoints = { [name: string]: string };
 
@@ -7,7 +7,6 @@ export type ThemeWithBreaks = {
 };
 
 export type CustomTheme = {
-  ERROR_PREFIX_FOR_STYLED_BREAKPOINTS?: string,
   breakpoints?: Breakpoints,
 };
 
