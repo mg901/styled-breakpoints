@@ -6,17 +6,21 @@
 
  
  
-<a href="https://www.npmjs.com/package/styled-breakpoints">
-<img alt="Npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
-</a>
+
 <a href="https://travis-ci.org/mg901/styled-breakpoints">
-<img alt="Build Status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
+<img alt="build status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
-<img alt="Coverage Status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
+<img alt="coverage status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
+</a>
+<a href="https://bundlephobia.com/result?p=styled-breakpoints@6.6.1">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints.svg?style=flat-square">
+</a>
+<a href="https://www.npmjs.com/package/styled-breakpoints">
+<img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
 <a href="https://greenkeeper.io/">
-<img alt="Greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
+<img alt="greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
 </a>
 <a href="https://github.com/prettier/prettier">
 <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
@@ -25,13 +29,10 @@
 <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square">
 </a>
 <a href="https://github.com/all-contributors/all-contributors-cli">
-<img alt="All Contributors" src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square">
+<img alt="all contributors" src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square">
 </a>
 </h1>
 </div>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
