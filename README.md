@@ -22,15 +22,6 @@
 <a href="https://greenkeeper.io/">
 <img alt="greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
 </a>
-<a href="https://github.com/prettier/prettier">
-<img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
-</a>
-<a href="https://github.com/semantic-release/semantic-release">
-<img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square">
-</a>
-<a href="https://github.com/all-contributors/all-contributors-cli">
-<img alt="all contributors" src="https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square">
-</a>
 </h1>
 </div>
 <br>
