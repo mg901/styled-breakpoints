@@ -142,11 +142,11 @@ describe('getNextBreakpointValue', () => {
 
   it('show warn if the breakpoint cannot be used ', () => {
     try {
-      getNextBreakpointValue('xlDesktop', DEFAULT_BREAKS_MAP);
+      getNextBreakpointValue('lgDesktop', DEFAULT_BREAKS_MAP);
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        `[styled-breakpoints]: 'xlDesktop' is invalid breakpoint name. Use 'tablet, desktop'.`,
+        `[styled-breakpoints]: Don't use 'lgDesktop' because it doesn't have a maximum width. Use 'desktop'.`,
       );
     }
   });
