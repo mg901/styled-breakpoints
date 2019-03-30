@@ -1,3 +1,10 @@
+## [6.5.6](https://github.com/mg901/styled-breakpoints/compare/v6.5.5...v6.5.6) (2019-03-30)
+
+
+### Bug Fixes
+
+* **error-messages:** fix error messages and remove ([74dc45f](https://github.com/mg901/styled-breakpoints/commit/74dc45f))
+
 ## [6.5.5](https://github.com/mg901/styled-breakpoints/compare/v6.5.4...v6.5.5) (2019-03-23)
 
 
