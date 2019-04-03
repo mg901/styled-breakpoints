@@ -92,7 +92,7 @@
     "prettier": "1.16.4",
     "rimraf": "2.6.3",
     "rollup-plugin-babel": "4.3.2",
-    "rollup-plugin-commonjs": "9.2.2",
+    "rollup-plugin-commonjs": "9.2.3",
     "rollup-plugin-node-resolve": "4.0.1",
     "rollup-plugin-terser": "4.0.4",
     "rollup-plugin-uglify": "6.0.2"
