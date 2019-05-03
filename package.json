@@ -87,7 +87,7 @@
     "flow-bin": "^0.98.0",
     "husky": "2.1.0",
     "jest": "24.7.1",
-    "lint-staged": "8.1.5",
+    "lint-staged": "8.1.6",
     "nyc": "14.0.0",
     "prettier": "1.17.0",
     "rimraf": "2.6.3",
