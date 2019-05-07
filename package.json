@@ -68,7 +68,7 @@
     "@semantic-release/github": "5.2.10",
     "@semantic-release/npm": "5.1.4",
     "@semantic-release/release-notes-generator": "^7.1.4",
-    "all-contributors-cli": "6.3.1",
+    "all-contributors-cli": "6.4.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "^24.7.0",
