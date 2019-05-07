@@ -1,3 +1,10 @@
+## [6.6.3](https://github.com/mg901/styled-breakpoints/compare/v6.6.2...v6.6.3) (2019-05-07)
+
+
+### Bug Fixes
+
+* fix lint staged config ([4b7045d](https://github.com/mg901/styled-breakpoints/commit/4b7045d))
+
 ## [6.6.2](https://github.com/mg901/styled-breakpoints/compare/v6.6.1...v6.6.2) (2019-03-30)
 
 
