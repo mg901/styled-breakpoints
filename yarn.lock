@@ -2950,10 +2950,10 @@ eslint-module-utils@^2.4.0:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
 
-eslint-plugin-flowtype@3.8.0:
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-3.8.0.tgz#564bec603f0c4b3cddd761a7907737e781b186d0"
-  integrity sha512-h5eKaJQT7fB2Sa8DZag1riG6ZPWe0C0kDcSLWPjOCiW12kCKrDNWtK4CaN4wCqbdCU7beLA47x5Qq+nNrSeJ+Q==
+eslint-plugin-flowtype@3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-3.8.1.tgz#fefbc160b8f55c0bc0201236471637ad47ca6886"
+  integrity sha512-7ye/CCdTzytOu54Y1dUed/ejcIPMe0eSlxhfPIhOv2DCMvLMbwYGagEYfEuJ1ylMhkt8Z+rt8VtJXniNwC3hRQ==
   dependencies:
     lodash "^4.17.11"
 
