@@ -113,15 +113,15 @@ export const getNextBreakpointValue = (
 };
 
 export const calcMinWidth = (breakName: string, theme: CustomTheme): string => {
-  const newTheme = setCustomOrDefaultTheme(theme);
+  const { breakpoints } = setCustomOrDefaultTheme(theme);
 
-  return toEm(getBreakpointValue(breakName, newTheme.breakpoints));
+  return toEm(getBreakpointValue(breakName, breakpoints));
 };
 
 export const calcMaxWidth = (breakName: string, theme: CustomTheme): string => {
-  const newTheme = setCustomOrDefaultTheme(theme);
+  const { breakpoints } = setCustomOrDefaultTheme(theme);
 
-  return toEm(getNextBreakpointValue(breakName, newTheme.breakpoints));
+  return toEm(getNextBreakpointValue(breakName, breakpoints));
 };
 
 type Up = (string) => (BpProps) => string;
