@@ -3,10 +3,6 @@
  💅 <br>
  styled-breakpoints <br>
 
-
- 
- 
-
 <a href="https://travis-ci.org/mg901/styled-breakpoints">
 <img alt="build status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
@@ -28,14 +24,13 @@
 <br>
 <br>
 
-
 ## Demo sandbox
 
-[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?hidenavigation=1)
+[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?fontsize=14&module=%2Fsrc%2Flayout.js)
 
 ## Introduction
-<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">styled-components</a> or <a href="https://github.com/emotion-js/emotion">emotion</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
 
+<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">styled-components</a> or <a href="https://github.com/emotion-js/emotion">emotion</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
 
 ## Installation
 
@@ -65,7 +60,7 @@ import { up, down, between, only } from 'styled-breakpoints';
 
 const Component = styled.div`
   color: black;
-  
+
   ${down('tablet')} {
     color: lightcoral;
   }
@@ -129,47 +124,44 @@ const Component = styled.div`
 
 ## API
 
-  <strong>All incoming values are converted to em.</strong>
+<strong>All incoming values are converted to em.</strong>
 
-
-  For example, let's take default values of breakpoints.
+For example, let's take default values of breakpoints.
 
 ### up
 
-  ```js
-  // tablets, 768px and up
-  up('tablet') => '@media (min-width: 768px) { ... }'
-  ```
+```js
+// tablets, 768px and up
+up('tablet') => '@media (min-width: 768px) { ... }'
+```
 
 ### down
 
-  We occasionally use media queries that go in the other direction (the given screen size or smaller):
-  
+We occasionally use media queries that go in the other direction (the given screen size or smaller):
+
 ```js
   down('tablet') => '@media (max-width: 991.98px) { ... }'
-  ```
-
-
-<br/>
-
-  >Note that since browsers do not currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision for these comparisons.
+```
 
 <br/>
 
+> Note that since browsers do not currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision for these comparisons.
+
+<br/>
 
 Similarly, media queries may span multiple breakpoint widths:
 
 ### between
 
-  ```js
-  between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
-  ```
+```js
+between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
+```
 
 ### only
 
-  ```js
-  only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
-  ```
+```js
+only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
+```
 
 ## License
 
@@ -187,6 +179,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 <!-- prettier-ignore -->
 | [<img src="https://avatars0.githubusercontent.com/u/7874664?v=4" width="100px;"/><br /><sub><b>Maxim</b></sub>](https://t.me/mg901)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=mg901 "Code") [🎨](#design-mg901 "Design") [📖](https://github.com/mg901/styled-breakpoints/commits?author=mg901 "Documentation") [💡](#example-mg901 "Examples") [🤔](#ideas-mg901 "Ideas, Planning, & Feedback") [📢](#talk-mg901 "Talks") | [<img src="https://avatars0.githubusercontent.com/u/22033385?v=4" width="100px;"/><br /><sub><b>Abu Shamsutdinov</b></sub>](https://github.com/yakotika)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=yakotika "Code") [💡](#example-yakotika "Examples") [🤔](#ideas-yakotika "Ideas, Planning, & Feedback") [👀](#review-yakotika "Reviewed Pull Requests") [📢](#talk-yakotika "Talks") | [<img src="https://avatars0.githubusercontent.com/u/5620073?v=4" width="100px;"/><br /><sub><b>Sergey Sova</b></sub>](https://sergeysova.com)<br />[💻](https://github.com/mg901/styled-breakpoints/commits?author=sergeysova "Code") [💡](#example-sergeysova "Examples") [🤔](#ideas-sergeysova "Ideas, Planning, & Feedback") [👀](#review-sergeysova "Reviewed Pull Requests") [📢](#talk-sergeysova "Talks") |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
