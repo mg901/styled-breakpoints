@@ -93,7 +93,7 @@
     "rimraf": "2.6.3",
     "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-commonjs": "^9.3.0",
-    "rollup-plugin-node-resolve": "^4.2.4",
+    "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-terser": "4.0.4",
     "rollup-plugin-uglify": "6.0.2"
   }
