@@ -60,7 +60,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-flow": "7.0.0",
-    "@commitlint/cli": "^7.6.1",
+    "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@semantic-release/changelog": "3.0.2",
     "@semantic-release/commit-analyzer": "^6.1.0",
@@ -93,7 +93,7 @@
     "rimraf": "2.6.3",
     "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
     "rollup-plugin-terser": "5.0.0",
     "rollup-plugin-uglify": "6.0.2"
   }
