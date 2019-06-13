@@ -1047,15 +1047,15 @@
     lodash "^4.17.4"
 
 "@semantic-release/commit-analyzer@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-6.1.0.tgz#32bbe3c23da86e23edf072fbb276fa2f383fcb17"
-  integrity sha512-2lb+t6muGenI86mYGpZYOgITx9L3oZYF697tJoqXeQEk0uw0fm+OkkOuDTBA3Oax9ftoNIrCKv9bwgYvxrbM6w==
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-6.2.0.tgz#5cd25ce67ba9ba5b46e47457505e63629e186695"
+  integrity sha512-oUtPydYcbtJsEY6WCPi4wynTgRecK5zCkKaGmHi+9Xl7d6jGf7LomnJCg++6dNF1tyavrbGMSdXTCPH6Dx9LbA==
   dependencies:
     conventional-changelog-angular "^5.0.0"
     conventional-commits-filter "^2.0.0"
     conventional-commits-parser "^3.0.0"
     debug "^4.0.0"
-    import-from "^2.1.0"
+    import-from "^3.0.0"
     lodash "^4.17.4"
 
 "@semantic-release/error@^2.1.0", "@semantic-release/error@^2.2.0":
@@ -4660,6 +4660,13 @@ import-from@^2.1.0:
   integrity sha1-M1238qev/VOqpHHUuAId7ja387E=
   dependencies:
     resolve-from "^3.0.0"
+
+import-from@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/import-from/-/import-from-3.0.0.tgz#055cfec38cd5a27d8057ca51376d7d3bf0891966"
+  integrity sha512-CiuXOFFSzkU5x/CR0+z7T91Iht4CXgfCxVOFRhh2Zyhg5wOpWvvDLQUsWl+gcN+QscYBjez8hDCt85O7RLDttQ==
+  dependencies:
+    resolve-from "^5.0.0"
 
 import-lazy@^2.1.0:
   version "2.1.0"
