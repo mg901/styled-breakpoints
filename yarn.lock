@@ -8435,9 +8435,9 @@ rollup-plugin-commonjs@^10.0.0:
     rollup-pluginutils "^2.7.0"
 
 rollup-plugin-node-resolve@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.0.1.tgz#4619eafdf2ecb4e8ed24177ba47d7f11f027d38b"
-  integrity sha512-9s3dTu44SKQZM/Pwll42GpqXgT+WdvO0Ga01lF8cwZqJGqRUATtD+GrP3uIzZdpnbPonEJbVasfFt80VGPQqKw==
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.0.3.tgz#5e90fbd04a33fa1e4e1ed6d9b54afbe45af944f1"
+  integrity sha512-Mhhmf0x493xgUPEsRELnU1VM+4+WO82knWkAbZ0d2DvZQZJMbhzyQK/hqtpVscoRru1EqlK3TM1kK9ro469wPw==
   dependencies:
     "@types/resolve" "0.0.8"
     builtin-modules "^3.1.0"
@@ -8465,23 +8465,7 @@ rollup-plugin-uglify@6.0.2:
     serialize-javascript "^1.6.1"
     uglify-js "^3.4.9"
 
-rollup-pluginutils@^2.3.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.6.0.tgz#203706edd43dfafeaebc355d7351119402fc83ad"
-  integrity sha512-aGQwspEF8oPKvg37u3p7h0cYNwmJR1sCBMZGZ5b9qy8HGtETknqjzcxrDRrcAnJNXN18lBH4Q9vZYth/p4n8jQ==
-  dependencies:
-    estree-walker "^0.6.0"
-    micromatch "^3.1.10"
-
-rollup-pluginutils@^2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.7.0.tgz#da24a6f99432626160643ac6b087d71684317c4f"
-  integrity sha512-FoP6L1YnMYTAR06Dpq5LE3jJtMwPE6H4VEOqFU23yoziZnqNRSiWcVy6YgEY5PdQB4G7278+8c4TvB0JKS1csA==
-  dependencies:
-    estree-walker "^0.6.0"
-    micromatch "^3.1.10"
-
-rollup-pluginutils@^2.8.0:
+rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.7.0, rollup-pluginutils@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.0.tgz#d7ece1502958a35748a74080c7ac5e95681bcbe9"
   integrity sha512-8TomM64VQH6w+13lemFHX5sZYxLCxHhf9gzdRUEFNXH3Z+0CDYy7Grzqa6YUbZc0GIrfbWoD5GXZ3o5Teqh9ew==
