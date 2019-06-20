@@ -70,7 +70,7 @@
     "@semantic-release/release-notes-generator": "^7.1.4",
     "all-contributors-cli": "^6.4.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "10.0.2",
     "babel-jest": "^24.7.0",
     "commitizen": "3.1.1",
     "coveralls": "3.0.4",
