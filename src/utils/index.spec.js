@@ -146,7 +146,7 @@ describe('getNextBreakpointValue', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        `[styled-breakpoints]: Don't use 'lgDesktop' because it doesn't have a maximum width. Use 'desktop'.`,
+        `[styled-breakpoints]: Don't use 'lgDesktop' because it doesn't have a maximum width. Use 'desktop'. See https://github.com/mg901/styled-breakpoints/issues/4 .`,
       );
     }
   });
