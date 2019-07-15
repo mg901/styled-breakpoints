@@ -1,3 +1,11 @@
+## [6.6.4](https://github.com/mg901/styled-breakpoints/compare/v6.6.3...v6.6.4) (2019-07-15)
+
+
+### Bug Fixes
+
+* add link to issue[#4](https://github.com/mg901/styled-breakpoints/issues/4) ([326fc91](https://github.com/mg901/styled-breakpoints/commit/326fc91))
+* fix error message for "above", "between" ([df1965b](https://github.com/mg901/styled-breakpoints/commit/df1965b))
+
 ## [6.6.3](https://github.com/mg901/styled-breakpoints/compare/v6.6.2...v6.6.3) (2019-05-07)
 
 
