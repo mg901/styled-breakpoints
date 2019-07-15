@@ -81,7 +81,7 @@ export const getNextBreakpointName: (string) => (Breakpoints) => string = (
   if (isLastBreakName) {
     invariant(
       !isLastBreakName,
-      `Don't use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4`,
+      `Don't use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4 .`,
     );
   }
 
