@@ -72,7 +72,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.7.0",
-    "commitizen": "3.1.2",
+    "commitizen": "4.0.1",
     "coveralls": "3.0.5",
     "cpx": "1.5.0",
     "cross-env": "5.2.0",
