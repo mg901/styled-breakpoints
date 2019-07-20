@@ -1,3 +1,10 @@
+## [6.7.1](https://github.com/mg901/styled-breakpoints/compare/v6.7.0...v6.7.1) (2019-07-20)
+
+
+### Bug Fixes
+
+* **nvm:** bump node version from ([326b154](https://github.com/mg901/styled-breakpoints/commit/326b154))
+
 # [6.7.0](https://github.com/mg901/styled-breakpoints/compare/v6.6.4...v6.7.0) (2019-07-20)
 
 
