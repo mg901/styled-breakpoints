@@ -17,6 +17,20 @@ export const DEFAULT_BREAKS: ThemeWithBreaks = {
   breakpoints: DEFAULT_BREAKS_MAP,
 };
 
+const withOrientationOrNot = (params: string, orientation?: string): string => {
+  const isValidOrientation =
+    orientation === 'portrait' || orientation === 'landscape';
+
+  if (!orientation) return params;
+
+  invariant(
+    isValidOrientation,
+    `${orientation} is invalid orientation. Use 'landscape' or 'portrait'.`,
+  );
+
+  return `${params} and (orientation: ${orientation})`;
+};
+
 export const withMinMedia = (minWidth: string): string =>
   `@media (min-width: ${minWidth})`;
 
@@ -124,24 +138,38 @@ export const calcMaxWidth = (breakName: string, theme: CustomTheme): string => {
   return toEm(getNextBreakpointValue(breakName, breakpoints));
 };
 
-type Up = (string) => (BpProps) => string;
-export const up: Up = (breakName) => ({ theme }) =>
-  withMinMedia(calcMinWidth(breakName, theme));
-
-type Down = (string) => (BpProps) => string;
-export const down: Down = (breakName) => ({ theme }) =>
-  withMaxMedia(calcMaxWidth(breakName, theme));
-
-type Between = (string, string) => (BpProps) => string;
-export const between: Between = (minBreak, maxBreak) => ({ theme }) =>
-  withMinAndMaxMedia(
-    calcMinWidth(minBreak, theme),
-    calcMaxWidth(maxBreak, theme),
+type Up = (string, orientation?: string) => (BpProps) => string;
+export const up: Up = (breakName, orientation) => ({ theme }) =>
+  withOrientationOrNot(
+    withMinMedia(calcMinWidth(breakName, theme)),
+    orientation,
   );
 
-type Only = (string) => (BpProps) => string;
-export const only: Only = (breakName) => ({ theme }) =>
-  withMinAndMaxMedia(
-    calcMinWidth(breakName, theme),
-    calcMaxWidth(breakName, theme),
+type Down = (string, orientation?: string) => (BpProps) => string;
+export const down: Down = (breakName, orientation) => ({ theme }) =>
+  withOrientationOrNot(
+    withMaxMedia(calcMaxWidth(breakName, theme)),
+    orientation,
+  );
+
+type Between = (string, string, orientation?: string) => (BpProps) => string;
+export const between: Between = (minBreak, maxBreak, orientation) => ({
+  theme,
+}) =>
+  withOrientationOrNot(
+    withMinAndMaxMedia(
+      calcMinWidth(minBreak, theme),
+      calcMaxWidth(maxBreak, theme),
+    ),
+    orientation,
+  );
+
+type Only = (string, orientation?: string) => (BpProps) => string;
+export const only: Only = (breakName, orientation) => ({ theme }) =>
+  withOrientationOrNot(
+    withMinAndMaxMedia(
+      calcMinWidth(breakName, theme),
+      calcMaxWidth(breakName, theme),
+    ),
+    orientation,
   );

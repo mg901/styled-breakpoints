@@ -18,10 +18,20 @@ type BpProps = {
 
 type RuleFnType = (props: BpProps) => string;
 
-declare export function up(breakName: string): RuleFnType;
+declare export function up(breakName: string, orientation?: string): RuleFnType;
 
-declare export function down(breakName: string): RuleFnType;
+declare export function down(
+  breakName: string,
+  orientation?: string,
+): RuleFnType;
 
-declare export function between(minBreak: string, maxBreak: string): RuleFnType;
+declare export function between(
+  minBreak: string,
+  maxBreak: string,
+  orientation?: string,
+): RuleFnType;
 
-declare export function only(breakName: string): RuleFnType;
+declare export function only(
+  breakName: string,
+  orentation?: string,
+): RuleFnType;

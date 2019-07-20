@@ -33,25 +33,48 @@ const CUSTOM_THEME_IS_EMPTY = {
 };
 
 describe('up', () => {
-  it('should return string with min breakpoint value and media query', () => {
+  it('should return min breakpoint value and media query', () => {
     expect(up('tablet')(CUSTOM_THEME)).toEqual('@media (min-width: 48em)');
   });
 
-  it('should return string with min breakpoint value and media query (from default theme)', () => {
+  it('should return min breakpoint value and media query (from default theme)', () => {
     expect(up('tablet')(CUSTOM_THEME_IS_EMPTY)).toEqual(
       '@media (min-width: 48em)',
+    );
+  });
+  it('should return min breakpoint value and media query with portrait orientation', () => {
+    expect(up('tablet', 'portrait')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (orientation: portrait)',
+    );
+  });
+
+  it('should return min breakpoint value and media query with landscape orientation', () => {
+    expect(up('tablet', 'landscape')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (orientation: landscape)',
     );
   });
 });
 
 describe('down', () => {
-  it('should return string with max breakpoint value and media query', () => {
+  it('should return max breakpoint value and media query', () => {
     expect(down('tablet')(CUSTOM_THEME)).toEqual(
       '@media (max-width: 61.99875em)',
     );
   });
 
-  it('should return string with max breakpoint value and media query (from default theme)', () => {
+  it('should return max breakpoint value and media query with portrait orientation', () => {
+    expect(down('tablet', 'portrait')(CUSTOM_THEME)).toEqual(
+      '@media (max-width: 61.99875em) and (orientation: portrait)',
+    );
+  });
+
+  it('should return max breakpoint value and media query with landscape orientation', () => {
+    expect(down('tablet', 'landscape')(CUSTOM_THEME)).toEqual(
+      '@media (max-width: 61.99875em) and (orientation: landscape)',
+    );
+  });
+
+  it('should return max breakpoint value and media query (from default theme)', () => {
     expect(down('tablet')(CUSTOM_THEME_IS_EMPTY)).toEqual(
       '@media (max-width: 61.99875em)',
     );
@@ -62,6 +85,18 @@ describe('between', () => {
   it('should returns a string containing the value of the minimum and maximum breakpoints and media query', () => {
     expect(between('tablet', 'desktop')(CUSTOM_THEME)).toEqual(
       '@media (min-width: 48em) and (max-width: 74.99875em)',
+    );
+  });
+
+  it('should returns a string containing the value of the minimum and maximum breakpoints and media query and portrait orientation', () => {
+    expect(between('tablet', 'desktop', 'portrait')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (max-width: 74.99875em) and (orientation: portrait)',
+    );
+  });
+
+  it('should returns a string containing the value of the minimum and maximum breakpoints and media query and landscape orientation', () => {
+    expect(between('tablet', 'desktop', 'landscape')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (max-width: 74.99875em) and (orientation: landscape)',
     );
   });
 
@@ -76,6 +111,18 @@ describe('only', () => {
   it('should returns a string containing the minimum and maximum values of the current breakpoint and media query', () => {
     expect(only('tablet')(CUSTOM_THEME)).toEqual(
       '@media (min-width: 48em) and (max-width: 61.99875em)',
+    );
+  });
+
+  it('should returns a string containing the minimum and maximum values of the current breakpoint and media query with portrait orientation', () => {
+    expect(only('tablet', 'portrait')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (max-width: 61.99875em) and (orientation: portrait)',
+    );
+  });
+
+  it('should returns a string containing the minimum and maximum values of the current breakpoint and media query with landscape orientation', () => {
+    expect(only('tablet', 'landscape')(CUSTOM_THEME)).toEqual(
+      '@media (min-width: 48em) and (max-width: 61.99875em) and (orientation: landscape)',
     );
   });
 
