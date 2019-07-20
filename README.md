@@ -30,7 +30,7 @@
 
 ## Introduction
 
-<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">styled-components</a> or <a href="https://github.com/emotion-js/emotion">emotion</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
+<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">Styled Components</a>, <a href="https://github.com/emotion-js/emotion">Emotion</a>, <a href="https://github.com/callstack/linaria">Linaria</a> and <a href="https://github.com/4Catalyzer/astroturf">Astroturf</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
 
 ## Installation
 
@@ -131,7 +131,13 @@ For example, let's take default values of breakpoints.
 ### up
 
 ```js
-// tablets, 768px and up
+/**
+ *
+ * @param {string} breakpoint name
+ * @param {string} [orientation]
+ *
+ * @return {string} media quiery
+ */
 up('tablet') => '@media (min-width: 768px) { ... }'
 ```
 
@@ -140,6 +146,13 @@ up('tablet') => '@media (min-width: 768px) { ... }'
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
 ```js
+/**
+ *
+ * @param {string} breakpoint name
+ * @param {string} [orientation]
+ *
+ * @return {string} media quiery
+ */
   down('tablet') => '@media (max-width: 991.98px) { ... }'
 ```
 
@@ -154,12 +167,27 @@ Similarly, media queries may span multiple breakpoint widths:
 ### between
 
 ```js
+/**
+ *
+ * @param {string} min breakpoint name
+ * @param {string} max breakpoint name
+ * @param {string} [orientation]
+ *
+ * @return {string} media quiery
+ */
 between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
 ```
 
 ### only
 
 ```js
+/**
+ *
+ * @param {string} breakpoint name
+ * @param {string} [orientation]
+ *
+ * @return {string} media quiery
+ */
 only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
 ```
 
