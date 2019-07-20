@@ -1,3 +1,10 @@
+# [6.7.0](https://github.com/mg901/styled-breakpoints/compare/v6.6.4...v6.7.0) (2019-07-20)
+
+
+### Features
+
+* **orientation:** add orientation ([09584cf](https://github.com/mg901/styled-breakpoints/commit/09584cf))
+
 ## [6.6.4](https://github.com/mg901/styled-breakpoints/compare/v6.6.3...v6.6.4) (2019-07-15)
 
 
