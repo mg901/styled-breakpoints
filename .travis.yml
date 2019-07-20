@@ -3,7 +3,6 @@ cache: yarn
 node_js:
   - node
   - '10'
-  - '8'
 os:
   - linux
   - osx
