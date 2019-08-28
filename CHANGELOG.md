@@ -1,3 +1,10 @@
+## [6.7.2](https://github.com/mg901/styled-breakpoints/compare/v6.7.1...v6.7.2) (2019-08-28)
+
+
+### Bug Fixes
+
+* fix types for typescript ([2396772](https://github.com/mg901/styled-breakpoints/commit/2396772))
+
 ## [6.7.1](https://github.com/mg901/styled-breakpoints/compare/v6.7.0...v6.7.1) (2019-07-20)
 
 
