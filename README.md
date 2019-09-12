@@ -15,9 +15,6 @@
 <a href="https://www.npmjs.com/package/styled-breakpoints">
 <img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
-<a href="https://greenkeeper.io/">
-<img alt="greenkeeper badge" src="https://badges.greenkeeper.io/mg901/styled-breakpoints.svg?style=flat-square">
-</a>
 </h1>
 </div>
 <br>
