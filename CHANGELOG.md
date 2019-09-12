@@ -1,3 +1,10 @@
+## [6.7.3](https://github.com/mg901/styled-breakpoints/compare/v6.7.2...v6.7.3) (2019-09-12)
+
+
+### Bug Fixes
+
+* remove greenkeeper badge ([dd8c27e](https://github.com/mg901/styled-breakpoints/commit/dd8c27e))
+
 ## [6.7.2](https://github.com/mg901/styled-breakpoints/compare/v6.7.1...v6.7.2) (2019-08-28)
 
 
