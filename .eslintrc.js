@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['airbnb-base', 'plugin:flowtype/recommended', 'prettier'],
-  plugins: ['prettier', 'jest', 'flowtype'],
+  extends: ['airbnb-base', 'prettier'],
+  plugins: ['prettier', 'jest'],
   env: {
     node: true,
     mocha: true,
