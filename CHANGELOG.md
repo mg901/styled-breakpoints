@@ -1,3 +1,15 @@
+# [6.9.0](https://github.com/mg901/styled-breakpoints/compare/v6.8.0...v6.9.0) (2019-09-15)
+
+
+### Bug Fixes
+
+* **readme:** fix shield for bundle size ([96dcc5f](https://github.com/mg901/styled-breakpoints/commit/96dcc5f))
+
+
+### Features
+
+* **demo:** add demo with typescript ([4a6a6b1](https://github.com/mg901/styled-breakpoints/commit/4a6a6b1))
+
 # [6.8.0](https://github.com/mg901/styled-breakpoints/compare/v6.7.3...v6.8.0) (2019-09-15)
 
 
