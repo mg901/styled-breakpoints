@@ -23,7 +23,7 @@
 
 ## Demo sandbox
 
-[![Edit Styled breakpoints demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/23583q00o0?fontsize=14&module=%2Fsrc%2Flayout.js)
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
 
 ## Introduction
 
