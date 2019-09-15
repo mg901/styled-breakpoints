@@ -9,7 +9,7 @@
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
 <img alt="coverage status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
-<a href="https://bundlephobia.com/result?p=styled-breakpoints@6.6.1">
+<a href="https://bundlephobia.com/result?p=styled-breakpoints@6.8.0">
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints.svg?style=flat-square">
 </a>
 <a href="https://www.npmjs.com/package/styled-breakpoints">
