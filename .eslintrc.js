@@ -1,0 +1,27 @@
+module.exports = {
+  parser: 'babel-eslint',
+  extends: ['airbnb-base', 'plugin:flowtype/recommended', 'prettier'],
+  plugins: ['prettier', 'jest', 'flowtype'],
+  env: {
+    node: true,
+    mocha: true,
+    jasmine: true,
+  },
+  rules: {
+    'no-unused-vars': 1,
+    'no-console': 0,
+    'no-underscore-dangle': 0,
+    'no-use-before-define': 0,
+    'import/prefer-default-export': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/no-mutable-exports': 0,
+    'prefer-template': 0,
+    'no-var': 0,
+    'vars-on-top': 0,
+    'func-names': 0,
+    'no-multi-assign': 0,
+    'no-param-reassign': 0,
+    'consistent-return': 0,
+    'prefer-destructuring': 0,
+  },
+};
