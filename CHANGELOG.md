@@ -1,3 +1,10 @@
+# [6.8.0](https://github.com/mg901/styled-breakpoints/compare/v6.7.3...v6.8.0) (2019-09-15)
+
+
+### Features
+
+* rewrite to es5 ([5648196](https://github.com/mg901/styled-breakpoints/commit/5648196))
+
 ## [6.7.3](https://github.com/mg901/styled-breakpoints/compare/v6.7.2...v6.7.3) (2019-09-12)
 
 
