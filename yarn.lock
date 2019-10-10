@@ -584,9 +584,9 @@
     p-reduce "^2.0.0"
 
 "@semantic-release/github@^5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-5.5.0.tgz#2a9ae28d5980b0282cd646f19fb062128c8862f0"
-  integrity sha512-Rg7cZr1sgUmo5iuzhGOhFdAw6NWGH7I9RbZA1wySO4M+enFkBxtA3Joy+RQKrzbrSAPwEJyP6ZixXXB1qfKAtg==
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-5.5.3.tgz#280f5c3d1cbcd469005b0858867d8ceb41c7bc8f"
+  integrity sha512-7Fl6LRYA20Wn440gPWB+uZ3A1slokKS47Kd4uxQnXt4t4lXYTMrg1tpzkY1FUQgsWqq8PFgoJ3lCPoo8JOQwKg==
   dependencies:
     "@octokit/rest" "^16.27.0"
     "@semantic-release/error" "^2.2.0"
@@ -597,8 +597,8 @@
     fs-extra "^8.0.0"
     globby "^10.0.0"
     http-proxy-agent "^2.1.0"
-    https-proxy-agent "^2.2.1"
-    issue-parser "^4.0.0"
+    https-proxy-agent "^3.0.0"
+    issue-parser "^5.0.0"
     lodash "^4.17.4"
     mime "^2.4.3"
     p-filter "^2.0.0"
@@ -3997,6 +3997,14 @@ https-proxy-agent@^2.2.1:
     agent-base "^4.3.0"
     debug "^3.1.0"
 
+https-proxy-agent@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-3.0.0.tgz#0106efa5d63d6d6f3ab87c999fa4877a3fd1ff97"
+  integrity sha512-y4jAxNEihqvBI5F3SaO2rtsjIOnnNA8sEbuiP+UhJZJHeM2NRm6c09ax2tgqme+SgUUvjao2fJXF4h3D6Cb2HQ==
+  dependencies:
+    agent-base "^4.3.0"
+    debug "^3.1.0"
+
 humanize-ms@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/humanize-ms/-/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
@@ -4617,10 +4625,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-issue-parser@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/issue-parser/-/issue-parser-4.0.0.tgz#397817323abbb70c7c29cea2ff62448cf83b686c"
-  integrity sha512-1RmmAXHl5+cqTZ9dRr861xWy0Gkc9TWTEklgjKv+nhlB1dY1NmGBV8b20jTWRL5cPGpOIXkz84kEcDBM8Nc0cw==
+issue-parser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/issue-parser/-/issue-parser-5.0.0.tgz#0e22a40bc275b6c7da6ddf4a9b979e8ca9faf0d4"
+  integrity sha512-q/16W7EPHRL0FKVz9NU++TUsoygXGj6JOi88oulyAcQG+IEZ0T6teVdE+VLbe19OfL/tbV8Wi3Dfo0HedeHW0Q==
   dependencies:
     lodash.capitalize "^4.2.1"
     lodash.escaperegexp "^4.1.2"
