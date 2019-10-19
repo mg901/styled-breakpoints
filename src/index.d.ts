@@ -16,23 +16,14 @@ export interface IBpProps {
 
 type RuleFnType = (props: IBpProps) => string;
 
-export function up(
-  breakName: keyof IBreakpoints,
-  orientation?: string,
-): RuleFnType;
+export function up(breakName: string, orientation?: string): RuleFnType;
 
-export function down(
-  breakName: keyof IBreakpoints,
-  orientation?: string,
-): RuleFnType;
+export function down(breakName: string, orientation?: string): RuleFnType;
 
 export function between(
-  minBreak: keyof IBreakpoints,
-  maxBreak: keyof IBreakpoints,
-  orientation?: string,
+  minBreak: string,
+  maxBreak: string,
+  orientation?: string
 ): RuleFnType;
 
-export function only(
-  breakName: keyof IBreakpoints,
-  orientation?: string,
-): RuleFnType;
+export function only(breakName: string, orientation?: string): RuleFnType;
