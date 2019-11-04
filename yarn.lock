@@ -606,9 +606,9 @@
     url-join "^4.0.0"
 
 "@semantic-release/npm@^5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@semantic-release/npm/-/npm-5.3.1.tgz#7ba5ad0112cf8bb624c4843779c104ea6613bcf5"
-  integrity sha512-uHMU0g/HsnDSJRNIj52MX/frNxbtYtmW/TJXtLC13sx+GLjGRGUc+vMwYqPovY1gEk6UmDTGEi31C9POpO9dLQ==
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/@semantic-release/npm/-/npm-5.3.4.tgz#2998cd9455aaedf278334d4a5b56f8e0b715919d"
+  integrity sha512-XjITNRA/oOpJ7BfHk/WaOHs1WniYBszTde/bwADjjk1Luacpxg87jbDQVVt/oA3Zlx+MelxACRIEuRiPC5gu8g==
   dependencies:
     "@semantic-release/error" "^2.2.0"
     aggregate-error "^3.0.0"
