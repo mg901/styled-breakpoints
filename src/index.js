@@ -154,7 +154,7 @@ var calcMaxWidth = function(breakName, theme) {
 };
 
 // up :: (String, ?String) -> Object -> String
-exports.up = function(breakName, orientation) {
+var up = function(breakName, orientation) {
   return function(props) {
     return withOrientationOrNot(
       withMinMedia(calcMinWidth(breakName, props.theme)),
@@ -164,7 +164,7 @@ exports.up = function(breakName, orientation) {
 };
 
 // down :: (String, ?String) -> Object -> String
-exports.down = function(breakName, orientation) {
+var down = function(breakName, orientation) {
   return function(props) {
     return withOrientationOrNot(
       withMaxMedia(calcMaxWidth(breakName, props.theme)),
@@ -174,7 +174,7 @@ exports.down = function(breakName, orientation) {
 };
 
 // between :: (String, String, ?String) -> Object -> String
-exports.between = function(minBreak, maxBreak, orientation) {
+var between = function(minBreak, maxBreak, orientation) {
   return function(props) {
     return withOrientationOrNot(
       withMinAndMaxMedia(
@@ -187,7 +187,7 @@ exports.between = function(minBreak, maxBreak, orientation) {
 };
 
 // only :: (String, ?String) -> Object -> String
-exports.only = function(breakName, orientation) {
+var only = function(breakName, orientation) {
   return function(props) {
     return withOrientationOrNot(
       withMinAndMaxMedia(
@@ -197,4 +197,26 @@ exports.only = function(breakName, orientation) {
       orientation
     );
   };
+};
+
+module.exports = {
+  DEFAULT_BREAKS_MAP,
+  invariant,
+  withOrientationOrNot,
+  withMinMedia,
+  withMaxMedia,
+  withMinAndMaxMedia,
+  calcMinWidth,
+  calcMaxWidth,
+  getBreakpointValue,
+  getNextBreakpointValue,
+  getNextBreakpointName,
+  makeErrorMessage,
+  toEm,
+  setCustomOrDefaultTheme,
+  isObject,
+  up,
+  down,
+  between,
+  only,
 };
