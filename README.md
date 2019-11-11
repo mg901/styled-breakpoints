@@ -12,9 +12,13 @@
 <a href="https://bundlephobia.com/result?p=styled-breakpoints@6.8.0">
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints.svg?style=flat-square">
 </a>
+<a href="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
+  <img alt="npm downloads" src="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
+</a>
 <a href="https://www.npmjs.com/package/styled-breakpoints">
 <img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
+
 </h1>
 </div>
 <br>
