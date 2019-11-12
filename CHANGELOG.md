@@ -1,3 +1,10 @@
+## [6.10.1](https://github.com/mg901/styled-breakpoints/compare/v6.10.0...v6.10.1) (2019-11-12)
+
+
+### Bug Fixes
+
+* fix entry point for modules ([f8ff3a5](https://github.com/mg901/styled-breakpoints/commit/f8ff3a514bf20908229085872b292b01d8ce3097))
+
 # [6.10.0](https://github.com/mg901/styled-breakpoints/compare/v6.9.1...v6.10.0) (2019-11-12)
 
 
