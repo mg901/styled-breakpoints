@@ -1,10 +1,8 @@
 module.exports = {
-  collectCoverage: false,
   roots: ['<rootDir>/src'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.(ts|js)$': 'ts-jest',
   },
-  testEnvironment: 'node',
-  testRegex: '(/test/.*|(\\.|/)(test|spec))\\.js$',
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|js)$',
+  moduleFileExtensions: ['ts', 'js', 'json'],
 };
