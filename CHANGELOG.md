@@ -1,3 +1,11 @@
+# [6.10.0](https://github.com/mg901/styled-breakpoints/compare/v6.9.1...v6.10.0) (2019-11-12)
+
+
+### Features
+
+* add new keyword ([6b31312](https://github.com/mg901/styled-breakpoints/commit/6b313129f3a944fd11dc61b22f980bac080abed5))
+* rewrite on typescript ([1e3e32b](https://github.com/mg901/styled-breakpoints/commit/1e3e32b307a0807315db8cf8de5c78f5b1023ef3))
+
 ## [6.9.1](https://github.com/mg901/styled-breakpoints/compare/v6.9.0...v6.9.1) (2019-10-19)
 
 
