@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.tabSize": 2,
+  "eslint.packageManager": "yarn",
+  "files.autoSave": "onFocusChange",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "breadcrumbs.enabled": true,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true
+}
