@@ -1,21 +1,21 @@
-interface IProps {
+export interface IProps {
   theme: object;
 }
 
-type Orientation = 'portrait' | 'landscape';
+export type Orientation = 'portrait' | 'landscape';
 
-interface IMediaQueries {
+export interface IMediaQueries {
   [key: string]: string;
 }
 
-interface IOptions {
+export interface IOptions {
   _browserContext?: number;
   pathToMediaQueries?: string[];
   errorPrefix?: string;
   defaultMediaQueries?: IMediaQueries;
 }
 
-interface IState {
+export interface IState {
   _browserContext: number;
   pathToMediaQueries: string[];
   errorPrefix: string;
