@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "ESNext",
+    "strict": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": ["es6"],
+    "removeComments": true,
+    "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest", "node"]
+  },
+  "files": ["src/index.ts"],
+  "include": ["node_modules/@types"],
+  "exclude": ["node_modules/**", "src/lib.ts", "dist/**", "**/*.spec.ts"]
+}
