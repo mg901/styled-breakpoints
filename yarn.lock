@@ -601,9 +601,9 @@
     tempy "^0.3.0"
 
 "@semantic-release/release-notes-generator@^7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-7.3.2.tgz#a858b35c9c62f780d285aeaca8ef9891a62c2f9c"
-  integrity sha512-vYGydZPoQqL4aJOsaqXTZIekRb3aa/OlxlEVUvyrWWlNGqmQ1T7NUOos9eoN5DBCEuk6PwDrxPbhzgswxcvprQ==
+  version "7.3.3"
+  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-7.3.3.tgz#1827de68a80facd74a62cb6e7b0bd6dab22ce088"
+  integrity sha512-uF7f9+epsxGNE39i0Ssu56V4w/xd3L4/yWw7FeAFp+SNLXPWTkTErdF2wwkVpxpRpCdgXsoj6T01tMN8tPfciQ==
   dependencies:
     conventional-changelog-angular "^5.0.0"
     conventional-changelog-writer "^4.0.0"
