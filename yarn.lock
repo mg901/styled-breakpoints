@@ -616,25 +616,25 @@
     lodash "^4.17.4"
     read-pkg-up "^7.0.0"
 
-"@size-limit/file@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-2.2.0.tgz#8595668bada5bf792d319acc8bcd84564ff498f7"
-  integrity sha512-FCrrpOh9YF1UHYilspC0R1+Di/yso0Tcam7m6GXTqgY+Uvv7HJ3LPG4TXvLbUSbgzLKRDVdf3JX7GRMH5+yfKA==
+"@size-limit/file@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-2.2.1.tgz#112a13652a87070974b31d5fae191c4392931d08"
+  integrity sha512-ZmIgXZLO4jxPhlHVe679Q2LZOPz7KJ7OsAwlu/RD7YW3H4kwO8T8VYM7Y0eDv7atxHeP7rwLQyFEUpkkPUOOCQ==
   dependencies:
-    size-limit "2.2.0"
+    size-limit "2.2.1"
 
 "@size-limit/preset-small-lib@^2.1.6":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-2.2.0.tgz#2269a79aebbe07a9b4dc7772f73537ff06abfc80"
-  integrity sha512-uynALDeNbWd7yxgBaYyqBGWWn13whBUETl7R5lBIPigJdcABrW4m1nZAhj551YGPolALS10uswpp8zhhPEFVMA==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-2.2.1.tgz#b90fcc568b2358e48af40bac53287bb1534dcec7"
+  integrity sha512-DY8TaHux06rlhKcub7dKiG6bEyMQcPCsvmJAqrHpeFlzZbNzFi9CDub9Wv9hVKFx1TzELyWIwz1Ryo4L8nZBXg==
   dependencies:
-    "@size-limit/file" "2.2.0"
-    "@size-limit/webpack" "2.2.0"
+    "@size-limit/file" "2.2.1"
+    "@size-limit/webpack" "2.2.1"
 
-"@size-limit/webpack@2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-2.2.0.tgz#620bb49a9290eb93247c10fa6a0baa2f8fe62e10"
-  integrity sha512-FeisYCZmcTsPmCtbi1+M4lo7EgeI2Wf/ePpc4iEfk+Z6IxVbjCSs5kgEPVncy9053y6TWrltAKWkMqU5l6jjUQ==
+"@size-limit/webpack@2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-2.2.1.tgz#afb258c5d36c35449b9f8322d6d52a37d3cfc8aa"
+  integrity sha512-VHiKIx+f8xG0G/msgLnUlMLuWjsdrFwxbKTJlAItmkz7mJJhLt+K2bRi5RFn+wxEwrcpgg8lfDXqoCv3mZjFJg==
   dependencies:
     css-loader "^3.2.0"
     escape-string-regexp "^2.0.0"
@@ -642,7 +642,7 @@
     nanoid "^2.1.6"
     optimize-css-assets-webpack-plugin "^5.0.3"
     rimraf "^3.0.0"
-    size-limit "2.2.0"
+    size-limit "2.2.1"
     style-loader "^1.0.0"
     webpack "^4.41.2"
     webpack-bundle-analyzer "^3.6.0"
@@ -8795,10 +8795,10 @@ sisteransi@^1.0.3:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha512-/ekMoM4NJ59ivGSfKapeG+FWtrmWvA1p6FBZwXrqojw90vJu8lBmrTxCMuBCydKtkaUe2zt4PlxeTKpjwMbyig==
 
-size-limit@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-2.2.0.tgz#12beb2d13c39dfa8b59e8948a55032f7fcdb7b0f"
-  integrity sha512-abAzntQYKcpOBL0PB1TqBt/p7bTEYi//rCSYQrtRzOVfcXhbHz8FZ18lYjtnzzGR0ZpHt9Z0EWNVBWmYmXpBCg==
+size-limit@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-2.2.1.tgz#6511471ba0296c9954df919005802d02af818d6d"
+  integrity sha512-V6SraFSyRs+JKSTJaZy5etA4ltx/LKE2pTfbMv2ojmgJLA6QwfRGZdYnED5GBzjJs3aIjrqDkmpc0QjIYkNiYg==
   dependencies:
     bytes "^3.1.0"
     chalk "^3.0.0"
