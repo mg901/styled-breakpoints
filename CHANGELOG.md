@@ -1,3 +1,16 @@
+# [7.0.0](https://github.com/mg901/styled-breakpoints/compare/v6.11.0...v7.0.0) (2019-11-18)
+
+
+### Code Refactoring
+
+* replace interfaces with types ([0cab390](https://github.com/mg901/styled-breakpoints/commit/0cab390adc082b6296b56b9efb918166509bdeaf))
+
+
+### BREAKING CHANGES
+
+* replace interfaces IProps, IMediaQueries,
+IOptions, with types Props, MediaQueries, Options
+
 # [6.11.0](https://github.com/mg901/styled-breakpoints/compare/v6.10.1...v6.11.0) (2019-11-12)
 
 
