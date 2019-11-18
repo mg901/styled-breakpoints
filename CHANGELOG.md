@@ -1,3 +1,10 @@
+# [6.11.0](https://github.com/mg901/styled-breakpoints/compare/v6.10.1...v6.11.0) (2019-11-12)
+
+
+### Features
+
+* add export for interfaces ([bcc67a0](https://github.com/mg901/styled-breakpoints/commit/bcc67a0d5a669a5c3f6b3c794c0b1de7abc9e1c1))
+
 ## [6.10.1](https://github.com/mg901/styled-breakpoints/compare/v6.10.0...v6.10.1) (2019-11-12)
 
 
