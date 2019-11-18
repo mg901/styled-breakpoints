@@ -1,56 +1,56 @@
-export interface IProps {
+export type Props = {
   theme: object;
-}
+};
 
 export type Orientation = 'portrait' | 'landscape';
 
-export interface IMediaQueries {
+export type MediaQueries = {
   [key: string]: string;
-}
+};
 
-export interface IOptions {
+export type Options = {
   _browserContext?: number;
   pathToMediaQueries?: string[];
   errorPrefix?: string;
-  defaultMediaQueries?: IMediaQueries;
-}
+  defaultMediaQueries?: MediaQueries;
+};
 
 export interface IState {
   _browserContext: number;
   pathToMediaQueries: string[];
   errorPrefix: string;
-  defaultMediaQueries: IMediaQueries;
+  defaultMediaQueries: MediaQueries;
 }
 
 interface IPrivateMethods {
   _invariant: (x: unknown, y: string) => void;
-  _throwIsInvalidBreakName: (x: string, y: IMediaQueries) => void;
-  _throwIsLastBreak: (x: string, y: IMediaQueries) => void;
-  _throwIsInvalidNextBreakValue: (x: string, y: IMediaQueries) => void;
+  _throwIsInvalidBreakName: (x: string, y: MediaQueries) => void;
+  _throwIsLastBreak: (x: string, y: MediaQueries) => void;
+  _throwIsInvalidNextBreakValue: (x: string, y: MediaQueries) => void;
   _throwIsInvalidOrientation: (x: string) => void;
   _withOrientationOrNot: (x: string, y?: string) => string;
   _toEm: (x: string) => string;
-  _getBreakpointsFromTheme: (x: object) => IMediaQueries;
-  _getNextBreakpointName: (x: string) => (y: IMediaQueries) => string;
-  _getNextBreakpointValue: (x: string, y: IMediaQueries) => string;
-  _getBreakpointValue: (x: string, y: IMediaQueries) => string;
+  _getBreakpointsFromTheme: (x: object) => MediaQueries;
+  _getNextBreakpointName: (x: string) => (y: MediaQueries) => string;
+  _getNextBreakpointValue: (x: string, y: MediaQueries) => string;
+  _getBreakpointValue: (x: string, y: MediaQueries) => string;
   _calcMinWidth: (x: string, y: object) => string;
   _calcMaxWidth: (x: string, y: object) => string;
 }
 
 interface IPublicMethods {
-  up: (x: string, y?: 'portrait' | 'landscape') => (z: IProps) => string;
-  down: (x: string, y?: 'portrait' | 'landscape') => (z: IProps) => string;
+  up: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
+  down: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
   between: (
     a: string,
     b: string,
     c?: 'portrait' | 'landscape'
-  ) => (d: IProps) => string;
-  only: (x: string, y?: 'portrait' | 'landscape') => (z: IProps) => string;
+  ) => (d: Props) => string;
+  only: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
 }
 
 export type StyledBreakpoints = IState & IPrivateMethods & IPublicMethods;
-export type MakeStyledBreakpoints = (x?: IOptions) => StyledBreakpoints;
+export type MakeStyledBreakpoints = (x?: Options) => StyledBreakpoints;
 
 export const _type = function(x: unknown): string {
   return {}.toString.call(x).slice(8, -1);
@@ -86,7 +86,7 @@ export const _withMinAndMaxMedia = function(x: string, y: string): string {
   return '@media (min-width: ' + x + ') and (max-width: ' + y + ')';
 };
 
-type MakeErrorMessage = (x: string, y: IMediaQueries) => string;
+type MakeErrorMessage = (x: string, y: MediaQueries) => string;
 export const _makeErrorMessage: MakeErrorMessage = function(breakName, breaks) {
   return (
     "'" +
@@ -98,9 +98,9 @@ export const _makeErrorMessage: MakeErrorMessage = function(breakName, breaks) {
 };
 
 export const _makeStyledBreakpoints = function(
-  options?: IOptions
+  options?: Options
 ): StyledBreakpoints {
-  const _options: IOptions = options || {};
+  const _options: Options = options || {};
   const state = {
     pathToMediaQueries: _options.pathToMediaQueries || ['breakpoints'],
     errorPrefix: _options.errorPrefix || '[styled-breakpoints]: ',
@@ -116,10 +116,10 @@ export const _makeStyledBreakpoints = function(
         throw new Error(state.errorPrefix + message);
       }
     },
-    _throwIsInvalidBreakName(breakName: string, breaks: IMediaQueries): void {
+    _throwIsInvalidBreakName(breakName: string, breaks: MediaQueries): void {
       state._invariant(breaks[breakName], _makeErrorMessage(breakName, breaks));
     },
-    _throwIsLastBreak(breakName: string, breaks: IMediaQueries): void {
+    _throwIsLastBreak(breakName: string, breaks: MediaQueries): void {
       const names = Object.keys(breaks);
       const penultimateBreakName = names[names.length - 2];
       const isValid = names.indexOf(breakName) !== names.length - 1;
@@ -133,7 +133,7 @@ export const _makeStyledBreakpoints = function(
           "'. See https://github.com/mg901/styled-breakpoints/issues/4 ."
       );
     },
-    _throwIsInvalidNextBreakValue(name: string, breaks: IMediaQueries): void {
+    _throwIsInvalidNextBreakValue(name: string, breaks: MediaQueries): void {
       state._invariant(
         breaks[name],
         "'" +
@@ -162,15 +162,15 @@ export const _makeStyledBreakpoints = function(
     _toEm(x: string): string {
       return parseFloat(x) / state._browserContext + 'em';
     },
-    _getBreakpointsFromTheme(theme: object): IMediaQueries {
+    _getBreakpointsFromTheme(theme: object): MediaQueries {
       return _get(
         state.pathToMediaQueries,
         theme,
         state.defaultMediaQueries
-      ) as IMediaQueries;
+      ) as MediaQueries;
     },
     _getNextBreakpointName(name: string) {
-      return function(breaks: IMediaQueries): string {
+      return function(breaks: MediaQueries): string {
         state._throwIsInvalidBreakName(name, breaks);
         state._throwIsLastBreak(name, breaks);
 
@@ -185,13 +185,13 @@ export const _makeStyledBreakpoints = function(
     // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
     // See https://bugs.webkit.org/show_bug.cgi?id=178261
 
-    _getNextBreakpointValue(name: string, breaks: IMediaQueries): string {
+    _getNextBreakpointValue(name: string, breaks: MediaQueries): string {
       state._throwIsInvalidNextBreakValue(name, breaks);
       const getNextName = state._getNextBreakpointName(name);
 
       return parseFloat(breaks[getNextName(breaks)]) - 0.02 + 'px';
     },
-    _getBreakpointValue(name: string, breaks: IMediaQueries): string {
+    _getBreakpointValue(name: string, breaks: MediaQueries): string {
       state._throwIsInvalidBreakName(name, breaks);
 
       return breaks[name];
@@ -210,7 +210,7 @@ export const _makeStyledBreakpoints = function(
       );
     },
     up(name: string, orientation?: Orientation) {
-      return function(props: IProps): string {
+      return function(props: Props): string {
         return state._withOrientationOrNot(
           _withMinMedia(state._calcMinWidth(name, props.theme)),
           orientation
@@ -218,7 +218,7 @@ export const _makeStyledBreakpoints = function(
       };
     },
     down(name: string, orientation?: Orientation) {
-      return function(props: IProps): string {
+      return function(props: Props): string {
         return state._withOrientationOrNot(
           _withMaxMedia(state._calcMaxWidth(name, props.theme)),
           orientation
@@ -226,7 +226,7 @@ export const _makeStyledBreakpoints = function(
       };
     },
     between(min: string, max: string, orientation?: Orientation) {
-      return function(props: IProps): string {
+      return function(props: Props): string {
         return state._withOrientationOrNot(
           _withMinAndMaxMedia(
             state._calcMinWidth(min, props.theme),
@@ -237,7 +237,7 @@ export const _makeStyledBreakpoints = function(
       };
     },
     only(name: string, orientation?: Orientation) {
-      return function(props: IProps): string {
+      return function(props: Props): string {
         return state._withOrientationOrNot(
           _withMinAndMaxMedia(
             state._calcMinWidth(name, props.theme),
