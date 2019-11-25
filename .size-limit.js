@@ -1,6 +1,6 @@
 module.exports = [
   {
     path: 'dist/index.js',
-    limit: '1000b',
+    limit: '958b',
   },
 ];
