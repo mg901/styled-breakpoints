@@ -11,7 +11,7 @@
     "size": "cross-env size-limit",
     "ts-check": "cross-env tsc --noEmit",
     "ts-check:watch": "npm run ts-check -- --watch",
-    "test": "npm run lint:all && npm run ts-check && npm run test:code && npm run rebuild && npm run size",
+    "test": "npm run lint:all && npm run ts-check && npm run test:code && npm run size",
     "test:watch": "cross-env jest --coverage --watchAll",
     "test:code": "cross-env jest --coverage",
     "lint:file": "cross-env eslint --ext .ts --quiet --fix",
