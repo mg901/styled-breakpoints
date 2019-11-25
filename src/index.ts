@@ -74,14 +74,6 @@ export const _get: GetFn = function(path, obj, defaultValue) {
   return _get(tail, obj[head], defaultValue);
 };
 
-export const _withMinMedia = function(x: string): string {
-  return '@media (min-width: ' + x + ')';
-};
-
-export const _withMaxMedia = function(x: string): string {
-  return '@media (max-width: ' + x + ')';
-};
-
 export const _withMinAndMaxMedia = function(x: string, y: string): string {
   return '@media (min-width: ' + x + ') and (max-width: ' + y + ')';
 };
@@ -212,7 +204,7 @@ export const _makeStyledBreakpoints = function(
     up(name: string, orientation?: Orientation) {
       return function(props: Props): string {
         return state._withOrientationOrNot(
-          _withMinMedia(state._calcMinWidth(name, props.theme)),
+          '@media (min-width: ' + state._calcMinWidth(name, props.theme) + ')',
           orientation
         );
       };
@@ -220,7 +212,7 @@ export const _makeStyledBreakpoints = function(
     down(name: string, orientation?: Orientation) {
       return function(props: Props): string {
         return state._withOrientationOrNot(
-          _withMaxMedia(state._calcMaxWidth(name, props.theme)),
+          '@media (max-width: ' + state._calcMaxWidth(name, props.theme) + ')',
           orientation
         );
       };
