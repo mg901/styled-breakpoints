@@ -1,8 +1,6 @@
 import {
   _type,
   _get,
-  _withMinMedia,
-  _withMaxMedia,
   _withMinAndMaxMedia,
   _makeStyledBreakpoints,
   _makeErrorMessage,
@@ -65,18 +63,6 @@ describe('get', () => {
     expect(_get(['theme', 'breakpoints'], PROPS_WITH_EMPTY_THEME, 1)).toEqual(
       1
     );
-  });
-});
-
-describe('withMinMedia', () => {
-  it('return media query with the passes value', () => {
-    expect(_withMinMedia('20em')).toEqual('@media (min-width: 20em)');
-  });
-});
-
-describe('withMaxMedia', () => {
-  it('return media query with the passes value', () => {
-    expect(_withMaxMedia('20em')).toEqual('@media (max-width: 20em)');
   });
 });
 
