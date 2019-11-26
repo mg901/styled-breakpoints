@@ -31,7 +31,7 @@
 
 ## Introduction
 
-<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">Styled Components</a>, <a href="https://github.com/emotion-js/emotion">Emotion</a>, <a href="https://github.com/callstack/linaria">Linaria</a> and <a href="https://github.com/4Catalyzer/astroturf">Astroturf</a> with  <strong>TypeScript</strong> and <strong>Flow</strong> type annotations out of the box.</p>
+<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">Styled Components</a>, <a href="https://github.com/emotion-js/emotion">Emotion</a>,  with  <strong>TypeScript</strong> type annotations out of the box.</p>
 
 ## Installation
 
