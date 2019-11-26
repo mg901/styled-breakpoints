@@ -35,8 +35,12 @@
   "author": "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
   "keywords": [
     "media",
+    "styled",
     "react",
+    "preact",
     "media",
+    "emotion",
+    "javascript",
     "css-in-js",
     "breakpoint",
     "media-query",
