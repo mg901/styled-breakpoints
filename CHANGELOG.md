@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/mg901/styled-breakpoints/compare/v7.0.0...v7.1.0) (2019-11-26)
+
+
+### Features
+
+*  reduce size from 1.16kb   to 958b ([30b396c](https://github.com/mg901/styled-breakpoints/commit/30b396cc1e3d212737834a203ba252601be43dad))
+
 # [7.0.0](https://github.com/mg901/styled-breakpoints/compare/v6.11.0...v7.0.0) (2019-11-18)
 
 
