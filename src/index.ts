@@ -15,14 +15,14 @@ export type Options = {
   defaultMediaQueries?: MediaQueries;
 };
 
-export interface IState {
+export type State = {
   _browserContext: number;
   pathToMediaQueries: string[];
   errorPrefix: string;
   defaultMediaQueries: MediaQueries;
-}
+};
 
-interface IPrivateMethods {
+type PrivateMethods = {
   _invariant: (x: unknown, y: string) => void;
   _throwIsInvalidBreakName: (x: string, y: MediaQueries) => void;
   _throwIsLastBreak: (x: string, y: MediaQueries) => void;
@@ -36,9 +36,9 @@ interface IPrivateMethods {
   _getBreakpointValue: (x: string, y: MediaQueries) => string;
   _calcMinWidth: (x: string, y: object) => string;
   _calcMaxWidth: (x: string, y: object) => string;
-}
+};
 
-interface IPublicMethods {
+type PublicMethods = {
   up: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
   down: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
   between: (
@@ -47,9 +47,9 @@ interface IPublicMethods {
     c?: 'portrait' | 'landscape'
   ) => (d: Props) => string;
   only: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-}
+};
 
-export type StyledBreakpoints = IState & IPrivateMethods & IPublicMethods;
+export type StyledBreakpoints = State & PrivateMethods & PublicMethods;
 export type MakeStyledBreakpoints = (x?: Options) => StyledBreakpoints;
 
 export const _type = function(x: unknown): string {
