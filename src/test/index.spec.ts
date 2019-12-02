@@ -16,18 +16,18 @@ import {
 } from './mocks';
 
 const bp = _makeStyledBreakpoints();
-const invariant = bp._invariant;
-const throwIsInvalidBreakName = bp._throwIsInvalidBreakName;
-const throwIsLastBreak = bp._throwIsLastBreak;
-const throwIsInvalidOrientation = bp._throwIsInvalidOrientation;
-const withOrientationOrNot = bp._withOrientationOrNot;
-const getBreakpointsFromTheme = bp._getBreakpointsFromTheme;
-const toEm = bp._toEm;
-const getNextBreakpointName = bp._getNextBreakpointName;
-const getNextBreakpointValue = bp._getNextBreakpointValue;
-const getBrekpointValue = bp._getBreakpointValue;
-const calcMinWidth = bp._calcMaxWidth;
-const calcMaxWidth = bp._calcMaxWidth;
+const invariant = bp.invariant;
+const throwIsInvalidBreakName = bp.throwIsInvalidBreakName;
+const throwIsLastBreak = bp.throwIsLastBreak;
+const throwIsInvalidOrientation = bp.throwIsInvalidOrientation;
+const withOrientationOrNot = bp.withOrientationOrNot;
+const getBreakpointsFromTheme = bp.getBreakpointsFromTheme;
+const toEm = bp.toEm;
+const getNextBreakpointName = bp.getNextBreakpointName;
+const getNextBreakpointValue = bp.getNextBreakpointValue;
+const getBrekpointValue = bp.getBreakpointValue;
+const calcMinWidth = bp.calcMaxWidth;
+const calcMaxWidth = bp.calcMaxWidth;
 const up = bp.up;
 const down = bp.down;
 const between = bp.between;
@@ -102,7 +102,7 @@ describe('custom error prefix', () => {
     });
 
     try {
-      foo._throwIsInvalidBreakName('blabla', BREAKPOINTS);
+      foo.throwIsInvalidBreakName('blabla', BREAKPOINTS);
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -184,7 +184,7 @@ describe('getBreakpointsFromTheme', () => {
     const bp = _makeStyledBreakpoints({
       pathToMediaQueries: [CONFIG_SYMBOL, 'mediaQueries'],
     });
-    expect(bp._getBreakpointsFromTheme(TYPOGRAPHIST_THEME)).toEqual({
+    expect(bp.getBreakpointsFromTheme(TYPOGRAPHIST_THEME)).toEqual({
       desktop: '992px',
       lgDesktop: '1200px',
       tablet: '768px',
