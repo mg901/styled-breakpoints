@@ -9,8 +9,7 @@ module.exports = {
   plugins: ['prettier', '@typescript-eslint'],
   env: {
     node: true,
-    mocha: true,
-    jasmine: true,
+    jest: true,
   },
   rules: {
     'no-unused-vars': 2,
