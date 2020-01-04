@@ -1,3 +1,10 @@
+# [7.2.0](https://github.com/mg901/styled-breakpoints/compare/v7.1.0...v7.2.0) (2020-01-04)
+
+
+### Features
+
+* add theme validation ([51764a7](https://github.com/mg901/styled-breakpoints/commit/51764a715df14a203141d988d172d7ac570edefd))
+
 # [7.1.0](https://github.com/mg901/styled-breakpoints/compare/v7.0.0...v7.1.0) (2019-11-26)
 
 
