@@ -1,63 +1,19 @@
-export type Props = {
-  theme: object;
-};
+import {
+  GetFn,
+  MakeErrorMessage,
+  Options,
+  StyledBreakpoints,
+  MediaQueries,
+  Orientation,
+  Props,
+} from './types';
 
-export type Orientation = 'portrait' | 'landscape';
+export { Options, StyledBreakpoints, MediaQueries, Orientation, Props };
 
-export type MediaQueries = {
-  [key: string]: string;
-};
+export const _type = (x: unknown): string =>
+  Object.prototype.toString.call(x).slice(8, -1);
 
-export type Options = {
-  browserContext?: number;
-  pathToMediaQueries?: string[];
-  errorPrefix?: string;
-  defaultMediaQueries?: MediaQueries;
-};
-
-export type State = {
-  browserContext: number;
-  pathToMediaQueries: string[];
-  errorPrefix: string;
-  defaultMediaQueries: MediaQueries;
-};
-
-type PrivateMethods = {
-  invariant: (x: unknown, y: string) => void;
-  throwIsInvalidBreakName: (x: string, y: MediaQueries) => void;
-  throwIsLastBreak: (x: string, y: MediaQueries) => void;
-  throwIsInvalidNextBreakValue: (x: string, y: MediaQueries) => void;
-  throwIsInvalidOrientation: (x: string) => void;
-  withOrientationOrNot: (x: string, y?: string) => string;
-  toEm: (x: string) => string;
-  getBreakpointsFromTheme: (x: object) => MediaQueries;
-  getNextBreakpointName: (x: string) => (y: MediaQueries) => string;
-  getNextBreakpointValue: (x: string, y: MediaQueries) => string;
-  getBreakpointValue: (x: string, y: MediaQueries) => string;
-  calcMinWidth: (x: string, y: object) => string;
-  calcMaxWidth: (x: string, y: object) => string;
-};
-
-type PublicMethods = {
-  up: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-  down: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-  between: (
-    a: string,
-    b: string,
-    c?: 'portrait' | 'landscape'
-  ) => (d: Props) => string;
-  only: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-};
-
-export type StyledBreakpoints = State & PrivateMethods & PublicMethods;
-export type MakeStyledBreakpoints = (x?: Options) => StyledBreakpoints;
-
-export const _type = function(x: unknown): string {
-  return {}.toString.call(x).slice(8, -1);
-};
-
-type GetFn = <T>(x: string[], y: any, z?: T) => unknown | T;
-export const _get: GetFn = function(path, obj, defaultValue) {
+export const _get: GetFn = (path, obj, defaultValue) => {
   const head = path[0];
   const tail = path.slice(1);
 
@@ -74,24 +30,17 @@ export const _get: GetFn = function(path, obj, defaultValue) {
   return _get(tail, obj[head], defaultValue);
 };
 
-export const _withMinAndMaxMedia = function(x: string, y: string): string {
-  return '@media (min-width: ' + x + ') and (max-width: ' + y + ')';
-};
+export const _withMinAndMaxMedia = (x: string, y: string): string =>
+  `@media (min-width: ${x}) and (max-width: ${y})`;
 
-type MakeErrorMessage = (x: string, y: MediaQueries) => string;
-export const _makeErrorMessage: MakeErrorMessage = function(breakName, breaks) {
-  return (
-    "'" +
-    breakName +
-    "' is invalid breakpoint name. Use '" +
-    Object.keys(breaks).join(', ') +
-    "'."
-  );
-};
+export const _makeErrorMessage: MakeErrorMessage = (breakName, breaks) =>
+  `'${breakName}' is invalid breakpoint name. Use '${Object.keys(breaks).join(
+    ', '
+  )}'.`;
 
-export const _makeStyledBreakpoints = function(
+export const _makeStyledBreakpoints = (
   options?: Options
-): StyledBreakpoints {
+): StyledBreakpoints => {
   const _options: Options = options || {};
   const state = {
     pathToMediaQueries: _options.pathToMediaQueries || ['breakpoints'],
@@ -108,6 +57,14 @@ export const _makeStyledBreakpoints = function(
         throw new Error(state.errorPrefix + message);
       }
     },
+    throwInvalidBreakValue(breaks: MediaQueries): void {
+      Object.keys(breaks).forEach((x) => {
+        state.invariant(
+          x.indexOf('px') !== -1,
+          `Check your theme. '${breaks[x]}' is invalid breakpoint. Use pixels.`
+        );
+      });
+    },
     throwIsInvalidBreakName(breakName: string, breaks: MediaQueries): void {
       state.invariant(breaks[breakName], _makeErrorMessage(breakName, breaks));
     },
@@ -118,41 +75,34 @@ export const _makeStyledBreakpoints = function(
 
       state.invariant(
         isValid,
-        "Don't use '" +
-          breakName +
-          "' because it doesn't have a maximum width. Use '" +
-          penultimateBreakName +
-          "'. See https://github.com/mg901/styled-breakpoints/issues/4 ."
+        `Don't use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4 .`
       );
     },
     throwIsInvalidNextBreakValue(name: string, breaks: MediaQueries): void {
       state.invariant(
         breaks[name],
-        "'" +
-          name +
-          "' is invalid breakpoint name. Use '" +
-          Object.keys(breaks)
-            .slice(0, -1)
-            .join(', ') +
-          "'."
+        `'${name}' is invalid breakpoint name. Use '${Object.keys(breaks)
+          .slice(0, -1)
+          .join(', ')}'.`
       );
     },
     throwIsInvalidOrientation(x: string): void {
       state.invariant(
         x === 'portrait' || x === 'landscape',
-        "'" + x + "' is invalid orientation. Use 'landscape' or 'portrait'."
+        `'${x}' is invalid orientation. Use 'landscape' or 'portrait'.`
       );
     },
     withOrientationOrNot(x: string, y?: string): string {
       if (y) {
         state.throwIsInvalidOrientation(y);
-        return x + ' and (orientation: ' + y + ')';
+
+        return `${x} and (orientation: ${y})`;
       }
 
       return x;
     },
     toEm(x: string): string {
-      return parseFloat(x) / state.browserContext + 'em';
+      return `${parseFloat(x) / state.browserContext}em`;
     },
     getBreakpointsFromTheme(theme: object): MediaQueries {
       return _get(
@@ -162,11 +112,12 @@ export const _makeStyledBreakpoints = function(
       ) as MediaQueries;
     },
     getNextBreakpointName(name: string) {
-      return function(breaks: MediaQueries): string {
+      return (breaks: MediaQueries): string => {
         state.throwIsInvalidBreakName(name, breaks);
         state.throwIsLastBreak(name, breaks);
 
         const names = Object.keys(breaks);
+
         return names[names.indexOf(name) + 1];
       };
     },
@@ -181,7 +132,7 @@ export const _makeStyledBreakpoints = function(
       state.throwIsInvalidNextBreakValue(name, breaks);
       const getNextName = state.getNextBreakpointName(name);
 
-      return parseFloat(breaks[getNextName(breaks)]) - 0.02 + 'px';
+      return `${parseFloat(breaks[getNextName(breaks)]) - 0.02}px`;
     },
     getBreakpointValue(name: string, breaks: MediaQueries): string {
       state.throwIsInvalidBreakName(name, breaks);
@@ -199,42 +150,38 @@ export const _makeStyledBreakpoints = function(
       );
     },
     up(name: string, orientation?: Orientation) {
-      return function(props: Props): string {
-        return state.withOrientationOrNot(
-          '@media (min-width: ' + state.calcMinWidth(name, props.theme) + ')',
+      return (props: Props): string =>
+        state.withOrientationOrNot(
+          `@media (min-width: ${state.calcMinWidth(name, props.theme)})`,
           orientation
         );
-      };
     },
     down(name: string, orientation?: Orientation) {
-      return function(props: Props): string {
-        return state.withOrientationOrNot(
-          '@media (max-width: ' + state.calcMaxWidth(name, props.theme) + ')',
+      return (props: Props): string =>
+        state.withOrientationOrNot(
+          `@media (max-width: ${state.calcMaxWidth(name, props.theme)})`,
           orientation
         );
-      };
     },
     between(min: string, max: string, orientation?: Orientation) {
-      return function(props: Props): string {
-        return state.withOrientationOrNot(
+      return (props: Props): string =>
+        state.withOrientationOrNot(
           _withMinAndMaxMedia(
             state.calcMinWidth(min, props.theme),
             state.calcMaxWidth(max, props.theme)
           ),
           orientation
         );
-      };
     },
     only(name: string, orientation?: Orientation) {
-      return function(props: Props): string {
-        return state.withOrientationOrNot(
+      return (props: Props): string =>
+        state.withOrientationOrNot(
           _withMinAndMaxMedia(
             state.calcMinWidth(name, props.theme),
             state.calcMaxWidth(name, props.theme)
           ),
           orientation
         );
-      };
     },
   };
 
@@ -243,7 +190,7 @@ export const _makeStyledBreakpoints = function(
 
 const bp = _makeStyledBreakpoints();
 
-export const up = bp.up;
-export const down = bp.down;
-export const between = bp.between;
-export const only = bp.only;
+export const { up } = bp;
+export const { down } = bp;
+export const { between } = bp;
+export const { only } = bp;

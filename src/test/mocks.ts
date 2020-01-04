@@ -1,5 +1,12 @@
 export const CONFIG_SYMBOL = '@typographist/styled';
 
+export const INVALID_BREAKPOINTS = {
+  sm: '36em',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+};
+
 export const PROPS_WITH_CUSTOM_THEME = {
   theme: {
     breakpoints: {

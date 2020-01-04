@@ -13,25 +13,29 @@ import {
   CUSTOM_THEME,
   EMPTY_THEME,
   BREAKPOINTS,
+  INVALID_BREAKPOINTS,
 } from './mocks';
 
 const bp = _makeStyledBreakpoints();
-const invariant = bp.invariant;
-const throwIsInvalidBreakName = bp.throwIsInvalidBreakName;
-const throwIsLastBreak = bp.throwIsLastBreak;
-const throwIsInvalidOrientation = bp.throwIsInvalidOrientation;
-const withOrientationOrNot = bp.withOrientationOrNot;
-const getBreakpointsFromTheme = bp.getBreakpointsFromTheme;
-const toEm = bp.toEm;
-const getNextBreakpointName = bp.getNextBreakpointName;
-const getNextBreakpointValue = bp.getNextBreakpointValue;
-const getBrekpointValue = bp.getBreakpointValue;
-const calcMinWidth = bp.calcMaxWidth;
-const calcMaxWidth = bp.calcMaxWidth;
-const up = bp.up;
-const down = bp.down;
-const between = bp.between;
-const only = bp.only;
+const {
+  invariant,
+  throwInvalidBreakValue,
+  throwIsInvalidBreakName,
+  throwIsLastBreak,
+  throwIsInvalidOrientation,
+  withOrientationOrNot,
+  getBreakpointsFromTheme,
+  toEm,
+  getNextBreakpointName,
+  getNextBreakpointValue,
+  getBreakpointValue,
+  calcMinWidth,
+  calcMaxWidth,
+  up,
+  down,
+  between,
+  only,
+} = bp;
 
 describe('invariant', () => {
   it('return object Error with error message', () => {
@@ -79,6 +83,19 @@ describe('makeErrorMessage', () => {
     expect(_makeErrorMessage('blabla', BREAKPOINTS)).toEqual(
       "'blabla' is invalid breakpoint name. Use 'sm, md, lg, xl'."
     );
+  });
+});
+
+describe('throwInvalidBreakValue', () => {
+  it('show warn if breakpoints contains values not in pixels', () => {
+    try {
+      throwInvalidBreakValue(INVALID_BREAKPOINTS);
+      expect(true).toEqual(false);
+    } catch (e) {
+      expect(e.message).toEqual(
+        "[styled-breakpoints]: Check your theme. '36em' is invalid breakpoint. Use pixels."
+      );
+    }
   });
 });
 
@@ -206,13 +223,13 @@ describe('getNextBreakpointValue', () => {
 
 describe('getBreakpointValue', () => {
   it('return breakpoint value', () => {
-    expect(getBrekpointValue('md', BREAKPOINTS)).toEqual('768px');
+    expect(getBreakpointValue('md', BREAKPOINTS)).toEqual('768px');
   });
 });
 
 describe('calcMinWidth', () => {
   it('calculate min with in pixels from default theme', () => {
-    expect(calcMinWidth('sm', CUSTOM_THEME)).toEqual('47.99875em');
+    expect(calcMinWidth('sm', CUSTOM_THEME)).toEqual('36em');
   });
 });
 
