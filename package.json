@@ -74,7 +74,7 @@
     "all-contributors-cli": "^6.12.0",
     "commitizen": "^4.0.3",
     "coveralls": "^3.0.7",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
