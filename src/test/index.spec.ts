@@ -14,7 +14,7 @@ import {
   EMPTY_THEME,
   BREAKPOINTS,
   INVALID_BREAKPOINTS,
-} from './mocks';
+} from './mocks.d';
 
 const bp = _makeStyledBreakpoints();
 const {
