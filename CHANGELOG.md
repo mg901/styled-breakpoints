@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/mg901/styled-breakpoints/compare/v8.0.0...v8.0.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* **build:** import from types instead of types.d to fix build ([#513](https://github.com/mg901/styled-breakpoints/issues/513)) ([0595aeb](https://github.com/mg901/styled-breakpoints/commit/0595aeb00207ae9465e304b276d903d9aa59817e))
+
 # [8.0.0](https://github.com/mg901/styled-breakpoints/compare/v7.2.0...v8.0.0) (2020-02-26)
 
 
