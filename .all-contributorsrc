@@ -48,6 +48,17 @@
         "review",
         "talk"
       ]
+    },
+    {
+      "login": "jussikinnula",
+      "name": "Jussi Kinnula",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7287118?v=4",
+      "profile": "https://github.com/jussikinnula",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
-  ]
+  ],
+  "commitConvention": "none"
 }
