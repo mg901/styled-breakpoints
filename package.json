@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "7.2.0",
+  "version": "8.0.0",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/mg901/styled-breakpoints/compare/v7.2.0...v8.0.0) (2020-02-26)
+
+
+### chore
+
+* update node.js to 12.6.1 LTS ([c778a00](https://github.com/mg901/styled-breakpoints/commit/c778a00dcad3922a1701e9ef2ea40588e6b8dee2))
+
+
+### BREAKING CHANGES
+
+* update node.js to 12.6.1 LTS
+
 # [7.2.0](https://github.com/mg901/styled-breakpoints/compare/v7.1.0...v7.2.0) (2020-01-04)
 
 
