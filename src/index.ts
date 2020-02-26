@@ -6,7 +6,7 @@ import {
   MediaQueries,
   Orientation,
   Props,
-} from './types.d';
+} from './types';
 
 export { Options, StyledBreakpoints, MediaQueries, Orientation, Props };
 
