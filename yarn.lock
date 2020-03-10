@@ -835,25 +835,25 @@
   dependencies:
     type-detect "4.0.8"
 
-"@size-limit/file@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.1.1.tgz#17a7bc409ccb8cc0db42fa1ded500f4cf3b840c1"
-  integrity sha512-PKJ3Yr4Zhm7ZKd0akGPBP3XMrFOTOe4KVHtnQmFTMIzCgieZjEq+k83tVFrA4zWzNFh5tzY8T1Cg4ihv2Fi/QQ==
+"@size-limit/file@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-4.3.1.tgz#e6c2a64b724c7475f21ee5b1074f1388c25b1ca9"
+  integrity sha512-rWCUP8Q9jKBKmUecYo9L/mvGtLQsgQm5kVWASsbjXBnE2N8R9TxdiSg85Dmejm9Ivy5tT+wjGntd6an2wOLyNQ==
   dependencies:
     semver "7.1.3"
 
 "@size-limit/preset-small-lib@^4.0.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.1.1.tgz#a7a45e7a64895e8900b4e4331f348b51e0b96385"
-  integrity sha512-dxg14S0bdTjL4CrGuX9NC4x7nKDYxekakDF9CX3LqRWwmh+GTPUE/+2NpBWA6SLtv3vXGznP1i0+man0JE8kLA==
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/preset-small-lib/-/preset-small-lib-4.3.1.tgz#11aa17bc1658dfb3ab6771786c76f84855edce66"
+  integrity sha512-uNp+uY17eF2kLSLG3/FOdvzQt+PywJxTz+CQ2S54TqUIKaLmKzTXSVdfUajR0t3RPHh1J5LDyQy9NUUc3xh/4g==
   dependencies:
-    "@size-limit/file" "4.1.1"
-    "@size-limit/webpack" "4.1.1"
+    "@size-limit/file" "4.3.1"
+    "@size-limit/webpack" "4.3.1"
 
-"@size-limit/webpack@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.1.1.tgz#dcef8c554244995fc7d3fbd69c02c90532866162"
-  integrity sha512-M2CVrhMTRre/bcndN1EzMON39oXsnRwEdYtbhsOul1yNXxBzTWSr6P+z8HlHq3GcwdncwUAj93ZLyxpfPH/Saw==
+"@size-limit/webpack@4.3.1":
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-4.3.1.tgz#5f3e4c0acc395088d9641bec9c098af78715ca90"
+  integrity sha512-FoMYUKz8so76t4HGTuxBYmg3ZLnqOqVywUGzhvpThF0e/lT+EHbP5masm9HprKparQxTPOd5oXF11YhnQ72jnw==
   dependencies:
     css-loader "^3.4.2"
     escape-string-regexp "^2.0.0"
