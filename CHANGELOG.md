@@ -1,3 +1,10 @@
+# [8.1.0](https://github.com/mg901/styled-breakpoints/compare/v8.0.1...v8.1.0) (2020-03-15)
+
+
+### Features
+
+* Add example for using the library with object notation ([#533](https://github.com/mg901/styled-breakpoints/issues/533)) ([0db488d](https://github.com/mg901/styled-breakpoints/commit/0db488dcf09c6e068e230bc57d7b030930013de5))
+
 ## [8.0.1](https://github.com/mg901/styled-breakpoints/compare/v8.0.0...v8.0.1) (2020-02-26)
 
 
