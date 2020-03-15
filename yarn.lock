@@ -6910,10 +6910,14 @@ npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
     validate-npm-package-name "^3.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 npm-packlist@^1.1.12, npm-packlist@^1.1.6, npm-packlist@^1.4.8:
 =======
 npm-packlist@^1.1.12, npm-packlist@^1.4.8:
 >>>>>>> dev
+=======
+npm-packlist@^1.1.12, npm-packlist@^1.1.6, npm-packlist@^1.4.8:
+>>>>>>> master
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.4.8.tgz#56ee6cc135b9f98ad3d51c1c95da22bbb9b2ef3e"
   integrity sha512-5+AZgwru5IevF5ZdnFglB5wNlHG1AOOuw28WhUq8/8emhBmLv6jX5by4WJCh7lW0uSYZYS6DXqIsyZVIXRZU9A==
