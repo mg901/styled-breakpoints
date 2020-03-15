@@ -123,6 +123,26 @@ const Component = styled.div`
 </ThemeProvider>;
 ```
 
+### Object notation
+
+When using object notation, make sure to explicitly pass `props` to breakpoint
+methods. Please see the example below using default configuration:
+
+```js
+import styled from 'styled-components';
+import { down, between } from 'styled-breakpoints';
+
+const Component = styled('div')(props => ({
+  color: 'black',
+  [down('tablet')(props)]: {
+    color: 'lightcoral'
+  },
+  [between('sm', 'md')(props)]: {
+    color: 'hotpink'
+  }
+}))
+```
+
 ## API
 
 <strong>All incoming values are converted to em.</strong>
