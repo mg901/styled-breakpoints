@@ -58,6 +58,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "rafauke",
+      "name": "Rafał Wyszomirski",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/9576167?v=4",
+      "profile": "https://github.com/rafauke",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "commitConvention": "none"
