@@ -86,7 +86,7 @@
     "jest": "^25.1.0",
     "lint-staged": "^10.0.4",
     "onchange": "^6.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.1",
     "rimraf": "^3.0.1",
     "size-limit": "^4.0.1",
     "ts-jest": "^25.0.0",
