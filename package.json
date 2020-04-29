@@ -84,7 +84,7 @@
     "husky": "^4.2.5",
     "jest": "^25.4.0",
     "lint-staged": "^10.1.7",
-    "onchange": "^6.1.1",
+    "onchange": "^7.0.1",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "size-limit": "^4.4.5",
