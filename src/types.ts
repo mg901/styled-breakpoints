@@ -1,5 +1,5 @@
 export type Props = {
-  theme: object;
+  theme: object | any;
 };
 
 export type Orientation = 'portrait' | 'landscape';
