@@ -67,6 +67,26 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "GR34SE",
+      "name": "Adrian Celczyński",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35396312?v=4",
+      "profile": "https://github.com/GR34SE",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "alexolefirenko",
+      "name": "Alexey Olefirenko",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7016947?v=4",
+      "profile": "https://github.com/alexolefirenko",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"
