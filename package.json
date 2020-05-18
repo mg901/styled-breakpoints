@@ -88,7 +88,7 @@
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "size-limit": "^4.4.5",
-    "ts-jest": "^25.4.0",
+    "ts-jest": "^26.0.0",
     "typescript": "^3.8.3"
   }
 }
