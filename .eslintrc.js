@@ -22,6 +22,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-use-before-define': 0,
     '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/ban-types': 0,
     'import/extensions': 0,
   },
   settings: {
