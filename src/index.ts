@@ -188,9 +188,4 @@ export const _makeStyledBreakpoints = (
   return state;
 };
 
-const bp = _makeStyledBreakpoints();
-
-export const { up } = bp;
-export const { down } = bp;
-export const { between } = bp;
-export const { only } = bp;
+export const { up, down, between, only } = _makeStyledBreakpoints();
