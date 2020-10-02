@@ -18,7 +18,7 @@ import {
 
 const bp = _makeStyledBreakpoints();
 const {
-  invariant,
+  throwError,
   throwInvalidBreakValue,
   throwIsInvalidBreakName,
   throwIsLastBreak,
@@ -37,9 +37,9 @@ const {
   only,
 } = bp;
 
-describe('invariant', () => {
+describe('throwError', () => {
   it('return object Error with error message', () => {
-    expect(invariant).toThrow();
+    expect(throwError).toThrow();
   });
 });
 

@@ -4,9 +4,7 @@ export type Props = {
 
 export type Orientation = 'portrait' | 'landscape';
 
-export type MediaQueries = {
-  [key: string]: string;
-};
+export type MediaQueries = Record<string, string>;
 
 export type Options = {
   browserContext?: number;
@@ -23,7 +21,7 @@ export type State = {
 };
 
 export type PrivateMethods = {
-  invariant: (x: unknown, y: string) => void;
+  throwError: (y: string) => never;
   throwInvalidBreakValue: (x: MediaQueries) => void;
   throwIsInvalidBreakName: (x: string, y: MediaQueries) => void;
   throwIsLastBreak: (x: string, y: MediaQueries) => void;
@@ -40,14 +38,10 @@ export type PrivateMethods = {
 };
 
 export type PublicMethods = {
-  up: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-  down: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
-  between: (
-    a: string,
-    b: string,
-    c?: 'portrait' | 'landscape'
-  ) => (d: Props) => string;
-  only: (x: string, y?: 'portrait' | 'landscape') => (z: Props) => string;
+  up: (x: string, y?: Orientation) => (z: Props) => string;
+  down: (x: string, y?: Orientation) => (z: Props) => string;
+  between: (a: string, b: string, c?: Orientation) => (d: Props) => string;
+  only: (x: string, y?: Orientation) => (z: Props) => string;
 };
 
 export type StyledBreakpoints = State & PrivateMethods & PublicMethods;

@@ -52,45 +52,49 @@ export const _makeStyledBreakpoints = (
     },
     browserContext: 16,
 
-    invariant(condition: unknown, message: string): void {
-      if (!condition) {
-        throw new Error(state.errorPrefix + message);
-      }
+    throwError(message: string): never {
+      throw Error(state.errorPrefix + message);
     },
     throwInvalidBreakValue(breaks: MediaQueries): void {
       Object.keys(breaks).forEach((x) => {
-        state.invariant(
-          x.indexOf('px') !== -1,
-          `Check your theme. '${breaks[x]}' is invalid breakpoint. Use pixels.`
-        );
+        if (x.indexOf('px') === -1) {
+          state.throwError(
+            `Check your theme. '${breaks[x]}' is invalid breakpoint. Use pixels.`
+          );
+        }
       });
     },
     throwIsInvalidBreakName(breakName: string, breaks: MediaQueries): void {
-      state.invariant(breaks[breakName], _makeErrorMessage(breakName, breaks));
+      if (!breaks[breakName]) {
+        state.throwError(_makeErrorMessage(breakName, breaks));
+      }
     },
     throwIsLastBreak(breakName: string, breaks: MediaQueries): void {
       const names = Object.keys(breaks);
       const penultimateBreakName = names[names.length - 2];
-      const isValid = names.indexOf(breakName) !== names.length - 1;
+      const isInvalid = names.indexOf(breakName) === names.length - 1;
 
-      state.invariant(
-        isValid,
-        `Don't use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-      );
+      if (isInvalid) {
+        state.throwError(
+          `Don't use '${breakName}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+        );
+      }
     },
     throwIsInvalidNextBreakValue(name: string, breaks: MediaQueries): void {
-      state.invariant(
-        breaks[name],
-        `'${name}' is invalid breakpoint name. Use '${Object.keys(breaks)
-          .slice(0, -1)
-          .join(', ')}'.`
-      );
+      if (!breaks[name]) {
+        state.throwError(
+          `'${name}' is invalid breakpoint name. Use '${Object.keys(breaks)
+            .slice(0, -1)
+            .join(', ')}'.`
+        );
+      }
     },
     throwIsInvalidOrientation(x: string): void {
-      state.invariant(
-        x === 'portrait' || x === 'landscape',
-        `'${x}' is invalid orientation. Use 'landscape' or 'portrait'.`
-      );
+      if (x !== 'portrait' && x !== 'landscape') {
+        state.throwError(
+          `'${x}' is invalid orientation. Use 'landscape' or 'portrait'.`
+        );
+      }
     },
     withOrientationOrNot(x: string, y?: string): string {
       if (y) {
@@ -188,9 +192,4 @@ export const _makeStyledBreakpoints = (
   return state;
 };
 
-const bp = _makeStyledBreakpoints();
-
-export const { up } = bp;
-export const { down } = bp;
-export const { between } = bp;
-export const { only } = bp;
+export const { up, down, between, only } = _makeStyledBreakpoints();
