@@ -53,7 +53,7 @@ export const _makeStyledBreakpoints = (
     browserContext: 16,
 
     throwError(message: string): never {
-      throw new Error(state.errorPrefix + message);
+      throw Error(state.errorPrefix + message);
     },
     throwInvalidBreakValue(breaks: MediaQueries): void {
       Object.keys(breaks).forEach((x) => {
@@ -65,7 +65,6 @@ export const _makeStyledBreakpoints = (
       });
     },
     throwIsInvalidBreakName(breakName: string, breaks: MediaQueries): void {
-      state.throwError(breaks[breakName]);
       if (!breaks[breakName]) {
         state.throwError(_makeErrorMessage(breakName, breaks));
       }
