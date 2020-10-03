@@ -1,3 +1,10 @@
+## [8.1.2](https://github.com/mg901/styled-breakpoints/compare/v8.1.1...v8.1.2) (2020-10-03)
+
+
+### Bug Fixes
+
+* fix readme ([#784](https://github.com/mg901/styled-breakpoints/issues/784)) ([591b994](https://github.com/mg901/styled-breakpoints/commit/591b99406fa6c64403b601961331816343c19758))
+
 ### Bug Fixes
 
 - change Props theme type ([#616](https://github.com/mg901/styled-breakpoints/issues/616)) ([654f761](https://github.com/mg901/styled-breakpoints/commit/654f76115746f94d23cf2e0967a300b4da51a9ce))
