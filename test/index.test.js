@@ -1,10 +1,5 @@
-import {
-  _type,
-  _get,
-  _withMinAndMaxMedia,
-  _makeStyledBreakpoints,
-  _makeErrorMessage,
-} from '.';
+import { type, get, withMinAndMaxMedia, makeErrorMessage } from '../core/utils';
+import { makeStyledBreakpoints } from '../core/make-styled-breakpoints';
 import {
   CONFIG_SYMBOL,
   CONTEXT_WITH_CUSTOM_THEME,
@@ -16,7 +11,6 @@ import {
   INVALID_BREAKPOINTS,
 } from './mocks';
 
-const bp = _makeStyledBreakpoints();
 const {
   invariant,
   throwInvalidBreakValue,
@@ -35,7 +29,7 @@ const {
   down,
   between,
   only,
-} = bp;
+} = makeStyledBreakpoints();
 
 describe('invariant', () => {
   it('return object Error with error message', () => {
@@ -45,17 +39,17 @@ describe('invariant', () => {
 
 describe('type', () => {
   it("it return 'true' if is an object", () => {
-    expect(_type({})).toEqual('Object');
+    expect(type({})).toEqual('Object');
   });
 
   it("it return 'true' if isn't an object", () => {
-    expect(_type(undefined)).toEqual('Undefined');
+    expect(type(undefined)).toEqual('Undefined');
   });
 });
 
 describe('get', () => {
   it('return value stored at the specified path', () => {
-    expect(_get(['theme', 'breakpoints'], CONTEXT_WITH_CUSTOM_THEME)).toEqual({
+    expect(get(['theme', 'breakpoints'], CONTEXT_WITH_CUSTOM_THEME)).toEqual({
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -64,7 +58,7 @@ describe('get', () => {
   });
 
   it('if there is nothing on the specified path, it defaults', () => {
-    expect(_get(['theme', 'breakpoints'], CONTEXT_WITH_EMPTY_THEME, 1)).toEqual(
+    expect(get(['theme', 'breakpoints'], CONTEXT_WITH_EMPTY_THEME, 1)).toEqual(
       1
     );
   });
@@ -72,7 +66,7 @@ describe('get', () => {
 
 describe('withMinAndMaxMedia', () => {
   it('return media query with the passes value', () => {
-    expect(_withMinAndMaxMedia('20em', '40em')).toEqual(
+    expect(withMinAndMaxMedia('20em', '40em')).toEqual(
       '@media (min-width: 20em) and (max-width: 40em)'
     );
   });
@@ -80,7 +74,7 @@ describe('withMinAndMaxMedia', () => {
 
 describe('makeErrorMessage', () => {
   it('build error message', () => {
-    expect(_makeErrorMessage('blabla', BREAKPOINTS)).toEqual(
+    expect(makeErrorMessage('blabla', BREAKPOINTS)).toEqual(
       "'blabla' is invalid breakpoint name. Use 'sm, md, lg, xl'."
     );
   });
@@ -114,7 +108,7 @@ describe('throwIsInvalidBreakName', () => {
 
 describe('custom error prefix', () => {
   it('show warn if invalid breakpoint name', () => {
-    const foo = _makeStyledBreakpoints({
+    const foo = makeStyledBreakpoints({
       errorPrefix: '[typographist]: ',
     });
 
@@ -198,7 +192,7 @@ describe('getBreakpointsFromTheme', () => {
   });
 
   it('return media queries from the theme of typographist', () => {
-    const bp = _makeStyledBreakpoints({
+    const bp = makeStyledBreakpoints({
       pathToMediaQueries: [CONFIG_SYMBOL, 'mediaQueries'],
     });
     expect(bp.getBreakpointsFromTheme(TYPOGRAPHIST_THEME)).toEqual({
