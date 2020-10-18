@@ -1,4 +1,4 @@
-export type Props = {
+export type Context = {
   theme: object | any;
 };
 
@@ -38,10 +38,10 @@ export type PrivateMethods = {
 };
 
 export type PublicMethods = {
-  up: (x: string, y?: Orientation) => (z: Props) => string;
-  down: (x: string, y?: Orientation) => (z: Props) => string;
-  between: (a: string, b: string, c?: Orientation) => (d: Props) => string;
-  only: (x: string, y?: Orientation) => (z: Props) => string;
+  up: (x: string, y?: Orientation) => (z: Context) => string;
+  down: (x: string, y?: Orientation) => (z: Context) => string;
+  between: (a: string, b: string, c?: Orientation) => (d: Context) => string;
+  only: (x: string, y?: Orientation) => (z: Context) => string;
 };
 
 export type StyledBreakpoints = State & PrivateMethods & PublicMethods;

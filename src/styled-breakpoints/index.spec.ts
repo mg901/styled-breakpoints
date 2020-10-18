@@ -4,11 +4,11 @@ import {
   _withMinAndMaxMedia,
   _makeStyledBreakpoints,
   _makeErrorMessage,
-} from '..';
+} from '.';
 import {
   CONFIG_SYMBOL,
-  PROPS_WITH_CUSTOM_THEME,
-  PROPS_WITH_EMPTY_THEME,
+  CONTEXT_WITH_CUSTOM_THEME,
+  CONTEXT_WITH_EMPTY_THEME,
   TYPOGRAPHIST_THEME,
   CUSTOM_THEME,
   EMPTY_THEME,
@@ -55,7 +55,7 @@ describe('type', () => {
 
 describe('get', () => {
   it('return value stored at the specified path', () => {
-    expect(_get(['theme', 'breakpoints'], PROPS_WITH_CUSTOM_THEME)).toEqual({
+    expect(_get(['theme', 'breakpoints'], CONTEXT_WITH_CUSTOM_THEME)).toEqual({
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -64,7 +64,7 @@ describe('get', () => {
   });
 
   it('if there is nothing on the specified path, it defaults', () => {
-    expect(_get(['theme', 'breakpoints'], PROPS_WITH_EMPTY_THEME, 1)).toEqual(
+    expect(_get(['theme', 'breakpoints'], CONTEXT_WITH_EMPTY_THEME, 1)).toEqual(
       1
     );
   });
@@ -241,19 +241,19 @@ describe('calcMaxWidth', () => {
 
 describe('up', () => {
   it('should return min breakpoint value and media query', () => {
-    expect(up('sm')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(up('sm')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em)'
     );
   });
 
   it('should return min breakpoint value and media query with portrait orientation', () => {
-    expect(up('sm', 'portrait')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(up('sm', 'portrait')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (orientation: portrait)'
     );
   });
 
   it('should return min breakpoint value and media query with landscape orientation', () => {
-    expect(up('sm', 'landscape')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(up('sm', 'landscape')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (orientation: landscape)'
     );
   });
@@ -261,19 +261,19 @@ describe('up', () => {
 
 describe('down', () => {
   it('should return max breakpoint value and media query', () => {
-    expect(down('sm')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(down('sm')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (max-width: 47.99875em)'
     );
   });
 
   it('should return max breakpoint value and media query with portrait orientation', () => {
-    expect(down('sm', 'portrait')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(down('sm', 'portrait')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (max-width: 47.99875em) and (orientation: portrait)'
     );
   });
 
   it('should return max breakpoint value and media query with landscape orientation', () => {
-    expect(down('sm', 'landscape')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(down('sm', 'landscape')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (max-width: 47.99875em) and (orientation: landscape)'
     );
   });
@@ -281,19 +281,19 @@ describe('down', () => {
 
 describe('between', () => {
   it('should returns a string containing the value of the minimum and maximum breakpoints and media query', () => {
-    expect(between('sm', 'md')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(between('sm', 'md')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 61.99875em)'
     );
   });
 
   it('should returns a string containing the value of the minimum and maximum breakpoints and media query and portrait orientation', () => {
-    expect(between('sm', 'md', 'portrait')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(between('sm', 'md', 'portrait')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 61.99875em) and (orientation: portrait)'
     );
   });
 
   it('should returns a string containing the value of the minimum and maximum breakpoints and media query and landscape orientation', () => {
-    expect(between('sm', 'md', 'landscape')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(between('sm', 'md', 'landscape')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 61.99875em) and (orientation: landscape)'
     );
   });
@@ -301,19 +301,19 @@ describe('between', () => {
 
 describe('only', () => {
   it('should returns a string containing the minimum and maximum values of the current breakpoint and media query', () => {
-    expect(only('sm')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(only('sm')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 47.99875em)'
     );
   });
 
   it('should returns a string containing the minimum and maximum values of the current breakpoint and media query with portrait orientation', () => {
-    expect(only('sm', 'portrait')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(only('sm', 'portrait')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 47.99875em) and (orientation: portrait)'
     );
   });
 
   it('should returns a string containing the minimum and maximum values of the current breakpoint and media query with landscape orientation', () => {
-    expect(only('sm', 'landscape')(PROPS_WITH_CUSTOM_THEME)).toEqual(
+    expect(only('sm', 'landscape')(CONTEXT_WITH_CUSTOM_THEME)).toEqual(
       '@media (min-width: 36em) and (max-width: 47.99875em) and (orientation: landscape)'
     );
   });

@@ -13,7 +13,6 @@ module.exports = {
   },
   rules: {
     'newline-before-return': 2,
-    'no-unused-vars': 2,
     'no-console': 2,
     'import/no-default-export': 2,
     'import/no-self-import': 2,
@@ -23,12 +22,14 @@ module.exports = {
     'no-use-before-define': 0,
     '@typescript-eslint/interface-name-prefix': 0,
     '@typescript-eslint/ban-types': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/prefer-default-export': 0,
     'import/extensions': 0,
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts'],
+        extensions: ['.js', '.ts', '.tsx'],
       },
     },
   },

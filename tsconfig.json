@@ -9,11 +9,13 @@
     "declaration": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "lib": ["es6"],
+    "lib": ["dom", "esnext"],
+    "jsx": "react",
     "removeComments": true,
     "esModuleInterop": true,
     "typeRoots": ["node_modules/@types"],
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "noEmit": true
   },
   "files": ["src/index.ts"],
   "include": ["node_modules/@types"],
