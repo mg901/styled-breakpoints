@@ -23,7 +23,7 @@ export type State = {
 };
 
 export type PrivateMethods = {
-  throwError: (y: string) => never;
+  invariant: (x: unknown, y: string) => void;
   throwInvalidBreakValue: (x: MediaQueries) => void;
   throwIsInvalidBreakName: (x: string, y: MediaQueries) => void;
   throwIsLastBreak: (x: string, y: MediaQueries) => void;
