@@ -8,15 +8,6 @@ import {
   Context,
 } from './types';
 
-export {
-  Options,
-  StyledBreakpoints,
-  MediaQueries,
-  Orientation,
-  Context,
-  Context as Props,
-};
-
 export const _type = (x: unknown): string =>
   Object.prototype.toString.call(x).slice(8, -1);
 

@@ -33,4 +33,13 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['*.config.js'],
+      rules: {
+        'import/no-default-export': 0,
+        'global-require': 0,
+      },
+    },
+  ],
 };

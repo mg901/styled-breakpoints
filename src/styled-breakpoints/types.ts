@@ -2,6 +2,8 @@ export type Context = {
   theme: object | any;
 };
 
+export type Props = Context;
+
 export type Orientation = 'portrait' | 'landscape';
 
 export type MediaQueries = Record<string, string>;
