@@ -1,7 +1,7 @@
 const { useState, useEffect } = require('react');
 const { useTheme } = require('styled-components');
 
-const useBreakpoint = (breakpoint: Function): boolean => {
+exports.useBreakpoint = (breakpoint) => {
   const query = breakpoint({
     theme: useTheme(),
   }).replace(/^@media/, '');
@@ -21,5 +21,3 @@ const useBreakpoint = (breakpoint: Function): boolean => {
 
   return isBreak;
 };
-
-exports.useBreakpoint = useBreakpoint;

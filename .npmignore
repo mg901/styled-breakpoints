@@ -2,11 +2,7 @@
 tsconfig.json
 release.config.js
 package.json
-lint-staged.config.js
-jest.config.js
-commitlint.config.js
 .travis.yml
-.size-limit.js
 .prettierrc
 .prettierignore
 .nvmrc
@@ -18,3 +14,4 @@ commitlint.config.js
 .czrc
 .all-contributorsrc
 .vscode
+test

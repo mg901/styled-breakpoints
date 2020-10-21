@@ -25,26 +25,126 @@
     "url": "https://github.com/mg901/styled-breakpoints/issues"
   },
   "author": "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
-  "keywords": [
-    "media",
-    "styled",
-    "react",
-    "preact",
-    "media",
-    "emotion",
-    "javascript",
-    "css-in-js",
-    "breakpoint",
-    "media-query",
-    "breakpoints",
-    "css-in-react",
-    "media-queries",
-    "typescript",
-    "styled-components",
-    "styled-breakpoints"
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/env"
+        ]
+      }
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "env": {
+      "node": true,
+      "browser": true,
+      "jest": true
+    },
+    "rules": {
+      "newline-before-return": 2,
+      "no-console": 2,
+      "import/no-default-export": 2,
+      "import/no-self-import": 2,
+      "import/no-named-as-default": 2,
+      "arrow-body-style": 2,
+      "no-underscore-dangle": 0,
+      "no-use-before-define": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/prefer-default-export": 0,
+      "import/extensions": 0
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.config.js"
+        ],
+        "rules": {
+          "import/no-default-export": 0,
+          "global-require": 0
+        }
+      }
+    ]
+  },
+  "eslintIgnore": [
+    "**/*.d.ts"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{j,t}s": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  },
+  "size-limit": [
+    {
+      "name": "core",
+      "import": {
+        "index.js": "{ up, down, between, only }"
+      },
+      "limit": "1.15kb"
+    },
+    {
+      "name": "core + react hook",
+      "import": {
+        "index.js": "{ up, down, between, only }",
+        "react/index.js": "{ useBreakpoint }"
+      },
+      "limit": "1.33kb",
+      "ignore": [
+        "react",
+        "styled-components"
+      ]
+    }
+  ],
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -80,5 +180,23 @@
     "size-limit": "^4.6.0",
     "styled-components": "^5.2.0",
     "typescript": "^4.0.3"
-  }
+  },
+  "keywords": [
+    "media",
+    "styled",
+    "react",
+    "preact",
+    "media",
+    "emotion",
+    "javascript",
+    "css-in-js",
+    "breakpoint",
+    "media-query",
+    "breakpoints",
+    "css-in-react",
+    "media-queries",
+    "typescript",
+    "styled-components",
+    "styled-breakpoints"
+  ]
 }
