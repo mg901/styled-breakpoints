@@ -1,9 +1,10 @@
 const { useState, useEffect } = require('react');
 const { useTheme } = require('styled-components');
 
-exports.useBreakpoint = (breakpoint) => {
+const useBreakpoint = (breakpoint) => {
+  const theme = useTheme();
   const query = breakpoint({
-    theme: useTheme(),
+    theme,
   }).replace(/^@media/, '');
 
   const mq = window.matchMedia(query);
@@ -21,3 +22,5 @@ exports.useBreakpoint = (breakpoint) => {
 
   return isBreak;
 };
+
+exports.useBreakpoint = useBreakpoint;

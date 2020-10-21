@@ -78,6 +78,7 @@
     ]
   },
   "eslintIgnore": [
+    "sandbox/**",
     "**/*.d.ts"
   ],
   "husky": {
@@ -139,7 +140,8 @@
     }
   ],
   "peerDependencies": {
-    "react": "^16.8.0"
+    "react": "^17.0.0",
+    "styled-components": "^5.2.0"
   },
   "peerDependenciesMeta": {
     "react": {
