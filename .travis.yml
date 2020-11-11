@@ -11,6 +11,7 @@ branches:
     - master
     - '/^greenkeeper/.*$/'
 script:
+  - npm lint
   - npm test
 after_success:
   - yarn coverage
