@@ -3,8 +3,8 @@
  💅 <br>
  styled-breakpoints <br>
 
-<a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3ARelease">
-<img src="https://github.com/mg901/styled-breakpoints/workflows/Release/badge.svg" alt="Release">
+<a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3Arelease">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/mg901/styled-breakpoints/release?style=flat-square">
 </a>
 
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
