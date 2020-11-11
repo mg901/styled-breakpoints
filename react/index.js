@@ -1,7 +1,7 @@
 const { useState, useEffect } = require('react');
 const { useTheme } = require('styled-components');
 
-exports.useBreakpoint = (breakpoint) => {
+const useBreakpoint = (breakpoint) => {
   const query = breakpoint({
     theme: useTheme(),
   }).replace(/^@media/, '');
@@ -17,7 +17,11 @@ exports.useBreakpoint = (breakpoint) => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [query]);
 
   return isBreak;
+};
+
+module.exports = {
+  useBreakpoint,
 };
