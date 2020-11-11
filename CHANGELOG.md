@@ -1,3 +1,10 @@
+## [8.2.3](https://github.com/mg901/styled-breakpoints/compare/v8.2.2...v8.2.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **readme:** add build status ([084f643](https://github.com/mg901/styled-breakpoints/commit/084f643784a1b6893ad38d625d7738664ede981e))
+
 ## [8.2.2](https://github.com/mg901/styled-breakpoints/compare/v8.2.1...v8.2.2) (2020-11-11)
 
 
