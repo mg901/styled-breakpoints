@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "8.2.0-alpha.2",
+  "version": "8.2.0-alpha.3",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "index.js",
   "types": "index.d.ts",
@@ -120,5 +120,8 @@
     "size-limit": "^4.6.0",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "styled-breakpoints": "^8.2.0-alpha.2"
   }
 }
