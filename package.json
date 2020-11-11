@@ -49,8 +49,23 @@
   },
   "size-limit": [
     {
-      "path": "dist/index.js",
-      "limit": "1007b"
+      "name": "core",
+      "import": {
+        "index.js": "{ up, dow, between, only }"
+      },
+      "limit": "1016 B"
+    },
+    {
+      "name": "core + react hook",
+      "import": {
+        "index.js": "{ up, dow, between, only }",
+        "react/index.js": "{ useBreakpoint }"
+      },
+      "limit": "1.15 KB",
+      "ignore": [
+        "react",
+        "styled-components"
+      ]
     }
   ],
   "prettier": {
