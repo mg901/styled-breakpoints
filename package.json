@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "8.2.0-alpha.3",
+  "version": "8.2.0-alpha.4",
   "description": "Simple and powerfull css breakpoints for styled-components",
   "main": "index.js",
   "types": "index.d.ts",
@@ -87,6 +87,10 @@
       "@semantic-release/github"
     ]
   },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "styled-components": "^5.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
@@ -116,8 +120,10 @@
     "lint-staged": "^10.4.0",
     "onchange": "^7.0.2",
     "prettier": "^2.1.2",
+    "react": "^17.0.1",
     "rimraf": "^3.0.2",
     "size-limit": "^4.6.0",
+    "styled-components": "^5.2.1",
     "ts-jest": "^26.4.1",
     "typescript": "^4.0.3"
   },
