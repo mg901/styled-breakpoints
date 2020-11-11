@@ -1,16 +1,12 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: [
-    'airbnb-base',
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-  ],
-  plugins: ['prettier', '@typescript-eslint'],
+  extends: ['airbnb-base', 'prettier'],
+  plugins: ['prettier'],
   env: {
     node: true,
     jest: true,
+    browser: true,
   },
+  ignorePatterns: ['**/*.d.ts'],
   rules: {
     'newline-before-return': 2,
     'no-unused-vars': 2,
@@ -21,8 +17,6 @@ module.exports = {
     'arrow-body-style': 2,
     'no-underscore-dangle': 0,
     'no-use-before-define': 0,
-    '@typescript-eslint/interface-name-prefix': 0,
-    '@typescript-eslint/ban-types': 0,
     'import/extensions': 0,
   },
   settings: {
