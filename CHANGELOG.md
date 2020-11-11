@@ -1,3 +1,38 @@
+## [8.2.3](https://github.com/mg901/styled-breakpoints/compare/v8.2.2...v8.2.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* **readme:** add build status ([084f643](https://github.com/mg901/styled-breakpoints/commit/084f643784a1b6893ad38d625d7738664ede981e))
+
+## [8.2.2](https://github.com/mg901/styled-breakpoints/compare/v8.2.1...v8.2.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* fix: remove package-lock.json ([de767aa](https://github.com/mg901/styled-breakpoints/commit/de767aa9978fdf258bb363f51919747cb7182315))
+
+## [8.2.1](https://github.com/mg901/styled-breakpoints/compare/v8.2.0...v8.2.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* rename a direactory react-styled with react ([e928b6b](https://github.com/mg901/styled-breakpoints/commit/e928b6bcc0feda172d0bcb10177ce53335b17414))
+
+# [8.2.0](https://github.com/mg901/styled-breakpoints/compare/v8.1.3...v8.2.0) (2020-11-11)
+
+
+### Features
+
+* add useBreakpoint hook for react & styled-components ([#833](https://github.com/mg901/styled-breakpoints/issues/833)) ([708856e](https://github.com/mg901/styled-breakpoints/commit/708856e18c86fdce65db3925ef40192afffefc9e))
+
+## [8.1.3](https://github.com/mg901/styled-breakpoints/compare/v8.1.2...v8.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* set correct types for useBreakpoint hook ([#829](https://github.com/mg901/styled-breakpoints/issues/829)) ([86e12a5](https://github.com/mg901/styled-breakpoints/commit/86e12a56abb13fec77405635dafb487362239238))
+
 ## [8.1.2](https://github.com/mg901/styled-breakpoints/compare/v8.1.1...v8.1.2) (2020-10-03)
 
 
