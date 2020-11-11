@@ -21,7 +21,6 @@ jobs:
       if: branch IN (master, next)
       node_js: node
       script:
-        - npm run build
         - npx semantic-release
       env:
         - secure: frJ1++In/b6TaMfj5KH69L4i5GEOQ1yYRTiFGI9uG2v/Fn55DT+sehPWIS+ADEozS3B/jjptH2OWrhlT4F2DIvxDuAQxeLM5Gpi8GLTLkreG3yOAMc20b2S3Ynco8b4CsLBikN91RYibINkUEV3TN54/BTJHQAOD0JPnh3EeA8W0HdGhBPv/k58bM8KlM4bkYVMXbhKEiynb67Uk/uattSlH3KlvWP7vgCY6Kn9uBTa47Dn5opL/JGaj/U1FpAo0yW6tMJ12kJ6NKFx8RYxd0CERIEcRWWcaZSmhocUzVO820/nhWrqFIZk3ADc9K0NGNyU24pQiyo2OFM+MHoiuD9p+TFIZPfjikKZqiwjad70XOstbhmDgO12TReseCTlH2/9Y+JNSujmAzg1SrdzA/SGo1NhV6ima84j0c3jiSmrYP/jNa6MzrstKMLs5irFckeInURI8nBDIiw42QNll8TBr8RVnE6Pzi4p2WccqEfiuOPS5Xls2E2h6xdXVAMZ3v06jAdTaTItP26hPPMgmVFU9PmMnL4aWPcQoWYkfpi1VD0NPRv2zTMC1hhF8SrJXMZE9/D7rL+fZ/JrUo3vYB1wzIqfe7fa7Qrz0ebboUOD5KhpBZAvEeGt99ptDAjp1y8BdiGRYlcjc7nhfBV9fBJrG1AU3fmyOjgzy7GhYNIM=
