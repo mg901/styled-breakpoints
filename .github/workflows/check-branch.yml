@@ -1,32 +1,30 @@
-name: check branch
+name: Check Branch
 
-on: pull_request
+on: ['push', 'pull_request']
 
 jobs:
-  check:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
+      - uses: actions/checkout@v2
 
-      - name: Cache node modules
-        uses: actions/cache@v1
-        env:
-          cache-name: cache-node-modules
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.0
         with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          node-version: '12.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Install dependencies
-        run: npm i
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test
+            ${{ runner.os }}-yarn-
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn size-limit
