@@ -1,3 +1,10 @@
+## [8.2.2](https://github.com/mg901/styled-breakpoints/compare/v8.2.1...v8.2.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* fix: remove package-lock.json ([de767aa](https://github.com/mg901/styled-breakpoints/commit/de767aa9978fdf258bb363f51919747cb7182315))
+
 ## [8.2.1](https://github.com/mg901/styled-breakpoints/compare/v8.2.0...v8.2.1) (2020-11-11)
 
 
