@@ -1,1 +1,9 @@
-export { Orientation, Props, up, down, between, only } from './core';
+export {
+  MediaQueries,
+  Orientation,
+  Props,
+  up,
+  down,
+  between,
+  only,
+} from './core';
