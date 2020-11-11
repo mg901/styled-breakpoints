@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/mg901/styled-breakpoints/compare/v8.1.3...v8.2.0) (2020-11-11)
+
+
+### Features
+
+* add useBreakpoint hook for react & styled-components ([#833](https://github.com/mg901/styled-breakpoints/issues/833)) ([708856e](https://github.com/mg901/styled-breakpoints/commit/708856e18c86fdce65db3925ef40192afffefc9e))
+
 ## [8.1.3](https://github.com/mg901/styled-breakpoints/compare/v8.1.2...v8.1.3) (2020-11-11)
 
 
