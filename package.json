@@ -1,9 +1,9 @@
 {
   "name": "styled-breakpoints",
-  "version": "8.2.0-alpha.1",
+  "version": "8.2.0-alpha.2",
   "description": "Simple and powerfull css breakpoints for styled-components",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "commit": "cross-env git-cz",
     "test": "cross-env jest --coverage",
@@ -43,9 +43,6 @@
     "typescript",
     "styled-components",
     "styled-breakpoints"
-  ],
-  "files": [
-    "dist"
   ],
   "publishConfig": {
     "access": "public"
