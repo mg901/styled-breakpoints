@@ -2,23 +2,16 @@
   "name": "styled-breakpoints",
   "version": "8.1.2",
   "description": "Simple and powerfull css breakpoints for styled-components",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "rebuild": "npm run clean && npm run build",
-    "build": "cross-env tsc && npm run size",
-    "clean": "cross-env rimraf dist",
-    "size": "cross-env size-limit",
-    "ts-check": "cross-env tsc --noEmit",
-    "ts-check:watch": "npm run ts-check -- --watch",
-    "test": "npm run lint:all && npm run ts-check && npm run test:code",
-    "test:watch": "cross-env jest --coverage --watchAll",
-    "test:code": "cross-env jest --coverage",
-    "lint:file": "cross-env eslint --ext .ts --quiet --fix",
-    "lint:all": "cross-env fixme=fixme eslint --ext .ts src/ --quiet --fix.",
     "commit": "cross-env git-cz",
-    "coverage": "cross-env fixme=fixme cat ./coverage/lcov.info | coveralls",
-    "pretty": "cross-env fixme=fixme prettier './**/**/**.{json,js,ts}' --write",
+    "test": "cross-env jest --coverage",
+    "test:watch": "cross-env jest --coverage --watch",
+    "lint": "cross-env eslint . --fix.",
+    "pretty": "cross-env prettier './**/**/**.{json,js,ts}' --write",
+    "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
+    "size": "cross-env size-limit",
     "semantic-release": "cross-env semantic-release",
     "contributors:add": "cross-env all-contributors add",
     "contributors:generate": "cross-env all-contributors generate"
@@ -51,11 +44,60 @@
     "styled-components",
     "styled-breakpoints"
   ],
-  "files": [
-    "dist"
-  ],
   "publishConfig": {
     "access": "public"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "1007b"
+    }
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{j,t}s": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "styled-components": "^5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "styled-components": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -67,9 +109,6 @@
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@size-limit/preset-small-lib": "^4.6.0",
-    "@types/jest": "^26.0.14",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
     "all-contributors-cli": "^6.17.4",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
@@ -84,11 +123,10 @@
     "husky": "^4.3.0",
     "jest": "^26.4.2",
     "lint-staged": "^10.4.0",
-    "onchange": "^7.0.2",
     "prettier": "^2.1.2",
+    "react": "^17.0.1",
     "rimraf": "^3.0.2",
     "size-limit": "^4.6.0",
-    "ts-jest": "^26.4.1",
-    "typescript": "^4.0.3"
+    "styled-components": "^5.2.1"
   }
 }

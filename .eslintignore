@@ -1,8 +1,0 @@
-dist/
-lib/
-es/
-flow-typed/
-coverage/
-index.d.ts
-index.js.flow
-src/**/*.spec.*

@@ -87,6 +87,16 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "samholmes",
+      "name": "samholmes",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/517469?v=4",
+      "profile": "https://github.com/samholmes",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"
