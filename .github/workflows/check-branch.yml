@@ -26,10 +26,10 @@ jobs:
         run: npm install
 
       - name: Lint
-        run: npm run lint
+        run: npm lint
 
       - name: Test
-        run: npm run test
+        run: npm test
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
@@ -37,4 +37,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check Size
-        run: npm run size
+        run: npm size
