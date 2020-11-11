@@ -31,5 +31,10 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Check Size
-        run: npm run size-limit
+        run: npm run size
