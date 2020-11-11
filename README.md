@@ -3,12 +3,14 @@
  💅 <br>
  styled-breakpoints <br>
 
-<a href="https://travis-ci.org/mg901/styled-breakpoints">
-<img alt="build status" src="https://img.shields.io/travis/mg901/styled-breakpoints/master.svg?style=flat-square">
+<a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3ARelease">
+<img src="https://github.com/mg901/styled-breakpoints/workflows/Release/badge.svg" alt="Release">
 </a>
+
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
 <img alt="coverage status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
+
 <a href="https://bundlephobia.com/result?p=styled-breakpoints@6.8.0">
 <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints.svg?style=flat-square">
 </a>
@@ -132,15 +134,15 @@ methods. Please see the example below using default configuration:
 import styled from 'styled-components';
 import { down, between } from 'styled-breakpoints';
 
-const Component = styled('div')(props => ({
+const Component = styled('div')((props) => ({
   color: 'black',
   [down('tablet')(props)]: {
-    color: 'lightcoral'
+    color: 'lightcoral',
   },
   [between('sm', 'md')(props)]: {
-    color: 'hotpink'
-  }
-}))
+    color: 'hotpink',
+  },
+}));
 ```
 
 ## API
