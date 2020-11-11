@@ -1,3 +1,10 @@
+## [8.1.3](https://github.com/mg901/styled-breakpoints/compare/v8.1.2...v8.1.3) (2020-11-11)
+
+
+### Bug Fixes
+
+* set correct types for useBreakpoint hook ([#829](https://github.com/mg901/styled-breakpoints/issues/829)) ([86e12a5](https://github.com/mg901/styled-breakpoints/commit/86e12a56abb13fec77405635dafb487362239238))
+
 ## [8.1.2](https://github.com/mg901/styled-breakpoints/compare/v8.1.1...v8.1.2) (2020-10-03)
 
 
