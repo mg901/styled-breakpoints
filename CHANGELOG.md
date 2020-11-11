@@ -1,3 +1,10 @@
+## [8.2.1](https://github.com/mg901/styled-breakpoints/compare/v8.2.0...v8.2.1) (2020-11-11)
+
+
+### Bug Fixes
+
+* rename a direactory react-styled with react ([e928b6b](https://github.com/mg901/styled-breakpoints/commit/e928b6bcc0feda172d0bcb10177ce53335b17414))
+
 # [8.2.0](https://github.com/mg901/styled-breakpoints/compare/v8.1.3...v8.2.0) (2020-11-11)
 
 
