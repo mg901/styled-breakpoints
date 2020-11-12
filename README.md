@@ -1,7 +1,19 @@
 <div align="center">
+<p>
+<a href="https://www.styled-components.com" rel="nofollow">
+    <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<strong>OR</strong>&nbsp;&nbsp;&nbsp;
+<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67"><img src="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67" alt="emotion" height="80" width="80" data-canonical-src="https://cdn.rawgit.com/tkh44/emotion/master/emotion.png"></a>
+
+  <p>
+</div>
+
+<div align="center">
 <h1>
- 💅 <br>
- styled-breakpoints <br>
+
+<br/>
+styled-breakpoints <br>
 
 <a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3Arelease">
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/mg901/styled-breakpoints/release?style=flat-square">
@@ -20,20 +32,55 @@
 <a href="https://www.npmjs.com/package/styled-breakpoints">
 <img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
-
 </h1>
+
+<p>Simple and powerful tool for creating media queries.</p>
+
 </div>
 <br>
 <br>
-<br>
 
-## Demo sandbox
+## Mobile First
 
 [![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
 
-## Introduction
+## Desktop First
 
-<p>Styled Breakpoints is simple and powerful tool for creating breakpoints in <a href="https://github.com/styled-components/styled-components">Styled Components</a>, <a href="https://github.com/emotion-js/emotion">Emotion</a>,  with  <strong>TypeScript</strong> type annotations out of the box.</p>
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
+## Hooks API
+
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
+## Documentation
+
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+
+  - [default breakpoints](#default-breakpoints)
+  - [custom breakpoints](#custom-breakpoints)
+  - [object notation](#object-notation)
+
+- [Core API](#core-api)
+
+  - [up](#up)
+  - [down](#down)
+  - [between](#between)
+  - [only](#only)
+
+- [Hooks API](#hooks)
+
+  - [styled components](#react)
+
+    - [react](#react)
+    - [preact](#preact)
+
+  - [emotion](#react)
+    - [react](#react)
+    - [preact](#preact)
+
+- [License](#license)
+- [Contributors](#contributors)
 
 ## Installation
 
@@ -45,46 +92,26 @@ yarn add styled-breakpoints
 npm i styled-breakpoints
 ```
 
-## Usage
+## Getting Started
 
-### With Default breakpoints
-
-```js
-{
-  tablet: '768px',
-  desktop: '992px',
-  lgDesktop: '1200px',
-}
-```
+### Default breakpoints
 
 ```js
 import styled from 'styled-components';
 import { up, down, between, only } from 'styled-breakpoints';
 
+// tablet: '768px',
+// desktop: '992px',
+// lgDesktop: '1200px',
+
 const Component = styled.div`
   color: black;
-
-  ${down('tablet')} {
-    color: lightcoral;
-  }
 
   ${only('tablet')} {
     color: rebeccapurple;
   }
-
-  ${between('tablet', 'desktop')} {
-    color: hotpink;
-  }
-
-  ${up('lgDesktop')} {
-    color: hotpink;
-  }
 `;
 ```
-
-### Custom breakpoints
-
-Breakpoints like [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
 
 ```jsx
 import React from 'react';
@@ -125,6 +152,20 @@ const Component = styled.div`
 </ThemeProvider>;
 ```
 
+### With Default breakpoints
+
+```js
+{
+  tablet: '768px',
+  desktop: '992px',
+  lgDesktop: '1200px',
+}
+```
+
+### Custom breakpoints
+
+Breakpoints like [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
+
 ### Object notation
 
 When using object notation, make sure to explicitly pass `props` to breakpoint
@@ -145,9 +186,11 @@ const Component = styled('div')((props) => ({
 }));
 ```
 
-## API
+## Core API
 
-<strong>All incoming values are converted to em.</strong>
+Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
+
+> All incoming values are converted to em
 
 For example, let's take default values of breakpoints.
 
@@ -156,7 +199,7 @@ For example, let's take default values of breakpoints.
 ```js
 /**
  *
- * @param {string} breakpoint name
+ * @param {string} min-width
  * @param {string} [orientation]
  *
  * @return {string} media quiery
@@ -171,7 +214,7 @@ We occasionally use media queries that go in the other direction (the given scre
 ```js
 /**
  *
- * @param {string} breakpoint name
+ * @param {string} max-width
  * @param {string} [orientation]
  *
  * @return {string} media quiery
@@ -192,8 +235,8 @@ Similarly, media queries may span multiple breakpoint widths:
 ```js
 /**
  *
- * @param {string} min breakpoint name
- * @param {string} max breakpoint name
+ * @param {string} min-width
+ * @param {string} max-width
  * @param {string} [orientation]
  *
  * @return {string} media quiery
@@ -206,7 +249,7 @@ between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.
 ```js
 /**
  *
- * @param {string} breakpoint name
+ * @param {string} min-width
  * @param {string} [orientation]
  *
  * @return {string} media quiery
