@@ -1,4 +1,4 @@
-<div align="center">
+<!-- <div align="center">
 <p>
 <a href="https://www.styled-components.com" rel="nofollow">
     <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px">
@@ -7,7 +7,7 @@
 <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67"><img src="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67" alt="emotion" height="80" width="80" data-canonical-src="https://cdn.rawgit.com/tkh44/emotion/master/emotion.png"></a>
 
   <p>
-</div>
+</div> -->
 
 <div align="center">
 <h1>
@@ -34,7 +34,16 @@ styled-breakpoints <br>
 </a>
 </h1>
 
-<p>Simple and powerful tool for creating media queries.</p>
+<p>Simple and powerful tool for creating media queries with </p>
+
+<p>
+<a href="https://www.styled-components.com" rel="nofollow">
+    <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px">
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;<strong>OR</strong>&nbsp;&nbsp;&nbsp;
+<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67"><img src="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67" alt="emotion" height="80" width="80" data-canonical-src="https://cdn.rawgit.com/tkh44/emotion/master/emotion.png"></a>
+
+  <p>
 
 </div>
 <br>
@@ -61,23 +70,19 @@ styled-breakpoints <br>
   - [custom breakpoints](#custom-breakpoints)
   - [object notation](#object-notation)
 
-- [Core API](#core-api)
+- [API](#api)
 
-  - [up](#up)
-  - [down](#down)
-  - [between](#between)
-  - [only](#only)
+  - [core](#core)
 
-- [Hooks API](#hooks)
+    - [up](#up)
+    - [down](#down)
+    - [between](#between)
+    - [only](#only)
 
-  - [styled components](#react)
+  - [hooks](#hooks-api)
 
-    - [react](#react)
-    - [preact](#preact)
-
-  - [emotion](#react)
-    - [react](#react)
-    - [preact](#preact)
+    - [styled components](#react)
+    - [emotion](#react)
 
 - [License](#license)
 - [Contributors](#contributors)
@@ -97,12 +102,16 @@ npm i styled-breakpoints
 ### Default breakpoints
 
 ```js
+{
+  tablet: '768px',
+  desktop: '992px',
+  lgDesktop: '1200px',
+}
+```
+
+```js
 import styled from 'styled-components';
 import { up, down, between, only } from 'styled-breakpoints';
-
-// tablet: '768px',
-// desktop: '992px',
-// lgDesktop: '1200px',
 
 const Component = styled.div`
   color: black;
@@ -113,8 +122,9 @@ const Component = styled.div`
 `;
 ```
 
+### Custom breakpoints
+
 ```jsx
-import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { up, down, between, only } from 'styled-breakpoints';
 
@@ -152,20 +162,6 @@ const Component = styled.div`
 </ThemeProvider>;
 ```
 
-### With Default breakpoints
-
-```js
-{
-  tablet: '768px',
-  desktop: '992px',
-  lgDesktop: '1200px',
-}
-```
-
-### Custom breakpoints
-
-Breakpoints like [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
-
 ### Object notation
 
 When using object notation, make sure to explicitly pass `props` to breakpoint
@@ -186,7 +182,9 @@ const Component = styled('div')((props) => ({
 }));
 ```
 
-## Core API
+## API
+
+### Core
 
 Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
 
@@ -194,7 +192,7 @@ Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.
 
 For example, let's take default values of breakpoints.
 
-### up
+#### up
 
 ```js
 /**
@@ -207,7 +205,7 @@ For example, let's take default values of breakpoints.
 up('tablet') => '@media (min-width: 768px) { ... }'
 ```
 
-### down
+#### down
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
@@ -230,7 +228,7 @@ We occasionally use media queries that go in the other direction (the given scre
 
 Similarly, media queries may span multiple breakpoint widths:
 
-### between
+#### between
 
 ```js
 /**
@@ -244,7 +242,7 @@ Similarly, media queries may span multiple breakpoint widths:
 between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
 ```
 
-### only
+#### only
 
 ```js
 /**
@@ -257,13 +255,65 @@ between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.
 only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
 ```
 
+### Hooks
+
+#### Styled Components
+
+##### Installation
+
+```
+npm i react styled-components styled-breakpoints
+
+# or
+
+yarn add react styled-components styled-breakpoints
+```
+
+##### Usage
+
+```jsx
+import React from 'react';
+import { useBreakpoint } from 'styled-breakpoints/react-styled';
+
+const App = () => {
+  const isMobile = useBreakpoint(down('tablet'));
+
+  return <>{isMobile ? <Mobile /> : <Tablet>}</>
+}
+```
+
+#### Emotion
+
+##### Installation
+
+```
+npm i react styled-breakpoints @emotion/core @emotion/styled
+
+# or
+
+yarn add react styled-breakpoints @emotion/core @emotion/styled
+```
+
+##### Usage
+
+```jsx
+import React from 'react';
+import { useBreakpoint } from 'styled-breakpoints/react-emotion';
+
+const App = () => {
+  const isMobile = useBraekpoint(down('tablet'));
+
+  return <>{isMobile ? <Mobile /> : <Tablet>}</>
+}
+```
+
 ## License
 
 MIT License
 
 Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
 ## Contributors
 
@@ -293,3 +343,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+```
+
+```
