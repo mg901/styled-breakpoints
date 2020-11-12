@@ -38,23 +38,13 @@ styled-breakpoints <br>
 <br>
 <br>
 
-## Mobile First
-
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
-
-## Desktop First
-
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
-
 ## Documentation
 
 Examples
 
 - [mobile first](#mobile-first)
-- [desktop first](#destkop-first)
-- [hook api](#hooks-api)
-  - [styled components](#styled-components)
-  - [emotion](#emotion)
+- [desktop first](#desktop-first)
+- [hooks api](#hooks-api)
 
 Getting Started
 
@@ -76,16 +66,48 @@ Other
 - [License](#license)
 - [Contributors](#contributors)
 
+## Examples
+
+### Mobile First
+
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
+### Desktop First
+
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
+### Hooks API
+
+#### Styled Components
+
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
+#### Emotion
+
+[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+
 ## Getting Started
 
 ### Installation
 
+#### Styled Components
+
 ```
-yarn i styled-breakpoints
+yarn i styled-components styled-breakpoints
 
 # or
 
-yarn add styled-breakpoints
+yarn add styled-components styled-breakpoints
+```
+
+#### Emotion
+
+```
+yarn i @emotion/core @emotion/styled styled-breakpoints
+
+# or
+
+yarn add @emotion/core @emotion/styled styled-breakpoints
 ```
 
 ### Default breakpoints
@@ -114,7 +136,6 @@ const Component = styled.div`
 ### Custom breakpoints
 
 ```jsx
-import styled, { ThemeProvider } from 'styled-components';
 import { up, down, between, only } from 'styled-breakpoints';
 
 const theme = {
