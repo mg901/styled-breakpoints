@@ -10,3 +10,4 @@ test/
 .nvmrc
 .travis.yml
 yarn.lock
+package-lock.json

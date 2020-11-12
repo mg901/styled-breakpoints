@@ -103,11 +103,11 @@ yarn add styled-components styled-breakpoints
 #### Emotion
 
 ```
-yarn i @emotion/core @emotion/styled styled-breakpoints
+yarn i @emotion/react @emotion/styled styled-breakpoints
 
 # or
 
-yarn add @emotion/core @emotion/styled styled-breakpoints
+yarn add @emotion/react @emotion/styled styled-breakpoints
 ```
 
 ### Default breakpoints

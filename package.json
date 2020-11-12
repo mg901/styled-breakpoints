@@ -30,7 +30,6 @@
     "media",
     "styled",
     "react",
-    "preact",
     "media",
     "emotion",
     "javascript",
@@ -56,15 +55,27 @@
       "limit": "1016 B"
     },
     {
-      "name": "core + react hook",
+      "name": "core + react-styled",
       "import": {
         "index.js": "{ up, dow, between, only }",
-        "react/index.js": "{ useBreakpoint }"
+        "react-styled/index.js": "{ useBreakpoint }"
       },
       "limit": "1.15 KB",
       "ignore": [
         "react",
         "styled-components"
+      ]
+    },
+    {
+      "name": "core + react-emotion",
+      "import": {
+        "index.js": "{ up, dow, between, only }",
+        "react-emotion/index.js": "{ useBreakpoint }"
+      },
+      "limit": "1.15 KB",
+      "ignore": [
+        "react",
+        "@emotion/react"
       ]
     }
   ],
@@ -117,6 +128,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@emotion/react": "^11.0.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
