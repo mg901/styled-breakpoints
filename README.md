@@ -1,14 +1,3 @@
-<!-- <div align="center">
-<p>
-<a href="https://www.styled-components.com" rel="nofollow">
-    <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;<strong>OR</strong>&nbsp;&nbsp;&nbsp;
-<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67"><img src="https://camo.githubusercontent.com/b9a50ea4bd673e101986a46f5e4a36e3bc52afdd4560f496f3384a320fcf3842/68747470733a2f2f63646e2e7261776769742e636f6d2f746b6834342f656d6f74696f6e2f6d61737465722f656d6f74696f6e2e706e67" alt="emotion" height="80" width="80" data-canonical-src="https://cdn.rawgit.com/tkh44/emotion/master/emotion.png"></a>
-
-  <p>
-</div> -->
-
 <div align="center">
 <h1>
 
@@ -57,47 +46,47 @@ styled-breakpoints <br>
 
 [![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
 
-## Hooks API
-
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
-
 ## Documentation
 
+Examples
+
+- [mobile first](#mobile-first)
+- [desktop first](#destkop-first)
+- [hook api](#hooks-api)
+  - [styled components](#styled-components)
+  - [emotion](#emotion)
+
+Getting Started
+
 - [Installation](#installation)
-- [Getting Started](#getting-started)
+- [default breakpoints](#default-breakpoints)
+- [custom breakpoints](#custom-breakpoints)
+- [object notation](#object-notation)
 
-  - [default breakpoints](#default-breakpoints)
-  - [custom breakpoints](#custom-breakpoints)
-  - [object notation](#object-notation)
+API
 
-- [API](#api)
+- [up](#up)
+- [down](#down)
+- [between](#between)
+- [only](#only)
+- [useBreakpoint](#useBreakpoint)
 
-  - [core](#core)
-
-    - [up](#up)
-    - [down](#down)
-    - [between](#between)
-    - [only](#only)
-
-  - [hooks](#hooks-api)
-
-    - [styled components](#react)
-    - [emotion](#react)
+Other
 
 - [License](#license)
 - [Contributors](#contributors)
 
-## Installation
+## Getting Started
+
+### Installation
 
 ```
+yarn i styled-breakpoints
+
+# or
+
 yarn add styled-breakpoints
 ```
-
-```
-npm i styled-breakpoints
-```
-
-## Getting Started
 
 ### Default breakpoints
 
@@ -184,15 +173,13 @@ const Component = styled('div')((props) => ({
 
 ## API
 
-### Core
-
 Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
 
 > All incoming values are converted to em
 
 For example, let's take default values of breakpoints.
 
-#### up
+### up
 
 ```js
 /**
@@ -200,12 +187,12 @@ For example, let's take default values of breakpoints.
  * @param {string} min-width
  * @param {string} [orientation]
  *
- * @return {string} media quiery
+ * @return {string} media query
  */
 up('tablet') => '@media (min-width: 768px) { ... }'
 ```
 
-#### down
+### down
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
@@ -215,7 +202,7 @@ We occasionally use media queries that go in the other direction (the given scre
  * @param {string} max-width
  * @param {string} [orientation]
  *
- * @return {string} media quiery
+ * @return {string} media query
  */
   down('tablet') => '@media (max-width: 991.98px) { ... }'
 ```
@@ -228,7 +215,7 @@ We occasionally use media queries that go in the other direction (the given scre
 
 Similarly, media queries may span multiple breakpoint widths:
 
-#### between
+### between
 
 ```js
 /**
@@ -237,12 +224,12 @@ Similarly, media queries may span multiple breakpoint widths:
  * @param {string} max-width
  * @param {string} [orientation]
  *
- * @return {string} media quiery
+ * @return {string} media query
  */
 between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
 ```
 
-#### only
+### only
 
 ```js
 /**
@@ -250,64 +237,25 @@ between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.
  * @param {string} min-width
  * @param {string} [orientation]
  *
- * @return {string} media quiery
+ * @return {string} media query
  */
 only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
 ```
 
-### Hooks
+### useBreakpoint
 
-#### Styled Components
-
-##### Installation
-
-```
-npm i react styled-components styled-breakpoints
-
-# or
-
-yarn add react styled-components styled-breakpoints
+```js
+/**
+ * @param {function} up | down | between | only
+ *
+ * @return {boolean} is the target breakpoint
+ */
+useBreakpoint(up('tablet')) => boolean
 ```
 
-##### Usage
+## Other
 
-```jsx
-import React from 'react';
-import { useBreakpoint } from 'styled-breakpoints/react-styled';
-
-const App = () => {
-  const isMobile = useBreakpoint(down('tablet'));
-
-  return <>{isMobile ? <Mobile /> : <Tablet>}</>
-}
-```
-
-#### Emotion
-
-##### Installation
-
-```
-npm i react styled-breakpoints @emotion/core @emotion/styled
-
-# or
-
-yarn add react styled-breakpoints @emotion/core @emotion/styled
-```
-
-##### Usage
-
-```jsx
-import React from 'react';
-import { useBreakpoint } from 'styled-breakpoints/react-emotion';
-
-const App = () => {
-  const isMobile = useBraekpoint(down('tablet'));
-
-  return <>{isMobile ? <Mobile /> : <Tablet>}</>
-}
-```
-
-## License
+### License
 
 MIT License
 
@@ -315,7 +263,7 @@ Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
-## Contributors
+### Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
 
