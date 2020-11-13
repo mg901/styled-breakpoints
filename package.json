@@ -115,13 +115,17 @@
   },
   "peerDependencies": {
     "react": "^16.8.0",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "@emotion/react": "^11.0.0"
   },
   "peerDependenciesMeta": {
     "styled-components": {
       "optional": true
     },
     "react": {
+      "optional": true
+    },
+    "@emotion/react": {
       "optional": true
     }
   },
