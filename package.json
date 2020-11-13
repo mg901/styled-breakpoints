@@ -52,7 +52,7 @@
       "import": {
         "index.js": "{ up, dow, between, only }"
       },
-      "limit": "1016 B"
+      "limit": "1020 B"
     },
     {
       "name": "core + react-styled",
