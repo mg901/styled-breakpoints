@@ -1,3 +1,20 @@
+# [9.0.0](https://github.com/mg901/styled-breakpoints/compare/v8.2.3...v9.0.0) (2020-11-13)
+
+
+### Code Refactoring
+
+* replaced default breakpoints ([76bc360](https://github.com/mg901/styled-breakpoints/commit/76bc3600996999a3c1433d9c4c3e30fcbff40db3))
+
+
+### Features
+
+* add support for emotion ([a4c612c](https://github.com/mg901/styled-breakpoints/commit/a4c612c335a521b286eaa66f94d0c49837ac1d1c))
+
+
+### BREAKING CHANGES
+
+* replaced default breakpoints
+
 ## [8.2.3](https://github.com/mg901/styled-breakpoints/compare/v8.2.2...v8.2.3) (2020-11-11)
 
 
