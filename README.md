@@ -53,6 +53,11 @@ Getting Started
 - [custom breakpoints](#custom-breakpoints)
 - [object notation](#object-notation)
 
+Hooks API
+
+- [styled-components](#styled-components)
+- [emotion](#emotion)
+
 API
 
 - [up](#up)
@@ -66,19 +71,27 @@ Other
 - [License](#license)
 - [Contributors](#contributors)
 
+<br/>
+
 ## Examples
 
 ### Mobile First
 
-[![Edit mobile-first](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark)
+<a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+  <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
 
 ### Desktop First
 
-[![Edit desktop first example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark)
+<a href="https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+  <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
 
 ### Hooks API
 
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+  <img alt="Edit styled-components hooks api" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
 
 ## Getting Started
 
@@ -160,7 +173,6 @@ When using object notation, make sure to explicitly pass `props` to breakpoint
 methods. Please see the example below using default configuration:
 
 ```js
-import styled from 'styled-components';
 import { down, between } from 'styled-breakpoints';
 
 const Component = styled('div')((props) => ({
@@ -173,6 +185,35 @@ const Component = styled('div')((props) => ({
   },
 }));
 ```
+
+## Hooks API
+
+### Styled Components
+
+```js
+import { useBreakpoint } from 'styled-breakpoints/react-styled';
+```
+
+Demo
+
+<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+  <img alt="Edit styled-components hooks api" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
+
+### Emotion
+
+```js
+import { useBreakpoint } from 'styled-breakpoints/react-emotion';
+```
+
+Demo
+
+<a href="https://codesandbox.io/s/styled-components-hooks-api-forked-duown?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<img alt="Edit styled-components hooks api (forked)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
+
+<br/>
+<br/s>
 
 ## API
 
