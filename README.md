@@ -109,7 +109,7 @@ import { up, down, between, only } from 'styled-breakpoints';
 const Component = styled.div`
   color: black;
 
-  ${only('tablet')} {
+  ${only('md')} {
     color: rebeccapurple;
   }
 `;
@@ -165,7 +165,7 @@ import { down, between } from 'styled-breakpoints';
 
 const Component = styled('div')((props) => ({
   color: 'black',
-  [down('tablet')(props)]: {
+  [down('md')(props)]: {
     color: 'lightcoral',
   },
   [between('sm', 'md')(props)]: {
@@ -192,7 +192,7 @@ For example, let's take default values of breakpoints.
  *
  * @return {string} media query
  */
-up('tablet') => '@media (min-width: 768px) { ... }'
+up('md') => '@media (min-width: 768px) { ... }'
 ```
 
 ### down
@@ -207,7 +207,7 @@ We occasionally use media queries that go in the other direction (the given scre
  *
  * @return {string} media query
  */
-  down('tablet') => '@media (max-width: 991.98px) { ... }'
+  down('md') => '@media (max-width: 991.98px) { ... }'
 ```
 
 <br/>
@@ -229,7 +229,7 @@ Similarly, media queries may span multiple breakpoint widths:
  *
  * @return {string} media query
  */
-between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
+between('md', 'lg') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
 ```
 
 ### only
@@ -242,7 +242,7 @@ between('tablet', 'desktop') => '@media (min-width: 768px) and (max-width: 1199.
  *
  * @return {string} media query
  */
-only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
+only('md') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
 ```
 
 ### useBreakpoint
@@ -253,7 +253,7 @@ only('tablet') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
  *
  * @return {boolean} is the target breakpoint
  */
-useBreakpoint(up('tablet')) => boolean
+useBreakpoint(up('md')) => boolean
 ```
 
 ## Other
