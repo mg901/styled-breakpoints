@@ -70,19 +70,13 @@ Other
 
 ### Mobile First
 
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+[![Edit mobile-first](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark)
 
 ### Desktop First
 
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
+[![Edit desktop first example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark)
 
 ### Hooks API
-
-#### Styled Components
-
-[![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
-
-#### Emotion
 
 [![Edit styled-breakpoints with TypeScript](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/tender-moon-6q6w8?fontsize=14&module=%2Fsrc%2Flayout.tsx)
 
@@ -90,38 +84,26 @@ Other
 
 ### Installation
 
-#### Styled Components
-
 ```
-yarn i styled-components styled-breakpoints
+yarn i styled-breakpoints
 
 # or
 
-yarn add styled-components styled-breakpoints
-```
-
-#### Emotion
-
-```
-yarn i @emotion/react @emotion/styled styled-breakpoints
-
-# or
-
-yarn add @emotion/react @emotion/styled styled-breakpoints
+yarn styled-breakpoints
 ```
 
 ### Default breakpoints
 
 ```js
 {
-  tablet: '768px',
-  desktop: '992px',
-  lgDesktop: '1200px',
+  sm: '576px',
+  md: '768px',
+  md: '992px',
+  xl: '1200px',
 }
 ```
 
 ```js
-import styled from 'styled-components';
 import { up, down, between, only } from 'styled-breakpoints';
 
 const Component = styled.div`
