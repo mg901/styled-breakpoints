@@ -35,8 +35,6 @@ styled-breakpoints <br>
   <p>
 
 </div>
-<br>
-<br>
 
 ## Documentation
 
@@ -65,13 +63,6 @@ API
 - [between](#between)
 - [only](#only)
 - [useBreakpoint](#useBreakpoint)
-
-Other
-
-- [License](#license)
-- [Contributors](#contributors)
-
-<br/>
 
 ## Examples
 
