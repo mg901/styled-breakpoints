@@ -51,11 +51,6 @@ Getting Started
 - [custom breakpoints](#custom-breakpoints)
 - [object notation](#object-notation)
 
-Hooks API
-
-- [styled-components](#styled-components)
-- [emotion](#emotion)
-
 API
 
 - [up](#up)
@@ -80,8 +75,16 @@ API
 
 ### Hooks API
 
+#### Styled Components
+
 <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
-  <img alt="Edit styled-components hooks api" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+</a>
+
+#### Emotion
+
+<a href="https://codesandbox.io/s/styled-components-hooks-api-forked-duown?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<img alt="Hooks api (Emotion)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
 ## Getting Started
@@ -177,31 +180,19 @@ const Component = styled('div')((props) => ({
 }));
 ```
 
-## Hooks API
+### Hooks API
 
-### Styled Components
+#### Styled Components
 
 ```js
 import { useBreakpoint } from 'styled-breakpoints/react-styled';
 ```
 
-Demo
-
-<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
-  <img alt="Edit styled-components hooks api" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
-
-### Emotion
+#### Emotion
 
 ```js
 import { useBreakpoint } from 'styled-breakpoints/react-emotion';
 ```
-
-Demo
-
-<a href="https://codesandbox.io/s/styled-components-hooks-api-forked-duown?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
-<img alt="Edit styled-components hooks api (forked)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
 
 <br/>
 <br/s>
