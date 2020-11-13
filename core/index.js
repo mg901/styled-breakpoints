@@ -6,9 +6,10 @@ exports.makeStyledBreakpoints = (options) => {
     pathToMediaQueries: _options.pathToMediaQueries || ['breakpoints'],
     errorPrefix: _options.errorPrefix || '[styled-breakpoints]: ',
     defaultMediaQueries: _options.defaultMediaQueries || {
-      tablet: '768px',
-      desktop: '992px',
-      lgDesktop: '1200px',
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
     },
     browserContext: 16,
 

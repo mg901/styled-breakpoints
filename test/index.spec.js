@@ -140,10 +140,11 @@ describe('getBreakpointsFromTheme', () => {
   });
 
   it('return  default breakpoints', () => {
-    expect(getBreakpointsFromTheme(EMPTY_THEME)).toEqual({
-      desktop: '992px',
-      lgDesktop: '1200px',
-      tablet: '768px',
+    expect(getBreakpointsFromTheme(EMPTY_THEME)).toMatchObject({
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
     });
   });
 
@@ -185,7 +186,7 @@ describe('calcMinWidth', () => {
 
 describe('calcMaxWidth', () => {
   it('calculate max with in pixels from default theme', () => {
-    expect(calcMaxWidth('tablet', EMPTY_THEME)).toEqual('61.99875em');
+    expect(calcMaxWidth('sm', EMPTY_THEME)).toEqual('47.99875em');
   });
 });
 
