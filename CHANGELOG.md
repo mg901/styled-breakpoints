@@ -1,3 +1,10 @@
+## [9.0.1](https://github.com/mg901/styled-breakpoints/compare/v9.0.0...v9.0.1) (2020-11-16)
+
+
+### Bug Fixes
+
+* **readme:** fix the link to desktop first ([7c3e867](https://github.com/mg901/styled-breakpoints/commit/7c3e8670cc691030a12a6426e430d2f91e4317c3))
+
 # [9.0.0](https://github.com/mg901/styled-breakpoints/compare/v8.2.3...v9.0.0) (2020-11-13)
 
 
