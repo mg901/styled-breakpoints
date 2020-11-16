@@ -63,13 +63,13 @@ API
 
 ### Mobile First
 
-<a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
 ### Desktop First
 
-<a href="https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
@@ -77,13 +77,13 @@ API
 
 #### Styled Components
 
-<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
 #### Emotion
 
-<a href="https://codesandbox.io/s/styled-components-hooks-api-forked-duown?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark" target="_blank">
+<a href="https://codesandbox.io/s/styled-components-hooks-api-forked-duown?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
 <img alt="Hooks api (Emotion)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
