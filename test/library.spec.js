@@ -24,6 +24,7 @@ describe('type', () => {
 describe('get', () => {
   it('return value stored at the specified path', () => {
     expect(get(['theme', 'breakpoints'], PROPS_WITH_CUSTOM_THEME)).toEqual({
+      xs: '0px',
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -47,7 +48,7 @@ describe('withMinAndMaxMedia', () => {
 describe('makeErrorMessage', () => {
   it('build error message', () => {
     expect(makeErrorMessage('blabla', BREAKPOINTS)).toEqual(
-      "'blabla' is invalid breakpoint name. Use 'sm, md, lg, xl'."
+      "'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
     );
   });
 });
