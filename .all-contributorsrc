@@ -97,6 +97,24 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "Ontopic",
+      "name": "Ontopic",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1599991?v=4",
+      "profile": "https://github.com/Ontopic",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "iRyanBell",
+      "name": "Ryan Bell",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/25379378?v=4",
+      "profile": "https://iryanbell.com/",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"
