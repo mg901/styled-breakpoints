@@ -56,7 +56,7 @@ describe('throwIsInvalidBreakName', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[styled-breakpoints]: 'blabla' is invalid breakpoint name. Use 'sm, md, lg, xl'."
+        "[styled-breakpoints]: 'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
       );
     }
   });
@@ -73,7 +73,7 @@ describe('custom error prefix', () => {
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
-        "[typographist]: 'blabla' is invalid breakpoint name. Use 'sm, md, lg, xl'."
+        "[typographist]: 'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
       );
     }
   });
@@ -132,6 +132,7 @@ describe('toEm', () => {
 describe('getBreakpointsFromTheme', () => {
   it('return  breakpoints from custom theme', () => {
     expect(getBreakpointsFromTheme(CUSTOM_THEME)).toEqual({
+      xs: '0px',
       sm: '576px',
       md: '768px',
       lg: '992px',
@@ -140,7 +141,8 @@ describe('getBreakpointsFromTheme', () => {
   });
 
   it('return  default breakpoints', () => {
-    expect(getBreakpointsFromTheme(EMPTY_THEME)).toMatchObject({
+    expect(getBreakpointsFromTheme(EMPTY_THEME)).toEqual({
+      xs: '0px',
       sm: '576px',
       md: '768px',
       lg: '992px',

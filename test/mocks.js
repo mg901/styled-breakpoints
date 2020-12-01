@@ -10,6 +10,7 @@ const INVALID_BREAKPOINTS = {
 const PROPS_WITH_CUSTOM_THEME = {
   theme: {
     breakpoints: {
+      xs: '0px',
       sm: '576px',
       md: '768px',
       lg: '992px',
