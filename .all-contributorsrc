@@ -115,6 +115,18 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "tremby",
+      "name": "Bart Nagel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/199635?v=4",
+      "profile": "https://bartnagel.ca/",
+      "contributions": [
+        "bug",
+        "code",
+        "example",
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"
