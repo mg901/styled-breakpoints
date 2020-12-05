@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "9.0.2",
+  "version": "9.0.4",
   "description": "Simple and powerfull css breakpoints for styled-components and emotion",
   "main": "index.js",
   "types": "index.d.ts",
@@ -50,14 +50,14 @@
     {
       "name": "core",
       "import": {
-        "index.js": "{ up, dow, between, only }"
+        "index.js": "{ up, down, between, only }"
       },
       "limit": "1080 B"
     },
     {
       "name": "core + react-styled",
       "import": {
-        "index.js": "{ up, dow, between, only }",
+        "index.js": "{ up, down, between, only }",
         "react-styled/index.js": "{ useBreakpoint }"
       },
       "limit": "1.18 KB",
@@ -69,7 +69,7 @@
     {
       "name": "core + react-emotion",
       "import": {
-        "index.js": "{ up, dow, between, only }",
+        "index.js": "{ up, down, between, only }",
         "react-emotion/index.js": "{ useBreakpoint }"
       },
       "limit": "1.18 KB",
