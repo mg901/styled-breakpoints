@@ -1,1 +1,1 @@
-export declare function useBreakpoint(breakpoint: Function): boolean;
+export declare function useBreakpoint(breakpoint: Function): boolean | null;
