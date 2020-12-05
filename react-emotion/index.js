@@ -8,11 +8,8 @@ const useBreakpoint = (breakpoint) => {
   }).replace(/^@media\s*/, '');
 
   // Keep track of current media query match state;
-  // initialize this to the current match state if possible,
-  // or to null (to mean "indeterminate" if the `window` object isn't available)
-  const [isBreak, setIsBreak] = useState(
-    typeof window !== 'undefined' ? window.matchMedia(query).matches : null
-  );
+  // null means "indeterminate", eg if the `window` object isn't available
+  const [isBreak, setIsBreak] = useState(null);
 
   // Handler for the media query change event
   const handleChange = useCallback((event) => {
