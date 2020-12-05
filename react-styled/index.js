@@ -1,24 +1,41 @@
-const { useState, useEffect } = require('react');
+const { useState, useEffect, useCallback } = require('react');
 const { useTheme } = require('styled-components');
 
 const useBreakpoint = (breakpoint) => {
+  // Get the media query to match
   const query = breakpoint({
     theme: useTheme(),
-  }).replace(/^@media/, '');
+  }).replace(/^@media\s*/, '');
 
-  const mq = window.matchMedia(query);
-  const [isBreak, setIsBreak] = useState(mq.matches);
+  // Keep track of current media query match state;
+  // initialize this to the current match state if possible,
+  // or to null (to mean "indeterminate" if the `window` object isn't available)
+  const [isBreak, setIsBreak] = useState(
+    typeof window !== 'undefined' ? window.matchMedia(query).matches : null
+  );
 
+  // Handler for the media query change event
+  const handleChange = useCallback((event) => {
+    setIsBreak(event.matches);
+  }, []);
+
+  // Set up a media query matcher on mount and if the query changes
   useEffect(() => {
-    const handleResize = () => {
-      setIsBreak(window.matchMedia(query).matches);
+    const mq = window.matchMedia(query);
+
+    // Ensure the correct value is set in state as soon as possible
+    setIsBreak(mq.matches);
+
+    // Update the state whenever the media query match state changes
+    mq.addEventListener('change', handleChange);
+
+    // Clean up on unmount and if the query changes
+    return function cleanup() {
+      mq.removeEventListener('change', handleChange);
     };
+  }, [query, handleChange]);
 
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, [query]);
-
+  // Return the current match state
   return isBreak;
 };
 

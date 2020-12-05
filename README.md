@@ -275,9 +275,11 @@ only('md') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
 /**
  * @param {function} up | down | between | only
  *
- * @return {boolean} is the target breakpoint
+ * @return {(boolean|null)} `true` if currently matching the given query,
+ *                          `false` if not, and `null` if unknown (such as
+ *                          during server-side rendering)
  */
-useBreakpoint(up('md')) => boolean
+useBreakpoint(up('md')) => boolean | null
 ```
 
 ## Other
