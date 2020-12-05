@@ -1,3 +1,10 @@
+## [9.0.4](https://github.com/mg901/styled-breakpoints/compare/v9.0.3...v9.0.4) (2020-12-05)
+
+
+### Bug Fixes
+
+* fix typo in package.json on 'down' import ([#861](https://github.com/mg901/styled-breakpoints/issues/861)) ([0caa31f](https://github.com/mg901/styled-breakpoints/commit/0caa31f204aa00b74871894e505e98885981573b))
+
 ## [9.0.3](https://github.com/mg901/styled-breakpoints/compare/v9.0.2...v9.0.3) (2020-12-01)
 
 
