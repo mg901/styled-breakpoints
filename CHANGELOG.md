@@ -1,3 +1,17 @@
+## [9.0.6](https://github.com/mg901/styled-breakpoints/compare/v9.0.5...v9.0.6) (2020-12-05)
+
+
+### Bug Fixes
+
+* rewrite useBreakpoint ([#862](https://github.com/mg901/styled-breakpoints/issues/862)) ([3947016](https://github.com/mg901/styled-breakpoints/commit/3947016bb7ed5b71146b41c76b9a85987d36740f))
+
+## [9.0.5](https://github.com/mg901/styled-breakpoints/compare/v9.0.4...v9.0.5) (2020-12-05)
+
+
+### Bug Fixes
+
+* fix readme ([#864](https://github.com/mg901/styled-breakpoints/issues/864)) ([6cab552](https://github.com/mg901/styled-breakpoints/commit/6cab552d44d1a7dbf5dd48eccd9459fbf7b0e493))
+
 ## [9.0.4](https://github.com/mg901/styled-breakpoints/compare/v9.0.3...v9.0.4) (2020-12-05)
 
 
