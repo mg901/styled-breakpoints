@@ -1,3 +1,10 @@
+## [9.0.8](https://github.com/mg901/styled-breakpoints/compare/v9.0.7...v9.0.8) (2020-12-06)
+
+
+### Bug Fixes
+
+* **use-breakpoint:** eliminated erroneous rehydration after server si… ([#869](https://github.com/mg901/styled-breakpoints/issues/869)) ([385d4e1](https://github.com/mg901/styled-breakpoints/commit/385d4e12ac0b8065c52d162f7b47552e4560f8ed))
+
 ## [9.0.7](https://github.com/mg901/styled-breakpoints/compare/v9.0.6...v9.0.7) (2020-12-05)
 
 
