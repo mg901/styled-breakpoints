@@ -1,3 +1,10 @@
+## [9.0.9](https://github.com/mg901/styled-breakpoints/compare/v9.0.8...v9.0.9) (2021-01-12)
+
+
+### Bug Fixes
+
+* add exception for MediaQueryList event listener for Safari < 14 ([8b989f0](https://github.com/mg901/styled-breakpoints/commit/8b989f0bb51de81e36e587c05a3a13d193f9928d))
+
 ## [9.0.8](https://github.com/mg901/styled-breakpoints/compare/v9.0.7...v9.0.8) (2020-12-06)
 
 
