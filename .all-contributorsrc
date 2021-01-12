@@ -127,6 +127,15 @@
         "example",
         "ideas"
       ]
+    },
+    {
+      "login": "mckelveygreg",
+      "name": "Greg McKelvey",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/16110122?v=4",
+      "profile": "https://mckelveygreg.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "commitConvention": "none"
