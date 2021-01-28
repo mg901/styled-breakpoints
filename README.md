@@ -63,11 +63,15 @@ API
 
 ### Mobile First
 
+From smallest to largest
+
 <a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
 ### Desktop First
+
+From largest to smallest
 
 <a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
@@ -92,11 +96,11 @@ API
 ### Installation
 
 ```
-yarn i styled-breakpoints
+npm install styled-breakpoints
 
 # or
 
-yarn styled-breakpoints
+yarn add styled-breakpoints
 ```
 
 ### Default breakpoints
