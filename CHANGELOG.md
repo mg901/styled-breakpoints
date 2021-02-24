@@ -1,3 +1,10 @@
+## [9.0.10](https://github.com/mg901/styled-breakpoints/compare/v9.0.9...v9.0.10) (2021-02-24)
+
+
+### Bug Fixes
+
+* **docs:** fix readme ([de3c0e2](https://github.com/mg901/styled-breakpoints/commit/de3c0e298bf49c92627957a7a5d33d763c5aa82f))
+
 ## [9.0.9](https://github.com/mg901/styled-breakpoints/compare/v9.0.8...v9.0.9) (2021-01-12)
 
 
