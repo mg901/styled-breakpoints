@@ -1,10 +1,28 @@
-const { useState, useEffect, useCallback } = require('react');
-const { useTheme } = require('styled-components');
+const {
+  useState,
+  useEffect,
+  useCallback,
+  createContext,
+  useContext,
+} = require('react');
+const { makeStyledBreakpoints } = require('../core');
+const { isEmpty } = require('../core/library');
 
-const useBreakpoint = (breakpoint) => {
+const { getBreakpointsFromTheme } = makeStyledBreakpoints();
+
+const createUseBreakpoint = ({ useTheme }) => (breakpoint) => {
+  const defaultTheme = {
+    breakpoints: getBreakpointsFromTheme(),
+  };
+
+  const isEmptyTheme = isEmpty(useTheme());
+  const theme = isEmptyTheme
+    ? useContext(createContext(defaultTheme))
+    : useTheme();
+
   // Get the media query to match
   const query = breakpoint({
-    theme: useTheme(),
+    theme,
   }).replace(/^@media\s*/, '');
 
   // null means "indeterminate", eg if the `window` object isn't available
@@ -29,18 +47,14 @@ const useBreakpoint = (breakpoint) => {
       mq.addListener(handleChange);
 
       // Clean up on unmount and if the query changes
-      return function cleanup() {
-        mq.removeListener(handleChange);
-      };
+      return mq.removeListener(handleChange);
     }
 
     // Update the state whenever the media query match state changes
     mq.addEventListener('change', handleChange);
 
     // Clean up on unmount and if the query changes
-    return function cleanup() {
-      mq.removeEventListener('change', handleChange);
-    };
+    return mq.removeEventListener('change', handleChange);
   }, [query, handleChange]);
 
   // Return the current match state
@@ -48,5 +62,5 @@ const useBreakpoint = (breakpoint) => {
 };
 
 module.exports = {
-  useBreakpoint,
+  createUseBreakpoint,
 };
