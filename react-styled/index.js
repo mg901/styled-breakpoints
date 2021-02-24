@@ -1,10 +1,13 @@
 const { useState, useEffect, useCallback } = require('react');
 const { useTheme } = require('styled-components');
+const { getBreakpointsFromTheme } = require('../core');
 
 const useBreakpoint = (breakpoint) => {
   // Get the media query to match
+
+  const theme = getBreakpointsFromTheme(useTheme());
   const query = breakpoint({
-    theme: useTheme(),
+    theme,
   }).replace(/^@media\s*/, '');
 
   // null means "indeterminate", eg if the `window` object isn't available
