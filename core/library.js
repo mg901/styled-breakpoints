@@ -1,17 +1,16 @@
 const type = (x) => Object.prototype.toString.call(x).slice(8, -1);
 
+const isEmpty = (x) =>
+  (type(x) === 'Object' && Object.keys(x).length === 0) ||
+  type(x) === 'Null' ||
+  type(x) === 'Undefined';
+
 const get = (path, obj, defaultValue) => {
   const head = path[0];
   const tail = path.slice(1);
 
   if (!tail.length) {
-    const res = obj[head];
-    const isEmpty =
-      (type(res) === 'Object' && Object.keys(res).length === 0) ||
-      type(res) === 'Null' ||
-      type(res) === 'Undefined';
-
-    return isEmpty ? defaultValue : obj[head];
+    return isEmpty(obj[head]) ? defaultValue : obj[head];
   }
 
   return get(tail, obj[head], defaultValue);
@@ -30,4 +29,5 @@ module.exports = {
   get,
   withMinAndMaxMedia,
   makeErrorMessage,
+  isEmpty,
 };
