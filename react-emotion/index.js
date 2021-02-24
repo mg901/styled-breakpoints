@@ -1,4 +1,4 @@
-const { useState, useEffect, useCallback } = require('react');
+const { useState, useEffect } = require('react');
 const { useTheme } = require('@emotion/react');
 
 const useBreakpoint = (breakpoint) => {
@@ -10,14 +10,14 @@ const useBreakpoint = (breakpoint) => {
   // null means "indeterminate", eg if the `window` object isn't available
   const [isBreak, setIsBreak] = useState(null);
 
-  // Handler for the media query change event
-  const handleChange = useCallback((event) => {
-    setIsBreak(event.matches);
-  }, []);
-
   // Set up a media query matcher on mount and if the query changes
   useEffect(() => {
     const mq = window.matchMedia(query);
+
+    // Handler for the media query change event
+    const handleChange = (event) => {
+      setIsBreak(event.matches);
+    };
 
     // Ensure the correct value is set in state as soon as possible
     setIsBreak(mq.matches);
@@ -41,7 +41,7 @@ const useBreakpoint = (breakpoint) => {
     return function cleanup() {
       mq.removeEventListener('change', handleChange);
     };
-  }, [query, handleChange]);
+  }, [query]);
 
   // Return the current match state
   return isBreak;
