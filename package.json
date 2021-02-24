@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "9.0.9",
+  "version": "9.0.10",
   "description": "Simple and powerfull css breakpoints for styled-components and emotion",
   "main": "index.js",
   "types": "index.d.ts",
@@ -114,9 +114,9 @@
     ]
   },
   "peerDependencies": {
+    "@emotion/react": "^11.0.0",
     "react": "^16.8.0",
-    "styled-components": "^5.0.0",
-    "@emotion/react": "^11.0.0"
+    "styled-components": "^5.0.0"
   },
   "peerDependenciesMeta": {
     "styled-components": {

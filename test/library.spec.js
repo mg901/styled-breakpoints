@@ -9,6 +9,7 @@ const {
   get,
   withMinAndMaxMedia,
   makeErrorMessage,
+  isEmpty,
 } = require('../core/library');
 
 describe('type', () => {
@@ -50,5 +51,19 @@ describe('makeErrorMessage', () => {
     expect(makeErrorMessage('blabla', BREAKPOINTS)).toEqual(
       "'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
     );
+  });
+});
+
+describe('isEmpty', () => {
+  it('empty object', () => {
+    expect(isEmpty({})).toBeTruthy();
+  });
+
+  it('empty object', () => {
+    expect(isEmpty({ a: 1 })).toBeFalsy();
+  });
+
+  it('undefined', () => {
+    expect(isEmpty(undefined)).toBeTruthy();
   });
 });
