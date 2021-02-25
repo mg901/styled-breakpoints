@@ -1,3 +1,10 @@
+## [9.0.12](https://github.com/mg901/styled-breakpoints/compare/v9.0.11...v9.0.12) (2021-02-25)
+
+
+### Bug Fixes
+
+* **use-brekpoint:** move the call of the useTheme hook to useBreakpoint ([8a08fdb](https://github.com/mg901/styled-breakpoints/commit/8a08fdbca66ba7a66fb9ceb279704574414a4189))
+
 ## [9.0.11](https://github.com/mg901/styled-breakpoints/compare/v9.0.10...v9.0.11) (2021-02-25)
 
 
