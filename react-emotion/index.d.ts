@@ -1,1 +1,1 @@
-export declare function useBreakpoint(breakpoint: Function): boolean | null;
+export { useBreakpoint } from '../hooks/index.d';
