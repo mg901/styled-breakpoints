@@ -1,9 +1,9 @@
 const { useState, useEffect } = require('react');
 
-exports.createUseBreakpoint = ({ theme }) => (breakpoint) => {
+exports.createUseBreakpoint = ({ theme: useTheme }) => (breakpoint) => {
   // Get the media query to match
   const query = breakpoint({
-    theme,
+    theme: useTheme(),
   }).replace(/^@media\s*/, '');
 
   // null means "indeterminate", eg if the `window` object isn't available

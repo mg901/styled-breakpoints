@@ -1,5 +1,5 @@
-const getTheme = require('@emotion/react').useTheme;
+const { useTheme } = require('@emotion/react');
 
 const { createUseBreakpoint } = require('../hooks/use-breakpoint');
 
-exports.useBreakpoint = createUseBreakpoint({ theme: getTheme() });
+exports.useBreakpoint = createUseBreakpoint({ theme: useTheme });
