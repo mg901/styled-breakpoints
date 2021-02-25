@@ -1,5 +1,5 @@
-const getTheme = require('styled-components').useTheme;
+const { useTheme } = require('styled-components');
 
 const { createUseBreakpoint } = require('../hooks/use-breakpoint');
 
-exports.useBreakpoint = createUseBreakpoint({ theme: getTheme() });
+exports.useBreakpoint = createUseBreakpoint({ theme: useTheme });
