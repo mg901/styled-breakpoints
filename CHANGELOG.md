@@ -1,3 +1,10 @@
+## [9.0.11](https://github.com/mg901/styled-breakpoints/compare/v9.0.10...v9.0.11) (2021-02-25)
+
+
+### Bug Fixes
+
+* **use-brekpoint:** useBreakpoint works without theme ([#911](https://github.com/mg901/styled-breakpoints/issues/911)) ([c58e505](https://github.com/mg901/styled-breakpoints/commit/c58e5050ac209011da5b84a3591a4955482ae2e6))
+
 ## [9.0.10](https://github.com/mg901/styled-breakpoints/compare/v9.0.9...v9.0.10) (2021-02-24)
 
 
