@@ -3,12 +3,12 @@
 
 ### Bug Fixes
 
-* **peer-deps:** replace react "^16.8.0" with  "^17.0.0" [[#916](https://github.com/mg901/styled-breakpoints/issues/916)](https://github.com/mg901/styled-breakpoints/issues/916) ([938dbff](https://github.com/mg901/styled-breakpoints/commit/938dbff68d4c673e292f25c635025cd17fef2037))
+* **peer-deps:** replace react "^16.8.0" with  "^17.0.0" [#916](https://github.com/mg901/styled-breakpoints/issues/916) ([938dbff](https://github.com/mg901/styled-breakpoints/commit/938dbff68d4c673e292f25c635025cd17fef2037))
 
 
 ### BREAKING CHANGES
 
-* **peer-deps:** remove support for react below v17.x.x
+* **no breaking changes**. Update React to version ^17.x.x.
 
 ## [9.0.12](https://github.com/mg901/styled-breakpoints/compare/v9.0.11...v9.0.12) (2021-02-25)
 
