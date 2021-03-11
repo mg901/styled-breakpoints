@@ -54,14 +54,14 @@ exports.makeStyledBreakpoints = (options) => {
         `'${x}' is invalid orientation. Use 'landscape' or 'portrait'.`
       );
     },
-    withOrientationOrNot(x, y) {
-      if (y) {
-        state.throwIsInvalidOrientation(y);
+    withOrientationOrNot(breakpoint, orientation) {
+      if (orientation) {
+        state.throwIsInvalidOrientation(orientation);
 
-        return `${x} and (orientation: ${y})`;
+        return `${breakpoint} and (orientation: ${orientation})`;
       }
 
-      return x;
+      return breakpoint;
     },
     toEm(x) {
       return `${parseFloat(x) / state.browserContext}em`;
