@@ -5,10 +5,8 @@ on:
       - master
 jobs:
   release:
-    name: Release
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout 🛎️
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
