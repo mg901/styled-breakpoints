@@ -1056,9 +1056,9 @@
     p-reduce "^2.0.0"
 
 "@semantic-release/github@^7.1.1":
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-7.2.1.tgz#e833245746413e0830b65112331ca0a00b35cf95"
-  integrity sha512-+gOhbaG4T3xJb6aTZu1/7KvCmYKRChkasdIyFWdaGaTWVeGpdl4o0zMviV1z3kRcgPOSXeqjHSQ6SOQAfHQiDw==
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-7.2.2.tgz#aa51ba7098c812de4acd73145660164705f5c05d"
+  integrity sha512-nYKxp0sfoFrHn2uNbhkon8oAxIffWPfu5LEEVs8I5Eqv/0IHvU+Kr3u8l4BTD+NNHA9ATTdy2bhQqQrZJ7wTvQ==
   dependencies:
     "@octokit/rest" "^18.0.0"
     "@semantic-release/error" "^2.2.0"
@@ -1066,7 +1066,7 @@
     bottleneck "^2.18.1"
     debug "^4.0.0"
     dir-glob "^3.0.0"
-    fs-extra "^9.0.0"
+    fs-extra "^10.0.0"
     globby "^11.0.0"
     http-proxy-agent "^4.0.0"
     https-proxy-agent "^5.0.0"
