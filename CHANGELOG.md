@@ -1,3 +1,10 @@
+## [10.0.1](https://github.com/mg901/styled-breakpoints/compare/v10.0.0...v10.0.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* fix type conflict in `@emotion/react` [[#971](https://github.com/mg901/styled-breakpoints/issues/971)](https://github.com/mg901/styled-breakpoints/issues/971) ([b432588](https://github.com/mg901/styled-breakpoints/commit/b432588dbf7372f7b2a5e92d1ec92c5ad047b5cf))
+
 # [10.0.0](https://github.com/mg901/styled-breakpoints/compare/v9.0.12...v10.0.0) (2021-03-03)
 
 
