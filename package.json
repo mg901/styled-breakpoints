@@ -138,7 +138,7 @@
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.6",
-    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.2",
     "@size-limit/preset-small-lib": "^5.0.1",
     "all-contributors-cli": "^6.17.4",
     "commitizen": "^4.2.1",
