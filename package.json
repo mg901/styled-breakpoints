@@ -14,7 +14,8 @@
     "size": "cross-env size-limit",
     "semantic-release": "cross-env semantic-release",
     "contributors:add": "cross-env all-contributors add",
-    "contributors:generate": "cross-env all-contributors generate"
+    "contributors:generate": "cross-env all-contributors generate",
+    "prepare": "husky install"
   },
   "license": "MIT",
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
@@ -84,13 +85,6 @@
     "trailingComma": "es5",
     "arrowParens": "always"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
@@ -155,7 +149,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "4.3.8",
+    "husky": "^7.0.4",
     "jest": "^27.0.1",
     "lint-staged": "^11.0.0",
     "prettier": "^2.1.2",
