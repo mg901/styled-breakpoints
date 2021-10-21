@@ -13,30 +13,19 @@ export type Options = {
   defaultMediaQueries?: MediaQueries;
 };
 
-export declare function up(
-  minWidth: string,
-  orientation?: Orientation
-): any
+export declare function up(minWidth: string, orientation?: Orientation): any;
 
-export declare function down(
-  maxWidth: string,
-  orientation?: Orientation
-): any
+export declare function down(maxWidth: string, orientation?: Orientation): any;
 
 export declare function between(
   minWidth: string,
   maxWidth: string,
   orientation?: Orientation
-): any
+): any;
 
-export declare function only(
-  minWidth: string,
-  orientation?: Orientation
-): any
+export declare function only(minWidth: string, orientation?: Orientation): any;
 
-export declare function makeStyledBreakpoints(
-  options?: Options
-): {
+export declare function makeStyledBreakpoints(options?: Options): {
   up: typeof up;
   down: typeof down;
   between: typeof between;
