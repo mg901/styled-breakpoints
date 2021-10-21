@@ -1,26 +1,25 @@
-name: Check Branch
+name: check branch
 
-on: ['pull_request']
+on: pull_request
 
 jobs:
-  check:
+  deploy:
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout 🛎️
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Test
-        run: npm run test
+        run: yarn test
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
