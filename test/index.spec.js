@@ -141,7 +141,7 @@ describe('getBreakpointsFromTheme', () => {
   });
 
   it('return  default breakpoints', () => {
-    expect(getBreakpointsFromTheme(EMPTY_THEME)).toEqual({
+    expect(getBreakpointsFromTheme()).toEqual({
       xs: '0px',
       sm: '576px',
       md: '768px',
