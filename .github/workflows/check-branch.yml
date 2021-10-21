@@ -1,15 +1,17 @@
 name: check branch
 
-on: pull_request
+on: ['push', 'pull_request']
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Use Node.js
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: 'lts/*'
           cache: 'yarn'
 
       - name: Install dependencies
@@ -21,7 +23,8 @@ jobs:
       - name: Test
       - run: yarn test
 
-      - name: Coveralls
-      - uses: coverallsapp/github-action@master
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@1.1.3
+
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
