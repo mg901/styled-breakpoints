@@ -14,13 +14,13 @@ jobs:
 
       - name: Install dependencies
       - run: yarn install
-        
+
       - name: Linting
       - run: yarn lint
-        
+
       - name: Test
       - run: yarn test
-        
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
