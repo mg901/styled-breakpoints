@@ -13,18 +13,10 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install
-
-      - name: Lint
-        run: yarn lint
-
+      - run: yarn install
+        
+      - name: Linting
+      - run: yarn lint
+        
       - name: Test
-        run: yarn test
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check Size
-        run: npm run size
+      - run: yarn test
