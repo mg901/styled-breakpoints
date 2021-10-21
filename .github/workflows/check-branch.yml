@@ -3,7 +3,7 @@ name: check branch
 on: ['push', 'pull_request']
 
 jobs:
-  build:
+  check-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,3 +20,8 @@ jobs:
 
       - name: Test
         run: yarn test
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
