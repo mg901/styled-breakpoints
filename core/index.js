@@ -19,7 +19,6 @@ exports.makeStyledBreakpoints = (options) => {
         throw new Error(state.errorPrefix + message);
       }
     },
-    
     throwInvalidBreakValue(breaks) {
       Object.keys(breaks).forEach((x) => {
         state.invariant(
@@ -28,15 +27,18 @@ exports.makeStyledBreakpoints = (options) => {
         );
       });
     },
-
-    throwIsInvalidBreakType(breakName, breaks) {
+    throwIsInvalidBreakpointType(breakName, breaks) {
       const breakType = typeof breakName;
-      if (breakType !== "string" && breakType !== "number") return state.invariant(false, `Invalid breakpoint type. Must be number or string - recieved ${breakType}`)
-      if (breakType === "string") return state.invariant(breaks[breakName], makeErrorMessage(breakName, breaks));
+
+      if (breakType !== "string" && breakType !== "number") 
+        return state.invariant(false, `Invalid breakpoint type. Must be number or string - recieved ${breakType}`)
+
+      if (breakType === "string") 
+        return state.invariant(breaks[breakName], makeErrorMessage(breakName, breaks));
     },
-  
     throwIsLastBreak(breakPoint, breaks) {
-      if (this.isCustomBreakpoint(breakPoint)) return;
+      if (state.isCustomBreakpoint(breakPoint)) return;
+
       const names = Object.keys(breaks);
       const penultimateBreakName = names[names.length - 2];
       const isValid = names.indexOf(breakPoint) !== names.length - 1;
@@ -46,7 +48,6 @@ exports.makeStyledBreakpoints = (options) => {
         `Don't use '${breakPoint}' because it doesn't have a maximum width. Use '${penultimateBreakName}'. See https://github.com/mg901/styled-breakpoints/issues/4 .`
       );
     },
-
     throwIsInvalidNextBreakValue(name, breaks) {
       state.invariant(
         breaks[name],
@@ -55,14 +56,15 @@ exports.makeStyledBreakpoints = (options) => {
           .join(', ')}'.`
       );
     },
-
     throwIsInvalidOrientation(x) {
       state.invariant(
         x === 'portrait' || x === 'landscape',
         `'${x}' is invalid orientation. Use 'landscape' or 'portrait'.`
       );
     },
-
+    isCustomBreakpoint(breakPoint) {
+      return typeof breakPoint === "number";
+    },
     withOrientationOrNot(breakpoint, orientation) {
       if (orientation) {
         state.throwIsInvalidOrientation(orientation);
@@ -72,18 +74,15 @@ exports.makeStyledBreakpoints = (options) => {
 
       return breakpoint;
     },
-
     toEm(x) {
       return `${parseFloat(x) / state.browserContext}em`;
     },
-
     getBreakpointsFromTheme(theme = {}) {
       return get(state.pathToMediaQueries, theme, state.defaultMediaQueries);
     },
-
     getNextBreakpointName(name) {
       return (breaks) => {
-        state.throwIsInvalidBreakType(name, breaks);
+        state.throwIsInvalidBreakpointType(name, breaks);
         state.throwIsLastBreak(name, breaks);
 
         const names = Object.keys(breaks);
@@ -91,18 +90,12 @@ exports.makeStyledBreakpoints = (options) => {
         return names[names.indexOf(name) + 1];
       };
     },
-
-    isCustomBreakpoint(breakPoint) {
-      return typeof breakPoint === "number";
-    },
-
     // Maximum breakpoint width. Null for the largest (last) breakpoint.
     // The maximum value is calculated as the minimum of the next one less 0.02px
     // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
     // See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
     // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
     // See https://bugs.webkit.org/show_bug.cgi?id=178261
-
     getNextBreakpointValue(breakPoint, breaks) {
       if (state.isCustomBreakpoint(breakPoint)) return `${parseFloat(breakPoint) - 0.02}px`;
 
@@ -111,26 +104,22 @@ exports.makeStyledBreakpoints = (options) => {
 
       return `${parseFloat(breaks[getNextName(breaks)]) - 0.02}px`;
     },
-
     getBreakpointValue(breakPoint, breaks) {
-      state.throwIsInvalidBreakType(breakPoint, breaks);
-      if (state.isCustomBreakpoint(breakPoint)) return breakPoint
+      state.throwIsInvalidBreakpointType(breakPoint, breaks);
+      if (state.isCustomBreakpoint(breakPoint)) return `${breakPoint}px`
 
       return breaks[breakPoint];
     },
-
     calcMinWidth(name, theme) {
       return state.toEm(
         state.getBreakpointValue(name, state.getBreakpointsFromTheme(theme))
       );
     },
-
     calcMaxWidth(name, theme) {
       return state.toEm(
         state.getNextBreakpointValue(name, state.getBreakpointsFromTheme(theme))
       );
     },
-
     up(name, orientation) {
       return (props) =>
         state.withOrientationOrNot(
@@ -138,7 +127,6 @@ exports.makeStyledBreakpoints = (options) => {
           orientation
         );
     },
-
     down(name, orientation) {
       return (props) =>
         state.withOrientationOrNot(
@@ -146,7 +134,6 @@ exports.makeStyledBreakpoints = (options) => {
           orientation
         );
     },
-
     between(min, max, orientation) {
       return (props) =>
         state.withOrientationOrNot(
@@ -157,7 +144,6 @@ exports.makeStyledBreakpoints = (options) => {
           orientation
         );
     },
-
     only(name, orientation) {
       return (props) =>
         state.withOrientationOrNot(

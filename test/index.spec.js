@@ -13,12 +13,13 @@ const { makeStyledBreakpoints } = require('../core');
 const {
   invariant,
   throwInvalidBreakValue,
-  throwIsInvalidBreakName,
+  throwIsInvalidBreakpointType,
   throwIsLastBreak,
   throwIsInvalidOrientation,
   withOrientationOrNot,
   getBreakpointsFromTheme,
   toEm,
+  isCustomBreakpoint,
   getNextBreakpointName,
   getNextBreakpointValue,
   getBreakpointValue,
@@ -49,10 +50,21 @@ describe('throwInvalidBreakValue', () => {
   });
 });
 
-describe('throwIsInvalidBreakName', () => {
-  it('show warn if invalid breakpoint name', () => {
+describe('throwIsInvalidBreakpointType', () => {
+  it.each([null, {}, undefined])('show warn invalid breakpoint type given %s', (breakPoint) => {
     try {
-      throwIsInvalidBreakName('blabla', BREAKPOINTS);
+      throwIsInvalidBreakpointType(breakPoint, BREAKPOINTS);
+      expect(true).toEqual(false);
+    } catch (e) {
+      expect(e.message).toEqual(
+        `[styled-breakpoints]: Invalid breakpoint type. Must be number or string - recieved ${typeof breakPoint}`
+      );
+    }
+  });
+
+  it('show warn if invalid breakpoint name given type "string"', () => {
+    try {
+      throwIsInvalidBreakpointType('blabla', BREAKPOINTS);
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -69,7 +81,7 @@ describe('custom error prefix', () => {
     });
 
     try {
-      foo.throwIsInvalidBreakName('blabla', BREAKPOINTS);
+      foo.throwIsInvalidBreakpointType('blabla', BREAKPOINTS);
       expect(true).toEqual(false);
     } catch (e) {
       expect(e.message).toEqual(
@@ -90,6 +102,11 @@ describe('throwIsLastBreak', () => {
       );
     }
   });
+
+  it('do not warn given custom breakpoint ', () => {
+    const result = throwIsLastBreak(123, BREAKPOINTS);
+    expect(result).toBeUndefined();
+  });
 });
 
 describe('throwIsInvalidOrientation', () => {
@@ -104,6 +121,12 @@ describe('throwIsInvalidOrientation', () => {
     }
   });
 });
+
+describe('isCustomBreakpoint', () => {
+  it('return true given breakpoint type number', () => {
+    expect(isCustomBreakpoint(1)).toBe(true)
+  })
+})
 
 describe('withOrientationOrNot', () => {
   it('return value without orientation', () => {
@@ -160,23 +183,31 @@ describe('getBreakpointsFromTheme', () => {
       tablet: '768px',
     });
   });
+});
 
-  describe('getNextBreakpointName', () => {
-    it('return next breakpoint name', () => {
-      expect(getNextBreakpointName('sm')(BREAKPOINTS)).toEqual('md');
-    });
+describe('getNextBreakpointName', () => {
+  it('return next breakpoint name', () => {
+    expect(getNextBreakpointName('sm')(BREAKPOINTS)).toEqual('md');
   });
 });
 
 describe('getNextBreakpointValue', () => {
-  it('return next breakpoint value', () => {
+  it('return next breakpoint value given defined breakpoint', () => {
     expect(getNextBreakpointValue('sm', BREAKPOINTS)).toEqual('767.98px');
+  });
+
+  it('return next breakpoint value given custom breakpoint', () => {
+    expect(getNextBreakpointValue(250, BREAKPOINTS)).toEqual('249.98px');
   });
 });
 
 describe('getBreakpointValue', () => {
   it('return breakpoint value', () => {
     expect(getBreakpointValue('md', BREAKPOINTS)).toEqual('768px');
+  });
+
+  it('return next breakpoint value given custom breakpoint', () => {
+    expect(getBreakpointValue(250, BREAKPOINTS)).toEqual('250px');
   });
 });
 
