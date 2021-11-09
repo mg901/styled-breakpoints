@@ -30,11 +30,17 @@ exports.makeStyledBreakpoints = (options) => {
     throwIsInvalidBreakpointType(breakName, breaks) {
       const breakType = typeof breakName;
 
-      if (breakType !== "string" && breakType !== "number") 
-        return state.invariant(false, `Invalid breakpoint type. Must be number or string - recieved ${breakType}`)
+      if (breakType !== 'string' && breakType !== 'number')
+        return state.invariant(
+          false,
+          `Invalid breakpoint type. Must be number or string - recieved ${breakType}`
+        );
 
-      if (breakType === "string") 
-        return state.invariant(breaks[breakName], makeErrorMessage(breakName, breaks));
+      if (breakType === 'string')
+        return state.invariant(
+          breaks[breakName],
+          makeErrorMessage(breakName, breaks)
+        );
     },
     throwIsLastBreak(breakPoint, breaks) {
       if (state.isCustomBreakpoint(breakPoint)) return;
@@ -63,7 +69,7 @@ exports.makeStyledBreakpoints = (options) => {
       );
     },
     isCustomBreakpoint(breakPoint) {
-      return typeof breakPoint === "number";
+      return typeof breakPoint === 'number';
     },
     withOrientationOrNot(breakpoint, orientation) {
       if (orientation) {
@@ -97,7 +103,8 @@ exports.makeStyledBreakpoints = (options) => {
     // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
     // See https://bugs.webkit.org/show_bug.cgi?id=178261
     getNextBreakpointValue(breakPoint, breaks) {
-      if (state.isCustomBreakpoint(breakPoint)) return `${parseFloat(breakPoint) - 0.02}px`;
+      if (state.isCustomBreakpoint(breakPoint))
+        return `${parseFloat(breakPoint) - 0.02}px`;
 
       state.throwIsInvalidNextBreakValue(breakPoint, breaks);
       const getNextName = state.getNextBreakpointName(breakPoint);
@@ -106,7 +113,7 @@ exports.makeStyledBreakpoints = (options) => {
     },
     getBreakpointValue(breakPoint, breaks) {
       state.throwIsInvalidBreakpointType(breakPoint, breaks);
-      if (state.isCustomBreakpoint(breakPoint)) return `${breakPoint}px`
+      if (state.isCustomBreakpoint(breakPoint)) return `${breakPoint}px`;
 
       return breaks[breakPoint];
     },
@@ -154,7 +161,6 @@ exports.makeStyledBreakpoints = (options) => {
           orientation
         );
     },
-  
   };
 
   return state;

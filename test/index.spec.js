@@ -51,16 +51,19 @@ describe('throwInvalidBreakValue', () => {
 });
 
 describe('throwIsInvalidBreakpointType', () => {
-  it.each([null, {}, undefined])('show warn invalid breakpoint type given %s', (breakPoint) => {
-    try {
-      throwIsInvalidBreakpointType(breakPoint, BREAKPOINTS);
-      expect(true).toEqual(false);
-    } catch (e) {
-      expect(e.message).toEqual(
-        `[styled-breakpoints]: Invalid breakpoint type. Must be number or string - recieved ${typeof breakPoint}`
-      );
+  it.each([null, {}, undefined])(
+    'show warn invalid breakpoint type given %s',
+    (breakPoint) => {
+      try {
+        throwIsInvalidBreakpointType(breakPoint, BREAKPOINTS);
+        expect(true).toEqual(false);
+      } catch (e) {
+        expect(e.message).toEqual(
+          `[styled-breakpoints]: Invalid breakpoint type. Must be number or string - recieved ${typeof breakPoint}`
+        );
+      }
     }
-  });
+  );
 
   it('show warn if invalid breakpoint name given type "string"', () => {
     try {
@@ -124,9 +127,9 @@ describe('throwIsInvalidOrientation', () => {
 
 describe('isCustomBreakpoint', () => {
   it('return true given breakpoint type number', () => {
-    expect(isCustomBreakpoint(1)).toBe(true)
-  })
-})
+    expect(isCustomBreakpoint(1)).toBe(true);
+  });
+});
 
 describe('withOrientationOrNot', () => {
   it('return value without orientation', () => {
