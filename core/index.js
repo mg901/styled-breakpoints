@@ -27,16 +27,16 @@ exports.makeStyledBreakpoints = (options) => {
         );
       });
     },
-    throwIsInvalidBreakpointType(breakName, breaks) {
+    throwIsInvalidBreakpointType(breakName, breaks, onlyNamedBreaks = false) {
       const breakType = typeof breakName;
 
-      if (breakType !== 'string' && breakType !== 'number')
+      if (breakType !== 'string' && breakType !== 'number' && !onlyNamedBreaks)
         state.invariant(
           false,
           `Invalid breakpoint type. Must be number or string - recieved ${breakType}`
         );
 
-      if (breakType === 'string')
+      if (breakType === 'string' || onlyNamedBreaks)
         state.invariant(breaks[breakName], makeErrorMessage(breakName, breaks));
     },
     throwIsLastBreak(breakPoint, breaks) {
@@ -114,27 +114,33 @@ exports.makeStyledBreakpoints = (options) => {
 
       return breaks[breakPoint];
     },
-    calcMinWidth(name, theme) {
+    calcMinWidth(breakpoint, theme) {
       return state.toEm(
-        state.getBreakpointValue(name, state.getBreakpointsFromTheme(theme))
+        state.getBreakpointValue(
+          breakpoint,
+          state.getBreakpointsFromTheme(theme)
+        )
       );
     },
-    calcMaxWidth(name, theme) {
+    calcMaxWidth(breakpoint, theme) {
       return state.toEm(
-        state.getNextBreakpointValue(name, state.getBreakpointsFromTheme(theme))
+        state.getNextBreakpointValue(
+          breakpoint,
+          state.getBreakpointsFromTheme(theme)
+        )
       );
     },
-    up(name, orientation) {
+    up(breakpoint, orientation) {
       return (props) =>
         state.withOrientationOrNot(
-          `@media (min-width: ${state.calcMinWidth(name, props.theme)})`,
+          `@media (min-width: ${state.calcMinWidth(breakpoint, props.theme)})`,
           orientation
         );
     },
-    down(name, orientation) {
+    down(breakpoint, orientation) {
       return (props) =>
         state.withOrientationOrNot(
-          `@media (max-width: ${state.calcMaxWidth(name, props.theme)})`,
+          `@media (max-width: ${state.calcMaxWidth(breakpoint, props.theme)})`,
           orientation
         );
     },
@@ -149,14 +155,21 @@ exports.makeStyledBreakpoints = (options) => {
         );
     },
     only(name, orientation) {
-      return (props) =>
-        state.withOrientationOrNot(
+      return (props) => {
+        state.throwIsInvalidBreakpointType(
+          name,
+          state.getBreakpointsFromTheme(props.theme),
+          true
+        );
+
+        return state.withOrientationOrNot(
           withMinAndMaxMedia(
             state.calcMinWidth(name, props.theme),
             state.calcMaxWidth(name, props.theme)
           ),
           orientation
         );
+      };
     },
   };
 
