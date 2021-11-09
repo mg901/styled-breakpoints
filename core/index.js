@@ -31,15 +31,13 @@ exports.makeStyledBreakpoints = (options) => {
       const breakType = typeof breakName;
 
       if (breakType !== 'string' && breakType !== 'number')
-        return state.invariant(
+        state.invariant(
           false,
           `Invalid breakpoint type. Must be number or string - recieved ${breakType}`
         );
 
-      return state.invariant(
-        breaks[breakName],
-        makeErrorMessage(breakName, breaks)
-      );
+      if (breakType === 'string')
+        state.invariant(breaks[breakName], makeErrorMessage(breakName, breaks));
     },
     throwIsLastBreak(breakPoint, breaks) {
       if (state.isCustomBreakpoint(breakPoint)) return;
