@@ -13,13 +13,19 @@ export type Options = {
   defaultMediaQueries?: MediaQueries;
 };
 
-export declare function up(minWidth: string, orientation?: Orientation): any;
+export declare function up(
+  minWidth: string | number,
+  orientation?: Orientation
+): any;
 
-export declare function down(maxWidth: string, orientation?: Orientation): any;
+export declare function down(
+  maxWidth: string | number,
+  orientation?: Orientation
+): any;
 
 export declare function between(
-  minWidth: string,
-  maxWidth: string,
+  minWidth: string | number,
+  maxWidth: string | number,
   orientation?: Orientation
 ): any;
 
