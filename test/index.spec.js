@@ -13,6 +13,7 @@ const { makeStyledBreakpoints } = require('../core');
 const {
   invariant,
   throwInvalidBreakValue,
+  throwIsInvalidOnlyBreakpoint,
   throwIsInvalidBreakpointType,
   throwIsLastBreak,
   throwIsInvalidOrientation,
@@ -89,6 +90,19 @@ describe('custom error prefix', () => {
     } catch (e) {
       expect(e.message).toEqual(
         "[typographist]: 'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
+      );
+    }
+  });
+});
+
+describe('throwIsInvalidOnlyBreakpoint', () => {
+  it('show warn if the breakpoint is not predefined', () => {
+    try {
+      throwIsInvalidOnlyBreakpoint(132, BREAKPOINTS);
+      expect(true).toEqual(false);
+    } catch (e) {
+      expect(e.message).toEqual(
+        `[styled-breakpoints]: You must use predefined breakpoints in 'only' function. '132' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'.`
       );
     }
   });

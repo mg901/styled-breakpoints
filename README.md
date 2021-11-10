@@ -166,6 +166,10 @@ const Component = styled.div`
 </ThemeProvider>;
 ```
 
+### Custom number breakpoints
+
+When using methods
+
 ### Object notation
 
 When using object notation, make sure to explicitly pass `props` to breakpoint
