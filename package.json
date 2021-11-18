@@ -133,7 +133,7 @@
     "@semantic-release/github": "^8.0.0",
     "@semantic-release/npm": "^8.0.0",
     "@semantic-release/release-notes-generator": "^10.0.2",
-    "@size-limit/preset-small-lib": "^6.0.3",
+    "@size-limit/preset-small-lib": "^7.0.0",
     "all-contributors-cli": "^6.17.4",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
@@ -155,7 +155,7 @@
     "prettier": "^2.1.2",
     "react": "^17.0.1",
     "rimraf": "^3.0.2",
-    "size-limit": "^6.0.3",
+    "size-limit": "^7.0.0",
     "styled-components": "^5.2.1"
   }
 }
