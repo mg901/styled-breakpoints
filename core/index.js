@@ -67,7 +67,7 @@ exports.makeStyledBreakpoints = (options) => {
       return `${parseFloat(x) / state.browserContext}em`;
     },
     getBreakpointsFromTheme(theme = {}) {
-      return get(state.pathToMediaQueries, theme, state.defaultMediaQueries);
+      return get(theme, state.pathToMediaQueries, state.defaultMediaQueries);
     },
     getNextBreakpointName(name) {
       return (breaks) => {
