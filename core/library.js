@@ -1,19 +1,12 @@
-const type = (x) => Object.prototype.toString.call(x).slice(8, -1);
+const get = (o, path, defaultValue) => {
+  const [head, ...tail] =
+    typeof path === 'string'
+      ? path.replace(/\[(\d+)]/g, '.$1').split('.')
+      : path;
 
-const isEmpty = (x) =>
-  (type(x) === 'Object' && Object.keys(x).length === 0) ||
-  type(x) === 'Null' ||
-  type(x) === 'Undefined';
+  if (!o[head]) return defaultValue;
 
-const get = (path, obj, defaultValue) => {
-  const head = path[0];
-  const tail = path.slice(1);
-
-  if (!tail.length) {
-    return isEmpty(obj[head]) ? defaultValue : obj[head];
-  }
-
-  return get(tail, obj[head], defaultValue);
+  return !tail.length ? o[head] : get(o[head], tail, defaultValue);
 };
 
 const withMinAndMaxMedia = (x, y) =>
@@ -25,9 +18,7 @@ const makeErrorMessage = (breakName, breaks) =>
   )}'.`;
 
 module.exports = {
-  type,
   get,
   withMinAndMaxMedia,
   makeErrorMessage,
-  isEmpty,
 };

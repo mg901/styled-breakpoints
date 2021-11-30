@@ -1,5 +1,5 @@
 const {
-  CONFIG_SYMBOL,
+  TYPOGRAPHIST_KEY,
   PROPS_WITH_CUSTOM_THEME,
   TYPOGRAPHIST_THEME,
   CUSTOM_THEME,
@@ -40,7 +40,7 @@ describe('throwInvalidBreakValue', () => {
   it('show warn if breakpoints contains values not in pixels', () => {
     try {
       throwInvalidBreakValue(INVALID_BREAKPOINTS);
-      expect(true).toEqual(false);
+      expect(true).not.equal(true);
     } catch (e) {
       expect(e.message).toEqual(
         "[styled-breakpoints]: Check your theme. '36em' is invalid breakpoint. Use pixels."
@@ -53,7 +53,7 @@ describe('throwIsInvalidBreakName', () => {
   it('show warn if invalid breakpoint name', () => {
     try {
       throwIsInvalidBreakName('blabla', BREAKPOINTS);
-      expect(true).toEqual(false);
+      expect(true).not.equal(true);
     } catch (e) {
       expect(e.message).toEqual(
         "[styled-breakpoints]: 'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
@@ -70,7 +70,7 @@ describe('custom error prefix', () => {
 
     try {
       foo.throwIsInvalidBreakName('blabla', BREAKPOINTS);
-      expect(true).toEqual(false);
+      expect(true).not.equal(true);
     } catch (e) {
       expect(e.message).toEqual(
         "[typographist]: 'blabla' is invalid breakpoint name. Use 'xs, sm, md, lg, xl'."
@@ -83,7 +83,7 @@ describe('throwIsLastBreak', () => {
   it('show warn if the breakpoint cannot be used ', () => {
     try {
       throwIsLastBreak('xl', BREAKPOINTS);
-      expect(true).toEqual(false);
+      expect(true).not.equal(true);
     } catch (e) {
       expect(e.message).toEqual(
         `[styled-breakpoints]: Don't use 'xl' because it doesn't have a maximum width. Use 'lg'. See https://github.com/mg901/styled-breakpoints/issues/4 .`
@@ -96,7 +96,7 @@ describe('throwIsInvalidOrientation', () => {
   it('show warn if invalid orientation', () => {
     try {
       throwIsInvalidOrientation('blabla');
-      expect(true).toEqual(false);
+      expect(true).not.equal(true);
     } catch (e) {
       expect(e.message).toEqual(
         "[styled-breakpoints]: 'blabla' is invalid orientation. Use 'landscape' or 'portrait'."
@@ -152,7 +152,7 @@ describe('getBreakpointsFromTheme', () => {
 
   it('return media queries from the theme of typographist', () => {
     const bp = makeStyledBreakpoints({
-      pathToMediaQueries: [CONFIG_SYMBOL, 'mediaQueries'],
+      pathToMediaQueries: `${TYPOGRAPHIST_KEY}.mediaQueries`,
     });
     expect(bp.getBreakpointsFromTheme(TYPOGRAPHIST_THEME)).toEqual({
       desktop: '992px',
