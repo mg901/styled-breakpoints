@@ -1,3 +1,10 @@
+## [10.1.1](https://github.com/mg901/styled-breakpoints/compare/v10.1.0...v10.1.1) (2021-12-19)
+
+
+### Bug Fixes
+
+* fixed behavior when useBreakpoint could not work without ThemeProvider ([4235a79](https://github.com/mg901/styled-breakpoints/commit/4235a791bc6faadcbe62f399e82e599ea1d273f0))
+
 # [10.1.0](https://github.com/mg901/styled-breakpoints/compare/v10.0.1...v10.1.0) (2021-12-19)
 
 
