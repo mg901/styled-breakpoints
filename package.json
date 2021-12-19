@@ -4,6 +4,7 @@
   "description": "Simple and powerfull css breakpoints for styled-components and emotion",
   "main": "index.js",
   "types": "index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
     "test": "cross-env jest --coverage",
@@ -29,20 +30,21 @@
   "author": "Maxim Alyoshin <mgreen097@gmail.com> (https://github.com/mg901)",
   "keywords": [
     "media",
+    "query",
+    "media-query",
+    "media-queries",
     "styled",
     "react",
-    "media",
-    "emotion",
     "javascript",
     "css-in-js",
     "breakpoint",
-    "media-query",
     "breakpoints",
     "css-in-react",
-    "media-queries",
     "typescript",
-    "styled-components",
-    "styled-breakpoints"
+    "styled-media-query",
+    "styled media query",
+    "styled components",
+    "styled-components"
   ],
   "publishConfig": {
     "access": "public"
@@ -50,35 +52,33 @@
   "size-limit": [
     {
       "name": "core",
-      "import": {
-        "index.js": "{ up, down, between, only }"
-      },
-      "limit": "1.24 KB"
+      "path": "./core",
+      "import": "{ createBreakpoints }",
+      "limit": "800 B"
     },
     {
-      "name": "core + react-styled",
+      "name": "core + styled-breakpoints",
       "import": {
-        "index.js": "{ up, down, between, only }",
+        "index.js": "{ createBreakpoints }",
+        "styled-breakpoints/index.js": "{ up, down, between, only }"
+      },
+      "limit": "1.52 kB"
+    },
+    {
+      "name": "styled-breakpoints + react-styled",
+      "import": {
+        "styled-breakpoints/index.js": "{ up, down, between, only }",
         "react-styled/index.js": "{ useBreakpoint }"
       },
-      "limit": "1.46 KB",
-      "ignore": [
-        "react",
-        "styled-components",
-        "@size-limit/webpack"
-      ]
+      "limit": "1585 B"
     },
     {
-      "name": "core + react-emotion",
+      "name": "styled-breakpoints + react-emotion",
       "import": {
-        "index.js": "{ up, down, between, only }",
+        "styled-breakpoints/index.js": "{ up, down, between, only }",
         "react-emotion/index.js": "{ useBreakpoint }"
       },
-      "limit": "1.46 KB",
-      "ignore": [
-        "react",
-        "@emotion/react"
-      ]
+      "limit": "1583 B"
     }
   ],
   "prettier": {

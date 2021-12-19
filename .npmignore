@@ -11,3 +11,5 @@ test/
 .travis.yml
 yarn.lock
 package-lock.json
+*/**/*.spec.js
+*/**/mock.js
