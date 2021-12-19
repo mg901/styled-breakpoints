@@ -37,10 +37,11 @@ exports.createStyledBreakpoints = (options = defaultOptions) => {
     );
   });
 
-  const getMediaQueriesFromTheme = (props) => {
+  const getMediaQueriesFromTheme = ({ theme = {} }) => {
     const memoizedGet = memoize(get);
+
     const memoizedMediaQueries = memoizedGet(
-      props.theme,
+      theme,
       options.pathToMediaQueries,
       options.defaultBreakpoints
     );
