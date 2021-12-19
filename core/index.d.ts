@@ -1,33 +1,11 @@
-export type Props = {
-  theme: object | any;
-};
+export interface CreateBreakpointsOptions {
+  breakpoints: Record<string, string>;
+  errorPrefix: string;
+}
 
-export type Orientation = 'portrait' | 'landscape';
-
-export type MediaQueries = Record<string, string>;
-
-export type Options = {
-  browserContext?: number;
-  pathToMediaQueries?: string[];
-  errorPrefix?: string;
-  defaultMediaQueries?: MediaQueries;
-};
-
-export declare function up(minWidth: string, orientation?: Orientation): any;
-
-export declare function down(maxWidth: string, orientation?: Orientation): any;
-
-export declare function between(
-  minWidth: string,
-  maxWidth: string,
-  orientation?: Orientation
-): any;
-
-export declare function only(minWidth: string, orientation?: Orientation): any;
-
-export declare function makeStyledBreakpoints(options?: Options): {
-  up: typeof up;
-  down: typeof down;
-  between: typeof between;
-  only: typeof only;
+export declare function createBreakpoints(options: CreateBreakpointsOptions): {
+  up: (min: string) => string;
+  down: (max: string) => string;
+  between: (min: string, max: string) => { min: string; max: string };
+  only: (name: string) => { min: string; max: string };
 };
