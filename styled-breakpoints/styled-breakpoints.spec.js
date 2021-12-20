@@ -22,7 +22,7 @@ describe('styled-breakpoints', () => {
     };
 
     try {
-      expect(up('sm')(props)).toEqual('@media (min-width: 36em)');
+      up('sm')(props);
     } catch (error) {
       expect(error.message).toEqual(
         `${ERROR_PREFIX}Check your theme. \`xs: 0dd9px, md: 992rem, lg: 20em, xl: jflksdjdjkdpx,\` are invalid breakpoints. Use only pixels.`
@@ -32,45 +32,40 @@ describe('styled-breakpoints', () => {
 
   it('should pick up custom breakpoints from theme', () => {
     const { up } = createStyledBreakpoints();
+    const breakpoints = {
+      mobile: '576px',
+      tablet: '768px',
+      desktop: '992px',
+    };
 
     const props = {
       theme: {
-        breakpoints: {
-          mobile: '576px',
-          tablet: '768px',
-          desktop: '992px',
-        },
+        breakpoints,
       },
     };
 
-    const mockBreakpoints = [
-      ['mobile', '36em'],
-      ['tablet', '48em'],
-      ['desktop', '62em'],
-    ];
-
-    mockBreakpoints.forEach(([key, value]) => {
+    Object.entries(breakpoints).forEach(([key, value]) => {
       expect(up(key)(props)).toEqual(`@media (min-width: ${value})`);
     });
   });
 
   const { up, down, between, only } = createStyledBreakpoints();
   describe('up', () => {
-    it('should render a media query if the screen width is greater than or equal to 36em', () => {
+    it('should render a media query if the screen width is greater than or equal to 576px', () => {
       expect(up('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em)'
+        '@media (min-width: 576px)'
       );
     });
 
-    it('should render a media query if the screen width is greater than or equal to 36em for portrait orientation', () => {
+    it('should render a media query if the screen width is greater than or equal to 576px for portrait orientation', () => {
       expect(up('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (orientation: portrait)'
+        '@media (min-width: 576px) and (orientation: portrait)'
       );
     });
 
-    it('should render a media query if the screen width is greater than or equal to 36em for landscape orientation', () => {
+    it('should render a media query if the screen width is greater than or equal to 576px for landscape orientation', () => {
       expect(up('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (orientation: landscape)'
+        '@media (min-width: 576px) and (orientation: landscape)'
       );
     });
 
@@ -86,21 +81,21 @@ describe('styled-breakpoints', () => {
   });
 
   describe('down', () => {
-    it('should render a media query if the screen width is less or equal to 35.99875em', () => {
+    it('should render a media query if the screen width is less or equal to 575.98px', () => {
       expect(down('xs')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (max-width: 35.99875em)'
+        '@media (max-width: 575.98px)'
       );
     });
 
-    it('should render a media query if the screen width is less or equal to 47.99875em for portrait orientation', () => {
+    it('should render a media query if the screen width is less or equal to 767.98px for portrait orientation', () => {
       expect(down('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (max-width: 47.99875em) and (orientation: portrait)'
+        '@media (max-width: 767.98px) and (orientation: portrait)'
       );
     });
 
-    it('should render a media query if the screen width is less or equal to 47.99875em for landscape orientation', () => {
+    it('should render a media query if the screen width is less or equal to 767.98px for landscape orientation', () => {
       expect(down('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (max-width: 47.99875em) and (orientation: landscape)'
+        '@media (max-width: 767.98px) and (orientation: landscape)'
       );
     });
 
@@ -116,29 +111,29 @@ describe('styled-breakpoints', () => {
   });
 
   describe('between', () => {
-    it('should render a media query if the screen width greater than equal to 36em and less than or equal to 61.99875em', () => {
+    it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px', () => {
       expect(between('sm', 'md')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (max-width: 61.99875em)'
+        '@media (min-width: 576px) and (max-width: 991.98px)'
       );
     });
 
-    it('should render a media query if the screen width greater than equal to 36em and less than or equal to 61.99875em and portrait orientation', () => {
+    it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px and portrait orientation', () => {
       expect(between('sm', 'md', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (max-width: 61.99875em) and (orientation: portrait)'
+        '@media (min-width: 576px) and (max-width: 991.98px) and (orientation: portrait)'
       );
     });
 
-    it('should render a media query if the screen width greater than equal to 36em and less than or equal to 61.99875em and landscape orientation', () => {
+    it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px and landscape orientation', () => {
       expect(between('sm', 'md', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (max-width: 61.99875em) and (orientation: landscape)'
+        '@media (min-width: 576px) and (max-width: 991.98px) and (orientation: landscape)'
       );
     });
   });
 
   describe('only', () => {
-    it('should render a media query if the screen width greater than equal to 36em and less than or equal to 47.99875em', () => {
+    it('should render a media query if the screen width greater than equal to 576px and less than or equal to 767.98px', () => {
       expect(only('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
-        '@media (min-width: 36em) and (max-width: 47.99875em)'
+        '@media (min-width: 576px) and (max-width: 767.98px)'
       );
     });
   });
@@ -164,9 +159,9 @@ describe('styled-breakpoints', () => {
       const props = PROPS_WITH_TYPOGRAPHIST_THEME;
 
       const mockBreakpoints = [
-        ['mobile', '48em'],
-        ['tablet', '62em'],
-        ['desktop', '75em'],
+        ['mobile', '768px'],
+        ['tablet', '992px'],
+        ['desktop', '1200px'],
       ];
 
       mockBreakpoints.forEach(([key, value]) => {

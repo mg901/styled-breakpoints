@@ -1,4 +1,4 @@
-const { get, memoize, createInvariantWithPrefix, toEm } = require('./library');
+const { get, memoize, createInvariantWithPrefix } = require('./library');
 
 describe('library/get', () => {
   const DEFAULT_BREAKPOINTS = {
@@ -125,11 +125,5 @@ describe('invariant/message-behavior', () => {
         expect(error.message).toEqual(`${DEFAULT_ERROR_PREFIX}my message`);
       }
     });
-  });
-});
-
-describe('toEm', () => {
-  it('should convert 16px to 1em', () => {
-    expect(toEm(16)).toEqual('1em');
   });
 });
