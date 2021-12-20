@@ -1,8 +1,7 @@
-const { get, memoize, createInvariantWithPrefix, toEm } = require('./library');
+const { get, memoize, createInvariantWithPrefix } = require('./library');
 
 module.exports = {
   get,
   memoize,
   createInvariantWithPrefix,
-  toEm,
 };
