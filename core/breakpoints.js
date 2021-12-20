@@ -1,8 +1,4 @@
-const {
-  createInvariantWithPrefix,
-  toEm,
-  memoize,
-} = require('../library/library');
+const { createInvariantWithPrefix, memoize } = require('../library/library');
 
 const DEFAULT_BREAKPOINTS = {
   xs: '0px',
@@ -52,11 +48,7 @@ exports.createBreakpoints = memoize(
       return breakpoints[getNextName(name)];
     };
 
-    const calcMinWidth = memoize((name) => {
-      const value = parseFloat(getValueByName(name));
-
-      return toEm(value);
-    });
+    const calcMinWidth = memoize(getValueByName);
 
     // Maximum breakpoint width. Null for the largest (last) breakpoint.
     // The maximum value is calculated as the minimum of the next one less 0.02px
@@ -66,9 +58,8 @@ exports.createBreakpoints = memoize(
     // See https://bugs.webkit.org/show_bug.cgi?id=178261
     const calcMaxWidth = memoize((name) => {
       const nextValue = getNextValueByName(name);
-      const value = parseFloat(nextValue) - 0.02;
 
-      return toEm(value);
+      return `${parseFloat(nextValue) - 0.02}px`;
     });
 
     const between = (min, max) => ({

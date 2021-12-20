@@ -29,13 +29,8 @@ const get = (o, path, defaultValue) => {
   return !tail.length ? o[head] : get(o[head], tail, defaultValue);
 };
 
-const toEm = function toEm(value, browserContext = 16) {
-  return `${value / browserContext}em`;
-};
-
 module.exports = {
   createInvariantWithPrefix,
   memoize,
   get,
-  toEm,
 };
