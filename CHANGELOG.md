@@ -1,3 +1,10 @@
+# [10.2.0](https://github.com/mg901/styled-breakpoints/compare/v10.1.1...v10.2.0) (2021-12-20)
+
+
+### Features
+
+* add another default breakpoint `xxl: 1400px`, remove conversion… ([#1115](https://github.com/mg901/styled-breakpoints/issues/1115)) ([6fc1bac](https://github.com/mg901/styled-breakpoints/commit/6fc1bac46fd18a9e0e741726b64d0b93f451845e))
+
 ## [10.1.1](https://github.com/mg901/styled-breakpoints/compare/v10.1.0...v10.1.1) (2021-12-19)
 
 
