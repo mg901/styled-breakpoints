@@ -230,10 +230,8 @@ For example, let's take default values of breakpoints.
  * @return {string} media query
  */
 css`
-  display: none;
-
   ${up('md')} {
-    display: block;
+    background-color: rebeccapurple;
   }
 `;
 ```
