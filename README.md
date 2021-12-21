@@ -109,9 +109,9 @@ npm install styled-breakpoints
 yarn add styled-breakpoints
 ```
 
-### Get Started
+### Available breakpoints
 
-The following values of breakpoints are used by default.
+Styled Breakpoints includes six default breakpoints, sometimes referred to as grid tiers, for building responsively. These breakpoints can be customized. Each breakpoint was chosen to comfortably hold containers whose widths are multiples of 12. Breakpoints are also representative of a subset of common device sizes and viewport dimensions they don’t specifically target every use case or device. Instead, the ranges provide a strong and consistent foundation to build on for nearly any device.
 
 ```js
 const defaultBreakpoints = {
@@ -229,9 +229,6 @@ For example, let's take default values of breakpoints.
  *
  * @return {string} media query
  */
-
-const up = (min: string, orientation?: string) => any;
-
 css`
   display: none;
 
@@ -253,7 +250,9 @@ css`
 
 ### down
 
-We occasionally use media queries that go in the other direction (the given screen size or smaller):
+We occasionally use media queries that go in the other direction (the given screen size or smaller).
+
+This function takes this declared breakpoint, subtracts 0.02px from it, and uses it as the maximum width value.
 
 ```tsx
 /**
@@ -283,13 +282,15 @@ css`
 
 <br/>
 
-> Note that since browsers do not currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision for these comparisons.
+> <strong>Why subtract .02px?</strong> Browsers don’t currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), so we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision.
 
 <br/>
 
 Similarly, media queries may span multiple breakpoint widths:
 
 ### between
+
+Similarly, media queries may span multiple breakpoint widths:
 
 ```js
 /**
@@ -320,10 +321,12 @@ css`
 
 ### only
 
+There is also function for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
+
 ```jsx
 /**
  *
- * @param {string} min-width
+ * @param {string} width
  * @param {string} [orientation]
  *
  * @return {string} media query
