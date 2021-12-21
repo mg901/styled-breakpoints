@@ -36,6 +36,14 @@ styled-breakpoints <br>
 
 </div>
 
+## Core concepts
+
+**Breakpoints are the building blocks of responsive design**. Use them to control when your layout can be adapted at a particular viewport or device size.
+
+**Use media queries to architect your CSS by breakpoint**. Media queries are a feature of CSS that allow you to conditionally apply styles based on a set of browser and operating system parameters. We most commonly use <code>min-width</code> in our media queries.
+
+**Mobile first, responsive design is the goal**. Styled Breakpoints aims to apply the bare minimum of styles to make a layout work at the smallest breakpoint, and then layers on styles to adjust that design for larger devices. This optimizes your CSS, improves rendering time, and provides a great experience for your visitors.
+
 ## Documentation
 
 Examples
@@ -66,7 +74,7 @@ API
 From smallest to largest
 
 <a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-  <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+<img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
 ### Desktop First
@@ -91,11 +99,9 @@ From largest to smallest
 <img alt="Hooks api (Emotion)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
-## Getting Started
-
 ### Installation
 
-```
+```sh
 npm install styled-breakpoints
 
 # or
@@ -103,16 +109,19 @@ npm install styled-breakpoints
 yarn add styled-breakpoints
 ```
 
-### Default breakpoints
+### Get Started
+
+The following values of breakpoints are used by default.
 
 ```js
-{
+const defaultBreakpoints = {
   xs: '0px',
   sm: '576px',
   md: '768px',
   lg: '992px',
   xl: '1200px',
-}
+  xxl: '1400px',
+};
 ```
 
 ```js
@@ -189,13 +198,13 @@ const Component = styled('div')((props) => ({
 
 #### Styled Components
 
-```js
+```jsx
 import { useBreakpoint } from 'styled-breakpoints/react-styled';
 ```
 
 #### Emotion
 
-```js
+```jsx
 import { useBreakpoint } from 'styled-breakpoints/react-emotion';
 ```
 
@@ -212,7 +221,7 @@ For example, let's take default values of breakpoints.
 
 ### up
 
-```js
+```jsx
 /**
  *
  * @param {string} min-width
@@ -220,14 +229,33 @@ For example, let's take default values of breakpoints.
  *
  * @return {string} media query
  */
-up('md') => '@media (min-width: 768px) { ... }'
+
+const up = (min: string, orientation?: string) => any;
+
+css`
+  display: none;
+
+  ${up('md')} {
+    display: block;
+  }
+`;
 ```
+
+<details><summary><strong>Convert to pure css: </strong></summary>
+
+```css
+@media (min-width: 768px) {
+  background-color: rebeccapurple;
+}
+```
+
+</details>
 
 ### down
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
-```js
+```tsx
 /**
  *
  * @param {string} max-width
@@ -235,8 +263,23 @@ We occasionally use media queries that go in the other direction (the given scre
  *
  * @return {string} media query
  */
-  down('md') => '@media (max-width: 991.98px) { ... }'
+
+css`
+  ${down('md')} {
+    background-color: rebeccapurple;
+  }
+`;
 ```
+
+<details><summary><strong>Convert to pure css: </strong></summary>
+
+```css
+@media (max-width: 991.98px) {
+  background-color: rebeccapurple;
+}
+```
+
+</details>
 
 <br/>
 
@@ -257,12 +300,27 @@ Similarly, media queries may span multiple breakpoint widths:
  *
  * @return {string} media query
  */
-between('md', 'lg') => '@media (min-width: 768px) and (max-width: 1199.98px) { ... }'
+
+css`
+  ${between('md', 'lg')} {
+    background-color: rebeccapurple;
+  }
+`;
 ```
+
+<details><summary><strong>Convert to pure css: </strong></summary>
+
+```css
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  background-color: rebeccapurple;
+}
+```
+
+</details>
 
 ### only
 
-```js
+```jsx
 /**
  *
  * @param {string} min-width
@@ -270,8 +328,23 @@ between('md', 'lg') => '@media (min-width: 768px) and (max-width: 1199.98px) { .
  *
  * @return {string} media query
  */
-only('md') => '@media (min-width: 768px) and (max-width: 991.98px) { ... }'
+
+css`
+  ${only('md')} {
+    background-color: rebeccapurple;
+  }
+`;
 ```
+
+<details><summary><strong>Convert to pure css: </strong></summary>
+
+```css
+@media (min-width: 768px) and (max-width: 991.98px) {
+  background-color: rebeccapurple;
+}
+```
+
+</details>
 
 ### useBreakpoint
 
