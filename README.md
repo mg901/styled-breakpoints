@@ -286,8 +286,6 @@ css`
 
 <br/>
 
-Similarly, media queries may span multiple breakpoint widths:
-
 ### between
 
 Similarly, media queries may span multiple breakpoint widths:
