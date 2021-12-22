@@ -28,12 +28,12 @@ exports.createBreakpoints = memoize(
       errorPrefix,
     });
 
-    const getValueByName = (name) => {
+    const getValueByName = memoize((name) => {
       validation.checkIsValidName(name);
       validation.checkIsFirstName(name);
 
       return breakpoints[name];
-    };
+    });
 
     const getNextName = (name) => {
       const nextIndex = names.indexOf(name) + 1;
@@ -48,8 +48,6 @@ exports.createBreakpoints = memoize(
       return breakpoints[getNextName(name)];
     };
 
-    const calcMinWidth = memoize(getValueByName);
-
     // Maximum breakpoint width. Null for the largest (last) breakpoint.
     // The maximum value is calculated as the minimum of the next one less 0.02px
     // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
@@ -63,12 +61,12 @@ exports.createBreakpoints = memoize(
     });
 
     const between = (min, max) => ({
-      min: calcMinWidth(min),
+      min: getValueByName(min),
       max: calcMaxWidth(max),
     });
 
     return {
-      up: calcMinWidth,
+      up: getValueByName,
       down: calcMaxWidth,
       between,
       only: (name) => between(name, name),

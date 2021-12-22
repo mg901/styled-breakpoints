@@ -7,4 +7,4 @@ export declare function between(
   max: string,
   orientation?: Orientation
 ): any;
-export declare function only(min: string, orientation?: Orientation): any;
+export declare function only(name: string, orientation?: Orientation): any;

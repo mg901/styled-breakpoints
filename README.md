@@ -213,22 +213,15 @@ import { useBreakpoint } from 'styled-breakpoints/react-emotion';
 
 ## API
 
-Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints).
-
-> All incoming values are converted to em
+Core API is inspired by [Bootstrap responsive breakpoints](https://getbootstrap.com/docs/5.0/layout/breakpoints/).
 
 For example, let's take default values of breakpoints.
 
 ### up
 
 ```jsx
-/**
- *
- * @param {string} min-width
- * @param {string} [orientation]
- *
- * @return {string} media query
- */
+// const up = (min: string, orientation?: 'portrait' | 'landscape') => any
+
 css`
   ${up('md')} {
     background-color: rebeccapurple;
@@ -253,13 +246,7 @@ We occasionally use media queries that go in the other direction (the given scre
 This function takes this declared breakpoint, subtracts 0.02px from it, and uses it as the maximum width value.
 
 ```tsx
-/**
- *
- * @param {string} max-width
- * @param {string} [orientation]
- *
- * @return {string} media query
- */
+// const down = (max: string, orientation?: 'portrait' | 'landscape') => any
 
 css`
   ${down('md')} {
@@ -289,14 +276,7 @@ css`
 Similarly, media queries may span multiple breakpoint widths:
 
 ```js
-/**
- *
- * @param {string} min-width
- * @param {string} max-width
- * @param {string} [orientation]
- *
- * @return {string} media query
- */
+// const between = (min: string, max: string, orientation?: 'portrait' | 'landscape') => any
 
 css`
   ${between('md', 'lg')} {
@@ -320,13 +300,7 @@ css`
 There is also function for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
 ```jsx
-/**
- *
- * @param {string} width
- * @param {string} [orientation]
- *
- * @return {string} media query
- */
+// const only = (name: string, orientation?: 'portrait' | 'landscape') => any
 
 css`
   ${only('md')} {
