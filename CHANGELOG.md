@@ -1,3 +1,10 @@
+## [10.2.1](https://github.com/mg901/styled-breakpoints/compare/v10.2.0...v10.2.1) (2021-12-22)
+
+
+### Bug Fixes
+
+* improved documentatation ([#1117](https://github.com/mg901/styled-breakpoints/issues/1117)) ([b8c7f92](https://github.com/mg901/styled-breakpoints/commit/b8c7f92421e7e0599fca7a3945dd7a9d7ab0a40c))
+
 # [10.2.0](https://github.com/mg901/styled-breakpoints/compare/v10.1.1...v10.2.0) (2021-12-20)
 
 
