@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "10.2.0",
+  "version": "10.2.1",
   "description": "Simple and powerfull css breakpoints for styled-components and emotion",
   "main": "index.js",
   "types": "index.d.ts",
@@ -125,8 +125,8 @@
     }
   },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@emotion/react": "^11.0.0",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/commit-analyzer": "^9.0.1",
@@ -143,7 +143,7 @@
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.0.1",
-    "eslint-config-airbnb": "19.0.2",
+    "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
