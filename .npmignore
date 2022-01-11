@@ -13,3 +13,6 @@ yarn.lock
 package-lock.json
 */**/*.spec.js
 */**/mock.js
+.all-contributorsrc
+CHANGELOG.md
+.husky

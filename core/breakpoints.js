@@ -1,4 +1,4 @@
-const { createInvariantWithPrefix, memoize } = require('../library/library');
+const { createInvariantWithPrefix, memoize } = require('../library');
 
 const DEFAULT_BREAKPOINTS = {
   xs: '0px',
