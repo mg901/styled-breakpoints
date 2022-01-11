@@ -222,7 +222,10 @@ For example, let's take default values of breakpoints.
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
-  declare function up(min: string, max: string, orientation?: 'portrait' | 'landscape') => any
+  declare function up(
+    min: string,
+    orientation?: 'portrait' | 'landscape'
+  ) => any
 ```
 
 </details>
@@ -250,7 +253,10 @@ css`
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
-  declare function down(max: string, orientation?: 'portrait' | 'landscape') => any
+  declare function down(
+    max: string,
+    orientation?: 'portrait' | 'landscape'
+  ) => any
 ```
 
 </details>
@@ -288,7 +294,11 @@ css`
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
- declare function between(min: string, max: string, orientation?: 'portrait' | 'landscape') => any
+ declare function between(
+    min: string,
+    max: string,
+    orientation?: 'portrait' | 'landscape'
+  ) => any
 ```
 
 </details>
@@ -318,7 +328,10 @@ css`
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
-  declare function only(name: string, orientation?: 'portrait' | 'landscape') => any
+  declare function only(
+    name: string,
+    orientation?: 'portrait' | 'landscape'
+  ) => any
 ```
 
 </details>
