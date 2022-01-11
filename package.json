@@ -54,7 +54,7 @@
       "name": "core",
       "path": "./core",
       "import": "{ createBreakpoints }",
-      "limit": "766 B"
+      "limit": "792 B"
     },
     {
       "name": "core + styled-breakpoints",
@@ -78,7 +78,7 @@
         "styled-breakpoints/index.js": "{ up, down, between, only }",
         "react-emotion/index.js": "{ useBreakpoint }"
       },
-      "limit": "1543 B"
+      "limit": "1544 B"
     }
   ],
   "prettier": {

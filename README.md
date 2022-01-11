@@ -56,7 +56,7 @@ Getting Started
 
 - [Installation](#installation)
 - [default breakpoints](#default-breakpoints)
-- [custom breakpoints](#custom-breakpoints)
+- [customization](#customization)
 - [object notation](#object-notation)
 
 API
@@ -136,7 +136,7 @@ const Component = styled.div`
 `;
 ```
 
-### Custom breakpoints
+### Customization
 
 ```jsx
 import { up, down, between, only } from 'styled-breakpoints';
@@ -219,9 +219,15 @@ For example, let's take default values of breakpoints.
 
 ### up
 
-```jsx
-// const up = (min: string, orientation?: 'portrait' | 'landscape') => any
+<details><summary><strong>Type declaration</strong></summary>
 
+```ts
+  declare function up(min: string, max: string, orientation?: 'portrait' | 'landscape') => any
+```
+
+</details>
+
+```jsx
 css`
   ${up('md')} {
     background-color: rebeccapurple;
@@ -241,13 +247,19 @@ css`
 
 ### down
 
+<details><summary><strong>Type declaration</strong></summary>
+
+```ts
+  declare function down(max: string, orientation?: 'portrait' | 'landscape') => any
+```
+
+</details>
+
 We occasionally use media queries that go in the other direction (the given screen size or smaller).
 
 This function takes this declared breakpoint, subtracts 0.02px from it, and uses it as the maximum width value.
 
 ```tsx
-// const down = (max: string, orientation?: 'portrait' | 'landscape') => any
-
 css`
   ${down('md')} {
     background-color: rebeccapurple;
@@ -255,7 +267,7 @@ css`
 `;
 ```
 
-<details><summary><strong>Convert to pure css: </strong></summary>
+<details><summary><strong>Convert to: </strong></summary>
 
 ```css
 @media (max-width: 991.98px) {
@@ -273,11 +285,17 @@ css`
 
 ### between
 
+<details><summary><strong>Type declaration</strong></summary>
+
+```ts
+ declare function between(min: string, max: string, orientation?: 'portrait' | 'landscape') => any
+```
+
+</details>
+
 Similarly, media queries may span multiple breakpoint widths:
 
 ```js
-// const between = (min: string, max: string, orientation?: 'portrait' | 'landscape') => any
-
 css`
   ${between('md', 'lg')} {
     background-color: rebeccapurple;
@@ -285,7 +303,7 @@ css`
 `;
 ```
 
-<details><summary><strong>Convert to pure css: </strong></summary>
+<details><summary><strong>Convert to: </strong></summary>
 
 ```css
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -297,11 +315,17 @@ css`
 
 ### only
 
+<details><summary><strong>Type declaration</strong></summary>
+
+```ts
+  declare function only(name: string, orientation?: 'portrait' | 'landscape') => any
+```
+
+</details>
+
 There is also function for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
 ```jsx
-// const only = (name: string, orientation?: 'portrait' | 'landscape') => any
-
 css`
   ${only('md')} {
     background-color: rebeccapurple;
@@ -309,7 +333,7 @@ css`
 `;
 ```
 
-<details><summary><strong>Convert to pure css: </strong></summary>
+<details><summary><strong>Convert to: </strong></summary>
 
 ```css
 @media (min-width: 768px) and (max-width: 991.98px) {
