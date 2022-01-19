@@ -1,16 +1,18 @@
-const { useState, useEffect } = require('react');
+const { useState, useEffect, useMemo } = require('react');
 
 exports.createUseBreakpoint =
   ({ theme: useTheme }) =>
   (breakpoint) => {
-    // Get the media query to match
-    const query = breakpoint({
-      theme: useTheme(),
-    }).replace(/^@media\s*/, '');
     const [isBreak, setIsBreak] = useState(null);
+    const mediaQuery = breakpoint({
+      theme: useTheme(),
+    });
+    const mq = useMemo(
+      () => window.matchMedia(mediaQuery.replace(/^@media\s*/, '')),
+      [mediaQuery]
+    );
 
     useEffect(() => {
-      const mq = window.matchMedia(query);
       const handleChange = (event) => {
         setIsBreak(event.matches);
       };
@@ -33,7 +35,7 @@ exports.createUseBreakpoint =
       return () => {
         mq.removeEventListener('change', handleChange);
       };
-    }, [query]);
+    }, [mq]);
 
     return isBreak;
   };
