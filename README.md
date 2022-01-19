@@ -276,7 +276,7 @@ css`
 <details><summary><strong>Convert to: </strong></summary>
 
 ```css
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   background-color: rebeccapurple;
 }
 ```
@@ -307,7 +307,7 @@ Similarly, media queries may span multiple breakpoint widths:
 
 ```js
 css`
-  ${between('md', 'lg')} {
+  ${between('md', 'xl')} {
     background-color: rebeccapurple;
   }
 `;
