@@ -1,3 +1,10 @@
+## [11.0.3](https://github.com/mg901/styled-breakpoints/compare/v11.0.2...v11.0.3) (2022-01-19)
+
+
+### Bug Fixes
+
+* **use-breakpoint:** remove rules-of-hooks warning ([#1148](https://github.com/mg901/styled-breakpoints/issues/1148)) ([17c1c88](https://github.com/mg901/styled-breakpoints/commit/17c1c8810913ff6e9b9d8be25dca61dd4edabdbc))
+
 ## [11.0.2](https://github.com/mg901/styled-breakpoints/compare/v11.0.1...v11.0.2) (2022-01-19)
 
 
