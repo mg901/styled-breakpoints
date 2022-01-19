@@ -62,7 +62,7 @@
         "index.js": "{ createBreakpoints }",
         "styled-breakpoints/index.js": "{ up, down, between, only }"
       },
-      "limit": "1.52 kB"
+      "limit": "1.53 kB"
     },
     {
       "name": "styled-breakpoints + react-styled",
