@@ -136,6 +136,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "bdefore",
+      "name": "Buck DeFore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142472?v=4",
+      "profile": "https://github.com/bdefore",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "commitConvention": "none"
