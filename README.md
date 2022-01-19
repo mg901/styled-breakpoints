@@ -139,16 +139,14 @@ const Component = styled.div`
 ### Customization
 
 ```jsx
-import { up, down, between, only } from 'styled-breakpoints';
+import { up, down, between, only, createTheme } from 'styled-breakpoints';
 
-const theme = {
-  breakpoints: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
-};
+const theme = createTheme({
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+});
 
 const Component = styled.div`
   color: black;
