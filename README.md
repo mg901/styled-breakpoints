@@ -107,6 +107,10 @@ npm install styled-breakpoints
 # or
 
 yarn add styled-breakpoints
+
+# or
+
+pnpm add styled-breakpoints
 ```
 
 ### Available breakpoints
