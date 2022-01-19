@@ -1,3 +1,10 @@
+## [11.0.2](https://github.com/mg901/styled-breakpoints/compare/v11.0.1...v11.0.2) (2022-01-19)
+
+
+### Bug Fixes
+
+* add type declaration for `createTheme` ([34c3023](https://github.com/mg901/styled-breakpoints/commit/34c302386d51cc772c82f9421076a81f7a6690c6))
+
 ## [11.0.1](https://github.com/mg901/styled-breakpoints/compare/v11.0.0...v11.0.1) (2022-01-19)
 
 
