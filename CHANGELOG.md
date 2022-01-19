@@ -1,3 +1,15 @@
+# [11.0.0](https://github.com/mg901/styled-breakpoints/compare/v10.2.3...v11.0.0) (2022-01-19)
+
+
+### Code Refactoring
+
+* `up` and `between` functions ([1a6bf94](https://github.com/mg901/styled-breakpoints/commit/1a6bf94eb9aaf495e23f53562523b0a05f7ec87b))
+
+
+### BREAKING CHANGES
+
+* add createTheme function  and rewrite `up` and `between` functions
+
 ## [10.2.3](https://github.com/mg901/styled-breakpoints/compare/v10.2.2...v10.2.3) (2022-01-11)
 
 
