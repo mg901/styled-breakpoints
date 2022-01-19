@@ -3,12 +3,5 @@ const {
   createTheme,
 } = require('./styled-breakpoints');
 
-const { up, down, between, only } = createStyledBreakpoints();
-
-module.exports = {
-  up,
-  down,
-  between,
-  only,
-  createTheme,
-};
+exports.createStyledBreakpoints = createStyledBreakpoints;
+exports.createTheme = createTheme;
