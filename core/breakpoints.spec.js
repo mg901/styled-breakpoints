@@ -1,6 +1,6 @@
 const { createBreakpoints, ERROR_PREFIX } = require('./breakpoints');
 
-const { up, down, between, only, DEFAULT_BREAKPOINTS } = createBreakpoints();
+const { up, down, between, only } = createBreakpoints();
 
 describe('core/create-breakpoints', () => {
   describe('up', () => {
@@ -25,7 +25,15 @@ describe('core/create-breakpoints', () => {
     });
 
     it('should render correctly breakpoints by default', () => {
-      new Map(DEFAULT_BREAKPOINTS).forEach((value, key) => {
+      const results = [
+        ['sm', '576px'],
+        ['md', '768px'],
+        ['lg', '992px'],
+        ['xl', '1200px'],
+        ['xxl', '1400px'],
+      ];
+
+      results.forEach(([key, value]) => {
         expect(up(key)).toEqual(value);
       });
     });
@@ -44,10 +52,11 @@ describe('core/create-breakpoints', () => {
 
     it('should render correctly breakpoints by default', () => {
       const results = [
-        ['sm', '767.98px'],
-        ['md', '991.98px'],
-        ['lg', '1199.98px'],
-        ['xl', '1399.98px'],
+        ['sm', '575.98px'],
+        ['md', '767.98px'],
+        ['lg', '991.98px'],
+        ['xl', '1199.98px'],
+        ['xxl', '1399.98px'],
       ];
 
       results.forEach(([key, value]) => {
@@ -88,9 +97,9 @@ describe('core/create-breakpoints', () => {
     });
 
     it('return an object with the minimum and maximum screen width', () => {
-      expect(between('sm', 'md')).toEqual({
-        min: '576px',
-        max: '991.98px',
+      expect(between('md', 'xl')).toEqual({
+        max: '1199.98px',
+        min: '768px',
       });
     });
 
@@ -117,9 +126,9 @@ describe('core/create-breakpoints', () => {
     });
 
     it('return an object with the minimum and maximum screen width', () => {
-      expect(only('sm')).toEqual({
-        max: '767.98px',
-        min: '576px',
+      expect(only('md')).toEqual({
+        max: '991.98px',
+        min: '768px',
       });
     });
 

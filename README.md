@@ -139,16 +139,14 @@ const Component = styled.div`
 ### Customization
 
 ```jsx
-import { up, down, between, only } from 'styled-breakpoints';
+import { up, down, between, only, createTheme } from 'styled-breakpoints';
 
-const theme = {
-  breakpoints: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
-};
+const theme = createTheme({
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+});
 
 const Component = styled.div`
   color: black;
@@ -276,7 +274,7 @@ css`
 <details><summary><strong>Convert to: </strong></summary>
 
 ```css
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   background-color: rebeccapurple;
 }
 ```
@@ -307,7 +305,7 @@ Similarly, media queries may span multiple breakpoint widths:
 
 ```js
 css`
-  ${between('md', 'lg')} {
+  ${between('md', 'xl')} {
     background-color: rebeccapurple;
   }
 `;
@@ -402,6 +400,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://iryanbell.com/"><img src="https://avatars0.githubusercontent.com/u/25379378?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Bell</b></sub></a><br /><a href="#ideas-iRyanBell" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://bartnagel.ca/"><img src="https://avatars1.githubusercontent.com/u/199635?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bart Nagel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Atremby" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=tremby" title="Code">💻</a> <a href="#example-tremby" title="Examples">💡</a> <a href="#ideas-tremby" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://mckelveygreg.github.io/"><img src="https://avatars2.githubusercontent.com/u/16110122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Greg McKelvey</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=mckelveygreg" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bdefore"><img src="https://avatars.githubusercontent.com/u/142472?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Buck DeFore</b></sub></a><br /><a href="#ideas-bdefore" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://www.pierreburel.com/"><img src="https://avatars.githubusercontent.com/u/37228?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pierre Burel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Apierreburel" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
