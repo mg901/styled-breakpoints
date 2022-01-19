@@ -136,6 +136,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "bdefore",
+      "name": "Buck DeFore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142472?v=4",
+      "profile": "https://github.com/bdefore",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "pierreburel",
+      "name": "Pierre Burel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37228?v=4",
+      "profile": "https://www.pierreburel.com/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "commitConvention": "none"

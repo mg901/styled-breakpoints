@@ -15,3 +15,9 @@ export declare function createStyledBreakpoints(
   between: (min: string, max: string, orientation?: Orientation) => any;
   only: (name: string, orientation?: Orientation) => any;
 };
+
+export declare function createTheme<T extends Record<string, string>>(
+  breakpoints: T
+): {
+  ['styled-breakpoints']: T;
+};

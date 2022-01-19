@@ -3,7 +3,7 @@ const { createBreakpoints } = require('../core');
 
 const defaultOptions = {
   errorPrefix: '[styled-breakpoints]: ',
-  pathToMediaQueries: 'breakpoints',
+  pathToMediaQueries: 'styled-breakpoints.breakpoints',
   defaultBreakpoints: {
     xs: '0px',
     sm: '576px',
@@ -105,3 +105,9 @@ exports.createStyledBreakpoints = (options = defaultOptions) => {
       ),
   };
 };
+
+exports.createTheme = (breakpoints) => ({
+  'styled-breakpoints': {
+    breakpoints,
+  },
+});
