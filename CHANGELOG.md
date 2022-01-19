@@ -1,3 +1,10 @@
+## [11.0.1](https://github.com/mg901/styled-breakpoints/compare/v11.0.0...v11.0.1) (2022-01-19)
+
+
+### Bug Fixes
+
+* fix export for `createStyledBreakpoints` function ([54f6f9d](https://github.com/mg901/styled-breakpoints/commit/54f6f9da4b22997eeccc01fcd1fa119feea1f8c3))
+
 # [11.0.0](https://github.com/mg901/styled-breakpoints/compare/v10.2.3...v11.0.0) (2022-01-19)
 
 
