@@ -407,6 +407,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/bdefore"><img src="https://avatars.githubusercontent.com/u/142472?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Buck DeFore</b></sub></a><br /><a href="#ideas-bdefore" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://www.pierreburel.com/"><img src="https://avatars.githubusercontent.com/u/37228?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pierre Burel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Apierreburel" title="Bug reports">🐛</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://oowl.dev/"><img src="https://avatars.githubusercontent.com/u/47437822?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konstantin</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aoowliq" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=oowliq" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
