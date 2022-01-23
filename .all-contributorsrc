@@ -154,6 +154,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "oowliq",
+      "name": "Konstantin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47437822?v=4",
+      "profile": "https://oowl.dev/",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "commitConvention": "none"
