@@ -1,3 +1,10 @@
+## [11.0.4](https://github.com/mg901/styled-breakpoints/compare/v11.0.3...v11.0.4) (2022-01-23)
+
+
+### Bug Fixes
+
+* **use-breakpoint:** window access for ssr error fix ([#1154](https://github.com/mg901/styled-breakpoints/issues/1154)) ([888ecc2](https://github.com/mg901/styled-breakpoints/commit/888ecc26a0693c431f873f80d444358e309dea8c))
+
 ## [11.0.3](https://github.com/mg901/styled-breakpoints/compare/v11.0.2...v11.0.3) (2022-01-19)
 
 
