@@ -1,3 +1,10 @@
+## [11.0.5](https://github.com/mg901/styled-breakpoints/compare/v11.0.4...v11.0.5) (2022-03-31)
+
+
+### Bug Fixes
+
+* internal changes ([240b527](https://github.com/mg901/styled-breakpoints/commit/240b527be7b7470081e2a3048ddfa0f3760e50d8))
+
 ## [11.0.4](https://github.com/mg901/styled-breakpoints/compare/v11.0.3...v11.0.4) (2022-01-23)
 
 
