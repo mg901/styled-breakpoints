@@ -53,8 +53,9 @@ exports.createStyledBreakpoints = (options = defaultOptions) => {
 
   const withBreakpoints = (fn) => (props) => {
     const mediaQueriesFromTheme = getMediaQueriesFromTheme(props);
+    const createMemoizedBreakpoints = memoize(createBreakpoints);
 
-    const breakpoints = createBreakpoints({
+    const breakpoints = createMemoizedBreakpoints({
       breakpoints: mediaQueriesFromTheme,
       errorPrefix: options.errorPrefix,
     });

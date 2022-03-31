@@ -179,7 +179,7 @@ const Component = styled.div`
 
 ### Object notation
 
-When using object notation, make sure to explicitly pass `props` to breakpoint
+Make sure to explicitly pass `props` to breakpoint
 methods. Please see the example below using default configuration:
 
 ```js
