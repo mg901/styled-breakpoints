@@ -19,62 +19,60 @@ const defaultOptions = {
 exports.DEFAULT_BREAKPOINTS = DEFAULT_BREAKPOINTS;
 exports.ERROR_PREFIX = ERROR_PREFIX;
 
-exports.createBreakpoints = memoize(
-  ({ breakpoints, errorPrefix } = defaultOptions) => {
-    const names = Object.keys(breakpoints);
-    const validation = createValidation({
-      names,
-      breakpoints,
-      errorPrefix,
-    });
+exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
+  const names = Object.keys(breakpoints);
+  const validation = createValidation({
+    names,
+    breakpoints,
+    errorPrefix,
+  });
 
-    const getValueByName = memoize((name) => {
-      validation.checkIsValidName(name);
-      validation.checkIsFirstName(name);
+  const getValueByName = memoize((name) => {
+    validation.checkIsValidName(name);
+    validation.checkIsFirstName(name);
 
-      return breakpoints[name];
-    });
+    return breakpoints[name];
+  });
 
-    const getNextName = (name) => {
-      const nextIndex = names.indexOf(name) + 1;
+  const getNextName = (name) => {
+    const nextIndex = names.indexOf(name) + 1;
 
-      return names[nextIndex];
-    };
+    return names[nextIndex];
+  };
 
-    const getNextValueByName = memoize((name) => {
-      validation.checkIsValidName(name);
-      validation.checkIsLastName(name);
+  const getNextValueByName = memoize((name) => {
+    validation.checkIsValidName(name);
+    validation.checkIsLastName(name);
 
-      return breakpoints[getNextName(name)];
-    });
+    return breakpoints[getNextName(name)];
+  });
 
-    // Maximum breakpoint width. Null for the largest (last) breakpoint.
-    // The maximum value is calculated as the minimum of the next one less 0.02px
-    // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
-    // See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
-    // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
-    // See https://bugs.webkit.org/show_bug.cgi?id=178261
-    const calcMaxWidth = memoize((value) => {
-      return `${parseFloat(value) - 0.02}px`;
-    });
+  // Maximum breakpoint width. Null for the largest (last) breakpoint.
+  // The maximum value is calculated as the minimum of the next one less 0.02px
+  // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+  // See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+  // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+  // See https://bugs.webkit.org/show_bug.cgi?id=178261
+  const calcMaxWidth = memoize((value) => {
+    return `${parseFloat(value) - 0.02}px`;
+  });
 
-    return {
-      up: getValueByName,
+  return {
+    up: getValueByName,
 
-      down: (max) => calcMaxWidth(getValueByName(max)),
+    down: (max) => calcMaxWidth(getValueByName(max)),
 
-      between: (min, max) => ({
-        min: getValueByName(min),
-        max: calcMaxWidth(getValueByName(max)),
-      }),
+    between: (min, max) => ({
+      min: getValueByName(min),
+      max: calcMaxWidth(getValueByName(max)),
+    }),
 
-      only: (name) => ({
-        min: getValueByName(name),
-        max: calcMaxWidth(getNextValueByName(name)),
-      }),
-    };
-  }
-);
+    only: (name) => ({
+      min: getValueByName(name),
+      max: calcMaxWidth(getNextValueByName(name)),
+    }),
+  };
+};
 
 function createValidation({ names, breakpoints, errorPrefix }) {
   const invariant = createInvariantWithPrefix(errorPrefix);

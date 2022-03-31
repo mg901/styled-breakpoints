@@ -50,29 +50,32 @@ describe('styled-breakpoints', () => {
     });
   });
 
-  const { up, down, between, only } = createStyledBreakpoints();
   describe('up', () => {
+    let bp;
+    beforeEach(() => {
+      bp = createStyledBreakpoints();
+    });
     it('should render a media query if the screen width is greater than or equal to 576px', () => {
-      expect(up('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.up('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (min-width: 576px)'
       );
     });
 
     it('should render a media query if the screen width is greater than or equal to 576px for portrait orientation', () => {
-      expect(up('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.up('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (min-width: 576px) and (orientation: portrait)'
       );
     });
 
     it('should render a media query if the screen width is greater than or equal to 576px for landscape orientation', () => {
-      expect(up('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.up('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (min-width: 576px) and (orientation: landscape)'
       );
     });
 
     it('should throw an exception if device orientation is not valid', () => {
       try {
-        up('sm', 'wtf')(PROPS_WITH_EMPTY_THEME);
+        bp.up('sm', 'wtf')(PROPS_WITH_EMPTY_THEME);
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}\`wtf\` is invalid orientation. Use \`landscape\` or \`portrait\`.`
@@ -82,27 +85,31 @@ describe('styled-breakpoints', () => {
   });
 
   describe('down', () => {
+    let bp;
+    beforeEach(() => {
+      bp = createStyledBreakpoints();
+    });
     it('should render a media query if the screen width is less or equal to 575.98px', () => {
-      expect(down('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.down('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (max-width: 575.98px)'
       );
     });
 
     it('should render a media query if the screen width is less or equal to 767.98px for portrait orientation', () => {
-      expect(down('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.down('sm', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (max-width: 575.98px) and (orientation: portrait)'
       );
     });
 
     it('should render a media query if the screen width is less or equal to 767.98px for landscape orientation', () => {
-      expect(down('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.down('sm', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (max-width: 575.98px) and (orientation: landscape)'
       );
     });
 
     it('should throw an exception if device orientation is not valid', () => {
       try {
-        down('sm', 'wtf')(PROPS_WITH_EMPTY_THEME);
+        bp.down('sm', 'wtf')(PROPS_WITH_EMPTY_THEME);
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}\`wtf\` is invalid orientation. Use \`landscape\` or \`portrait\`.`
@@ -112,28 +119,41 @@ describe('styled-breakpoints', () => {
   });
 
   describe('between', () => {
+    let bp;
+    beforeEach(() => {
+      bp = createStyledBreakpoints();
+    });
     it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px', () => {
-      expect(between('sm', 'md')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.between('sm', 'md')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (min-width: 576px) and (max-width: 767.98px)'
       );
     });
 
     it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px and portrait orientation', () => {
-      expect(between('sm', 'md', 'portrait')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(
+        bp.between('sm', 'md', 'portrait')(PROPS_WITH_EMPTY_THEME)
+      ).toEqual(
         '@media (min-width: 576px) and (max-width: 767.98px) and (orientation: portrait)'
       );
     });
 
     it('should render a media query if the screen width greater than equal to 576px and less than or equal to 991.98px and landscape orientation', () => {
-      expect(between('sm', 'md', 'landscape')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(
+        bp.between('sm', 'md', 'landscape')(PROPS_WITH_EMPTY_THEME)
+      ).toEqual(
         '@media (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape)'
       );
     });
   });
 
   describe('only', () => {
+    let bp;
+    beforeEach(() => {
+      bp = createStyledBreakpoints();
+    });
+
     it('should render a media query if the screen width greater than equal to 576px and less than or equal to 767.98px', () => {
-      expect(only('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
+      expect(bp.only('sm')(PROPS_WITH_EMPTY_THEME)).toEqual(
         '@media (min-width: 576px) and (max-width: 767.98px)'
       );
     });
