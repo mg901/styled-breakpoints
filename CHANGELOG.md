@@ -1,3 +1,10 @@
+# [11.1.0](https://github.com/mg901/styled-breakpoints/compare/v11.0.5...v11.1.0) (2022-05-06)
+
+
+### Features
+
+* bump react to v18 ([#1215](https://github.com/mg901/styled-breakpoints/issues/1215)) ([be3ebbb](https://github.com/mg901/styled-breakpoints/commit/be3ebbb273024f0e36ecbb35855311cb5c658db4))
+
 ## [11.0.5](https://github.com/mg901/styled-breakpoints/compare/v11.0.4...v11.0.5) (2022-03-31)
 
 
