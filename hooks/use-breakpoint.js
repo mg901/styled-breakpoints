@@ -8,7 +8,10 @@ exports.createUseBreakpoint =
       theme: useTheme(),
     });
     const mq = useMemo(
-      () => typeof window === 'undefined' ? false : window.matchMedia(mediaQuery.replace(/^@media\s*/, '')),
+      () =>
+        typeof window === 'undefined'
+          ? false
+          : window.matchMedia(mediaQuery.replace(/^@media\s*/, '')),
       [mediaQuery]
     );
 
