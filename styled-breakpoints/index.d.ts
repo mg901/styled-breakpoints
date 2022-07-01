@@ -19,5 +19,5 @@ export declare function createStyledBreakpoints(
 export declare function createTheme<T extends Record<string, string>>(
   breakpoints: T
 ): {
-  ['styled-breakpoints']: T;
+  ['styled-breakpoints']: { breakpoints: T };
 };
