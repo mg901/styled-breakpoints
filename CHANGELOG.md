@@ -1,3 +1,10 @@
+## [11.1.1](https://github.com/mg901/styled-breakpoints/compare/v11.1.0...v11.1.1) (2022-07-01)
+
+
+### Bug Fixes
+
+* createTheme method has wrong types ([#1254](https://github.com/mg901/styled-breakpoints/issues/1254)) ([bd983a1](https://github.com/mg901/styled-breakpoints/commit/bd983a1d86a746f0542b6cc1decb9ba7b8e54034))
+
 # [11.1.0](https://github.com/mg901/styled-breakpoints/compare/v11.0.5...v11.1.0) (2022-05-06)
 
 
