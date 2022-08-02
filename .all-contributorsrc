@@ -164,6 +164,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "flagoon",
+      "name": "Pawel Kochanek",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20648154?v=4",
+      "profile": "https://github.com/flagoon",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "commitConvention": "none"
