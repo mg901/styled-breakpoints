@@ -409,6 +409,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
   </tr>
   <tr>
     <td align="center"><a href="https://oowl.dev/"><img src="https://avatars.githubusercontent.com/u/47437822?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konstantin</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aoowliq" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=oowliq" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/flagoon"><img src="https://avatars.githubusercontent.com/u/20648154?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pawel Kochanek</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aflagoon" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=flagoon" title="Code">💻</a></td>
   </tr>
 </table>
 
