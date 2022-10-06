@@ -1518,9 +1518,9 @@
     semver "7.3.7"
 
 "@size-limit/webpack@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.0.0.tgz#6ad3d64a10a16052b2b2f817fd4a62974d19011d"
-  integrity sha512-P0oeznzbAC/CIpr5BYz+L160W7BsCzyb6LBkDtLew8D7a8UEBsyRRUbW/QAAvccxkaeyzTslgokZLFqHgBHY+g==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.1.0.tgz#91e98914a7c019cdf863fe6182af8b897fa1990f"
+  integrity sha512-TLego57hQbR0dmYZzIa9KZecebGMJoxZaqJTx9v3NDllxt6kJTljVXWghEvsGLpdKQfZTqraZ6nRm38+lG3sNw==
   dependencies:
     escape-string-regexp "^4.0.0"
     nanoid "^3.3.4"
