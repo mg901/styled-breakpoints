@@ -1523,13 +1523,12 @@
     semver "7.3.7"
 
 "@size-limit/webpack@^8.0.0":
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.1.0.tgz#91e98914a7c019cdf863fe6182af8b897fa1990f"
-  integrity sha512-TLego57hQbR0dmYZzIa9KZecebGMJoxZaqJTx9v3NDllxt6kJTljVXWghEvsGLpdKQfZTqraZ6nRm38+lG3sNw==
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.1.1.tgz#1cc41bc64368031d9ff99808b88cca14c348d45a"
+  integrity sha512-dBwL68be6G3h2XTl+NrRH5PVBtA6Ocvd54W/mjpD9JX/ZYtKbKExYYgAlvqNmI1WFs29FV5AT4MIfCsCn2nTTQ==
   dependencies:
-    escape-string-regexp "^4.0.0"
     nanoid "^3.3.4"
-    webpack "^5.74.0"
+    webpack "^5.75.0"
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -7997,10 +7996,10 @@ webpack-sources@^3.2.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack@^5.74.0:
-  version "5.74.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.74.0.tgz#02a5dac19a17e0bb47093f2be67c695102a55980"
-  integrity sha512-A2InDwnhhGN4LYctJj6M1JEaGL7Luj6LOmyBHjcI8529cm5p6VXiTIW2sn6ffvEAKmveLzvu4jrihwXtPojlAA==
+webpack@^5.75.0:
+  version "5.75.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.75.0.tgz#1e440468647b2505860e94c9ff3e44d5b582c152"
+  integrity sha512-piaIaoVJlqMsPtX/+3KTTO6jfvrSYgauFVdt8cr9LTHKmcq/AMd4mhzsiP7ZF/PGRNPGA8336jldh9l2Kt2ogQ==
   dependencies:
     "@types/eslint-scope" "^3.7.3"
     "@types/estree" "^0.0.51"
