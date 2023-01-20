@@ -1623,9 +1623,9 @@
     nanoid "^3.3.4"
 
 "@size-limit/file@^8.0.0":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-8.1.1.tgz#3e65c17b6e35bd694f29f68ef88a040ac3c41a58"
-  integrity sha512-4VW3r5TuKXGyycrWdhKhYaBSpWQq2sxuz0UOMoKYiTGcYBM6Sqpk4342RbnoIjVDmj7kyD4PS4eBstUnvF3TSA==
+  version "8.1.2"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-8.1.2.tgz#f733b05acd168ee1ddd467f059d62b30c1667607"
+  integrity sha512-cjtGk1GejrmT+ik3LjXpRe+zrS/U15h+Py3L8sYN0XGat0+Y6pPbli1VuRRRcdXZNegpiW+UcxDxPN1AuZC5qA==
   dependencies:
     semver "7.3.8"
 
