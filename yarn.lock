@@ -1630,9 +1630,9 @@
     semver "7.3.8"
 
 "@size-limit/webpack@^8.0.0":
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.1.2.tgz#d0a25cb6eaa5f8c33bfd51857d90c74dab66d90b"
-  integrity sha512-rgKIqhPP73QiWHaH8Ef4nre9w2UZLiYsaHi0ZP6jGwr2Lxw5pE5aG6Sl9ahlVHhY/nWUnTwJHA5KmgRcZRg3Bg==
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-8.2.4.tgz#e0dfb99f69236ec6b59b5d2df674ac8242fe8bb6"
+  integrity sha512-L6TSQpX89cSeWQ1BL31BsaYucao0MGNW1xySHVO7jlgmOwnHC7j5zq91QRN9G6eMG84W+F3uRV4AiyCdZxKz9g==
   dependencies:
     nanoid "^3.3.4"
     webpack "^5.75.0"
