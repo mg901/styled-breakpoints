@@ -132,7 +132,7 @@
     "@semantic-release/commit-analyzer": "^9.0.1",
     "@semantic-release/git": "^10.0.0",
     "@semantic-release/github": "^8.0.0",
-    "@semantic-release/npm": "^9.0.0",
+    "@semantic-release/npm": "^10.0.2",
     "@semantic-release/release-notes-generator": "^10.0.2",
     "@size-limit/esbuild": "^8.0.0",
     "@size-limit/file": "^8.0.0",
