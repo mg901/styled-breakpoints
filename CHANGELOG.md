@@ -1,3 +1,10 @@
+## [11.1.2](https://github.com/mg901/styled-breakpoints/compare/v11.1.1...v11.1.2) (2023-04-18)
+
+
+### Bug Fixes
+
+* change url for `build` badge ([ad19573](https://github.com/mg901/styled-breakpoints/commit/ad19573cdbc5e1053226d375bfa4acfaface5e2e))
+
 ## [11.1.1](https://github.com/mg901/styled-breakpoints/compare/v11.1.0...v11.1.1) (2022-07-01)
 
 
