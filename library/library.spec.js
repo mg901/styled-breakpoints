@@ -16,13 +16,13 @@ describe('library/get', () => {
     },
   };
   it('should gets the value at path of object', () => {
-    expect(get(PROPS_WITH_DEFAULT_THEME, 'theme.breakpoints')).toEqual(
+    expect(get(PROPS_WITH_DEFAULT_THEME, 'theme.breakpoints')).toBe(
       DEFAULT_BREAKPOINTS
     );
   });
 
   it('If the resolved value is `undefined`, the `defaultValue` is returned in its place', () => {
-    expect(get({ theme: {} }, 'theme.breakpoints', 1)).toEqual(1);
+    expect(get({ theme: {} }, 'theme.breakpoints', 1)).toBe(1);
   });
 });
 
@@ -36,11 +36,11 @@ describe('library/memoize', () => {
   });
 
   it('should return the result of a function', () => {
-    expect(memoizedAdd(1, 2)).toEqual(3);
+    expect(memoizedAdd(1, 2)).toBe(3);
   });
 
   it('should return the same result if the arguments have not changed', () => {
-    expect(memoizedAdd(1, 2)).toEqual(3);
+    expect(memoizedAdd(1, 2)).toBe(3);
     expect(memoizedAdd(1, 2)).toEqual(3);
   });
 
@@ -57,11 +57,11 @@ describe('library/memoize', () => {
   });
 
   it('should resume memoization after a cache invalidation', () => {
-    expect(memoizedAdd(1, 2)).toEqual(3);
+    expect(memoizedAdd(1, 2)).toBe(3);
     expect(add).toHaveBeenCalledTimes(1);
-    expect(memoizedAdd(2, 2)).toEqual(4);
+    expect(memoizedAdd(2, 2)).toBe(4);
     expect(add).toHaveBeenCalledTimes(2);
-    expect(memoizedAdd(2, 2)).toEqual(4);
+    expect(memoizedAdd(2, 2)).toBe(4);
     expect(add).toHaveBeenCalledTimes(2);
   });
 });
@@ -90,12 +90,9 @@ describe('invariant/message-behavior', () => {
     it('should include a provided message and an error prefix when an invariant does throw', () => {
       const invariant = createInvariantWithPrefix('[custom prefix]: ');
 
-      try {
-        invariant(false, 'my message');
-      } catch (error) {
-        invariant(error instanceof Error);
-        expect(error.message).toEqual('[custom prefix]: my message');
-      }
+      expect(() => invariant(false, 'my message')).toThrow(
+        '[custom prefix]: my message'
+      );
     });
   });
 
@@ -107,23 +104,15 @@ describe('invariant/message-behavior', () => {
       invariant = createInvariantWithPrefix();
     });
     it('should include a default message and default prefix when an invariant does throw and no message is provided', () => {
-      try {
-        invariant(false);
-      } catch (error) {
-        invariant(error instanceof Error);
-        expect(error.message).toEqual(
-          `${DEFAULT_ERROR_PREFIX}Invariant failed`
-        );
-      }
+      expect(() => invariant(false)).toThrow(
+        `${DEFAULT_ERROR_PREFIX}Invariant failed`
+      );
     });
 
     it('should include a provided message when an invariant does throw', () => {
-      try {
-        invariant(false, 'my message');
-      } catch (error) {
-        invariant(error instanceof Error);
-        expect(error.message).toEqual(`${DEFAULT_ERROR_PREFIX}my message`);
-      }
+      expect(() => invariant(false, 'my message')).toThrow(
+        `${DEFAULT_ERROR_PREFIX}my message`
+      );
     });
   });
 });
