@@ -28,8 +28,8 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
   });
 
   const getValueByName = memoize((name) => {
-    validation.checkIsValidName(name);
-    validation.checkIsFirstName(name);
+    validation.throwIsValidName(name);
+    validation.throwIsFirstBreakpointName(name);
 
     return breakpoints[name];
   });
@@ -41,8 +41,8 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
   };
 
   const getNextValueByName = memoize((name) => {
-    validation.checkIsValidName(name);
-    validation.checkIsLastName(name);
+    validation.throwIsValidName(name);
+    validation.throwIsLastBreakpointName(name);
 
     return breakpoints[getNextName(name)];
   });
@@ -80,13 +80,13 @@ function createValidation({ names, breakpoints, errorPrefix }) {
   const invariant = createInvariantWithPrefix(errorPrefix);
 
   return {
-    checkIsValidName: (name) => {
+    throwIsValidName: (name) => {
       invariant(
         breakpoints[name],
         `breakpoint \`${name}\` not found in ${names.join(', ')}.`
       );
     },
-    checkIsFirstName: (name) => {
+    throwIsFirstBreakpointName: (name) => {
       const value = breakpoints[name];
       const isNotZero = parseFloat(value) !== 0;
 
@@ -95,11 +95,9 @@ function createValidation({ names, breakpoints, errorPrefix }) {
         `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
       );
     },
-    checkIsLastName: (name) => {
-      const currentIndex = names.indexOf(name);
-      const nextIndex = currentIndex + 1;
-      const isNotLast = names.length !== nextIndex;
-      const validName = names[names.length - 2];
+    throwIsLastBreakpointName: (name) => {
+      const isNotLast = name !== names.at(-1);
+      const validName = names.at(-2);
 
       invariant(
         isNotLast,
