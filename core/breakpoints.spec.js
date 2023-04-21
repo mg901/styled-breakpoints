@@ -1,111 +1,163 @@
-const { createBreakpoints, ERROR_PREFIX } = require('./breakpoints');
+const {
+  createBreakpoints,
+  DEFAULT_BREAKPOINTS,
+  ERROR_PREFIX,
+  calcMaxWidth,
+} = require('./breakpoints');
 
-const { up, down, between, only } = createBreakpoints();
+describe('createBreakpoints', () => {
+  let breakpoints = null;
+  let INVALID_BREAKPOINT_NAME = null;
 
-describe('core/create-breakpoints', () => {
-  describe('up', () => {
-    it("should throw exception if breakpoint name isn't found", () => {
-      expect(() => up('wtf')).toThrow(
-        `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
+  beforeEach(() => {
+    breakpoints = createBreakpoints();
+    INVALID_BREAKPOINT_NAME = 'invalid';
+  });
+
+  it('should returns an object with expected methods', () => {
+    expect(Object.keys(breakpoints)).toEqual(['up', 'down', 'between', 'only']);
+    expect(typeof breakpoints.up).toBe('function');
+    expect(typeof breakpoints.down).toBe('function');
+    expect(typeof breakpoints.between).toBe('function');
+    expect(typeof breakpoints.only).toBe('function');
+  });
+
+  describe('up method', () => {
+    it('should throw an error for an invalid breakpoint name', () => {
+      expect(() => breakpoints.up(INVALID_BREAKPOINT_NAME)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
-    it('should throw exception if breakpoint is equal to zero', () => {
-      expect(() => up('xs')).toThrow(
+    it('should throw an error when the value is 0', () => {
+      expect(() => breakpoints.up('xs')).toThrow(
         `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
       );
     });
 
-    it('should render correctly breakpoints by default', () => {
-      const mockBreakpoints = new Map([
-        ['sm', '576px'],
-        ['md', '768px'],
-        ['lg', '992px'],
-        ['xl', '1200px'],
-        ['xxl', '1400px'],
-      ]);
-
-      mockBreakpoints.forEach((value, key) => {
-        expect(up(key)).toEqual(value);
-      });
+    it('should return the correct value for valid breakpoint', () => {
+      expect(breakpoints.up('sm')).toBe(DEFAULT_BREAKPOINTS.sm);
+      expect(breakpoints.up('md')).toBe(DEFAULT_BREAKPOINTS.md);
+      expect(breakpoints.up('lg')).toBe(DEFAULT_BREAKPOINTS.lg);
+      expect(breakpoints.up('xl')).toBe(DEFAULT_BREAKPOINTS.xl);
+      expect(breakpoints.up('xxl')).toBe(DEFAULT_BREAKPOINTS.xxl);
     });
   });
 
-  describe('down', () => {
-    it("should throw exception if breakpoint name isn't found", () => {
-      expect(() => down('wtf')).toThrow(
-        `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
+  describe('down method', () => {
+    it('should throw an error for an invalid breakpoint name', () => {
+      expect(() => breakpoints.down(INVALID_BREAKPOINT_NAME)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
-    it('should render correctly breakpoints by default', () => {
-      const mockBreakpoints = new Map([
-        ['sm', '575.98px'],
-        ['md', '767.98px'],
-        ['lg', '991.98px'],
-        ['xl', '1199.98px'],
-        ['xxl', '1399.98px'],
-      ]);
-
-      mockBreakpoints.forEach((value, key) => {
-        expect(down(key)).toEqual(value);
-      });
-    });
-  });
-
-  describe('between', () => {
-    it("should throw exception if breakpoint name isn't found", () => {
-      expect(() => between('wtf', 'md')).toThrow(
-        `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
-      );
-    });
-
-    it('should throw exception if breakpoint is equal to zero ', () => {
-      expect(() => between('xs', 'sm')).toThrow(
+    it('should throw an error when the value is 0', () => {
+      expect(() => breakpoints.down('xs')).toThrow(
         `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
       );
     });
 
-    it('should return correct values', () => {
-      const mockBreakpoints = new Map([
-        [['sm', 'md'], { min: '576px', max: '767.98px' }],
-        [['md', 'lg'], { min: '768px', max: '991.98px' }],
-        [['lg', 'xl'], { min: '992px', max: '1199.98px' }],
-        [['xl', 'xxl'], { min: '1200px', max: '1399.98px' }],
-        [['sm', 'lg'], { min: '576px', max: '991.98px' }],
-        [['md', 'xl'], { min: '768px', max: '1199.98px' }],
-        [['lg', 'xxl'], { min: '992px', max: '1399.98px' }],
-      ]);
+    it('should calculate the correct maximum breakpoint width', () => {
+      expect(breakpoints.down('sm')).toBe(calcMaxWidth(DEFAULT_BREAKPOINTS.sm));
+      expect(breakpoints.down('md')).toBe(calcMaxWidth(DEFAULT_BREAKPOINTS.md));
+      expect(breakpoints.down('lg')).toBe(calcMaxWidth(DEFAULT_BREAKPOINTS.lg));
+      expect(breakpoints.down('xl')).toBe(calcMaxWidth(DEFAULT_BREAKPOINTS.xl));
+      expect(breakpoints.down('xxl')).toBe(
+        calcMaxWidth(DEFAULT_BREAKPOINTS.xxl)
+      );
+    });
+  });
 
-      mockBreakpoints.forEach((value, [min, max]) => {
-        expect(between(min, max)).toEqual(value);
+  describe('between method', () => {
+    it('should throw an error for an invalid breakpoint names', () => {
+      expect(() =>
+        breakpoints.between(INVALID_BREAKPOINT_NAME, 'sm')
+      ).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+      );
+
+      expect(() =>
+        breakpoints.between('sm', INVALID_BREAKPOINT_NAME)
+      ).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+      );
+    });
+
+    it('should throw an error when the value is 0', () => {
+      expect(() => breakpoints.between('xs', 'sm')).toThrow(
+        `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
+      );
+
+      expect(() => breakpoints.between('sm', 'xs')).toThrow(
+        `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
+      );
+    });
+
+    it('should calculate the correct breakpoint range', () => {
+      expect(breakpoints.between('sm', 'md')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
+      });
+
+      expect(breakpoints.between('md', 'lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
+      expect(breakpoints.between('lg', 'xl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.lg,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      expect(breakpoints.between('xl', 'xxl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xl,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
       });
     });
   });
 
-  describe('only', () => {
-    it('should throw exception if the breakpoint name is not found', () => {
-      expect(() => only('wtf')).toThrow(
-        `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
+  describe('only method', () => {
+    it('should throw an error for an invalid breakpoint name', () => {
+      expect(() => breakpoints.only(INVALID_BREAKPOINT_NAME)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
-    it('should throw exception if the last breakpoint is specified as the maximum value', () => {
-      expect(() => only('xxl')).toThrow(
-        `${ERROR_PREFIX}\`xxl\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+    it('should throw an error when the value is 0', () => {
+      expect(() => breakpoints.only('xs')).toThrow(
+        `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
       );
     });
 
-    it('should return correct values', () => {
-      const mockBreakpoints = new Map([
-        ['sm', { min: '576px', max: '767.98px' }],
-        ['md', { min: '768px', max: '991.98px' }],
-        ['lg', { min: '992px', max: '1199.98px' }],
-        ['xl', { min: '1200px', max: '1399.98px' }],
-      ]);
+    it('should throw an error when given the last breakpoint name', () => {
+      const LAST_BREAKPOINT_NAME = 'xxl';
 
-      mockBreakpoints.forEach((value, key) => {
-        expect(only(key)).toEqual(value);
+      expect(() => {
+        breakpoints.only(LAST_BREAKPOINT_NAME);
+      }).toThrow(
+        `${ERROR_PREFIX}\`${LAST_BREAKPOINT_NAME}\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+      );
+    });
+
+    it('should return correct min and max values for given breakpoint name', () => {
+      expect(breakpoints.only('sm')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
+      });
+
+      expect(breakpoints.only('md')).toEqual({
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
+      expect(breakpoints.only('lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.lg,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      expect(breakpoints.only('xl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xl,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
       });
     });
   });
