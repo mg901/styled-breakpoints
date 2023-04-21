@@ -18,15 +18,15 @@ const memoize = (fn, map = new Map()) => {
   };
 };
 
-const get = (o, path, defaultValue) => {
+const get = (obj, path, defaultValue) => {
   const [head, ...tail] =
     typeof path === 'string'
       ? path.replace(/\[(\d+)]/g, '.$1').split('.')
       : path;
 
-  if (!o[head]) return defaultValue;
+  if (!obj[head]) return defaultValue;
 
-  return !tail.length ? o[head] : get(o[head], tail, defaultValue);
+  return !tail.length ? obj[head] : get(obj[head], tail, defaultValue);
 };
 
 module.exports = {
