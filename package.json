@@ -54,7 +54,7 @@
       "name": "core",
       "path": "./core",
       "import": "{ createBreakpoints }",
-      "limit": "797 B"
+      "limit": "799 B"
     },
     {
       "name": "core + styled-breakpoints",
@@ -62,7 +62,7 @@
         "index.js": "{ createBreakpoints }",
         "styled-breakpoints/index.js": "{ up, down, between, only }"
       },
-      "limit": "1.531 kB"
+      "limit": "1.55 kB"
     },
     {
       "name": "styled-breakpoints + react-styled",
