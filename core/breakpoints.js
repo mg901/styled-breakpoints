@@ -47,16 +47,6 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
     return breakpoints[getNextName(name)];
   });
 
-  // Maximum breakpoint width. Null for the largest (last) breakpoint.
-  // The maximum value is calculated as the minimum of the next one less 0.02px
-  // to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
-  // See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
-  // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
-  // See https://bugs.webkit.org/show_bug.cgi?id=178261
-  const calcMaxWidth = (value) => {
-    return `${parseFloat(value) - 0.02}px`;
-  };
-
   return {
     up: getValueByName,
 
@@ -73,6 +63,18 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
     }),
   };
 };
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px
+// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+function calcMaxWidth(value) {
+  return `${parseFloat(value) - 0.02}px`;
+}
+
+exports.calcMaxWidth = calcMaxWidth;
 
 function createValidation({ names, breakpoints, errorPrefix }) {
   const invariant = createInvariantWithPrefix(errorPrefix);
