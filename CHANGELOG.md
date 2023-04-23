@@ -1,3 +1,10 @@
+## [11.1.3](https://github.com/mg901/styled-breakpoints/compare/v11.1.2...v11.1.3) (2023-04-23)
+
+
+### Bug Fixes
+
+* **only:** fix an error when passing a value starting from zero ([f9fa15c](https://github.com/mg901/styled-breakpoints/commit/f9fa15c44f2a502d7a0b4fd2ea73f84e9ac79f5b))
+
 ## [11.1.2](https://github.com/mg901/styled-breakpoints/compare/v11.1.1...v11.1.2) (2023-04-18)
 
 
