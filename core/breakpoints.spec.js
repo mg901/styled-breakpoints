@@ -1,7 +1,5 @@
 const { createBreakpoints, calcMaxWidth } = require('./breakpoints');
 
-const { between, only } = createBreakpoints();
-
 describe('core/create-breakpoints', () => {
   let breakpointsApi = null;
   let INVALID_BREAKPOINT_NAME = null;
@@ -28,11 +26,18 @@ describe('core/create-breakpoints', () => {
 
   it('should returns an object with expected methods', () => {
     expect(Object.keys(breakpointsApi)).toEqual([
+      'names',
+      'entries',
+      'invariant',
       'up',
       'down',
       'between',
       'only',
     ]);
+
+    expect(Array.isArray(breakpointsApi.names)).toBeTruthy();
+    expect(Array.isArray(breakpointsApi.entries)).toBeTruthy();
+    expect(typeof breakpointsApi.invariant).toBe('function');
 
     expect(typeof breakpointsApi.up).toBe('function');
     expect(typeof breakpointsApi.down).toBe('function');
@@ -98,18 +103,16 @@ describe('core/create-breakpoints', () => {
 
   describe('between', () => {
     it('should throw exception if the breakpoint name is not found', () => {
-      try {
-        between('wtf', 'md');
-      } catch (error) {
-        expect(error.message).toEqual(
-          `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
-        );
-      }
+      expect(() =>
+        breakpointsApi.between(INVALID_BREAKPOINT_NAME, 'md')
+      ).toThrow(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+      );
     });
 
     it('should throw exception if the breakpoint value is zero ', () => {
       try {
-        between('xs', 'sm');
+        breakpointsApi.between('xs', 'sm');
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
@@ -118,7 +121,7 @@ describe('core/create-breakpoints', () => {
     });
 
     it('return an object with the minimum and maximum screen width', () => {
-      expect(between('md', 'xl')).toEqual({
+      expect(breakpointsApi.between('md', 'xl')).toEqual({
         max: '1199.98px',
         min: '768px',
       });
@@ -126,7 +129,7 @@ describe('core/create-breakpoints', () => {
 
     it('should throw exception if the last breakpoint is specified as the maximum value', () => {
       try {
-        between('xl', 'xxl');
+        breakpointsApi.between('xl', 'xxl');
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}\`xxl\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
@@ -138,7 +141,7 @@ describe('core/create-breakpoints', () => {
   describe('only', () => {
     it('should throw exception if the breakpoint name is not found', () => {
       try {
-        only('wtf');
+        breakpointsApi.only('wtf');
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
@@ -147,7 +150,7 @@ describe('core/create-breakpoints', () => {
     });
 
     it('return an object with the minimum and maximum screen width', () => {
-      expect(only('md')).toEqual({
+      expect(breakpointsApi.only('md')).toEqual({
         max: '991.98px',
         min: '768px',
       });
@@ -155,7 +158,7 @@ describe('core/create-breakpoints', () => {
 
     it('should throw exception if the last breakpoint is specified as the maximum value', () => {
       try {
-        only('xxl');
+        breakpointsApi.only('xxl');
       } catch (error) {
         expect(error.message).toEqual(
           `${ERROR_PREFIX}\`xxl\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`

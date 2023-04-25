@@ -1,12 +1,12 @@
 const { createInvariantWithPrefix } = require('../library');
 
-exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
+exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
   const names = Object.keys(Object(breakpoints));
   const values = Object.values(Object(breakpoints));
   const entries = Object.entries(Object(breakpoints));
   const invariant = createInvariantWithPrefix(errorPrefix);
 
-  const validation = withValidation({
+  const validation = makeBreakpointsValidation({
     invariant,
     breakpoints,
     names,
@@ -25,7 +25,7 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   };
 };
 
-function withValidation({ names, invariant, breakpoints }) {
+function makeBreakpointsValidation(state) {
   return {
     throwIsInvalidName,
     throwIsValueIsZero,
@@ -33,27 +33,27 @@ function withValidation({ names, invariant, breakpoints }) {
   };
 
   function throwIsInvalidName(name) {
-    invariant(
-      breakpoints[name],
-      `breakpoint \`${name}\` not found in ${names.join(', ')}.`
+    state.invariant(
+      state.breakpoints[name],
+      `breakpoint \`${name}\` not found in ${state.names.join(', ')}.`
     );
   }
 
   function throwIsValueIsZero(name) {
-    const value = breakpoints[name];
+    const value = state.breakpoints[name];
     const isNotZero = parseFloat(value) !== 0;
 
-    invariant(
+    state.invariant(
       isNotZero,
       `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
     );
   }
 
   function throwIsLastBreakpoint(name) {
-    const isNotLast = name !== names.at(-1);
-    const validName = names.at(-2);
+    const isNotLast = name !== state.names.at(-1);
+    const validName = state.names.at(-2);
 
-    invariant(
+    state.invariant(
       isNotLast,
       `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
     );
@@ -83,8 +83,11 @@ function withBreakpoints(state) {
   }
 
   function between(min, max) {
+    state.validation.throwIsInvalidName(min);
+    state.validation.throwIsInvalidName(min);
+
     return {
-      min: getValueByName(min),
+      min: up(min),
       max: calcMaxWidth(getValueByName(max)),
     };
   }
