@@ -1,3 +1,10 @@
+# [11.2.0](https://github.com/mg901/styled-breakpoints/compare/v11.1.5...v11.2.0) (2023-04-25)
+
+
+### Features
+
+* **down:** add validation for last breakpoint ([8e38d90](https://github.com/mg901/styled-breakpoints/commit/8e38d907954deb6928dab4fe8f4e46c960222790))
+
 ## [11.1.5](https://github.com/mg901/styled-breakpoints/compare/v11.1.4...v11.1.5) (2023-04-25)
 
 
