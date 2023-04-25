@@ -1,3 +1,15 @@
+## [11.1.5](https://github.com/mg901/styled-breakpoints/compare/v11.1.4...v11.1.5) (2023-04-25)
+
+
+### Bug Fixes
+
+* **up:** remove incorrect validation when breakpoint is equal zero ([ae47e05](https://github.com/mg901/styled-breakpoints/commit/ae47e055f41529a8fbd7fdcf8bea89f1eb27ab31))
+
+
+### Reverts
+
+* revert to v11.1.2 ([90a3b22](https://github.com/mg901/styled-breakpoints/commit/90a3b2277687382acbfea4319b32f954bf6fe250))
+
 ## [11.1.2](https://github.com/mg901/styled-breakpoints/compare/v11.1.1...v11.1.2) (2023-04-18)
 
 

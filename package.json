@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "11.1.2",
+  "version": "11.1.5",
   "description": "Simple and powerfull css breakpoints for styled-components and emotion",
   "main": "index.js",
   "types": "index.d.ts",
