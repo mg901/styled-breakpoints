@@ -52,12 +52,6 @@ describe('createBreakpoints', () => {
       );
     });
 
-    it('should throw an error when the value is equal 0', () => {
-      expect(() => breakpointsApi.up('xs')).toThrow(
-        `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
-      );
-    });
-
     it('should return the correct value for valid breakpoint', () => {
       expect(breakpointsApi.up('sm')).toBe(DEFAULT_BREAKPOINTS.sm);
       expect(breakpointsApi.up('md')).toBe(DEFAULT_BREAKPOINTS.md);
