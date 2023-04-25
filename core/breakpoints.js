@@ -2,19 +2,13 @@ const { createInvariantWithPrefix } = require('../library');
 
 exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   const keys = Object.keys(Object(breakpoints));
+  const values = Object.values(Object(breakpoints));
   const entries = Object.entries(Object(breakpoints));
   const invariant = createInvariantWithPrefix(errorPrefix);
-
-  const computedBreakpoints = computeBreakpoints({
-    breakpoints,
-    entries,
-    keys,
-  });
 
   const validation = withValidation({
     invariant,
     breakpoints,
-    computedBreakpoints,
     keys,
   });
 
@@ -23,67 +17,19 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
     entries,
     invariant,
     ...withBreakpoints({
-      invariant,
       validation,
-      computedBreakpoints,
+      breakpoints,
+      keys,
+      values,
     }),
   };
 };
 
-function withBreakpoints(state) {
-  return {
-    invariant: state.invariant,
-    up: (name) => {
-      state.validation.validateBreakpoint(name);
-
-      return state.computedBreakpoints[name].up;
-    },
-
-    down: (name) => {
-      state.validation.validateBreakpoint(name);
-
-      return state.computedBreakpoints[name].down;
-    },
-
-    between: (min, max) => {
-      state.validation.validateBreakpoint(min);
-      state.validation.validateBreakpoint(max);
-
-      return {
-        min: state.computedBreakpoints[min].up,
-        max: state.computedBreakpoints[max].down,
-      };
-    },
-    only: (name) => {
-      state.validation.throwIsInvalidName(name);
-      state.validation.throwIsLastBreakpointName(name);
-
-      return {
-        min: state.computedBreakpoints[name].up,
-        max: state.computedBreakpoints[name].end,
-      };
-    },
-  };
-}
-
-function withValidation({ keys, invariant, computedBreakpoints: breakpoints }) {
+function withValidation({ keys, invariant, breakpoints }) {
   return {
     throwIsInvalidName,
-    throwIsFirstBreakpointName,
-    throwIsLastBreakpointName(name) {
-      const isNotLast = name !== keys.at(-1);
-      const validName = keys.at(-2);
-
-      invariant(
-        isNotLast,
-        `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-      );
-    },
-
-    validateBreakpoint(name) {
-      throwIsInvalidName(name);
-      throwIsFirstBreakpointName(name);
-    },
+    throwIsValueIsZero,
+    throwIsLastBreakpoint,
   };
 
   function throwIsInvalidName(name) {
@@ -93,46 +39,66 @@ function withValidation({ keys, invariant, computedBreakpoints: breakpoints }) {
     );
   }
 
-  function throwIsFirstBreakpointName(name) {
-    const isValid =
-      typeof breakpoints[name].down === 'string' &&
-      !Number.isFinite(breakpoints[name]);
+  function throwIsValueIsZero(name) {
+    const value = breakpoints[name];
+    const isNotZero = parseFloat(value) !== 0;
 
     invariant(
-      isValid,
-      `\`${name}: ${breakpoints[name].up}\` cannot be assigned as minimum breakpoint.`
+      isNotZero,
+      `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
+    );
+  }
+
+  function throwIsLastBreakpoint(name) {
+    const isNotLast = name !== keys.at(-1);
+    const validName = keys.at(-2);
+
+    invariant(
+      isNotLast,
+      `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
     );
   }
 }
 
-function computeBreakpoints(state) {
-  return state.entries.reduce((acc, [key, value], index) => {
-    if (value === '0px') {
-      const nextName = state.keys[index + 1];
+function withBreakpoints(state) {
+  return {
+    up,
+    down,
+    between,
+    only,
+  };
 
-      acc[key] = {
-        down: -Infinity,
-        up: value,
-        end: calcMaxWidth(state.breakpoints[nextName]),
-      };
-    } else if (key === state.keys.at(-1)) {
-      acc[key] = {
-        down: calcMaxWidth(value),
-        up: value,
-        end: Infinity,
-      };
-    } else {
-      const nextName = state.keys[index + 1];
+  function up(min) {
+    state.validation.throwIsInvalidName(min);
 
-      acc[key] = {
-        down: calcMaxWidth(value),
-        up: value,
-        end: calcMaxWidth(state.breakpoints[nextName]),
-      };
-    }
+    return state.breakpoints[min];
+  }
 
-    return acc;
-  }, {});
+  function down(max) {
+    state.validation.throwIsInvalidName(max);
+    state.validation.throwIsValueIsZero(max);
+    state.validation.throwIsLastBreakpoint(max);
+
+    return calcMaxWidth(state.breakpoints[max]);
+  }
+
+  function between(min, max) {
+    return {
+      min: up(min),
+      max: down(max),
+    };
+  }
+
+  function only(name) {
+    state.validation.throwIsInvalidName(name);
+    state.validation.throwIsLastBreakpoint(name);
+    const nextIndex = state.keys.indexOf(name) + 1;
+
+    return {
+      min: up(name),
+      max: calcMaxWidth(state.values[nextIndex]),
+    };
+  }
 }
 
 // Maximum breakpoint width. Null for the largest (last) breakpoint.
