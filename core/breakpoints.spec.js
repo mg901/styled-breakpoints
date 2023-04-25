@@ -87,8 +87,15 @@ describe('createBreakpoints', () => {
       expect(breakpointsApi.down('xl')).toBe(
         calcMaxWidth(DEFAULT_BREAKPOINTS.xl)
       );
-      expect(breakpointsApi.down('xxl')).toBe(
-        calcMaxWidth(DEFAULT_BREAKPOINTS.xxl)
+    });
+
+    it('should throw an error when given the last breakpoint name', () => {
+      const LAST_BREAKPOINT_NAME = 'xxl';
+
+      expect(() => {
+        breakpointsApi.down(LAST_BREAKPOINT_NAME);
+      }).toThrow(
+        `${ERROR_PREFIX}\`${LAST_BREAKPOINT_NAME}\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
       );
     });
   });
