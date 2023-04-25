@@ -28,8 +28,8 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
   });
 
   const getValueByName = memoize((name) => {
-    validation.checkIsValidName(name);
-    validation.checkIsFirstName(name);
+    validation.throwIsInvalidName(name);
+    validation.throwIsValueIsZero(name);
 
     return breakpoints[name];
   });
@@ -41,23 +41,23 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = defaultOptions) => {
   };
 
   const getNextValueByName = memoize((name) => {
-    validation.checkIsValidName(name);
-    validation.checkIsLastName(name);
+    validation.throwIsInvalidName(name);
+    validation.throwIsLastBreakpoint(name);
 
     return breakpoints[getNextName(name)];
   });
 
   return {
     up: memoize((name) => {
-      validation.checkIsValidName(name);
+      validation.throwIsInvalidName(name);
 
       return breakpoints[name];
     }),
 
     down: memoize((name) => {
-      validation.checkIsValidName(name);
-      validation.checkIsFirstName(name);
-      validation.checkIsLastName(name);
+      validation.throwIsInvalidName(name);
+      validation.throwIsValueIsZero(name);
+      validation.throwIsLastBreakpoint(name);
 
       return calcMaxWidth(breakpoints[name]);
     }),
@@ -78,33 +78,37 @@ function createValidation({ names, breakpoints, errorPrefix }) {
   const invariant = createInvariantWithPrefix(errorPrefix);
 
   return {
-    checkIsValidName: (name) => {
-      invariant(
-        breakpoints[name],
-        `breakpoint \`${name}\` not found in ${names.join(', ')}.`
-      );
-    },
-    checkIsFirstName: (name) => {
-      const value = breakpoints[name];
-      const isNotZero = parseFloat(value) !== 0;
-
-      invariant(
-        isNotZero,
-        `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
-      );
-    },
-    checkIsLastName: (name) => {
-      const currentIndex = names.indexOf(name);
-      const nextIndex = currentIndex + 1;
-      const isNotLast = names.length !== nextIndex;
-      const validName = names[names.length - 2];
-
-      invariant(
-        isNotLast,
-        `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-      );
-    },
+    throwIsInvalidName,
+    throwIsValueIsZero,
+    throwIsLastBreakpoint,
   };
+
+  function throwIsInvalidName(name) {
+    invariant(
+      breakpoints[name],
+      `breakpoint \`${name}\` not found in ${names.join(', ')}.`
+    );
+  }
+
+  function throwIsValueIsZero(name) {
+    const value = breakpoints[name];
+    const isNotZero = parseFloat(value) !== 0;
+
+    invariant(
+      isNotZero,
+      `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
+    );
+  }
+
+  function throwIsLastBreakpoint(name) {
+    const isNotLast = name !== names.at(-1);
+    const validName = names.at(-2);
+
+    invariant(
+      isNotLast,
+      `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+    );
+  }
 }
 
 // Maximum breakpoint width. Null for the largest (last) breakpoint.
