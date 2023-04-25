@@ -1,3 +1,12 @@
+## [11.1.4](https://github.com/mg901/styled-breakpoints/compare/v11.1.3...v11.1.4) (2023-04-25)
+
+
+### Bug Fixes
+
+* **between:** remove exception `0px` cannot be assigned as minimum breakpoint` for the minimum value ([f5b85bf](https://github.com/mg901/styled-breakpoints/commit/f5b85bfe088ab40c207ff552baad773ae38eb425))
+* **down:** add exception for last breakpoint ([a44d3e8](https://github.com/mg901/styled-breakpoints/commit/a44d3e81feddd8cf904f587b63a70024e1bf4a30))
+* **up:** fix `0px` cannot be assigned as minimum breakpoint. ([36987dd](https://github.com/mg901/styled-breakpoints/commit/36987ddcb813042de2fe32b9e8b7219822b7c374))
+
 ## [11.1.3](https://github.com/mg901/styled-breakpoints/compare/v11.1.2...v11.1.3) (2023-04-23)
 
 
