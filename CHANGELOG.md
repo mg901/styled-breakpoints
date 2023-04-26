@@ -1,3 +1,10 @@
+## [11.2.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.0...v11.2.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* **down:** remove validation for last breakpoint ([#1472](https://github.com/mg901/styled-breakpoints/issues/1472)) ([f55e97f](https://github.com/mg901/styled-breakpoints/commit/f55e97f663e7c209c5d11c64db263cdb56fd32ef))
+
 # [11.2.0](https://github.com/mg901/styled-breakpoints/compare/v11.1.5...v11.2.0) (2023-04-25)
 
 
