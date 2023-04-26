@@ -17,26 +17,6 @@ const defaultOptions = {
 exports.createStyledBreakpoints = (options = defaultOptions) => {
   const invariant = createInvariantWithPrefix(options.errorPrefix);
 
-  const checkAllValuesHasPixels = memoize((breakpoints) => {
-    const invalidBreakpoints = Object.entries(breakpoints).reduce(
-      (acc, [key, value]) => {
-        const hasPx = /^\d+px$/;
-
-        if (!hasPx.test(value)) {
-          acc += `${key}: ${value}, `;
-        }
-
-        return acc;
-      },
-      ''
-    );
-
-    invariant(
-      invalidBreakpoints.length === 0,
-      `Check your theme. \`${invalidBreakpoints.trimEnd()}\` are invalid breakpoints. Use only pixels.`
-    );
-  });
-
   const getMediaQueriesFromTheme = ({ theme = {} }) => {
     const memoizedGet = memoize(get);
 
@@ -45,8 +25,6 @@ exports.createStyledBreakpoints = (options = defaultOptions) => {
       options.pathToMediaQueries,
       options.defaultBreakpoints
     );
-
-    checkAllValuesHasPixels(memoizedMediaQueries);
 
     return memoizedMediaQueries;
   };
