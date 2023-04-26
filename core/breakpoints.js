@@ -19,7 +19,6 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
   const down = (max) => {
     validation.throwIsInvalidName(max);
     validation.throwIsValueIsZero(max);
-    validation.throwIsLastBreakpoint(max);
 
     return calcMaxWidth(breakpoints[max]);
   };
