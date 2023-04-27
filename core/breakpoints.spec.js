@@ -223,7 +223,7 @@ describe('core/create-breakpoints', () => {
       expect(() => {
         breakpointsApi.only(LAST_BREAKPOINT_NAME);
       }).toThrow(
-        `${ERROR_PREFIX}\`${LAST_BREAKPOINT_NAME}\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+        `${ERROR_PREFIX}\`${LAST_BREAKPOINT_NAME}\` doesn't have a maximum width. Use \`xl\`.`
       );
     });
   });
