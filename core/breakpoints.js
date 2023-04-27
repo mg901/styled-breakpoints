@@ -32,11 +32,17 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
 
   const between = (min, max) => {
     validation.throwIsInvalidName(min);
-    validation.throwIsInvalidName(min);
+    validation.throwIsInvalidName(max);
+
+    const calcMax = () => {
+      validation.throwIsMaxValueLessThanMin(min, max);
+
+      return calcMaxWidth(breakpoints[max]);
+    };
 
     return {
       min: up(min),
-      max: calcMaxWidth(getValueByName(max)),
+      max: calcMax(),
     };
   };
 
@@ -99,11 +105,20 @@ function makeBreakpointsValidation(state) {
 
   const throwIsValueIsZero = (name) => {
     const value = state.breakpoints[name];
-    const isNotZero = parseFloat(value) !== 0;
+    const isNotZero = removeUnits(value) !== 0;
 
     state.invariant(
       isNotZero,
       `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
+    );
+  };
+
+  const throwIsMaxValueLessThanMin = (min, max) => {
+    const { breakpoints, invariant } = state;
+
+    invariant(
+      removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]) > 0,
+      'The `max` value cannot be less than the `min`.'
     );
   };
 
@@ -121,6 +136,7 @@ function makeBreakpointsValidation(state) {
     throwIfInvalidBreakpoints,
     throwIsInvalidName,
     throwIsValueIsZero,
+    throwIsMaxValueLessThanMin,
     throwIsLastBreakpoint,
   };
 }
@@ -132,7 +148,11 @@ function makeBreakpointsValidation(state) {
 // Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
 // See https://bugs.webkit.org/show_bug.cgi?id=178261
 function calcMaxWidth(value) {
-  return `${parseFloat(value) - 0.02}px`;
+  return `${removeUnits(value) - 0.02}px`;
+}
+
+function removeUnits(value) {
+  return parseInt(value, 10);
 }
 
 exports.calcMaxWidth = calcMaxWidth;

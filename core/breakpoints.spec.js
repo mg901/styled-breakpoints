@@ -95,40 +95,91 @@ describe('core/create-breakpoints', () => {
     });
   });
 
-  describe('between', () => {
-    it('should throw exception if the breakpoint name is not found', () => {
+  describe('between method', () => {
+    it('should throw an error for invalid breakpoint names', () => {
       expect(() =>
-        breakpointsApi.between(INVALID_BREAKPOINT_NAME, 'md')
-      ).toThrow(
+        breakpointsApi.between(INVALID_BREAKPOINT_NAME, 'sm')
+      ).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+      );
+
+      expect(() =>
+        breakpointsApi.between('sm', INVALID_BREAKPOINT_NAME)
+      ).toThrowError(
         `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
-    it('should throw exception if the breakpoint value is zero ', () => {
-      try {
-        breakpointsApi.between('xs', 'sm');
-      } catch (error) {
-        expect(error.message).toEqual(
-          `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
-        );
-      }
-    });
+    it('should calculate the correct breakpoint range', () => {
+      // xs
+      expect(breakpointsApi.between('xs', 'sm')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.sm),
+      });
 
-    it('return an object with the minimum and maximum screen width', () => {
+      expect(breakpointsApi.between('xs', 'md')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
+      });
+
+      expect(breakpointsApi.between('xs', 'lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
+      expect(breakpointsApi.between('xs', 'xl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      expect(breakpointsApi.between('xs', 'xxl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
+      });
+
+      // sm
+      expect(breakpointsApi.between('sm', 'md')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
+      });
+
+      expect(breakpointsApi.between('sm', 'lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
+      expect(breakpointsApi.between('sm', 'xl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      // md
+      expect(breakpointsApi.between('md', 'lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
       expect(breakpointsApi.between('md', 'xl')).toEqual({
-        max: '1199.98px',
-        min: '768px',
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      expect(breakpointsApi.between('md', 'xxl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
+      });
+
+      // xl
+      expect(breakpointsApi.between('xl', 'xxl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xl,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
       });
     });
 
-    it('should throw exception if the last breakpoint is specified as the maximum value', () => {
-      try {
-        breakpointsApi.between('xl', 'xxl');
-      } catch (error) {
-        expect(error.message).toEqual(
-          `${ERROR_PREFIX}\`xxl\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-        );
-      }
+    it('should throw an error when the last breakpoint is equal 0', () => {
+      expect(() => breakpointsApi.between('xl', 'xs')).toThrow(
+        `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`
+      );
     });
   });
 
