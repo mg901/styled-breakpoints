@@ -23,13 +23,6 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
     return calcMaxWidth(breakpoints[max]);
   };
 
-  const getValueByName = (name) => {
-    validation.throwIsInvalidName(name);
-    validation.throwIsValueIsZero(name);
-
-    return breakpoints[name];
-  };
-
   const between = (min, max) => {
     validation.throwIsInvalidName(min);
     validation.throwIsInvalidName(max);
@@ -46,23 +39,19 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
     };
   };
 
-  const getNextName = (name) => {
-    const nextIndex = names.indexOf(name) + 1;
-
-    return names[nextIndex];
-  };
-
-  function getNextValueByName(name) {
-    validation.throwIsInvalidName(name);
-    validation.throwIsLastBreakpoint(name);
-
-    return breakpoints[getNextName(name)];
-  }
-
   const only = (name) => {
+    const nextIndex = names.indexOf(name) + 1;
+    const values = Object.values(Object(breakpoints));
+
+    const calcMax = () => {
+      validation.throwIsLastBreakpoint(name);
+
+      return calcMaxWidth(values[nextIndex]);
+    };
+
     return {
-      min: getValueByName(name),
-      max: calcMaxWidth(getNextValueByName(name)),
+      min: up(name),
+      max: calcMax(),
     };
   };
 
