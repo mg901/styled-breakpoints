@@ -77,45 +77,41 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
   };
 };
 
-function makeBreakpointsValidation(state) {
-  const names = Object.keys(Object(state.breakpoints));
-  const entries = Object.entries(Object(state.breakpoints));
+function makeBreakpointsValidation({ breakpoints, invariant } = {}) {
+  const names = Object.keys(Object(breakpoints));
 
   const throwIfInvalidBreakpoints = () => {
-    const invalidBreakpoints = entries.reduce((acc, [key, value]) => {
-      if (!/^\d+px$/.test(value)) {
-        acc += `${key}: ${value}, `;
+    const invalidBreakpoints = names.reduce((acc, name) => {
+      if (!/^\d+px$/.test(breakpoints[name])) {
+        acc += `${name}: ${breakpoints[name]}, `;
       }
 
       return acc;
     }, '');
 
-    state.invariant(
+    invariant(
       invalidBreakpoints.length === 0,
       `Check your theme. \`${invalidBreakpoints.trimEnd()}\` are invalid breakpoints. Use only pixels.`
     );
   };
 
   const throwIsInvalidName = (name) => {
-    state.invariant(
-      state.breakpoints[name],
+    invariant(
+      breakpoints[name],
       `breakpoint \`${name}\` not found in ${names.join(', ')}.`
     );
   };
 
   const throwIsValueIsZero = (name) => {
-    const value = state.breakpoints[name];
-    const isNotZero = removeUnits(value) !== 0;
+    const value = breakpoints[name];
 
-    state.invariant(
-      isNotZero,
+    invariant(
+      removeUnits(value) !== 0,
       `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
     );
   };
 
   const throwIsMaxValueLessThanMin = (min, max) => {
-    const { breakpoints, invariant } = state;
-
     invariant(
       removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]) > 0,
       'The `max` value cannot be less than the `min`.'
@@ -123,12 +119,11 @@ function makeBreakpointsValidation(state) {
   };
 
   const throwIsLastBreakpoint = (name) => {
-    const isNotLast = name !== names.at(-1);
-    const validName = names.at(-2);
-
-    state.invariant(
-      isNotLast,
-      `\`${name}\` doesn't have a maximum width. Use \`${validName}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+    invariant(
+      name !== names.at(-1),
+      `\`${name}\` doesn't have a maximum width. Use \`${names.at(
+        -2
+      )}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
     );
   };
 
