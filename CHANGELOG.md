@@ -1,3 +1,10 @@
+## [11.2.3](https://github.com/mg901/styled-breakpoints/compare/v11.2.2...v11.2.3) (2023-04-27)
+
+
+### Bug Fixes
+
+* **only:** remove incorrect validation for the minimum breakpoint ([#1479](https://github.com/mg901/styled-breakpoints/issues/1479)) ([b8b9040](https://github.com/mg901/styled-breakpoints/commit/b8b9040af5bebb1feb72314bd481d62292c8e7e6))
+
 ## [11.2.2](https://github.com/mg901/styled-breakpoints/compare/v11.2.1...v11.2.2) (2023-04-27)
 
 
