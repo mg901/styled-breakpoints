@@ -54,7 +54,7 @@
       "name": "core",
       "path": "./core",
       "import": "{ createBreakpoints }",
-      "limit": "936 B"
+      "limit": "996 B"
     },
     {
       "name": "core + styled-breakpoints",
