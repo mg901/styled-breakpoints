@@ -184,31 +184,47 @@ describe('core/create-breakpoints', () => {
   });
 
   describe('only', () => {
-    it('should throw exception if the breakpoint name is not found', () => {
-      try {
-        breakpointsApi.only('wtf');
-      } catch (error) {
-        expect(error.message).toEqual(
-          `${ERROR_PREFIX}breakpoint \`wtf\` not found in xs, sm, md, lg, xl, xxl.`
-        );
-      }
+    it('should throw an error for an invalid breakpoint name', () => {
+      expect(() => breakpointsApi.only(INVALID_BREAKPOINT_NAME)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+      );
     });
 
-    it('return an object with the minimum and maximum screen width', () => {
+    it('should return correct min and max values for given breakpoint name', () => {
+      expect(breakpointsApi.only('xs')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xs,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.sm),
+      });
+
+      expect(breakpointsApi.only('sm')).toEqual({
+        min: DEFAULT_BREAKPOINTS.sm,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
+      });
+
       expect(breakpointsApi.only('md')).toEqual({
-        max: '991.98px',
-        min: '768px',
+        min: DEFAULT_BREAKPOINTS.md,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.lg),
+      });
+
+      expect(breakpointsApi.only('lg')).toEqual({
+        min: DEFAULT_BREAKPOINTS.lg,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xl),
+      });
+
+      expect(breakpointsApi.only('xl')).toEqual({
+        min: DEFAULT_BREAKPOINTS.xl,
+        max: calcMaxWidth(DEFAULT_BREAKPOINTS.xxl),
       });
     });
 
-    it('should throw exception if the last breakpoint is specified as the maximum value', () => {
-      try {
-        breakpointsApi.only('xxl');
-      } catch (error) {
-        expect(error.message).toEqual(
-          `${ERROR_PREFIX}\`xxl\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-        );
-      }
+    it('should throw an error when given the last breakpoint name', () => {
+      const LAST_BREAKPOINT_NAME = 'xxl';
+
+      expect(() => {
+        breakpointsApi.only(LAST_BREAKPOINT_NAME);
+      }).toThrow(
+        `${ERROR_PREFIX}\`${LAST_BREAKPOINT_NAME}\` doesn't have a maximum width. Use \`xl\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
+      );
     });
   });
 });
