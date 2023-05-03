@@ -1,5 +1,5 @@
 const { get, createInvariantWithPrefix, memoize } = require('../library');
-const { createBreakpoints } = require('../core');
+const { createBreakpoints } = require('../breakpoints');
 
 const defaultOptions = {
   errorPrefix: '[styled-breakpoints]: ',

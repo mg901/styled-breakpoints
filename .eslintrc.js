@@ -16,6 +16,7 @@ module.exports = {
     'import/no-self-import': 2,
     'import/no-named-as-default': 2,
     'func-names': 0,
+    'global-require': 0,
     'arrow-body-style': 0,
     'no-param-reassign': 0,
     'no-underscore-dangle': 0,

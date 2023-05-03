@@ -51,10 +51,16 @@
   },
   "size-limit": [
     {
-      "name": "core",
-      "path": "./core",
+      "name": "breakpoints",
+      "path": "./breakpoints/breakpoints.js",
       "import": "{ createBreakpoints }",
-      "limit": "996 B"
+      "limit": "209 B"
+    },
+    {
+      "name": "breakpoints.dev",
+      "path": "./breakpoints/breakpoints.dev.js",
+      "import": "{ createBreakpoints }",
+      "limit": "812 B"
     },
     {
       "name": "core + styled-breakpoints",
@@ -134,7 +140,8 @@
     "@semantic-release/github": "^8.0.0",
     "@semantic-release/npm": "^10.0.2",
     "@semantic-release/release-notes-generator": "^11.0.1",
-    "@size-limit/esbuild": "^8.0.0",
+    "@size-limit/esbuild": "^8.2.4",
+    "@size-limit/esbuild-why": "^8.2.4",
     "@size-limit/file": "^8.0.0",
     "@size-limit/webpack": "^8.0.0",
     "all-contributors-cli": "^6.17.4",
