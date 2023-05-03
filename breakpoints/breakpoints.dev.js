@@ -1,4 +1,4 @@
-const { createInvariantWithPrefix } = require('../library');
+const { createBreakpoints: createBreakpointsApi } = require('./breakpoints');
 
 exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
   const invariant = createInvariantWithPrefix(errorPrefix);
@@ -8,55 +8,38 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
   });
 
   validation.throwIfInvalidBreakpoints();
-  const names = Object.keys(Object(breakpoints));
+  const breakpointsApi = createBreakpointsApi({
+    breakpoints,
+  });
 
   const up = (min) => {
     validation.throwIsInvalidName(min);
 
-    return breakpoints[min];
+    return breakpointsApi.up(min);
   };
 
   const down = (max) => {
     validation.throwIsInvalidName(max);
     validation.throwIsValueIsZero(max);
 
-    return calcMaxWidth(breakpoints[max]);
+    return breakpointsApi.down(max);
   };
 
   const between = (min, max) => {
     validation.throwIsInvalidName(min);
     validation.throwIsInvalidName(max);
+    validation.throwIsMaxValueLessThanMin(min, max);
 
-    const calcMax = () => {
-      validation.throwIsMaxValueLessThanMin(min, max);
-
-      return calcMaxWidth(breakpoints[max]);
-    };
-
-    return {
-      min: up(min),
-      max: calcMax(),
-    };
+    return breakpointsApi.between(min, max);
   };
 
   const only = (name) => {
-    const nextIndex = names.indexOf(name) + 1;
-    const values = Object.values(Object(breakpoints));
+    validation.throwIsInvalidName(name);
 
-    const calcMax = () => {
-      validation.throwIsLastBreakpoint(name);
-
-      return calcMaxWidth(values[nextIndex]);
-    };
-
-    return {
-      min: up(name),
-      max: calcMax(),
-    };
+    return breakpointsApi.only(name);
   };
 
   return {
-    names,
     entries: Object.entries(Object(breakpoints)),
     invariant,
     up,
@@ -65,6 +48,14 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
     only,
   };
 };
+
+function createInvariantWithPrefix(errorPrefix = '[prefix]: ') {
+  return function (condition, message = 'Invariant failed') {
+    if (!condition) {
+      throw new Error(errorPrefix + message);
+    }
+  };
+}
 
 function makeBreakpointsValidation({ breakpoints, invariant } = {}) {
   const names = Object.keys(Object(breakpoints));
@@ -125,18 +116,6 @@ function makeBreakpointsValidation({ breakpoints, invariant } = {}) {
   };
 }
 
-// Maximum breakpoint width. Null for the largest (last) breakpoint.
-// The maximum value is calculated as the minimum of the next one less 0.02px
-// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
-// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
-// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
-// See https://bugs.webkit.org/show_bug.cgi?id=178261
-function calcMaxWidth(value) {
-  return `${removeUnits(value) - 0.02}px`;
-}
-
 function removeUnits(value) {
   return parseInt(value, 10);
 }
-
-exports.calcMaxWidth = calcMaxWidth;

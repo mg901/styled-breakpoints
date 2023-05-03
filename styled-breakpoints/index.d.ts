@@ -1,4 +1,4 @@
-import { CreateBreakpointsOptions } from '../core';
+import { CreateBreakpointsOptions } from '../breakpoints';
 
 export type Orientation = 'portrait' | 'landscape';
 
