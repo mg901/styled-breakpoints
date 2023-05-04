@@ -130,11 +130,6 @@ describe('core/createBreakpoints', () => {
         `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
-    // it('should return the correct value for valid breakpoint', () => {
-    //   keys.forEach((key) => {
-    //     expect(breakpointsApi.up(key)).toBe(DEFAULT_BREAKPOINTS[key]);
-    //   });
-    // });
   });
 
   describe('down method', () => {
