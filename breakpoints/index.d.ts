@@ -3,9 +3,22 @@ export interface CreateBreakpointsOptions {
   errorPrefix: string;
 }
 
+type ComputedBreakpoint = `${string}px`;
+
 export declare function createBreakpoints(options: CreateBreakpointsOptions): {
-  up: (min: string) => string;
-  down: (max: string) => string;
-  between: (min: string, max: string) => { min: string; max: string };
-  only: (name: string) => { min: string; max: string };
+  up: (min: string) => ComputedBreakpoint;
+  down: (max: string) => ComputedBreakpoint;
+  between: (
+    min: string,
+    max: string
+  ) => {
+    min: ComputedBreakpoint;
+    max: ComputedBreakpoint;
+  };
+  only: (name: string) =>
+    | {
+        min: ComputedBreakpoint;
+        max: ComputedBreakpoint;
+      }
+    | ComputedBreakpoint;
 };
