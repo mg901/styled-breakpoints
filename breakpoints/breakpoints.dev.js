@@ -1,8 +1,8 @@
 const { createBreakpoints: createBreakpointsApi } = require('./breakpoints');
 
-exports.createBreakpoints = ({ breakpoints, errorPrefix } = {}) => {
+exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   const invariant = createInvariantWithPrefix(errorPrefix);
-  const validation = makeBreakpointsValidation({
+  const validation = createValidation({
     invariant,
     breakpoints,
   });
@@ -57,21 +57,25 @@ function createInvariantWithPrefix(errorPrefix = '[prefix]: ') {
   };
 }
 
-function makeBreakpointsValidation({ breakpoints, invariant } = {}) {
+exports.createInvariantWithPrefix = createInvariantWithPrefix;
+
+function createValidation({ invariant, breakpoints }) {
   const names = Object.keys(Object(breakpoints));
 
   const throwIfInvalidBreakpoints = () => {
     const invalidBreakpoints = names.reduce((acc, name) => {
-      if (!/^\d+px$/.test(breakpoints[name])) {
-        acc += `${name}: ${breakpoints[name]}, `;
+      if (!/^\d+px$/.test(breakpoints[name].trim())) {
+        acc.push(`${name}: ${breakpoints[name]}`);
       }
 
       return acc;
-    }, '');
+    }, []);
 
     invariant(
       invalidBreakpoints.length === 0,
-      `Check your theme. \`${invalidBreakpoints.trimEnd()}\` are invalid breakpoints. Use only pixels.`
+      `The following breakpoints are invalid: \`${invalidBreakpoints.join(
+        ', '
+      )}\`. Use values with pixel units (e.g., '200px').`
     );
   };
 
@@ -98,23 +102,15 @@ function makeBreakpointsValidation({ breakpoints, invariant } = {}) {
     );
   };
 
-  const throwIsLastBreakpoint = (name) => {
-    invariant(
-      name !== names.at(-1),
-      `\`${name}\` doesn't have a maximum width. Use \`${names.at(
-        -2
-      )}\`. See https://github.com/mg901/styled-breakpoints/issues/4 .`
-    );
-  };
-
   return {
     throwIfInvalidBreakpoints,
     throwIsInvalidName,
     throwIsValueIsZero,
     throwIsMaxValueLessThanMin,
-    throwIsLastBreakpoint,
   };
 }
+
+exports.createValidation = createValidation;
 
 function removeUnits(value) {
   return parseInt(value, 10);
