@@ -1,4 +1,52 @@
-const { createBreakpoints } = require('./breakpoints.dev');
+const {
+  createInvariantWithPrefix,
+  createValidation,
+  createBreakpoints,
+} = require('./breakpoints.dev');
+
+describe('createValidation', () => {
+  let ERROR_PREFIX = null;
+  let invariant = null;
+
+  beforeEach(() => {
+    ERROR_PREFIX = '[breakpoints]: ';
+    invariant = createInvariantWithPrefix(ERROR_PREFIX);
+  });
+
+  it('should throw an error if invalid breakpoints are found', () => {
+    const validation = createValidation({
+      invariant,
+      breakpoints: {
+        xs: '0px',
+        sm: '576px',
+        md: 'wtf',
+        lg: '992',
+        xl: 'px1200',
+        xxl: '1400px',
+      },
+    });
+
+    expect(() => validation.throwIfInvalidBreakpoints()).toThrowError(
+      `${ERROR_PREFIX}The following breakpoints are invalid: \`md: wtf, lg: 992, xl: px1200\`. Use values with pixel units (e.g., '200px').`
+    );
+  });
+
+  it('should not throw an error if all breakpoints are valid', () => {
+    const validation = createValidation({
+      invariant,
+      breakpoints: {
+        xs: '0px',
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+        xxl: '1400px',
+      },
+    });
+
+    expect(() => validation.throwIfInvalidBreakpoints()).not.toThrowError();
+  });
+});
 
 describe('core/createBreakpoints', () => {
   let breakpointsApi = null;
@@ -101,5 +149,38 @@ describe('core/createBreakpoints', () => {
         `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
+  });
+});
+
+describe('createInvariantWithPrefix function', () => {
+  let invariant = null;
+
+  beforeEach(() => {
+    invariant = createInvariantWithPrefix();
+  });
+
+  it('should throw an error with the default error prefix if the condition is false', () => {
+    expect(() => invariant(false)).toThrowError('[prefix]: Invariant failed');
+  });
+
+  it('should throw an error with the specified error prefix if the condition is false', () => {
+    const CUSTOM_PREFIX = 'Custom prefix: ';
+    const invariantWithCustomPrefix = createInvariantWithPrefix(CUSTOM_PREFIX);
+
+    expect(() => invariantWithCustomPrefix(false)).toThrowError(
+      `${CUSTOM_PREFIX}Invariant failed`
+    );
+  });
+
+  it('should not throw if the condition is truthy', () => {
+    const truthy = [1, -1, true, {}, [], Symbol('test'), 'hi'];
+
+    truthy.forEach((value) => expect(() => invariant(value)).not.toThrow());
+  });
+
+  it('should throw if the condition is falsy', () => {
+    const falsy = [undefined, null, false, +0, -0, NaN, ''];
+
+    falsy.forEach((value) => expect(() => invariant(value)).toThrow());
   });
 });

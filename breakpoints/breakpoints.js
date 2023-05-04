@@ -1,4 +1,4 @@
-exports.createBreakpoints = ({ breakpoints } = {}) => {
+exports.createBreakpoints = ({ breakpoints }) => {
   const keys = Object.keys(Object(breakpoints));
 
   const up = (min) => breakpoints[min];
