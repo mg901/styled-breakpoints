@@ -1,7 +1,11 @@
-const { createBreakpoints: createBreakpointsApi } = require('./breakpoints');
+const {
+  createBreakpoints: createBreakpointsApi,
+} = require('./create-breakpoints.prod');
+
+const { createInvariant } = require('./create-invariant');
 
 exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
-  const invariant = createInvariantWithPrefix(errorPrefix);
+  const invariant = createInvariant(errorPrefix);
   const validation = createValidation({
     invariant,
     breakpoints,
@@ -49,16 +53,6 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   };
 };
 
-function createInvariantWithPrefix(errorPrefix = '[prefix]: ') {
-  return function (condition, message = 'Invariant failed') {
-    if (!condition) {
-      throw new Error(errorPrefix + message);
-    }
-  };
-}
-
-exports.createInvariantWithPrefix = createInvariantWithPrefix;
-
 function createValidation({ invariant, breakpoints }) {
   const names = Object.keys(Object(breakpoints));
 
@@ -96,10 +90,9 @@ function createValidation({ invariant, breakpoints }) {
   };
 
   const throwIsMaxValueLessThanMin = (min, max) => {
-    invariant(
-      removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]) > 0,
-      'The `max` value cannot be less than the `min`.'
-    );
+    const diff = removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]);
+
+    invariant(diff >= 0, 'The `max` value cannot be less than the `min`.');
   };
 
   return {
@@ -109,8 +102,6 @@ function createValidation({ invariant, breakpoints }) {
     throwIsMaxValueLessThanMin,
   };
 }
-
-exports.createValidation = createValidation;
 
 function removeUnits(value) {
   return parseInt(value, 10);
