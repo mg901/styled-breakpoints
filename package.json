@@ -1,9 +1,9 @@
 {
   "name": "styled-breakpoints",
   "version": "11.2.3",
-  "description": "Simple and powerfull css breakpoints for styled-components and emotion",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "description": "Simple and powerful css breakpoints for styled-components and emotion",
+  "main": "styled-breakpoints/index.js",
+  "types": "styled-breakpoints/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
@@ -52,7 +52,7 @@
   "size-limit": [
     {
       "name": "breakpoints",
-      "path": "./breakpoints/breakpoints.js",
+      "path": "./breakpoints/breakpoints.prod.js",
       "import": "{ createBreakpoints }",
       "limit": "209 B"
     },
@@ -60,31 +60,13 @@
       "name": "breakpoints.dev",
       "path": "./breakpoints/breakpoints.dev.js",
       "import": "{ createBreakpoints }",
-      "limit": "812 B"
+      "limit": "750 B"
     },
     {
-      "name": "core + styled-breakpoints",
-      "import": {
-        "index.js": "{ createBreakpoints }",
-        "styled-breakpoints/index.js": "{ up, down, between, only }"
-      },
-      "limit": "1.67 kB"
-    },
-    {
-      "name": "styled-breakpoints + react-styled",
-      "import": {
-        "styled-breakpoints/index.js": "{ up, down, between, only }",
-        "react-styled/index.js": "{ useBreakpoint }"
-      },
-      "limit": "1.74 kB"
-    },
-    {
-      "name": "styled-breakpoints + react-emotion",
-      "import": {
-        "styled-breakpoints/index.js": "{ up, down, between, only }",
-        "react-emotion/index.js": "{ useBreakpoint }"
-      },
-      "limit": "1.74 kB"
+      "name": "styled-breakpoints",
+      "path": "./styled-breakpoints/index.js",
+      "import": "{ createStyledBreakpointsTheme }",
+      "limit": "925 B"
     }
   ],
   "prettier": {
