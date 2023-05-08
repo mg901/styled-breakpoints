@@ -1,11 +1,11 @@
-describe('createBreakpoints production', () => {
+describe('createBreakpoints function in production', () => {
   let DEFAULT_BREAKPOINTS = null;
   let breakpointsApi = null;
   let keys = null;
 
   beforeEach(() => {
+    jest.resetModules();
     process.env.NODE_ENV = 'production';
-    const bp = require('.');
 
     DEFAULT_BREAKPOINTS = {
       xs: '0px',
@@ -16,7 +16,7 @@ describe('createBreakpoints production', () => {
       xxl: '1400px',
     };
 
-    breakpointsApi = bp.createBreakpoints({
+    breakpointsApi = require('.').createBreakpoints({
       breakpoints: DEFAULT_BREAKPOINTS,
     });
 
@@ -37,7 +37,7 @@ describe('createBreakpoints production', () => {
     expect(typeof breakpointsApi.only).toBe('function');
   });
 
-  describe('up method', () => {
+  describe('up', () => {
     it('should return the correct value for valid breakpoint', () => {
       keys.forEach((key) => {
         expect(breakpointsApi.up(key)).toBe(DEFAULT_BREAKPOINTS[key]);
@@ -45,10 +45,9 @@ describe('createBreakpoints production', () => {
     });
   });
 
-  describe('down method', () => {
+  describe('down', () => {
     it('should calculate the correct maximum breakpoint width', () => {
-      const { calcMaxWidth } = require('.');
-
+      const { calcMaxWidth } = require('./calc-max-width');
       keys.slice(1).forEach((key) => {
         expect(breakpointsApi.down(key)).toBe(
           calcMaxWidth(DEFAULT_BREAKPOINTS[key])
@@ -57,9 +56,9 @@ describe('createBreakpoints production', () => {
     });
   });
 
-  describe('between method', () => {
+  describe('between', () => {
     it('should calculate the correct breakpoint range', () => {
-      const { calcMaxWidth } = require('.');
+      const { calcMaxWidth } = require('./calc-max-width');
 
       for (let i = 0; i < keys.length - 1; i += 1) {
         for (let j = i + 1; j < keys.length; j += 1) {
@@ -75,9 +74,9 @@ describe('createBreakpoints production', () => {
     });
   });
 
-  describe('only method', () => {
+  describe('only', () => {
     it('should return correct min and max values for given breakpoint name', () => {
-      const { calcMaxWidth } = require('.');
+      const { calcMaxWidth } = require('./calc-max-width');
 
       keys.slice(0, -1).forEach((key, index) => {
         expect(breakpointsApi.only(key)).toEqual({
@@ -90,7 +89,8 @@ describe('createBreakpoints production', () => {
     });
   });
 });
-describe('createBreakpoints development', () => {
+
+describe('createBreakpoints function in development', () => {
   let breakpointsApi = null;
   let INVALID_BREAKPOINT_NAME = null;
   let ERROR_PREFIX = null;
@@ -100,8 +100,7 @@ describe('createBreakpoints development', () => {
     jest.resetModules();
     process.env.NODE_ENV = 'development';
 
-    const bp = require('.');
-    breakpointsApi = bp.createBreakpoints({
+    breakpointsApi = require('.').createBreakpoints({
       breakpoints: DEFAULT_BREAKPOINTS,
       errorPrefix: ERROR_PREFIX,
     });
@@ -151,7 +150,6 @@ describe('createBreakpoints development', () => {
 
   it('should returns an object with expected methods', () => {
     expect(Object.keys(breakpointsApi)).toEqual([
-      'entries',
       'invariant',
       'up',
       'down',
@@ -159,16 +157,14 @@ describe('createBreakpoints development', () => {
       'only',
     ]);
 
-    expect(Array.isArray(breakpointsApi.entries)).toBeTruthy();
     expect(typeof breakpointsApi.invariant).toBe('function');
-
     expect(typeof breakpointsApi.up).toBe('function');
     expect(typeof breakpointsApi.down).toBe('function');
     expect(typeof breakpointsApi.between).toBe('function');
     expect(typeof breakpointsApi.only).toBe('function');
   });
 
-  describe('up method', () => {
+  describe('up', () => {
     it('should throw an error for an invalid breakpoint name', () => {
       expect(() => breakpointsApi.up(INVALID_BREAKPOINT_NAME)).toThrowError(
         `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
@@ -176,7 +172,7 @@ describe('createBreakpoints development', () => {
     });
   });
 
-  describe('down method', () => {
+  describe('down', () => {
     it('should throw an error for an invalid breakpoint name', () => {
       expect(() => breakpointsApi.down(INVALID_BREAKPOINT_NAME)).toThrowError(
         `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
@@ -190,7 +186,7 @@ describe('createBreakpoints development', () => {
     });
   });
 
-  describe('between method', () => {
+  describe('between', () => {
     it('should throw an error for invalid breakpoint names', () => {
       expect(() =>
         breakpointsApi.between(INVALID_BREAKPOINT_NAME, 'sm')

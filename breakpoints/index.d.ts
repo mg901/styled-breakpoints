@@ -1,24 +1,24 @@
-export interface CreateBreakpointsOptions {
-  breakpoints: Record<string, string>;
+type Options = {
+  breakpoints: Record<string, `${string}px`>;
   errorPrefix: string;
-}
+};
 
-type ComputedBreakpoint = `${string}px`;
-
-export declare function createBreakpoints(options: CreateBreakpointsOptions): {
-  up: (min: string) => ComputedBreakpoint;
-  down: (max: string) => ComputedBreakpoint;
+export declare function createBreakpoints(options: Options): {
+  up: (min: string) => string;
+  down: (max: string) => never | string;
   between: (
     min: string,
     max: string
-  ) => {
-    min: ComputedBreakpoint;
-    max: ComputedBreakpoint;
-  };
+  ) =>
+    | never
+    | {
+        min: string;
+        max: string;
+      };
   only: (name: string) =>
     | {
-        min: ComputedBreakpoint;
-        max: ComputedBreakpoint;
+        min: string;
+        max: string;
       }
-    | ComputedBreakpoint;
+    | string;
 };
