@@ -1,7 +1,4 @@
-const {
-  createBreakpoints: createBreakpointsApi,
-} = require('./create-breakpoints.prod');
-
+const { createBreakpoints } = require('./create-breakpoints.prod');
 const { createInvariant } = require('./create-invariant');
 
 exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
@@ -12,7 +9,7 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   });
 
   validation.throwIfInvalidBreakpoints();
-  const breakpointsApi = createBreakpointsApi({
+  const breakpointsApi = createBreakpoints({
     breakpoints,
   });
 
@@ -44,7 +41,6 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   };
 
   return {
-    entries: Object.entries(Object(breakpoints)),
     invariant,
     up,
     down,
@@ -56,7 +52,14 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
 function createValidation({ invariant, breakpoints }) {
   const names = Object.keys(Object(breakpoints));
 
-  const throwIfInvalidBreakpoints = () => {
+  return {
+    throwIfInvalidBreakpoints,
+    throwIsInvalidName,
+    throwIsValueIsZero,
+    throwIsMaxValueLessThanMin,
+  };
+
+  function throwIfInvalidBreakpoints() {
     const invalidBreakpoints = names.reduce((acc, name) => {
       if (!/^\d+px$/.test(breakpoints[name].trim())) {
         acc.push(`${name}: ${breakpoints[name]}`);
@@ -71,36 +74,29 @@ function createValidation({ invariant, breakpoints }) {
         ', '
       )}\`. Use values with pixel units (e.g., '200px').`
     );
-  };
+  }
 
-  const throwIsInvalidName = (name) => {
+  function throwIsInvalidName(name) {
     invariant(
       breakpoints[name],
       `breakpoint \`${name}\` not found in ${names.join(', ')}.`
     );
-  };
+  }
 
-  const throwIsValueIsZero = (name) => {
+  function throwIsValueIsZero(name) {
     const value = breakpoints[name];
 
     invariant(
       removeUnits(value) !== 0,
       `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
     );
-  };
+  }
 
-  const throwIsMaxValueLessThanMin = (min, max) => {
+  function throwIsMaxValueLessThanMin(min, max) {
     const diff = removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]);
 
     invariant(diff >= 0, 'The `max` value cannot be less than the `min`.');
-  };
-
-  return {
-    throwIfInvalidBreakpoints,
-    throwIsInvalidName,
-    throwIsValueIsZero,
-    throwIsMaxValueLessThanMin,
-  };
+  }
 }
 
 function removeUnits(value) {

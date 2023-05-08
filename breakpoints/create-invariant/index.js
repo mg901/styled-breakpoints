@@ -1,5 +1,1 @@
-const { createInvariant } = require('./create-invariant');
-
-module.exports = {
-  createInvariant,
-};
+exports.createInvariant = require('./create-invariant').createInvariant;

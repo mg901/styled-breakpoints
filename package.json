@@ -52,21 +52,21 @@
   "size-limit": [
     {
       "name": "breakpoints",
-      "path": "./breakpoints/breakpoints.prod.js",
+      "path": "./breakpoints/create-breakpoints.prod.js",
       "import": "{ createBreakpoints }",
-      "limit": "209 B"
+      "limit": "237 B"
     },
     {
       "name": "breakpoints.dev",
-      "path": "./breakpoints/breakpoints.dev.js",
+      "path": "./breakpoints/create-breakpoints.dev.js",
       "import": "{ createBreakpoints }",
-      "limit": "750 B"
+      "limit": "782 B"
     },
     {
       "name": "styled-breakpoints",
       "path": "./styled-breakpoints/index.js",
       "import": "{ createStyledBreakpointsTheme }",
-      "limit": "925 B"
+      "limit": "705 B"
     }
   ],
   "prettier": {
