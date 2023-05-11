@@ -1,3 +1,10 @@
+# [12.0.0-beta.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.2...v12.0.0-beta.3) (2023-05-11)
+
+
+### Features
+
+* add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
+
 # [12.0.0-beta.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.1...v12.0.0-beta.2) (2023-05-11)
 
 
