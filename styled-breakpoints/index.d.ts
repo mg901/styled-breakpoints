@@ -1,23 +1,42 @@
-import { CreateBreakpointsOptions } from '../breakpoints';
+type Orientation = 'portrait' | 'landscape';
+export type Breakpoints = Record<string, `${string}px`>;
 
-export type Orientation = 'portrait' | 'landscape';
+export type Options = {
+  breakpoints?: Breakpoints;
+  errorPrefix?: string;
+};
 
-export interface CreateStyledBreakpointsOptions
-  extends CreateBreakpointsOptions {
-  pathToMediaQueries: string;
+declare enum DefaultBreakpoints {
+  xs = 'xs',
+  sm = 'sm',
+  md = 'md',
+  lg = 'lg',
+  xl = 'xl',
+  xxl = 'xxl',
 }
 
-export declare function createStyledBreakpoints(
-  options?: CreateStyledBreakpointsOptions
-): {
-  up: (min: string, orientation?: Orientation) => any;
-  down: (max: string, orientation?: Orientation) => any;
-  between: (min: string, max: string, orientation?: Orientation) => any;
-  only: (name: string, orientation?: Orientation) => any;
-};
+type BreakpointKeys = typeof DefaultBreakpoints;
+type Max = keyof Omit<BreakpointKeys, 'xs'>;
 
-export declare function createTheme<T extends Record<string, string>>(
-  breakpoints: T
-): {
-  ['styled-breakpoints']: { breakpoints: T };
-};
+export type Up = (min: BreakpointKeys, orientation?: Orientation) => string;
+export type Down = (max: Max, orientation?: Orientation) => string;
+export type Between = (
+  min: BreakpointKeys,
+  max: Max,
+  orientation?: Orientation
+) => string;
+export type Only = (name: BreakpointKeys, orientation?: Orientation) => string;
+
+export interface DefaultStyledBreakpointsTheme {
+  breakpoints: {
+    up: Up;
+    down: Down;
+    between: Between;
+    only: Only;
+  };
+}
+
+declare function createStyledBreakpointsTheme({
+  breakpoints,
+  errorPrefix,
+}: Options): DefaultStyledBreakpointsTheme;
