@@ -13,7 +13,7 @@ module.exports = [
   },
   {
     name: 'styled-breakpoints',
-    path: './styled-breakpoints/index.js',
+    path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
     limit: '705 B',
   },
