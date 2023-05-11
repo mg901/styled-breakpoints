@@ -1,11 +1,6 @@
 type Orientation = 'portrait' | 'landscape';
 export type Breakpoints = Record<string, `${string}px`>;
 
-export type Options = {
-  breakpoints?: Breakpoints;
-  errorPrefix?: string;
-};
-
 declare enum DefaultBreakpoints {
   xs = 'xs',
   sm = 'sm',
@@ -36,7 +31,11 @@ export interface DefaultStyledBreakpointsTheme {
   };
 }
 
-declare function createStyledBreakpointsTheme({
-  breakpoints,
-  errorPrefix,
-}: Options): DefaultStyledBreakpointsTheme;
+interface Options {
+  breakpoints?: Breakpoints;
+  errorPrefix?: string;
+}
+
+declare function createStyledBreakpointsTheme(
+  options: Options
+): DefaultStyledBreakpointsTheme;
