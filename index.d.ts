@@ -37,5 +37,5 @@ interface Options {
 }
 
 declare function createStyledBreakpointsTheme(
-  options: Options
+  options?: Options
 ): DefaultStyledBreakpointsTheme;
