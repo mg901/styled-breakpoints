@@ -1,3 +1,16 @@
+# [12.0.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0-beta.1) (2023-05-11)
+
+
+### Features
+
+* remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
+
+
+### BREAKING CHANGES
+
+* remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
+Remove `react-styled` and `react-emotion` directoies.
+
 ## [11.2.3](https://github.com/mg901/styled-breakpoints/compare/v11.2.2...v11.2.3) (2023-04-27)
 
 
