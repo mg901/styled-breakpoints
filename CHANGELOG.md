@@ -1,3 +1,10 @@
+# [12.0.0-beta.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.3...v12.0.0-beta.4) (2023-05-11)
+
+
+### Features
+
+* set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
+
 # [12.0.0-beta.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.2...v12.0.0-beta.3) (2023-05-11)
 
 
