@@ -1,3 +1,10 @@
+# [12.0.0-beta.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.1...v12.0.0-beta.2) (2023-05-11)
+
+
+### Features
+
+* add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
+
 # [12.0.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0-beta.1) (2023-05-11)
 
 
