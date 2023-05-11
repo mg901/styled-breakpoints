@@ -23,12 +23,10 @@ export type Between = (
 export type Only = (name: BreakpointKeys, orientation?: Orientation) => string;
 
 export interface DefaultStyledBreakpointsTheme {
-  breakpoints: {
-    up: Up;
-    down: Down;
-    between: Between;
-    only: Only;
-  };
+  up: Up;
+  down: Down;
+  between: Between;
+  only: Only;
 }
 
 interface Options {
