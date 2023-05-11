@@ -21,6 +21,9 @@ jobs:
       - name: Test
         run: yarn test
 
+      - name: Check size
+        run: yarn size
+
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
