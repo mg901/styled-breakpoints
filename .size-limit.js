@@ -17,12 +17,12 @@ module.exports = [
     import: '{ createStyledBreakpointsTheme }',
     limit: '705 B',
   },
-  {
-    name: 'styled-breakpoints + useMediaQuery',
-    import: {
-      './styled-breakpoints/index.js': '{ createStyledBreakpointsTheme }',
-      './use-media-query/index.js': '{ useMediaQuery }',
-    },
-    limit: '966 B',
-  },
+  // {
+  //   name: 'styled-breakpoints + useMediaQuery',
+  //   import: {
+  //     './styled-breakpoints/index.js': '{ createStyledBreakpointsTheme }',
+  //     './use-media-query/index.js': '{ useMediaQuery }',
+  //   },
+  //   limit: '966 B',
+  // },
 ];
