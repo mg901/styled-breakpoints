@@ -16,3 +16,5 @@ package-lock.json
 .all-contributorsrc
 CHANGELOG.md
 .husky
+*.config.js
+.size-limit.js
