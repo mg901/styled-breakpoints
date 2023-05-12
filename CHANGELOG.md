@@ -1,3 +1,10 @@
+# [12.0.0-beta.6](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.5...v12.0.0-beta.6) (2023-05-12)
+
+
+### Features
+
+* add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
+
 # [12.0.0-beta.5](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.4...v12.0.0-beta.5) (2023-05-11)
 
 
