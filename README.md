@@ -12,15 +12,16 @@ styled-breakpoints <br>
 <img alt="coverage status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
 </a>
 
-<a href="https://bundlephobia.com/result?p=styled-breakpoints@6.8.0">
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints.svg?style=flat-square">
+<a href="https://bundlephobia.com/package/styled-breakpoints">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints/12.0.1?style=flat-square">
 </a>
 <a href="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
-  <img alt="npm downloads" src="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
 </a>
 <a href="https://www.npmjs.com/package/styled-breakpoints">
 <img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
+
 </h1>
 
 <p>Simple and powerful tool for creating media queries with SSR support.</p>
@@ -87,7 +88,7 @@ From largest to smallest
   <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
 </a>
 
-### useMediaQuery hook
+### hooks API
 
 <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
   <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
@@ -104,7 +105,7 @@ From largest to smallest
   - [max-width](#max-width)
   - [single breakpoint](#single-breakpoint)
   - [between breakpoints](#between-breakpoints)
-  - [useMediaQuery](#useMediaQuery-hook)
+  - [use media query hook](#usemediaquery-hook)
 - [customization](#customization)
   - [breakpoints](#breakpoints)
   - [merge with another theme](#merge-with-another-theme)
@@ -517,7 +518,7 @@ const App = () => (
 import { ThemeProvider } from 'styled-components';
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
-export const someTheme = {
+export const primaryTheme = {
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {
     small: '1em',
@@ -527,7 +528,7 @@ export const someTheme = {
 } as const;
 
 const const theme = {
-  ...someTheme,
+  ...primaryTheme,
   ...createStyledBreakpointsTheme(),
 }
 
@@ -543,10 +544,12 @@ Create file `styled.d.ts`
 ```ts
 import 'styled-components';
 import { StyledBreakpointsTheme } from 'styled-breakpoints';
-import { someTheme } from './app';
+import { primaryTheme } from './app';
+
+type PrimaryTheme = typeof primaryTheme;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends someTheme, StyledBreakpointsTheme {}
+  export interface DefaultTheme extends PrimaryTheme, StyledBreakpointsTheme {}
 }
 ```
 
@@ -560,7 +563,7 @@ declare module 'styled-components' {
 import { ThemeProvider } from '@emotion/react';
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
-export const someTheme = {
+export const primaryTheme = {
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {
     small: '1em',
@@ -570,7 +573,7 @@ export const someTheme = {
 } as const;
 
 const const theme = {
-  ...someTheme,
+  ...primaryTheme,
   ...styledBreakpointsTheme(),
 }
 
@@ -586,10 +589,12 @@ const App = () => (
 ```ts
 import '@emotion/react';
 import { StyledBreakpointsTheme } from 'styled-breakpoints';
-import { someTheme } from './app';
+import { primaryTheme } from './app';
+
+type PrimaryTheme = typeof primaryTheme;
 
 declare module '@emotion/react' {
-  export interface Theme extends someTheme, StyledBreakpointsTheme {}
+  export interface Theme extends PrimaryTheme, StyledBreakpointsTheme {}
 }
 ```
 
