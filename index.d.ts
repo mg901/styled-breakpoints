@@ -9,7 +9,7 @@ export type Between = (
   orientation?: Orientation
 ) => string;
 
-export type Only = (name: string, orientation?: Orientation) => string;
+export type Only = (key: string, orientation?: Orientation) => string;
 
 export interface StyledBreakpoints {
   up: Up;
@@ -23,7 +23,7 @@ export interface StyledBreakpointsTheme {
 }
 
 interface Options {
-  breakpoints?: Record<string, `${string}px`>;
+  breakpoints?: Record<string, `${number}px`>;
   errorPrefix?: string;
 }
 
