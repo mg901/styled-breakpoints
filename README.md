@@ -210,6 +210,8 @@ const App = () => (
 
 ## Migration from v11
 
+### Theme
+
 The `createTheme` function has been replaced with `createStyledBreakpointsTheme`.
 
 ```diff
@@ -221,6 +223,8 @@ The `createTheme` function has been replaced with `createStyledBreakpointsTheme`
 
 + const theme = createStyledBreakpointsTheme();
 ```
+
+### Media Queries
 
 Additionally, the functions `up`, `down`, `between`, and `only` have been moved to the theme object. This means that you no longer need to import them individually each time you want to use them.
 
@@ -238,6 +242,33 @@ Additionally, the functions `up`, `down`, `between`, and `only` have been moved 
 +     background-color: red;
 +  }
 `
+```
+
+### Hooks
+
+```diff
+- import { up } from 'styled-breakpoints';
+- import { useBreakpoint } from 'styled-breakpoints/react-styled';
+
+or
+
+- import { up } from 'styled-breakpoints';
+- import { useBreakpoint } from 'styled-breakpoints/react-emotion';
+
+- const Example = () => {
+-   const isMd = useBreakpoint(only('md'));
+-
+-   return <Layout>{isMd && </Box>}</Layout>
+- }
+
++ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
+
++ const Example = () => {
++   const theme = useTheme();
++   const isMd = useMediaQuery(theme.breakpoints.only('md'));
++
++   return <Layout>{isMd && </Box>}</Layout>
++ }
 ```
 
 ## Core concepts
