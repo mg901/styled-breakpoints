@@ -1,3 +1,10 @@
+## [12.0.1](https://github.com/mg901/styled-breakpoints/compare/v12.0.0...v12.0.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* add guide for migration from `useBreakpoint` to `useMediaQuery` ([3beb3d3](https://github.com/mg901/styled-breakpoints/commit/3beb3d3037f1fc592a0e156d511a6149228becc7))
+
 # [12.0.0](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0) (2023-05-23)
 
 
