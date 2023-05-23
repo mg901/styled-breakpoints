@@ -16,25 +16,47 @@ describe('createBreakpoints function in production', () => {
       xxl: '1400px',
     };
 
-    breakpointsApi = require('.').createBreakpoints({
+    breakpointsApi = require('.').createBreakpointsApi({
       breakpoints: DEFAULT_BREAKPOINTS,
     });
 
     keys = Object.keys(DEFAULT_BREAKPOINTS);
   });
 
-  it('should returns an object with expected methods', () => {
+  it('should have all the necessary methods', () => {
     expect(Object.keys(breakpointsApi)).toEqual([
+      'keys',
+      'getNextKey',
       'up',
       'down',
       'between',
       'only',
     ]);
 
-    expect(typeof breakpointsApi.up).toBe('function');
-    expect(typeof breakpointsApi.down).toBe('function');
-    expect(typeof breakpointsApi.between).toBe('function');
-    expect(typeof breakpointsApi.only).toBe('function');
+    expect(breakpointsApi.keys).toBeInstanceOf(Array);
+    expect(breakpointsApi.getNextKey).toBeInstanceOf(Function);
+
+    expect(breakpointsApi.up).toBeInstanceOf(Function);
+    expect(breakpointsApi.down).toBeInstanceOf(Function);
+    expect(breakpointsApi.between).toBeInstanceOf(Function);
+    expect(breakpointsApi.only).toBeInstanceOf(Function);
+  });
+
+  describe('keys', () => {
+    it('should return an array of breakpoint keys', () => {
+      expect(breakpointsApi.keys).toEqual(keys);
+    });
+  });
+
+  describe('getNextKey', () => {
+    it('should return the next breakpoint key for a given key', () => {
+      expect(breakpointsApi.getNextKey('xs')).toBe('sm');
+      expect(breakpointsApi.getNextKey('sm')).toBe('md');
+      expect(breakpointsApi.getNextKey('md')).toBe('lg');
+      expect(breakpointsApi.getNextKey('lg')).toBe('xl');
+      expect(breakpointsApi.getNextKey('xl')).toBe('xxl');
+      expect(breakpointsApi.getNextKey('xxl')).toBeUndefined();
+    });
   });
 
   describe('up', () => {
@@ -100,7 +122,7 @@ describe('createBreakpoints function in development', () => {
     jest.resetModules();
     process.env.NODE_ENV = 'development';
 
-    breakpointsApi = require('.').createBreakpoints({
+    breakpointsApi = require('.').createBreakpointsApi({
       breakpoints: DEFAULT_BREAKPOINTS,
       errorPrefix: ERROR_PREFIX,
     });
@@ -118,10 +140,10 @@ describe('createBreakpoints function in development', () => {
   });
 
   it('should not throw an error if all breakpoints are valid', () => {
-    const { createBreakpoints } = require('.');
+    const { createBreakpointsApi } = require('.');
 
     expect(() =>
-      createBreakpoints({
+      createBreakpointsApi({
         breakpoints: DEFAULT_BREAKPOINTS,
         errorPrefix: ERROR_PREFIX,
       })
@@ -129,10 +151,10 @@ describe('createBreakpoints function in development', () => {
   });
 
   it('should throw an error if invalid breakpoints are found', () => {
-    const { createBreakpoints } = require('.');
+    const { createBreakpointsApi } = require('.');
 
     expect(() =>
-      createBreakpoints({
+      createBreakpointsApi({
         breakpoints: {
           xs: '0px',
           sm: '576px',
@@ -148,20 +170,25 @@ describe('createBreakpoints function in development', () => {
     );
   });
 
-  it('should returns an object with expected methods', () => {
+  it('should have all the necessary methods', () => {
     expect(Object.keys(breakpointsApi)).toEqual([
+      'keys',
       'invariant',
+      'getNextKey',
       'up',
       'down',
       'between',
       'only',
     ]);
 
-    expect(typeof breakpointsApi.invariant).toBe('function');
-    expect(typeof breakpointsApi.up).toBe('function');
-    expect(typeof breakpointsApi.down).toBe('function');
-    expect(typeof breakpointsApi.between).toBe('function');
-    expect(typeof breakpointsApi.only).toBe('function');
+    expect(breakpointsApi.keys).toBeInstanceOf(Array);
+    expect(breakpointsApi.invariant).toBeInstanceOf(Function);
+    expect(breakpointsApi.getNextKey).toBeInstanceOf(Function);
+
+    expect(breakpointsApi.up).toBeInstanceOf(Function);
+    expect(breakpointsApi.down).toBeInstanceOf(Function);
+    expect(breakpointsApi.between).toBeInstanceOf(Function);
+    expect(breakpointsApi.only).toBeInstanceOf(Function);
   });
 
   describe('up', () => {
