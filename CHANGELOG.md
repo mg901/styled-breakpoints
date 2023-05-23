@@ -1,3 +1,10 @@
+# [12.0.0-beta.7](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.6...v12.0.0-beta.7) (2023-05-23)
+
+
+### Features
+
+* add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
+
 # [12.0.0-beta.6](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.5...v12.0.0-beta.6) (2023-05-12)
 
 
