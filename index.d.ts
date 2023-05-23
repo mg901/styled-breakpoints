@@ -1,11 +1,32 @@
-import { Orientation } from './styled-breakpoints';
-export { createTheme } from './styled-breakpoints';
+type Orientation = 'portrait' | 'landscape';
 
-export declare function up(min: string, orientation?: Orientation): any;
-export declare function down(max: string, orientation?: Orientation): any;
-export declare function between(
+export type Up = (min: string, orientation?: Orientation) => string;
+export type Down = (max: string, orientation?: Orientation) => string;
+
+export type Between = (
   min: string,
   max: string,
   orientation?: Orientation
-): any;
-export declare function only(name: string, orientation?: Orientation): any;
+) => string;
+
+export type Only = (key: string, orientation?: Orientation) => string;
+
+export interface StyledBreakpoints {
+  up: Up;
+  down: Down;
+  between: Between;
+  only: Only;
+}
+
+export interface StyledBreakpointsTheme {
+  breakpoints: StyledBreakpoints;
+}
+
+interface Options {
+  breakpoints?: Record<string, `${number}px`>;
+  errorPrefix?: string;
+}
+
+declare function createStyledBreakpointsTheme(
+  options?: Options
+): StyledBreakpointsTheme;
