@@ -1,3 +1,11 @@
+## [12.0.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.2...v12.0.3) (2023-05-23)
+
+
+### Bug Fixes
+
+* fix typography in documentation ([acb747c](https://github.com/mg901/styled-breakpoints/commit/acb747c32252eff19dc61f873f0f06a2970e81db))
+* fix typography in documentation ([#1504](https://github.com/mg901/styled-breakpoints/issues/1504)) ([e2611b0](https://github.com/mg901/styled-breakpoints/commit/e2611b0b90bda8c11c9f3c5d80d72dd2de3a4385))
+
 ## [12.0.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.1...v12.0.2) (2023-05-23)
 
 
