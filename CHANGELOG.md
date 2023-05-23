@@ -1,3 +1,10 @@
+## [12.0.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.1...v12.0.2) (2023-05-23)
+
+
+### Bug Fixes
+
+* fix broken link to `useMediaQuery` hook ([51ee3d6](https://github.com/mg901/styled-breakpoints/commit/51ee3d655374282050138901becdb31134f3d017))
+
 ## [12.0.1](https://github.com/mg901/styled-breakpoints/compare/v12.0.0...v12.0.1) (2023-05-23)
 
 
