@@ -16,12 +16,14 @@ module.exports = {
     'import/no-self-import': 2,
     'import/no-named-as-default': 2,
     'func-names': 0,
+    'global-require': 0,
     'arrow-body-style': 0,
     'no-param-reassign': 0,
     'no-underscore-dangle': 0,
     'no-use-before-define': 0,
     'import/extensions': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/prefer-default-export': 0,
   },
   settings: {
     'import/resolver': {
@@ -30,4 +32,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['*.spec.js'],
+      rules: {
+        'no-shadow': 0,
+      },
+    },
+  ],
 };

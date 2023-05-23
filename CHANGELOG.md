@@ -1,3 +1,58 @@
+# [12.0.0-beta.7](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.6...v12.0.0-beta.7) (2023-05-23)
+
+
+### Features
+
+* add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
+
+# [12.0.0-beta.6](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.5...v12.0.0-beta.6) (2023-05-12)
+
+
+### Features
+
+* add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
+
+# [12.0.0-beta.5](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.4...v12.0.0-beta.5) (2023-05-11)
+
+
+### Features
+
+* add correct types for `DefaultStyledBreakpointsTheme` ([#1494](https://github.com/mg901/styled-breakpoints/issues/1494)) ([fcf7463](https://github.com/mg901/styled-breakpoints/commit/fcf74639dec5a8d29d9469adf860ed31e97deca5))
+
+# [12.0.0-beta.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.3...v12.0.0-beta.4) (2023-05-11)
+
+
+### Features
+
+* set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
+
+# [12.0.0-beta.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.2...v12.0.0-beta.3) (2023-05-11)
+
+
+### Features
+
+* add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
+
+# [12.0.0-beta.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.1...v12.0.0-beta.2) (2023-05-11)
+
+
+### Features
+
+* add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
+
+# [12.0.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0-beta.1) (2023-05-11)
+
+
+### Features
+
+* remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
+
+
+### BREAKING CHANGES
+
+* remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
+Remove `react-styled` and `react-emotion` directoies.
+
 ## [11.2.3](https://github.com/mg901/styled-breakpoints/compare/v11.2.2...v11.2.3) (2023-04-27)
 
 
