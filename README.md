@@ -43,7 +43,7 @@ Breakpoints serve as adjustable widths that determine the behavior of your respo
 
 ## Preview
 
-For **own** components
+For **own** components.
 
 ```tsx
 const Box = styled.div`
@@ -59,7 +59,7 @@ const Box = styled.div`
 `;
 ```
 
-For **third party** components
+For **third party** components.
 
 ```tsx
 const Layout = () => {
@@ -70,29 +70,39 @@ const Layout = () => {
 };
 ```
 
+<br/>
+
 ## Examples
 
 ### Mobile First
 
 From smallest to largest
 
-<a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-<img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+  <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
 
 ### Desktop First
 
 From largest to smallest
 
-<a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-  <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+    <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
 
 ### hooks API
 
-<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-  <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+    <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
+
+<br/>
 
 ## Documentation
 
@@ -105,10 +115,12 @@ From largest to smallest
   - [max-width](#max-width)
   - [single breakpoint](#single-breakpoint)
   - [between breakpoints](#between-breakpoints)
-  - [use media query hook](#usemediaquery-hook)
+  - [useMediaQuery hook](#usemediaquery-hook)
 - [customization](#customization)
   - [breakpoints](#breakpoints)
   - [merge with another theme](#merge-with-another-theme)
+
+<br/>
 
 ## Quick start
 
@@ -209,6 +221,8 @@ const App = () => (
 
 </details>
 
+<br/>
+
 ## Migration from v11
 
 ### Theme
@@ -219,6 +233,8 @@ The `createTheme` function has been replaced with `createStyledBreakpointsTheme`
 - import { createTheme } from "styled-breakpoints";
 
 - const theme = createTheme();
+
+
 
 + import { createStyledBreakpointsTheme } from "styled-breakpoints";
 
@@ -272,6 +288,8 @@ or
 + }
 ```
 
+<br/>
+
 ## Core concepts
 
 - **Breakpoints act as the fundamental elements of responsive design**. They enable you to control when your layout can adapt to a specific viewport or device size.
@@ -279,6 +297,8 @@ or
 - **Utilize media queries to structure your CSS based on breakpoints**. Media queries are CSS features that allow you to selectively apply styles depending on a defined set of browser and operating system parameters. The most commonly used media query property is <code>min-width</code>.
 
 - **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
+
+<br/>
 
 ## Available breakpoints
 
@@ -296,6 +316,8 @@ const breakpoints = {
   xxl: '1400px',
 };
 ```
+
+<br/>
 
 ## Media queries
 
@@ -331,7 +353,8 @@ const Block = styled.div`
 ```
 
 </details>
-</br>
+<hr/>
+<br/>
 
 ### Max-width
 
@@ -368,10 +391,9 @@ const Block = styled.div`
 
 </details>
 
-<br/>
-
 > <strong>Why subtract .02px?</strong> Browsers don’t currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), so we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision.
 
+<hr/>
 <br/>
 
 ### Single breakpoint
@@ -408,7 +430,8 @@ const Block = styled.div`
 ```
 
 </details>
-</br>
+<hr/>
+<br/>
 
 ### Between breakpoints
 
@@ -445,14 +468,16 @@ const Block = styled.div`
 ```
 
 </details>
-</br>
+<hr/>
+<br/>
 
 ### useMediaQuery hook
 
 features:
 
-- It supports SSR (server-side rendering).
-- Minified and gzipped size 323b.
+- 🧐 optimal performance by dynamically monitoring document changes in media queries.
+- ⚙️ It supports SSR (server-side rendering).
+- 📦 Minified and gzipped size 323b.
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -474,6 +499,8 @@ const SomeComponent = () => {
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
 ```
+
+<br/>
 
 ## Customization
 
@@ -507,6 +534,8 @@ const App = () => (
   </ThemeProvider>
 );
 ```
+
+<br/>
 
 ### Merge with another theme
 
