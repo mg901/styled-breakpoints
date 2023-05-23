@@ -78,23 +78,29 @@ const Layout = () => {
 
 From smallest to largest
 
-<a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-<img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/rough-wave-u0uuu?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+  <img alt="Edit mobile-first" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
 
 ### Desktop First
 
 From largest to smallest
 
-<a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-  <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/desktop-first-example-0plsg?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+    <img alt="Edit desktop first example" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
 
 ### hooks API
 
-<a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
-  <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
-</a>
+<div>
+  <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
+    <img alt="Hooks api (styled-components)" src="https://codesandbox.io/static/img/play-codesandbox.svg">
+  </a>
+</div>
 
 <br/>
 
@@ -469,8 +475,9 @@ const Block = styled.div`
 
 features:
 
-- It supports SSR (server-side rendering).
-- Minified and gzipped size 323b.
+- 🧐 optimal performance by dynamically monitoring document changes in media queries.
+- ⚙️ It supports SSR (server-side rendering).
+- 📦 Minified and gzipped size 323b.
 
 <details><summary><strong>Type declaration</strong></summary>
 
