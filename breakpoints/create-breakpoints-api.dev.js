@@ -1,7 +1,7 @@
-const { createBreakpoints } = require('./create-breakpoints.prod');
+const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
 const { createInvariant } = require('./create-invariant');
 
-exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
+exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
   const invariant = createInvariant(errorPrefix);
   const validation = createValidation({
     invariant,
@@ -9,7 +9,7 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   });
 
   validation.throwIfInvalidBreakpoints();
-  const breakpointsApi = createBreakpoints({
+  const breakpointsApi = createBreakpointsApi({
     breakpoints,
   });
 
@@ -41,7 +41,9 @@ exports.createBreakpoints = ({ breakpoints, errorPrefix }) => {
   };
 
   return {
+    keys: breakpointsApi.keys,
     invariant,
+    getNextKey: breakpointsApi.getNextKey,
     up,
     down,
     between,

@@ -1,28 +1,34 @@
 module.exports = [
   {
     name: 'breakpoints',
-    path: './breakpoints/create-breakpoints.prod.js',
-    import: '{ createBreakpoints }',
-    limit: '237 B',
+    path: './breakpoints/create-breakpoints-api.prod.js',
+    import: '{ createBreakpointsApi }',
+    limit: '259 B',
   },
   {
     name: 'breakpoints.dev',
-    path: './breakpoints/create-breakpoints.dev.js',
-    import: '{ createBreakpoints }',
-    limit: '782 B',
+    path: './breakpoints/create-breakpoints-api.dev.js',
+    import: '{ createBreakpointsApi }',
+    limit: '823 B',
   },
   {
     name: 'styled-breakpoints',
     path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '705 B',
+    limit: '739 B',
   },
-  // {
-  //   name: 'styled-breakpoints + useMediaQuery',
-  //   import: {
-  //     './styled-breakpoints/index.js': '{ createStyledBreakpointsTheme }',
-  //     './use-media-query/index.js': '{ useMediaQuery }',
-  //   },
-  //   limit: '966 B',
-  // },
+  {
+    name: 'styled-breakpoints + useMediaQuery',
+    path: './use-media-query/index.js',
+    import: '{ useMediaQuery }',
+    limit: '323 B',
+  },
+  {
+    name: 'styled-breakpoints + useMediaQuery',
+    import: {
+      './styled-breakpoints/index.js': '{ createStyledBreakpointsTheme }',
+      './use-media-query/index.js': '{ useMediaQuery }',
+    },
+    limit: '998 B',
+  },
 ];

@@ -9,6 +9,13 @@ describe('styled breakpoints', () => {
     theme = createStyledBreakpointsTheme();
   });
 
+  it('should have all the necessary methods', () => {
+    expect(theme.breakpoints.up).toBeInstanceOf(Function);
+    expect(theme.breakpoints.down).toBeInstanceOf(Function);
+    expect(theme.breakpoints.between).toBeInstanceOf(Function);
+    expect(theme.breakpoints.only).toBeInstanceOf(Function);
+  });
+
   describe('up', () => {
     it('should return a media query string for a breakpoint above a certain width', () => {
       expect(theme.breakpoints.up('sm')).toBe('@media (min-width: 576px)');
