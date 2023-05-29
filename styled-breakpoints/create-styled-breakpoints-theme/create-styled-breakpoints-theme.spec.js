@@ -76,4 +76,30 @@ describe('styled breakpoints', () => {
       );
     });
   });
+
+  it('should return correct breakpoints using custom breakpoints', () => {
+    const theme = createStyledBreakpointsTheme({
+      breakpoints: {
+        small: '0px',
+        medium: '640px',
+        large: '1024px',
+        xLarge: '1200px',
+        xxLarge: '1440px',
+      },
+    });
+
+    expect(theme.breakpoints.down('medium')).toEqual(
+      '@media (max-width: 639.98px)'
+    );
+    expect(theme.breakpoints.between('medium', 'large')).toEqual(
+      '@media (min-width: 640px) and (max-width: 1023.98px)'
+    );
+    expect(theme.breakpoints.up('xLarge')).toEqual(
+      '@media (min-width: 1200px)'
+    );
+
+    expect(theme.breakpoints.only('xxLarge')).toEqual(
+      '@media (min-width: 1440px)'
+    );
+  });
 });

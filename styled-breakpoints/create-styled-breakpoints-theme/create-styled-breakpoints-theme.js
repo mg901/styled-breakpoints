@@ -4,7 +4,7 @@ const { memoize } = require('../memoize');
 
 const DEFAULT_OPTIONS = {
   errorPrefix: '[styled-breakpoints]: ',
-  defaultBreakpoints: {
+  breakpoints: {
     xs: '0px',
     sm: '576px',
     md: '768px',
@@ -15,11 +15,11 @@ const DEFAULT_OPTIONS = {
 };
 
 exports.createStyledBreakpointsTheme = ({
-  defaultBreakpoints,
+  breakpoints,
   errorPrefix,
 } = DEFAULT_OPTIONS) => {
   const api = createBreakpointsApi({
-    breakpoints: defaultBreakpoints,
+    breakpoints,
     errorPrefix,
   });
 
