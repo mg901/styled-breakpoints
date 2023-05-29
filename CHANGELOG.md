@@ -1,3 +1,10 @@
+## [12.0.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.3...v12.0.4) (2023-05-29)
+
+
+### Bug Fixes
+
+* fix a bug that occurred when passing custom breakpoints ([225ee5b](https://github.com/mg901/styled-breakpoints/commit/225ee5b7a055e0bdb62407297d9982578a1d39e7))
+
 ## [12.0.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.2...v12.0.3) (2023-05-23)
 
 
