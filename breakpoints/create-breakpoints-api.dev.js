@@ -8,36 +8,37 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
     breakpoints,
   });
 
-  validation.throwIfInvalidBreakpoints();
+  validation.validateBreakpoints();
+
   const breakpointsApi = createBreakpointsApi({
     breakpoints,
   });
 
   const up = (min) => {
-    validation.throwIsInvalidName(min);
+    validation.validateKey(min);
 
     return breakpointsApi.up(min);
   };
 
   const down = (max) => {
-    validation.throwIsInvalidName(max);
-    validation.throwIsValueIsZero(max);
+    validation.validateKey(max);
+    validation.validateNonZeroValue(max);
 
     return breakpointsApi.down(max);
   };
 
   const between = (min, max) => {
-    validation.throwIsInvalidName(min);
-    validation.throwIsInvalidName(max);
-    validation.throwIsMaxValueLessThanMin(min, max);
+    validation.validateKey(min);
+    validation.validateKey(max);
+    validation.validateMaxGreaterThanMin(min, max);
 
     return breakpointsApi.between(min, max);
   };
 
-  const only = (name) => {
-    validation.throwIsInvalidName(name);
+  const only = (key) => {
+    validation.validateKey(key);
 
-    return breakpointsApi.only(name);
+    return breakpointsApi.only(key);
   };
 
   return {
@@ -52,19 +53,19 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
 };
 
 function createValidation({ invariant, breakpoints }) {
-  const names = Object.keys(Object(breakpoints));
+  const keys = Object.keys(Object(breakpoints));
 
   return {
-    throwIfInvalidBreakpoints,
-    throwIsInvalidName,
-    throwIsValueIsZero,
-    throwIsMaxValueLessThanMin,
+    validateBreakpoints,
+    validateKey,
+    validateNonZeroValue,
+    validateMaxGreaterThanMin,
   };
 
-  function throwIfInvalidBreakpoints() {
-    const invalidBreakpoints = names.reduce((acc, name) => {
-      if (!/^\d+px$/.test(breakpoints[name].trim())) {
-        acc.push(`${name}: ${breakpoints[name]}`);
+  function validateBreakpoints() {
+    const invalidBreakpoints = keys.reduce((acc, key) => {
+      if (!/^\d+px$/.test(breakpoints[key].trim())) {
+        acc.push(`${key}: ${breakpoints[key]}`);
       }
 
       return acc;
@@ -78,23 +79,23 @@ function createValidation({ invariant, breakpoints }) {
     );
   }
 
-  function throwIsInvalidName(name) {
+  function validateKey(key) {
     invariant(
-      breakpoints[name],
-      `breakpoint \`${name}\` not found in ${names.join(', ')}.`
+      breakpoints[key],
+      `breakpoint \`${key}\` not found in ${keys.join(', ')}.`
     );
   }
 
-  function throwIsValueIsZero(name) {
-    const value = breakpoints[name];
+  function validateNonZeroValue(key) {
+    const value = breakpoints[key];
 
     invariant(
       removeUnits(value) !== 0,
-      `\`${name}: ${value}\` cannot be assigned as minimum breakpoint.`
+      `\`${key}: ${value}\` cannot be assigned as minimum breakpoint.`
     );
   }
 
-  function throwIsMaxValueLessThanMin(min, max) {
+  function validateMaxGreaterThanMin(min, max) {
     const diff = removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]);
 
     invariant(diff >= 0, 'The `max` value cannot be less than the `min`.');

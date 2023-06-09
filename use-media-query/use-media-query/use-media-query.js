@@ -4,7 +4,7 @@ const { getMatches } = require('../get-matches');
 const isBrowser = typeof window !== 'undefined';
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
-const useMediaQuery = (query) => {
+const useMediaQuery = (query = '') => {
   const [isMatch, setIsMatch] = useState(getMatches(query));
 
   useEnhancedEffect(() => {
