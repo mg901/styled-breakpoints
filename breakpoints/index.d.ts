@@ -17,7 +17,7 @@ type BreakpointsApi = Readonly<{
     min: string;
     max: string;
   };
-  only: (name: string) =>
+  only: (key: string) =>
     | {
         min: string;
         max: string;

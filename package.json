@@ -50,13 +50,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^18.x.x",
-    "styled-components": "^5.0.0"
+    "react": "^18.x.x"
   },
   "peerDependenciesMeta": {
-    "styled-components": {
-      "optional": true
-    },
     "react": {
       "optional": true
     }

@@ -1,7 +1,7 @@
 <div align="center">
 <h1>
 
-<br/>
+<br>
 styled-breakpoints <br>
 
 <a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3Arelease">
@@ -9,11 +9,11 @@ styled-breakpoints <br>
 </a>
 
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
-<img alt="coverage status" src="https://img.shields.io/coveralls/github/mg901/styled-breakpoints/master.svg?style=flat-square">
+<img alt="coverage status" src="https://img.shields.io/coverallsCoverage/github/mg901/styled-breakpoints?style=flat-square">
 </a>
 
 <a href="https://bundlephobia.com/package/styled-breakpoints">
-<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints/12.0.1?style=flat-square">
+<img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/styled-breakpoints?style=flat-square">
 </a>
 <a href="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
 <img alt="npm downloads" src="https://img.shields.io/npm/dm/styled-breakpoints?style=flat-square">
@@ -65,14 +65,13 @@ For **third party** components.
 
 ```tsx
 const Layout = () => {
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'));
+  const isMd = useMediaQuery(useTheme()?.breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
 ```
 
-<br/>
+<br>
 
 ## Examples
 
@@ -104,9 +103,9 @@ From largest to smallest
   </a>
 </div>
 
-<br/>
+<br>
 
-<br/>
+<br>
 
 ## Documentation
 
@@ -121,10 +120,10 @@ From largest to smallest
   - [between breakpoints](#between-breakpoints)
   - [useMediaQuery hook](#usemediaquery-hook)
 - [customization](#customization)
-  - [breakpoints](#breakpoints)
+  - [strict typed breakpoints](#strict-typed-breakpoints)
   - [merge with another theme](#merge-with-another-theme)
 
-<br/>
+<br>
 
 ## Quick start
 
@@ -155,9 +154,9 @@ declare module 'styled-components' {
 
 ```tsx
 import styled { ThemeProvider } from 'styled-components';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import { createStyledBreakpointsTheme, StyledBreakpointsTheme } from 'styled-breakpoints';
 
-const Block = styled.div`
+const Box = styled.div`
   display: none;
 
   ${({ theme }) => theme.breakpoints.up('sm')} {
@@ -165,11 +164,11 @@ const Block = styled.div`
   }
 `
 
-const theme = createStyledBreakpointsTheme();
+const theme = createStyledBreakpointsTheme() as StyledBreakpointsTheme;
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Block/>
+    <Box/>
   </ThemeProvider>
 )
 ```
@@ -204,7 +203,11 @@ declare module '@emotion/react' {
 ```tsx
 import styled from '@emotion/styled';
 import { ThemeProvider } from '@emotion/react';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+
+import {
+  createStyledBreakpointsTheme,
+  StyledBreakpointsTheme,
+} from 'styled-breakpoints';
 
 const Block = styled.div`
   display: none;
@@ -214,7 +217,7 @@ const Block = styled.div`
   }
 `;
 
-const theme = createStyledBreakpointsTheme();
+const theme = createStyledBreakpointsTheme() as StyledBreakpointsTheme;
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -225,7 +228,7 @@ const App = () => (
 
 </details>
 
-<br/>
+<br>
 
 ## Migration from v11
 
@@ -245,7 +248,7 @@ The `createTheme` function has been replaced with `createStyledBreakpointsTheme`
 + const theme = createStyledBreakpointsTheme();
 ```
 
-### Media Queries
+### Breakpoint Functions
 
 Additionally, the functions `up`, `down`, `between`, and `only` have been moved to the theme object. This means that you no longer need to import them individually each time you want to use them.
 
@@ -285,14 +288,13 @@ or
 + import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 
 + const Example = () => {
-+   const theme = useTheme();
-+   const isMd = useMediaQuery(theme.breakpoints.only('md'));
++   const isMd = useMediaQuery(useTheme()?.breakpoints.only('md'));
 +
 +   return <Layout>{isMd && </Box>}</Layout>
 + }
 ```
 
-<br/>
+<br>
 
 ## Core concepts
 
@@ -302,7 +304,7 @@ or
 
 - **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
 
-<br/>
+<br>
 
 ## Available breakpoints
 
@@ -321,9 +323,11 @@ const breakpoints = {
 };
 ```
 
-<br/>
+<br>
 
 ## Media queries
+
+- 🚀 Caching is implemented in all functions to optimize performance.
 
 ### Min-width
 
@@ -358,7 +362,7 @@ const Block = styled.div`
 
 </details>
 <hr/>
-<br/>
+<br>
 
 ### Max-width
 
@@ -398,7 +402,7 @@ const Block = styled.div`
 > <strong>Why subtract .02px?</strong> Browsers don’t currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), so we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision.
 
 <hr/>
-<br/>
+<br>
 
 ### Single breakpoint
 
@@ -435,7 +439,7 @@ const Block = styled.div`
 
 </details>
 <hr/>
-<br/>
+<br>
 
 ### Between breakpoints
 
@@ -473,7 +477,7 @@ const Block = styled.div`
 
 </details>
 <hr/>
-<br/>
+<br>
 
 ### useMediaQuery hook
 
@@ -481,56 +485,60 @@ features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
 - ⚙️ It supports SSR (server-side rendering).
-- 📦 Minified and gzipped size 323b.
+- 📦 Minified and gzipped size 324b.
 
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
- declare function useMediaQuery(query: string) => boolean
+ declare function useMediaQuery(query?: string) => boolean
 ```
 
 </details>
 
 ```tsx
-import { useTheme } from 'styled-components'; // or '@emotion/react'
+import { useTheme } from 'styled-components'; // or from '@emotion/react'
 import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.only('md'));
+  const isMd = useMediaQuery(useTheme()?.breakpoints.only('md'));
 
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
 ```
 
-<br/>
+<br>
 
 ## Customization
 
-### Breakpoints
+### Strict Typed Breakpoints
+
+`app.tsx`
 
 ```tsx
-import styled from 'styled-components';
+import styled from 'styled-components'; // or from '@emotion/react'
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
+const breakpoints = {
+  small: '0px',
+  medium: '640px',
+  large: '1024px',
+  xLarge: '1200px',
+  xxLarge: '1440px',
+} as const;
+
+type Min = keyof typeof breakpoints;
+
+// For max values remove the first key.
+type Max = Exclude<keyof typeof breakpoints, 'small'>;
+
+export interface StyledBreakpointsTheme {
+  breakpoints: MediaQueries<Min, Max>;
+}
+
 const theme = createStyledBreakpointsTheme({
-  breakpoints: {
-    small: '0px',
-    medium: '640px',
-    large: '1024px',
-    xLarge: '1200px',
-    xxLarge: '1440px',
-  },
-});
-
-const Block = styled.div`
-  background-color: pink;
-
-  ${({ theme }) => theme.breakpoints.up('medium')} {
-    background-color: hotpink;
-  }
-`;
+  breakpoints,
+}) as StyledBreakpointsTheme;
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -539,17 +547,43 @@ const App = () => (
 );
 ```
 
-<br/>
+<details open><summary><h4>Styled Components</h4></summary>
+
+`styled.d.ts`
+
+```ts
+import 'styled-components';
+import { StyledBreakpointsTheme } from './app';
+
+declare module 'styled-components' {
+  export interface DefaultTheme extends StyledBreakpointsTheme {}
+}
+```
+
+</details>
+
+<details><summary><h4>Emotion</h4></summary>
+
+`styled.d.ts`
+
+```ts
+import '@emotion/react';
+import { StyledBreakpointsTheme } from './app';
+
+declare module '@emotion/react' {
+  export interface Theme extends StyledBreakpointsTheme {}
+}
+```
+
+</details>
 
 ### Merge with another theme
-
-<details open><summary><h4>Styled Components</h4></summary>
 
 `app.tsx`
 
 ```tsx
-import { ThemeProvider } from 'styled-components';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import { ThemeProvider } from 'styled-components'; // or from '@emotion/react';
+import { createStyledBreakpointsTheme, StyledBreakpointsTheme  } from 'styled-breakpoints';
 
 export const primaryTheme = {
   fonts: ['sans-serif', 'Roboto'],
@@ -562,7 +596,7 @@ export const primaryTheme = {
 
 const const theme = {
   ...primaryTheme,
-  ...createStyledBreakpointsTheme(),
+  ...createStyledBreakpointsTheme() as StyledBreakpointsTheme,
 }
 
 const App = () => (
@@ -571,6 +605,8 @@ const App = () => (
   </ThemeProvider>
 );
 ```
+
+<details open><summary><h4>Styled Components</h4></summary>
 
 Create file `styled.d.ts`
 
@@ -582,40 +618,13 @@ import { primaryTheme } from './app';
 type PrimaryTheme = typeof primaryTheme;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends PrimaryTheme, StyledBreakpointsTheme {}
+  export interface DefaultTheme extends StyledBreakpointsTheme, PrimaryTheme {}
 }
 ```
 
 </details>
 
 <details><summary><h4>Emotion</h4></summary>
-
-`app.tsx`
-
-```tsx
-import { ThemeProvider } from '@emotion/react';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const primaryTheme = {
-  fonts: ['sans-serif', 'Roboto'],
-  fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
-  },
-} as const;
-
-const const theme = {
-  ...primaryTheme,
-  ...styledBreakpointsTheme(),
-}
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Block />
-  </ThemeProvider>
-);
-```
 
 `emotion.d.ts`
 
@@ -649,28 +658,31 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/mg901"><img src="https://avatars0.githubusercontent.com/u/7874664?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Maxim</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=mg901" title="Code">💻</a> <a href="#design-mg901" title="Design">🎨</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=mg901" title="Documentation">📖</a> <a href="#example-mg901" title="Examples">💡</a> <a href="#ideas-mg901" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-mg901" title="Talks">📢</a></td>
-    <td align="center"><a href="https://github.com/stuneak"><img src="https://avatars0.githubusercontent.com/u/22033385?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Abu Shamsutdinov</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=stuneak" title="Code">💻</a> <a href="#example-stuneak" title="Examples">💡</a> <a href="#ideas-stuneak" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/mg901/styled-breakpoints/pulls?q=is%3Apr+reviewed-by%3Astuneak" title="Reviewed Pull Requests">👀</a> <a href="#talk-stuneak" title="Talks">📢</a></td>
-    <td align="center"><a href="https://github.com/sergeysova"><img src="https://avatars0.githubusercontent.com/u/5620073?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sergey Sova</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=sergeysova" title="Code">💻</a> <a href="#example-sergeysova" title="Examples">💡</a> <a href="#ideas-sergeysova" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/mg901/styled-breakpoints/pulls?q=is%3Apr+reviewed-by%3Asergeysova" title="Reviewed Pull Requests">👀</a> <a href="#talk-sergeysova" title="Talks">📢</a></td>
-    <td align="center"><a href="https://github.com/jussikinnula"><img src="https://avatars0.githubusercontent.com/u/7287118?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jussi Kinnula</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Ajussikinnula" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=jussikinnula" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/rafauke"><img src="https://avatars1.githubusercontent.com/u/9576167?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rafał Wyszomirski</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=rafauke" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/GR34SE"><img src="https://avatars1.githubusercontent.com/u/35396312?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Adrian Celczyński</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3AGR34SE" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=GR34SE" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/alexolefirenko"><img src="https://avatars1.githubusercontent.com/u/7016947?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alexey Olefirenko</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=alexolefirenko" title="Code">💻</a> <a href="#ideas-alexolefirenko" title="Ideas, Planning, & Feedback">🤔</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/samholmes"><img src="https://avatars2.githubusercontent.com/u/517469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>samholmes</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=samholmes" title="Code">💻</a> <a href="#ideas-samholmes" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/Ontopic"><img src="https://avatars0.githubusercontent.com/u/1599991?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ontopic</b></sub></a><br /><a href="#ideas-Ontopic" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://iryanbell.com/"><img src="https://avatars0.githubusercontent.com/u/25379378?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ryan Bell</b></sub></a><br /><a href="#ideas-iRyanBell" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://bartnagel.ca/"><img src="https://avatars1.githubusercontent.com/u/199635?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bart Nagel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Atremby" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=tremby" title="Code">💻</a> <a href="#example-tremby" title="Examples">💡</a> <a href="#ideas-tremby" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://mckelveygreg.github.io/"><img src="https://avatars2.githubusercontent.com/u/16110122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Greg McKelvey</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=mckelveygreg" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/bdefore"><img src="https://avatars.githubusercontent.com/u/142472?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Buck DeFore</b></sub></a><br /><a href="#ideas-bdefore" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://www.pierreburel.com/"><img src="https://avatars.githubusercontent.com/u/37228?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pierre Burel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Apierreburel" title="Bug reports">🐛</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://oowl.dev/"><img src="https://avatars.githubusercontent.com/u/47437822?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Konstantin</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aoowliq" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=oowliq" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/flagoon"><img src="https://avatars.githubusercontent.com/u/20648154?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pawel Kochanek</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aflagoon" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=flagoon" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mg901"><img src="https://avatars0.githubusercontent.com/u/7874664?v=4?s=100" width="100px;" alt="Maxim"/><br /><sub><b>Maxim</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=mg901" title="Code">💻</a> <a href="#design-mg901" title="Design">🎨</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=mg901" title="Documentation">📖</a> <a href="#example-mg901" title="Examples">💡</a> <a href="#ideas-mg901" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-mg901" title="Talks">📢</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/stuneak"><img src="https://avatars0.githubusercontent.com/u/22033385?v=4?s=100" width="100px;" alt="Abu Shamsutdinov"/><br /><sub><b>Abu Shamsutdinov</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=stuneak" title="Code">💻</a> <a href="#example-stuneak" title="Examples">💡</a> <a href="#ideas-stuneak" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/mg901/styled-breakpoints/pulls?q=is%3Apr+reviewed-by%3Astuneak" title="Reviewed Pull Requests">👀</a> <a href="#talk-stuneak" title="Talks">📢</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/sergeysova"><img src="https://avatars0.githubusercontent.com/u/5620073?v=4?s=100" width="100px;" alt="Sergey Sova"/><br /><sub><b>Sergey Sova</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=sergeysova" title="Code">💻</a> <a href="#example-sergeysova" title="Examples">💡</a> <a href="#ideas-sergeysova" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/mg901/styled-breakpoints/pulls?q=is%3Apr+reviewed-by%3Asergeysova" title="Reviewed Pull Requests">👀</a> <a href="#talk-sergeysova" title="Talks">📢</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jussikinnula"><img src="https://avatars0.githubusercontent.com/u/7287118?v=4?s=100" width="100px;" alt="Jussi Kinnula"/><br /><sub><b>Jussi Kinnula</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Ajussikinnula" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=jussikinnula" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/rafauke"><img src="https://avatars1.githubusercontent.com/u/9576167?v=4?s=100" width="100px;" alt="Rafał Wyszomirski"/><br /><sub><b>Rafał Wyszomirski</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=rafauke" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/GR34SE"><img src="https://avatars1.githubusercontent.com/u/35396312?v=4?s=100" width="100px;" alt="Adrian Celczyński"/><br /><sub><b>Adrian Celczyński</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3AGR34SE" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=GR34SE" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/alexolefirenko"><img src="https://avatars1.githubusercontent.com/u/7016947?v=4?s=100" width="100px;" alt="Alexey Olefirenko"/><br /><sub><b>Alexey Olefirenko</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=alexolefirenko" title="Code">💻</a> <a href="#ideas-alexolefirenko" title="Ideas, Planning, & Feedback">🤔</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/samholmes"><img src="https://avatars2.githubusercontent.com/u/517469?v=4?s=100" width="100px;" alt="samholmes"/><br /><sub><b>samholmes</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=samholmes" title="Code">💻</a> <a href="#ideas-samholmes" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ontopic"><img src="https://avatars0.githubusercontent.com/u/1599991?v=4?s=100" width="100px;" alt="Ontopic"/><br /><sub><b>Ontopic</b></sub></a><br /><a href="#ideas-Ontopic" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://iryanbell.com/"><img src="https://avatars0.githubusercontent.com/u/25379378?v=4?s=100" width="100px;" alt="Ryan Bell"/><br /><sub><b>Ryan Bell</b></sub></a><br /><a href="#ideas-iRyanBell" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://bartnagel.ca/"><img src="https://avatars1.githubusercontent.com/u/199635?v=4?s=100" width="100px;" alt="Bart Nagel"/><br /><sub><b>Bart Nagel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Atremby" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=tremby" title="Code">💻</a> <a href="#example-tremby" title="Examples">💡</a> <a href="#ideas-tremby" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://mckelveygreg.github.io/"><img src="https://avatars2.githubusercontent.com/u/16110122?v=4?s=100" width="100px;" alt="Greg McKelvey"/><br /><sub><b>Greg McKelvey</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/commits?author=mckelveygreg" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bdefore"><img src="https://avatars.githubusercontent.com/u/142472?v=4?s=100" width="100px;" alt="Buck DeFore"/><br /><sub><b>Buck DeFore</b></sub></a><br /><a href="#ideas-bdefore" title="Ideas, Planning, & Feedback">🤔</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.pierreburel.com/"><img src="https://avatars.githubusercontent.com/u/37228?v=4?s=100" width="100px;" alt="Pierre Burel"/><br /><sub><b>Pierre Burel</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Apierreburel" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://oowl.dev/"><img src="https://avatars.githubusercontent.com/u/47437822?v=4?s=100" width="100px;" alt="Konstantin"/><br /><sub><b>Konstantin</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aoowliq" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=oowliq" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/flagoon"><img src="https://avatars.githubusercontent.com/u/20648154?v=4?s=100" width="100px;" alt="Pawel Kochanek"/><br /><sub><b>Pawel Kochanek</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aflagoon" title="Bug reports">🐛</a> <a href="https://github.com/mg901/styled-breakpoints/commits?author=flagoon" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/iandjx"><img src="https://avatars.githubusercontent.com/u/3683356?v=4?s=100" width="100px;" alt="Ian Christopher B. de Jesus"/><br /><sub><b>Ian Christopher B. de Jesus</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aiandjx" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->

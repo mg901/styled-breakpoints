@@ -16,12 +16,12 @@ exports.createBreakpointsApi = ({ breakpoints }) => {
   const only = (key) =>
     key === keys.at(-1) ? up(key) : between(key, getNextKey(key));
 
-  return Object.freeze({
+  return {
     keys,
     getNextKey,
     up,
     down,
     between,
     only,
-  });
+  };
 };

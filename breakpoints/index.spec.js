@@ -97,7 +97,7 @@ describe('createBreakpoints function in production', () => {
   });
 
   describe('only', () => {
-    it('should return correct min and max values for given breakpoint name', () => {
+    it('should return correct min and max values for given breakpoint key', () => {
       const { calcMaxWidth } = require('./calc-max-width');
 
       keys.slice(0, -1).forEach((key, index) => {
@@ -114,7 +114,7 @@ describe('createBreakpoints function in production', () => {
 
 describe('createBreakpoints function in development', () => {
   let breakpointsApi = null;
-  let INVALID_BREAKPOINT_NAME = null;
+  let INVALID_BREAKPOINT_KEY = null;
   let ERROR_PREFIX = null;
   let DEFAULT_BREAKPOINTS = null;
 
@@ -127,7 +127,7 @@ describe('createBreakpoints function in development', () => {
       errorPrefix: ERROR_PREFIX,
     });
 
-    INVALID_BREAKPOINT_NAME = 'invalid';
+    INVALID_BREAKPOINT_KEY = 'invalid';
     ERROR_PREFIX = '[breakpoints]: ';
     DEFAULT_BREAKPOINTS = {
       xs: '0px',
@@ -192,17 +192,17 @@ describe('createBreakpoints function in development', () => {
   });
 
   describe('up', () => {
-    it('should throw an error for an invalid breakpoint name', () => {
-      expect(() => breakpointsApi.up(INVALID_BREAKPOINT_NAME)).toThrowError(
-        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+    it('should throw an error for an invalid breakpoint key', () => {
+      expect(() => breakpointsApi.up(INVALID_BREAKPOINT_KEY)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
   });
 
   describe('down', () => {
-    it('should throw an error for an invalid breakpoint name', () => {
-      expect(() => breakpointsApi.down(INVALID_BREAKPOINT_NAME)).toThrowError(
-        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+    it('should throw an error for an invalid breakpoint key', () => {
+      expect(() => breakpointsApi.down(INVALID_BREAKPOINT_KEY)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
@@ -214,17 +214,17 @@ describe('createBreakpoints function in development', () => {
   });
 
   describe('between', () => {
-    it('should throw an error for invalid breakpoint names', () => {
+    it('should throw an error for invalid breakpoint keys', () => {
       expect(() =>
-        breakpointsApi.between(INVALID_BREAKPOINT_NAME, 'sm')
+        breakpointsApi.between(INVALID_BREAKPOINT_KEY, 'sm')
       ).toThrowError(
-        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
       );
 
       expect(() =>
-        breakpointsApi.between('sm', INVALID_BREAKPOINT_NAME)
+        breakpointsApi.between('sm', INVALID_BREAKPOINT_KEY)
       ).toThrowError(
-        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
 
@@ -242,9 +242,9 @@ describe('createBreakpoints function in development', () => {
   });
 
   describe('only method', () => {
-    it('should throw an error for an invalid breakpoint name', () => {
-      expect(() => breakpointsApi.only(INVALID_BREAKPOINT_NAME)).toThrowError(
-        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_NAME}\` not found in xs, sm, md, lg, xl, xxl.`
+    it('should throw an error for an invalid breakpoint key', () => {
+      expect(() => breakpointsApi.only(INVALID_BREAKPOINT_KEY)).toThrowError(
+        `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
       );
     });
   });
