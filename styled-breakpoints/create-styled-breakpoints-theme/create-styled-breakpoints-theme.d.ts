@@ -1,32 +1,30 @@
-type Orientation = 'portrait' | 'landscape';
+declare module 'styled-breakpoints' {
+  type Orientation = 'portrait' | 'landscape';
 
-export type Up = (min: string, orientation?: Orientation) => string;
-export type Down = (max: string, orientation?: Orientation) => string;
+  type BreakpointKeys = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  type Min = BreakpointKeys;
+  type Max = Exclude<BreakpointKeys, 'xs'>;
 
-export type Between = (
-  min: string,
-  max: string,
-  orientation?: Orientation
-) => string;
+  type Up = (min: Min, orientation?: Orientation) => string;
+  type Down = (max: Max, orientation?: Orientation) => string;
+  type Between = (min: Min, max: Max, orientation?: Orientation) => string;
+  type Only = (key: BreakpointKeys, orientation?: Orientation) => string;
 
-export type Only = (key: string, orientation?: Orientation) => string;
+  interface Options {
+    breakpoints?: Record<string, `${number}px`>;
+    errorPrefix?: string;
+  }
 
-export interface StyledBreakpoints {
-  up: Up;
-  down: Down;
-  between: Between;
-  only: Only;
+  export interface MediaQueries<T = Min, U = Max> {
+    up: (min: T, orientation?: Orientation) => string;
+    down: (max: U, orientation?: Orientation) => string;
+    between: (min: T, max: U, orientation?: Orientation) => string;
+    only: (key: T, orientation?: Orientation) => string;
+  }
+
+  export interface StyledBreakpointsTheme<T = MediaQueries> {
+    breakpoints: T;
+  }
+
+  export function createStyledBreakpointsTheme(options?: Options): any;
 }
-
-export interface StyledBreakpointsTheme {
-  breakpoints: StyledBreakpoints;
-}
-
-interface Options {
-  breakpoints?: Record<string, `${number}px`>;
-  errorPrefix?: string;
-}
-
-declare function createStyledBreakpointsTheme(
-  options?: Options
-): StyledBreakpointsTheme;
