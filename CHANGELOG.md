@@ -1,3 +1,10 @@
+# [12.1.0](https://github.com/mg901/styled-breakpoints/compare/v12.0.4...v12.1.0) (2023-06-09)
+
+
+### Features
+
+* add strict types for default and custom media queries ([8794580](https://github.com/mg901/styled-breakpoints/commit/879458052f52b511208723d76cf9d5f1ea0b1ab8)), closes [#1390](https://github.com/mg901/styled-breakpoints/issues/1390)
+
 ## [12.0.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.3...v12.0.4) (2023-05-29)
 
 
