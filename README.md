@@ -207,7 +207,7 @@ import {
   StyledBreakpointsTheme,
 } from 'styled-breakpoints';
 
-const Block = styled.div`
+const Box = styled.div`
   display: none;
 
   ${({ theme }) => theme.breakpoints.up('sm')} {
@@ -219,7 +219,7 @@ const theme = createStyledBreakpointsTheme() as StyledBreakpointsTheme;
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Block />
+    <Box />
   </ThemeProvider>
 );
 ```
@@ -341,7 +341,7 @@ const breakpoints = {
 </details>
 
 ```tsx
-const Block = styled.div`
+const Box = styled.div`
   display: none;
 
   ${({ theme }) => theme.breakpoints.up('sm')} {
@@ -378,7 +378,7 @@ We occasionally use media queries that go in the other direction (the given scre
 </details>
 
 ```tsx
-const Block = styled.div`
+const Box = styled.div`
   display: block;
 
   ${({ theme }) => theme.breakpoints.down('md')} {
@@ -418,7 +418,7 @@ There are also media queries and mixins for targeting a single segment of screen
 </details>
 
 ```tsx
-const Block = styled.div`
+const Box = styled.div`
   background-color: pink;
 
   ${({ theme }) => theme.breakpoints.only('md')} {
@@ -456,7 +456,7 @@ Similarly, media queries may span multiple breakpoint widths.
 </details>
 
 ```tsx
-const Block = styled.div`
+const Box = styled.div`
   background-color: gold;
 
   ${({ theme }) => theme.breakpoints.between('md', 'xl')} {
@@ -515,7 +515,7 @@ const SomeComponent = () => {
 
 ```tsx
 import styled from 'styled-components'; // or from '@emotion/react'
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import { createStyledBreakpointsTheme, MediaQueries } from 'styled-breakpoints';
 
 const breakpoints = {
   small: '0px',
@@ -540,7 +540,7 @@ const theme = createStyledBreakpointsTheme({
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Block />
+    <Box />
   </ThemeProvider>
 );
 ```
@@ -562,7 +562,7 @@ declare module 'styled-components' {
 
 <details><summary><h4>Emotion</h4></summary>
 
-`styled.d.ts`
+`emotion.d.ts`
 
 ```ts
 import '@emotion/react';
@@ -599,7 +599,7 @@ const const theme = {
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Block />
+    <Box />
   </ThemeProvider>
 );
 ```
