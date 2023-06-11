@@ -1,3 +1,10 @@
+## [12.1.1](https://github.com/mg901/styled-breakpoints/compare/v12.1.0...v12.1.1) (2023-06-11)
+
+
+### Bug Fixes
+
+* **docs:** add import of `MediaQueries` type to `Strict Typed Breakpoints` section ([1799035](https://github.com/mg901/styled-breakpoints/commit/179903509c3afdfdbc04106964adbd0339434cc0))
+
 # [12.1.0](https://github.com/mg901/styled-breakpoints/compare/v12.0.4...v12.1.0) (2023-06-09)
 
 
