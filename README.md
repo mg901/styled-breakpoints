@@ -127,7 +127,7 @@ From largest to smallest
 
 ## Quick start
 
-<details open><summary><h3>Styled Components</h3></summary>
+<details open><summary><h3>💅 Styled Components</h3></summary>
 
 #### Installation
 
@@ -175,7 +175,9 @@ const App = () => (
 
 </details>
 
-<details><summary><h3>Emotion</h3></summary>
+<details><summary><h3>
+<g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
+Emotion</h3></summary>
 
 #### Installation
 
@@ -547,7 +549,7 @@ const App = () => (
 );
 ```
 
-<details open><summary><h4>Styled Components</h4></summary>
+<details open><summary><h4>💅 Styled Components</h4></summary>
 
 `styled.d.ts`
 
@@ -562,7 +564,7 @@ declare module 'styled-components' {
 
 </details>
 
-<details><summary><h4>Emotion</h4></summary>
+<details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
 
 `emotion.d.ts`
 
@@ -606,7 +608,7 @@ const App = () => (
 );
 ```
 
-<details open><summary><h4>Styled Components</h4></summary>
+<details open><summary><h4>💅 Styled Components</h4></summary>
 
 Create file `styled.d.ts`
 
@@ -624,7 +626,7 @@ declare module 'styled-components' {
 
 </details>
 
-<details><summary><h4>Emotion</h4></summary>
+<details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
 
 `emotion.d.ts`
 
