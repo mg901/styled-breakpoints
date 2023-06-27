@@ -1499,11 +1499,12 @@
     "@sinonjs/commons" "^2.0.0"
 
 "@size-limit/esbuild-why@^8.2.4":
-  version "8.2.4"
-  resolved "https://registry.yarnpkg.com/@size-limit/esbuild-why/-/esbuild-why-8.2.4.tgz#b2a4e03e560c24c1a4ae5b0ca052d012d526acbd"
-  integrity sha512-6Cfe3GaMRpTej1h59+PRWLaGqqejLQhueqM99Wa6lTghZOVV0g2wvWYXdAWjdxgHbFp1R8z2y2bgKP4XbxCUdg==
+  version "8.2.6"
+  resolved "https://registry.yarnpkg.com/@size-limit/esbuild-why/-/esbuild-why-8.2.6.tgz#5075c7740cb0324b59d99ce326a4f1c58c00737d"
+  integrity sha512-Zd+24d5RKpB1ow//ICyDHq8BCx9dF5DZ3FyssYFwdZe/ljE1qpXfz8NpEOJCH4fDlSiTSsWmnWYW8VarfsiXEw==
   dependencies:
     esbuild-visualizer "^0.4.0"
+    open "^8.4.2"
 
 "@size-limit/esbuild@^8.2.4":
   version "8.2.6"
@@ -6782,7 +6783,7 @@ onetime@^6.0.0:
   dependencies:
     mimic-fn "^4.0.0"
 
-open@^8.4.0:
+open@^8.4.0, open@^8.4.2:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/open/-/open-8.4.2.tgz#5b5ffe2a8f793dcd2aad73e550cb87b59cb084f9"
   integrity sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==
