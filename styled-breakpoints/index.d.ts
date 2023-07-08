@@ -1,1 +1,5 @@
-export * from './create-styled-breakpoints-theme/create-styled-breakpoints-theme';
+export {
+  createStyledBreakpointsTheme,
+  StyledBreakpointsTheme,
+  MediaQueries,
+} from './create-styled-breakpoints-theme/create-styled-breakpoints-theme';
