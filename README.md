@@ -109,10 +109,10 @@ From largest to smallest
 
 ## Documentation
 
+- core concepts
+- available breakpoints
 - [quick start](#quick-start)
-- [migration from v11](#migration-from-v11)
-- [core concepts](#core-concepts)
-- [available breakpoints](#available-breakpoints)
+- migration from v11
 - [media queries](#media-queries)
   - [min-width](#min-width)
   - [max-width](#max-width)
@@ -120,10 +120,39 @@ From largest to smallest
   - [between breakpoints](#between-breakpoints)
   - [useMediaQuery hook](#usemediaquery-hook)
 - [customization](#customization)
-  - [strict typed breakpoints](#strict-typed-breakpoints)
-  - [merge with another theme](#merge-with-another-theme)
+  - strict typed breakpoints
+  - merge with another theme
 
 <br>
+
+<details><summary><h2>Core concepts</h2></summary>
+
+- **Breakpoints act as the fundamental elements of responsive design**. They enable you to control when your layout can adapt to a specific viewport or device size.
+
+- **Utilize media queries to structure your CSS based on breakpoints**. Media queries are CSS features that allow you to selectively apply styles depending on a defined set of browser and operating system parameters. The most commonly used media query property is <code>min-width</code>.
+
+- **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
+
+</details>
+
+<details><summary><h2>Available breakpoints</h2></summary>
+
+Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
+
+Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
+
+```tsx
+const breakpoints = {
+  xs: '0px',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+  xxl: '1400px',
+};
+```
+
+</details>
 
 ## Quick start
 
@@ -232,7 +261,7 @@ const App = () => (
 
 <br>
 
-## Migration from v11
+<details><summary><h2>🏎️&nbsp; Migration from <a href="https://github.com/mg901/styled-breakpoints/tree/v11.2.3" target="_blank">v11.2.3</a></h2></summary>
 
 ### Theme
 
@@ -296,36 +325,7 @@ or
 + }
 ```
 
-<br>
-
-## Core concepts
-
-- **Breakpoints act as the fundamental elements of responsive design**. They enable you to control when your layout can adapt to a specific viewport or device size.
-
-- **Utilize media queries to structure your CSS based on breakpoints**. Media queries are CSS features that allow you to selectively apply styles depending on a defined set of browser and operating system parameters. The most commonly used media query property is <code>min-width</code>.
-
-- **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
-
-<br>
-
-## Available breakpoints
-
-Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
-
-Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
-
-```tsx
-const breakpoints = {
-  xs: '0px',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-  xxl: '1400px',
-};
-```
-
-<br>
+</details>
 
 ## Media queries
 
@@ -513,7 +513,7 @@ const SomeComponent = () => {
 
 ## Customization
 
-### Strict Typed Breakpoints
+  <details><summary><h3> Strict Typed Breakpoints</h3></summary>
 
 `app.tsx`
 
@@ -549,7 +549,7 @@ const App = () => (
 );
 ```
 
-<details open><summary><h4>💅 Styled Components</h4></summary>
+  <details open><summary><h4>💅 Styled Components</h4></summary>
 
 `styled.d.ts`
 
@@ -562,9 +562,9 @@ declare module 'styled-components' {
 }
 ```
 
-</details>
+  </details>
 
-<details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
+  <details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
 
 `emotion.d.ts`
 
@@ -577,9 +577,10 @@ declare module '@emotion/react' {
 }
 ```
 
+  </details>
 </details>
 
-### Merge with another theme
+<details><summary><h3>Merge with another theme</h3></summary>
 
 `app.tsx`
 
@@ -608,9 +609,9 @@ const App = () => (
 );
 ```
 
-<details open><summary><h4>💅 Styled Components</h4></summary>
+  <details open><summary><h4>💅 Styled Components</h4></summary>
 
-Create file `styled.d.ts`
+`styled.d.ts`
 
 ```ts
 import 'styled-components';
@@ -624,9 +625,9 @@ declare module 'styled-components' {
 }
 ```
 
-</details>
+  </details>
 
-<details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
+  <details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
 
 `emotion.d.ts`
 
@@ -641,6 +642,8 @@ declare module '@emotion/react' {
   export interface Theme extends PrimaryTheme, StyledBreakpointsTheme {}
 }
 ```
+
+  </details>
 
 </details>
 
