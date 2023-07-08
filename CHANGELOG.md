@@ -1,3 +1,10 @@
+## [12.1.2](https://github.com/mg901/styled-breakpoints/compare/v12.1.1...v12.1.2) (2023-07-08)
+
+
+### Bug Fixes
+
+* **docs:** reorganize documentation structure ([#1546](https://github.com/mg901/styled-breakpoints/issues/1546)) ([b70a1e9](https://github.com/mg901/styled-breakpoints/commit/b70a1e9b8ce86d5a302d29e7ef60e7eb8870c672))
+
 ## [12.1.1](https://github.com/mg901/styled-breakpoints/compare/v12.1.0...v12.1.1) (2023-06-11)
 
 
