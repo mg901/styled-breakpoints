@@ -47,6 +47,7 @@ describe('useMediaQuery hook', () => {
       viewport.cleanup();
     });
   });
+
   describe('down', () => {
     it('should return true if the screen width is less than the specified breakpoint', () => {
       const viewport = mockViewport({
@@ -82,6 +83,7 @@ describe('useMediaQuery hook', () => {
       viewport.cleanup();
     });
   });
+
   describe('between', () => {
     it('should return true if the screen width is between the specified breakpoints', () => {
       const viewport = mockViewport({

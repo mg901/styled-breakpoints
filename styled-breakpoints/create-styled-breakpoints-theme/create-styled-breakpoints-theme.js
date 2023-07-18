@@ -62,14 +62,14 @@ exports.createStyledBreakpointsTheme = ({
     );
   }
 
-  function withOrientationOrNot(orientation, result) {
+  function withOrientationOrNot(orientation, mediaQuery) {
     return orientation
       ? withOrientation({
-          mediaQuery: result,
+          mediaQuery,
           orientation,
           invariant: api.invariant && api.invariant,
         })
-      : result;
+      : mediaQuery;
   }
 
   function withMinWidth(value) {

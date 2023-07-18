@@ -182,7 +182,7 @@ declare module 'styled-components' {
 `app.tsx`
 
 ```tsx
-import styled { ThemeProvider } from 'styled-components';
+import styled { DefaultTheme, ThemeProvider } from 'styled-components';
 import { createStyledBreakpointsTheme, StyledBreakpointsTheme } from 'styled-breakpoints';
 
 const Box = styled.div`
@@ -192,8 +192,7 @@ const Box = styled.div`
     display: block;
   }
 `
-
-const theme = createStyledBreakpointsTheme() as StyledBreakpointsTheme;
+const theme: DefaultTheme = createStyledBreakpointsTheme();
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -232,13 +231,9 @@ declare module '@emotion/react' {
 `app.tsx`
 
 ```tsx
-import styled from '@emotion/styled';
-import { ThemeProvider } from '@emotion/react';
-
-import {
-  createStyledBreakpointsTheme,
-  StyledBreakpointsTheme,
-} from 'styled-breakpoints';
+import styled, from '@emotion/styled';
+import { Theme, ThemeProvider } from '@emotion/react';
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 const Box = styled.div`
   display: none;
@@ -248,7 +243,7 @@ const Box = styled.div`
   }
 `;
 
-const theme = createStyledBreakpointsTheme() as StyledBreakpointsTheme;
+const theme: Theme = createStyledBreakpointsTheme();
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -513,12 +508,12 @@ const SomeComponent = () => {
 
 ## Customization
 
-  <details><summary><h3> Strict Typed Breakpoints</h3></summary>
+  <details><summary><h3> ⚙️ Strict Typed Breakpoints</h3></summary>
 
 `app.tsx`
 
 ```tsx
-import styled from 'styled-components'; // or from '@emotion/react'
+import styled, { DefaultTheme } from 'styled-components'; // or from '@emotion/react'
 import { createStyledBreakpointsTheme, MediaQueries } from 'styled-breakpoints';
 
 const breakpoints = {
@@ -529,18 +524,9 @@ const breakpoints = {
   xxLarge: '1440px',
 } as const;
 
-type Min = keyof typeof breakpoints;
-
-// For max values remove the first key.
-type Max = Exclude<keyof typeof breakpoints, 'small'>;
-
-export interface StyledBreakpointsTheme {
-  breakpoints: MediaQueries<Min, Max>;
-}
-
-const theme = createStyledBreakpointsTheme({
+const theme: DefaultTheme = createStyledBreakpointsTheme({
   breakpoints,
-}) as StyledBreakpointsTheme;
+});
 
 const App = () => (
   <ThemeProvider theme={theme}>
@@ -555,10 +541,18 @@ const App = () => (
 
 ```ts
 import 'styled-components';
-import { StyledBreakpointsTheme } from './app';
+import { MediaQueries } from 'styled-breakpoints';
+import { breakpoints } from './app';
+
+type Min = keyof typeof breakpoints;
+
+// For max values remove the first key.
+type Max = Exclude<keyof typeof breakpoints, 'small'>;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends StyledBreakpointsTheme {}
+  export interface DefaultTheme {
+    breakpoints: MediaQueries<Min, Max>;
+  }
 }
 ```
 
@@ -570,23 +564,31 @@ declare module 'styled-components' {
 
 ```ts
 import '@emotion/react';
-import { StyledBreakpointsTheme } from './app';
+import { MediaQueries } from 'styled-breakpoints';
+import { breakpoints } from './app';
+
+type Min = keyof typeof breakpoints;
+
+// For max values remove the first key.
+type Max = Exclude<keyof typeof breakpoints, 'small'>;
 
 declare module '@emotion/react' {
-  export interface Theme extends StyledBreakpointsTheme {}
+  export interface Theme extends {
+    breakpoints: MediaQueries<Min, Max>;
+  }
 }
 ```
 
   </details>
 </details>
 
-<details><summary><h3>Merge with another theme</h3></summary>
+<details><summary><h3>🎨 Merge with another theme</h3></summary>
 
 `app.tsx`
 
 ```tsx
-import { ThemeProvider } from 'styled-components'; // or from '@emotion/react';
-import { createStyledBreakpointsTheme, StyledBreakpointsTheme  } from 'styled-breakpoints';
+import { DefaultTheme, ThemeProvider } from 'styled-components'; // or from '@emotion/react';
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 export const primaryTheme = {
   fonts: ['sans-serif', 'Roboto'],
@@ -597,9 +599,9 @@ export const primaryTheme = {
   },
 } as const;
 
-const const theme = {
+const const theme: DefaultTheme = {
   ...primaryTheme,
-  ...createStyledBreakpointsTheme() as StyledBreakpointsTheme,
+  ...createStyledBreakpointsTheme(),
 }
 
 const App = () => (
