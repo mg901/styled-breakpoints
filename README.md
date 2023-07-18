@@ -508,7 +508,7 @@ const SomeComponent = () => {
 
 ## Customization
 
-  <details><summary><h3> Strict Typed Breakpoints</h3></summary>
+  <details><summary><h3> ⚙️ Strict Typed Breakpoints</h3></summary>
 
 `app.tsx`
 
@@ -582,7 +582,7 @@ declare module '@emotion/react' {
   </details>
 </details>
 
-<details><summary><h3>Merge with another theme</h3></summary>
+<details><summary><h3>🎨 Merge with another theme</h3></summary>
 
 `app.tsx`
 
