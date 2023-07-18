@@ -50,12 +50,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "react": "^18.x.x"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    }
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0",
+    "styled-components": ">= 5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
