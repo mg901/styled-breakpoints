@@ -1,3 +1,10 @@
+## [12.1.4](https://github.com/mg901/styled-breakpoints/compare/v12.1.3...v12.1.4) (2023-07-19)
+
+
+### Bug Fixes
+
+* **docs:** remove unused types ([#1558](https://github.com/mg901/styled-breakpoints/issues/1558)) ([cffdd5e](https://github.com/mg901/styled-breakpoints/commit/cffdd5ef3a62b3f814c08bb7df46ee0f95ec97c5))
+
 ## [12.1.3](https://github.com/mg901/styled-breakpoints/compare/v12.1.2...v12.1.3) (2023-07-18)
 
 
