@@ -183,7 +183,7 @@ declare module 'styled-components' {
 
 ```tsx
 import styled { DefaultTheme, ThemeProvider } from 'styled-components';
-import { createStyledBreakpointsTheme, StyledBreakpointsTheme } from 'styled-breakpoints';
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 const Box = styled.div`
   display: none;
@@ -514,9 +514,9 @@ const SomeComponent = () => {
 
 ```tsx
 import styled, { DefaultTheme } from 'styled-components'; // or from '@emotion/react'
-import { createStyledBreakpointsTheme, MediaQueries } from 'styled-breakpoints';
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
-const breakpoints = {
+export const breakpoints = {
   small: '0px',
   medium: '640px',
   large: '1024px',
