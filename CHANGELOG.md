@@ -1,3 +1,10 @@
+## [12.1.5](https://github.com/mg901/styled-breakpoints/compare/v12.1.4...v12.1.5) (2023-07-20)
+
+
+### Bug Fixes
+
+* **docs:** add `[@latest](https://github.com/latest)` tag to the installation instructions ([#1562](https://github.com/mg901/styled-breakpoints/issues/1562)) ([b914155](https://github.com/mg901/styled-breakpoints/commit/b9141556485551da08e09f1fb30a95f1eed63745))
+
 ## [12.1.4](https://github.com/mg901/styled-breakpoints/compare/v12.1.3...v12.1.4) (2023-07-19)
 
 
