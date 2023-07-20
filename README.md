@@ -159,11 +159,11 @@ const breakpoints = {
 #### Installation
 
 ```sh
-npm install styled-components styled-breakpoints
+npm install styled-components styled-breakpoints@latest
 
 # or
 
-yarn add styled-components styled-breakpoints
+yarn add styled-components styled-breakpoints@latest
 ```
 
 `styled.d.ts`
@@ -208,11 +208,11 @@ Emotion</h3></summary>
 #### Installation
 
 ```sh
-npm install @emotion/{styled,react} styled-breakpoints
+npm install @emotion/{styled,react} styled-breakpoints@latest
 
 # or
 
-yarn add @emotion/{styled,react} styled-breakpoints
+yarn add @emotion/{styled,react} styled-breakpoints@latest
 ```
 
 `emotion.d.ts`
