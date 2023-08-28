@@ -2212,9 +2212,9 @@
     lodash "^4.17.4"
 
 "@semantic-release/commit-analyzer@^10.0.0":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-10.0.1.tgz#be6fcc1703459294c394ede41b37fd9a21d39807"
-  integrity sha512-9ejHzTAijYs9z246sY/dKBatmOPcd0GQ7lH4MgLCkv1q4GCiDZRkjHJkaQZXZVaK7mJybS+sH3Ng6G8i3pYMGQ==
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-10.0.3.tgz#eb967518cd13120b3ca9cc45f946b57d356178c0"
+  integrity sha512-pe45eTjaJBsZbJrT6AvcTzYYS9OJF3MGABTPFSpwmnfSXVmyfFuloO92pj6EVTbx6JGEUgpoipnITbWn+zyvaw==
   dependencies:
     conventional-changelog-angular "^6.0.0"
     conventional-commits-filter "^3.0.0"
