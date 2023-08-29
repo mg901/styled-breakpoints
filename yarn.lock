@@ -2290,13 +2290,13 @@
     tempy "^3.0.0"
 
 "@semantic-release/release-notes-generator@^11.0.1":
-  version "11.0.6"
-  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-11.0.6.tgz#b024dc3979632f28df2e1e1f9cf50a486f10ab6a"
-  integrity sha512-Puuv/6AJosmep6pIu5tsLDYrNAVQr7a4oxGiKnOhW20TTYSWEGGCNAOXJI2NKSGFGXwXbxzy2tQWVC/TovxMIw==
+  version "11.0.7"
+  resolved "https://registry.yarnpkg.com/@semantic-release/release-notes-generator/-/release-notes-generator-11.0.7.tgz#2193b8aa6b8b40297b6cbc5156bc9a7e5cdb9bbd"
+  integrity sha512-T09QB9ImmNx7Q6hY6YnnEbw/rEJ6a+22LBxfZq+pSAXg/OL/k0siwEm5cK4k1f9dE2Z2mPIjJKKohzUm0jbxcQ==
   dependencies:
     conventional-changelog-angular "^6.0.0"
     conventional-changelog-writer "^6.0.0"
-    conventional-commits-filter "^3.0.0"
+    conventional-commits-filter "^4.0.0"
     conventional-commits-parser "^5.0.0"
     debug "^4.0.0"
     get-stream "^7.0.0"
@@ -3870,6 +3870,11 @@ conventional-commits-filter@^3.0.0:
   dependencies:
     lodash.ismatch "^4.4.0"
     modify-values "^1.0.1"
+
+conventional-commits-filter@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/conventional-commits-filter/-/conventional-commits-filter-4.0.0.tgz#845d713e48dc7d1520b84ec182e2773c10c7bf7f"
+  integrity sha512-rnpnibcSOdFcdclpFwWa+pPlZJhXE7l+XK04zxhbWrhgpR96h33QLz8hITTXbcYICxVr3HZFtbtUAQ+4LdBo9A==
 
 conventional-commits-parser@^4.0.0:
   version "4.0.0"
