@@ -6588,9 +6588,9 @@ jsbn@~0.1.0:
   integrity sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg==
 
 jsdom-testing-mocks@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/jsdom-testing-mocks/-/jsdom-testing-mocks-1.10.0.tgz#4998b785359e77df176044b2f02e5eb19605ce01"
-  integrity sha512-hZHA9Y4sQsxEpZlQ16jJRAYDORphJicSNtXXWCK56gin7I2oe8YPc7Pc82bvNAeubflw9d4pStu/1HHQs4Ru4w==
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/jsdom-testing-mocks/-/jsdom-testing-mocks-1.11.0.tgz#042f24f0e62463633a6f889f36a6e42678d49942"
+  integrity sha512-Od73jYGAl33C0aC7dRvhae2dlCEJ2cGa3j4797BHR/YoI1dJALxvEr2fZMfMZG4Tz/3c3C6xdwMnAXol5+HWZA==
   dependencies:
     bezier-easing "^2.1.0"
     css-mediaquery "^0.1.2"
