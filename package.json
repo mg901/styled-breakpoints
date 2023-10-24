@@ -55,7 +55,7 @@
     "styled-components": ">= 5.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
+    "@commitlint/cli": "^18.0.0",
     "@commitlint/config-conventional": "^18.0.0",
     "@emotion/react": "^11.0.0",
     "@semantic-release/changelog": "^6.0.0",
