@@ -18,3 +18,4 @@ CHANGELOG.md
 .husky
 *.config.js
 .size-limit.js
+.eslingignore
