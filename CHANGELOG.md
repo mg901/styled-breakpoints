@@ -1,3 +1,10 @@
+## [12.1.6](https://github.com/mg901/styled-breakpoints/compare/v12.1.5...v12.1.6) (2023-11-04)
+
+
+### Bug Fixes
+
+* remove `styled-components` from dev-deps ([efa2a55](https://github.com/mg901/styled-breakpoints/commit/efa2a558fcf4ea95f8b2b2775d03affbfd39d9ad))
+
 ## [12.1.5](https://github.com/mg901/styled-breakpoints/compare/v12.1.4...v12.1.5) (2023-07-20)
 
 
