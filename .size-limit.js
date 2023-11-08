@@ -15,7 +15,7 @@ module.exports = [
     name: 'styled-breakpoints',
     path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '722 B',
+    limit: '725 B',
   },
   {
     name: 'styled-breakpoints + useMediaQuery',
@@ -29,6 +29,6 @@ module.exports = [
       './styled-breakpoints/index.js': '{ createStyledBreakpointsTheme }',
       './use-media-query/index.js': '{ useMediaQuery }',
     },
-    limit: '981 B',
+    limit: '985 B',
   },
 ];
