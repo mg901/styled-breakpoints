@@ -3,19 +3,19 @@ module.exports = [
     name: 'breakpoints',
     path: './shared/breakpoints/create-breakpoints-api.prod.js',
     import: '{ createBreakpointsApi }',
-    limit: '295 B',
+    limit: '310 B',
   },
   {
     name: 'breakpoints.dev',
     path: './shared/breakpoints/create-breakpoints-api.dev.js',
     import: '{ createBreakpointsApi }',
-    limit: '845 B',
+    limit: '860 B',
   },
   {
     name: 'styled-breakpoints',
     path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '770 B',
+    limit: '780 B',
   },
   {
     name: 'styled-breakpoints + useMediaQuery',

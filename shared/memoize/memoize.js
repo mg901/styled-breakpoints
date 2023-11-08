@@ -1,3 +1,8 @@
+/**
+ * Memoizes the given function.
+ * @param {Function} fn - The function to be memoized.
+ * @returns {Function} - The memoized function.
+ */
 exports.memoize = (fn) => {
   const cache = new Map();
 

@@ -1,6 +1,6 @@
 const { createBreakpointsApi } = require('../../shared/breakpoints');
+const { memoize } = require('../../shared/memoize');
 const { withOrientation } = require('../with-orientation');
-const { memoize } = require('../memoize');
 
 const DEFAULT_OPTIONS = {
   errorPrefix: '[styled-breakpoints]: ',
