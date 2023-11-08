@@ -2,11 +2,11 @@ const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
 const { createInvariant } = require('./create-invariant');
 
 /**
- * Creates a theme with breakpoints.
+ * Creates an object with breakpoints.
  * @param {Object} options - The options for creating the theme.
  * @param {Object} options.breakpoints - An object defining breakpoints.
  * @param {String} options.errorPrefix - The error prefix for validation.
- * @returns {Object} - A theme object with breakpoint functions.
+ * @returns {Object} - An object with breakpoint functions.
  */
 exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
   // Create an object for input validation
