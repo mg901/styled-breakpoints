@@ -7,66 +7,74 @@ const { createStyledBreakpointsTheme } = require('../../styled-breakpoints');
 const { useMediaQuery } = require('./use-media-query');
 
 describe('useMediaQuery hook', () => {
-  let theme = null;
-  let DEFAULT_BREAKPOINTS = null;
-  let calcMaxWidth = null;
+  const theme = createStyledBreakpointsTheme();
+  const DEFAULT_BREAKPOINTS = {
+    xs: '0px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+    xxl: '1400px',
+  };
 
-  beforeAll(() => {
-    theme = createStyledBreakpointsTheme();
-    DEFAULT_BREAKPOINTS = {
-      xs: '0px',
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
-      xxl: '1400px',
-    };
+  const calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;
 
-    calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;
-  });
+  describe('useMediaQuery with theme breakpoints', () => {});
 
-  describe('up', () => {
+  describe('with up method as argument', () => {
     it('should return true if the screen width is equal to the specified breakpoint', () => {
+      // Arrange
       const viewport = mockViewport({
         width: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
       });
 
+      // Act
       const { result } = renderHook(() =>
         useMediaQuery(theme.breakpoints.up('md'))
       );
 
+      // Assert
       expect(result.current).toBe(false);
 
+      // Act
       act(() => {
         viewport.set({
           width: DEFAULT_BREAKPOINTS.md,
         });
       });
 
+      // Assert
       expect(result.current).toBe(true);
+
       viewport.cleanup();
     });
   });
 
-  describe('down', () => {
+  describe('with down method as argument', () => {
     it('should return true if the screen width is less than the specified breakpoint', () => {
+      // Arrange
       const viewport = mockViewport({
         width: DEFAULT_BREAKPOINTS.md,
       });
 
+      // Act
       const { result } = renderHook(() =>
         useMediaQuery(theme.breakpoints.down('md'))
       );
 
+      // Assert
       expect(result.current).toBe(false);
 
+      // Act
       act(() => {
         viewport.set({
           width: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
         });
       });
 
+      // Assert
       expect(result.current).toBe(true);
+
       viewport.cleanup();
     });
 
@@ -84,64 +92,80 @@ describe('useMediaQuery hook', () => {
     });
   });
 
-  describe('between', () => {
+  describe('with between method as argument', () => {
     it('should return true if the screen width is between the specified breakpoints', () => {
+      // Arrange
       const viewport = mockViewport({
         width: calcMaxWidth(DEFAULT_BREAKPOINTS.sm),
       });
 
+      // Act
       const { result } = renderHook(() =>
         useMediaQuery(theme.breakpoints.between('sm', 'md'))
       );
 
+      // Assert
       expect(result.current).toBe(false);
 
+      // Act
       act(() => {
         viewport.set({
           width: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
         });
       });
 
+      // Assert
       expect(result.current).toBe(true);
 
+      // Act
       act(() => {
         viewport.set({
           width: DEFAULT_BREAKPOINTS.md,
         });
       });
 
+      // Assert
       expect(result.current).toBe(false);
+
       viewport.cleanup();
     });
   });
 
-  describe('only', () => {
+  describe('with only method as argument', () => {
     it('should return true if the screen width matches the specified breakpoint', () => {
+      // Arrange
       const viewport = mockViewport({
         width: calcMaxWidth(DEFAULT_BREAKPOINTS.md),
       });
 
+      // Act
       const { result } = renderHook(() =>
         useMediaQuery(theme.breakpoints.only('md'))
       );
 
+      // Assert
       expect(result.current).toBe(false);
 
+      // Act
       act(() => {
         viewport.set({
           width: DEFAULT_BREAKPOINTS.md,
         });
       });
 
+      // Assert
       expect(result.current).toBe(true);
 
+      // Act
       act(() => {
         viewport.set({
           width: DEFAULT_BREAKPOINTS.lg,
         });
       });
 
+      // Assert
       expect(result.current).toBe(false);
+
       viewport.cleanup();
     });
   });
