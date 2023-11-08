@@ -4,6 +4,12 @@ const { getMatches } = require('../get-matches');
 const isBrowser = typeof window !== 'undefined';
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
+/**
+ * Custom hook for handling media queries.
+ *
+ * @param {string} [query=''] - The media query to match.
+ * @returns {boolean} - `true` if the media query matches, otherwise `false`.
+ */
 const useMediaQuery = (query = '') => {
   const [isMatch, setIsMatch] = useState(getMatches(query));
 

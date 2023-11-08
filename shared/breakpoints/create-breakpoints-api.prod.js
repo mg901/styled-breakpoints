@@ -1,4 +1,4 @@
-const { calcMaxWidth } = require('./calc-max-width');
+const { calcMaxWidth } = require('../calc-max-width');
 /**
  * Creates a theme with breakpoints
  * @param {Object} options - The options for creating the theme.

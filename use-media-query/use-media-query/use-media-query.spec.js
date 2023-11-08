@@ -5,6 +5,7 @@ const { renderHook, act } = require('@testing-library/react');
 const { mockViewport } = require('jsdom-testing-mocks');
 const { createStyledBreakpointsTheme } = require('../../styled-breakpoints');
 const { useMediaQuery } = require('./use-media-query');
+const { calcMaxWidth } = require('../../shared/calc-max-width');
 
 describe('useMediaQuery hook', () => {
   const theme = createStyledBreakpointsTheme();
@@ -16,8 +17,6 @@ describe('useMediaQuery hook', () => {
     xl: '1200px',
     xxl: '1400px',
   };
-
-  const calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;
 
   describe('useMediaQuery with theme breakpoints', () => {});
 

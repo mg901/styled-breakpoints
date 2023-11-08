@@ -86,7 +86,7 @@ describe('breakpoints', () => {
 
     describe('down method', () => {
       // Arrange
-      const { calcMaxWidth } = require('./calc-max-width');
+      const { calcMaxWidth } = require('../calc-max-width');
 
       // Act
       it.each(Object.entries(DEFAULT_BREAKPOINTS))(
@@ -102,7 +102,7 @@ describe('breakpoints', () => {
 
     describe('between method', () => {
       // Arrange
-      const { calcMaxWidth } = require('./calc-max-width');
+      const { calcMaxWidth } = require('../calc-max-width');
 
       const testCases = [
         ['xs', 'sm'],
@@ -140,7 +140,7 @@ describe('breakpoints', () => {
 
     describe('only method', () => {
       // Arrange
-      const { calcMaxWidth } = require('./calc-max-width');
+      const { calcMaxWidth } = require('../calc-max-width');
       const { xs, sm, md, lg, xl, xxl } = DEFAULT_BREAKPOINTS;
 
       const testCases = {
