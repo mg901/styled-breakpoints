@@ -1,3 +1,10 @@
+## [12.1.8](https://github.com/mg901/styled-breakpoints/compare/v12.1.7...v12.1.8) (2023-11-08)
+
+
+### Bug Fixes
+
+* optimize 'only' method for O(1) performance ([#1657](https://github.com/mg901/styled-breakpoints/issues/1657)) ([3c8c92c](https://github.com/mg901/styled-breakpoints/commit/3c8c92c9ca257a73cd6ea0db11b84c518a803165))
+
 ## [12.1.7](https://github.com/mg901/styled-breakpoints/compare/v12.1.6...v12.1.7) (2023-11-08)
 
 
