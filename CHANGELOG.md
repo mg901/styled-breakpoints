@@ -1,3 +1,10 @@
+## [12.1.7](https://github.com/mg901/styled-breakpoints/compare/v12.1.6...v12.1.7) (2023-11-08)
+
+
+### Bug Fixes
+
+* **styled-breakpoints:** remove shared cache for public methods ([#1656](https://github.com/mg901/styled-breakpoints/issues/1656)) ([ad2ae03](https://github.com/mg901/styled-breakpoints/commit/ad2ae0370b61b1bb7fccfbaa70b53916b4f88753))
+
 ## [12.1.6](https://github.com/mg901/styled-breakpoints/compare/v12.1.5...v12.1.6) (2023-11-04)
 
 
