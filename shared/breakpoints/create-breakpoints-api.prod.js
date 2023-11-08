@@ -5,7 +5,7 @@ const { calcMaxWidth } = require('../calc-max-width');
  * @param {Object} options.breakpoints - An object defining breakpoints.
  * @returns {Object} - An object with breakpoint functions
  */
-exports.createBreakpointsApi = ({ breakpoints = {} }) => {
+exports.createBreakpointsApi = ({ breakpoints }) => {
   const indexMap = {};
   const keys = Object.keys(breakpoints);
 

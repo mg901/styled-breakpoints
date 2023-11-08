@@ -1,6 +1,6 @@
 const { createInvariant } = require('./create-invariant');
 
-describe('createInvariant', () => {
+describe('createInvariant function', () => {
   const invariant = createInvariant();
 
   it('should throw an error with the default error prefix if the condition is false', () => {
