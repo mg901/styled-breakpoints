@@ -1,4 +1,4 @@
-const { createBreakpointsApi } = require('../../breakpoints');
+const { createBreakpointsApi } = require('../../shared/breakpoints');
 const { withOrientation } = require('../with-orientation');
 const { memoize } = require('../memoize');
 
