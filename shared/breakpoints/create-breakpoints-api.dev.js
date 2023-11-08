@@ -29,7 +29,6 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
    * @returns {string} - The minimum breakpoint value.
    */
   const up = (min) => {
-    // Check input data validity
     validation.validateKey(min);
 
     return api.up(min);
@@ -41,7 +40,6 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
    * @returns {string} - The maximum breakpoint value.
    */
   const down = (max) => {
-    // Check input data validity
     validation.validateKey(max);
     validation.validateNonZeroValue(max);
 
@@ -55,10 +53,9 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
    * @returns {Object} - An object with 'min' and 'max' properties containing the corresponding breakpoint values.
    */
   const between = (min, max) => {
-    // Check input data validity
     validation.validateKey(min);
     validation.validateKey(max);
-    validation.validateMaxGreaterThanMin(min, max);
+    validation.validateMaxIsGreaterOrEqualToMin(min, max);
 
     return api.between(min, max);
   };
@@ -69,7 +66,6 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
    * @returns {string|Object} - The minimum or a range object based on the provided key.
    */
   const only = (key) => {
-    // Check input data validity
     validation.validateKey(key);
 
     return api.only(key);
@@ -93,7 +89,7 @@ function createValidation({ invariant, breakpoints }) {
     validateBreakpoints,
     validateKey,
     validateNonZeroValue,
-    validateMaxGreaterThanMin,
+    validateMaxIsGreaterOrEqualToMin,
   };
 
   function validateBreakpoints() {
@@ -134,7 +130,7 @@ function createValidation({ invariant, breakpoints }) {
     );
   }
 
-  function validateMaxGreaterThanMin(min, max) {
+  function validateMaxIsGreaterOrEqualToMin(min, max) {
     const diff = removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]);
 
     // Check that `max` is greater than or equal to `min`
