@@ -6,17 +6,10 @@ const { mockViewport } = require('jsdom-testing-mocks');
 const { createStyledBreakpointsTheme } = require('../../styled-breakpoints');
 const { useMediaQuery } = require('./use-media-query');
 const { calcMaxWidth } = require('../../shared/calc-max-width');
+const { DEFAULT_BREAKPOINTS } = require('../../shared/constants');
 
 describe('useMediaQuery hook', () => {
   const theme = createStyledBreakpointsTheme();
-  const DEFAULT_BREAKPOINTS = {
-    xs: '0px',
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-    xxl: '1400px',
-  };
 
   describe('useMediaQuery with theme breakpoints', () => {});
 
