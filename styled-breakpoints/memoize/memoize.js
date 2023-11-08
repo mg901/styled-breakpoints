@@ -1,11 +1,13 @@
-exports.memoize = (fn, map = new Map()) => {
+exports.memoize = (fn) => {
+  const cache = new Map();
+
   return (...args) => {
     const key = JSON.stringify(args);
 
-    if (!map.has(key)) {
-      map.set(key, fn(...args));
+    if (!cache.has(key)) {
+      cache.set(key, fn(...args));
     }
 
-    return map.get(key);
+    return cache.get(key);
   };
 };
