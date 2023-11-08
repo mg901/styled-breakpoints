@@ -1,4 +1,4 @@
-describe('breakpoints', () => {
+describe('breakpoints function', () => {
   // Arrange
   afterEach(() => {
     jest.resetModules();

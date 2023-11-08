@@ -1,5 +1,5 @@
 const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
-const { createInvariant } = require('./create-invariant');
+const { createInvariant } = require('../create-invariant');
 
 /**
  * Creates an object with breakpoints.
