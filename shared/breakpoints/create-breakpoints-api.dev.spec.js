@@ -39,7 +39,7 @@ describe('breakpoints function', () => {
           });
 
         // Assert
-        expect(received).not.toThrowError();
+        expect(received).not.toThrow();
       });
 
       it('throws an error if invalid breakpoints are found', () => {
@@ -63,7 +63,7 @@ describe('breakpoints function', () => {
           });
 
         // Assert
-        expect(received).toThrowError(expected);
+        expect(received).toThrow(expected);
       });
     });
 
@@ -92,7 +92,7 @@ describe('breakpoints function', () => {
           const received = () => up(INVALID_BREAKPOINT_KEY);
 
           // Assert
-          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+          expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
         });
       });
 
@@ -102,7 +102,7 @@ describe('breakpoints function', () => {
           const received = () => down(INVALID_BREAKPOINT_KEY);
 
           // Assert
-          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+          expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
         });
 
         it('throws an error when the value is equal 0', () => {
@@ -120,7 +120,7 @@ describe('breakpoints function', () => {
           const receivedForFirst = () => between(INVALID_BREAKPOINT_KEY, 'sm');
 
           // Assert
-          expect(receivedForFirst).toThrowError(
+          expect(receivedForFirst).toThrow(
             EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY
           );
 
@@ -128,7 +128,7 @@ describe('breakpoints function', () => {
           const receivedForSecond = () => between('sm', INVALID_BREAKPOINT_KEY);
 
           // Assert
-          expect(receivedForSecond).toThrowError(
+          expect(receivedForSecond).toThrow(
             EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY
           );
         });
@@ -156,7 +156,7 @@ describe('breakpoints function', () => {
           const received = () => only(INVALID_BREAKPOINT_KEY);
 
           // Assert
-          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+          expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
         });
       });
     });
