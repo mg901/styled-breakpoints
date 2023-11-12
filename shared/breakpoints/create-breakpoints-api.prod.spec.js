@@ -1,5 +1,9 @@
 const { DEFAULT_BREAKPOINTS } = require('../constants');
 
+// jest.mock('../calc-max-width', () => ({
+//   calcMaxWidth: jest.fn((value) => `calc(${value} - 1px)`),
+// }));
+
 describe('breakpoints function', () => {
   let breakpointsApi = null;
   let calcMaxWidth = null;
@@ -133,25 +137,23 @@ describe('breakpoints function', () => {
         sm: { min: sm, max: md },
         md: { min: md, max: lg },
         xl: { min: xl, max: xxl },
-        xxl,
       };
 
       // Act
       it.each(Object.entries(testCases))(
         'returns correct min and max values for %s',
         (key, { min, max }) => {
-          if (key !== 'xxl') {
-            // Act and Assert
-            expect(breakpointsApi.only(key)).toEqual({
-              min,
-              max: calcMaxWidth(max),
-            });
-          } else {
-            // Act and Assert
-            expect(breakpointsApi.only(key)).toEqual(xxl);
-          }
+          // Act and Assert
+          expect(breakpointsApi.only(key)).toEqual({
+            min,
+            max: calcMaxWidth(max),
+          });
         }
       );
+
+      it('returns correct value for last breakpoint', () => {
+        expect(breakpointsApi.only('xxl')).toEqual(xxl);
+      });
     });
   });
 });

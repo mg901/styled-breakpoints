@@ -30,7 +30,7 @@ describe('withOrientation function', () => {
         });
 
       // Assert
-      expect(received).toThrowError(expected);
+      expect(received).toThrow(expected);
       expect(invariantMock.mock.calls[0]).toEqual([
         false,
         `\`${INVALID_ORIENTATION}\` is invalid orientation. Please use ${VALID_ORIENTATIONS}.`,

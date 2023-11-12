@@ -12,7 +12,7 @@ describe('createInvariant function', () => {
     const received = () => invariant(false);
 
     // Assert
-    expect(received).toThrowError(`${DEFAULT_PREFIX}${DEFAULT_MESSAGE}`);
+    expect(received).toThrow(`${DEFAULT_PREFIX}${DEFAULT_MESSAGE}`);
   });
 
   it('throws an error with the specified error prefix if the condition is false', () => {
@@ -24,7 +24,7 @@ describe('createInvariant function', () => {
     const received = () => invariantWithCustomPrefix(false);
 
     // Assert
-    expect(received).toThrowError(`${CUSTOM_PREFIX}${DEFAULT_MESSAGE}`);
+    expect(received).toThrow(`${CUSTOM_PREFIX}${DEFAULT_MESSAGE}`);
   });
 
   it.each([1, -1, true, {}, [], Symbol('test'), 'hi'])(
