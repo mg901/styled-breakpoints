@@ -1,3 +1,10 @@
+## [12.1.9](https://github.com/mg901/styled-breakpoints/compare/v12.1.8...v12.1.9) (2023-11-12)
+
+
+### Bug Fixes
+
+* fix the infinite loop during orientation validation ([#1668](https://github.com/mg901/styled-breakpoints/issues/1668)) ([c8f7ae6](https://github.com/mg901/styled-breakpoints/commit/c8f7ae648c95540b7214e06233397f2f2439a393))
+
 ## [12.1.8](https://github.com/mg901/styled-breakpoints/compare/v12.1.7...v12.1.8) (2023-11-08)
 
 
