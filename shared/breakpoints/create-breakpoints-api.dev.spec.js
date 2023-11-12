@@ -1,30 +1,48 @@
 const { DEFAULT_BREAKPOINTS } = require('../constants');
-const { createBreakpointsApi } = require('./create-breakpoints-api.dev');
 
 describe('breakpoints function', () => {
-  const ERROR_PREFIX = '[breakpoints]: ';
-  const INVALID_BREAKPOINT_KEY = 'invalid';
+  // Arrange
+  let ERROR_PREFIX;
+  let INVALID_BREAKPOINT_KEY;
+  let EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY;
+  let EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE;
 
-  const breakpointsApi = createBreakpointsApi({
-    breakpoints: DEFAULT_BREAKPOINTS,
-    errorPrefix: ERROR_PREFIX,
+  let breakpointsApi;
+
+  // Arrange
+  beforeAll(() => {
+    jest.resetModules();
+    process.env.NODE_ENV = 'development';
+
+    ERROR_PREFIX = '[breakpoints]: ';
+    INVALID_BREAKPOINT_KEY = 'invalid';
+    EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY = `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in ${Object.keys(
+      DEFAULT_BREAKPOINTS
+    ).join(', ')}.`;
+
+    EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE = `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`;
   });
 
-  describe('in development', () => {
+  describe('development environment', () => {
     describe('breakpoints validation', () => {
-      it('should not throw an error if all breakpoints are valid', () => {
+      // Arrange
+      beforeEach(() => {
+        breakpointsApi = require('.').createBreakpointsApi;
+      });
+
+      it('does not throw an error if all breakpoints are valid', () => {
         // Act
-        const result = () =>
-          createBreakpointsApi({
+        const received = () =>
+          breakpointsApi({
             breakpoints: DEFAULT_BREAKPOINTS,
             errorPrefix: ERROR_PREFIX,
           });
 
         // Assert
-        expect(result).not.toThrowError();
+        expect(received).not.toThrowError();
       });
 
-      it('should throw an error if invalid breakpoints are found', () => {
+      it('throws an error if invalid breakpoints are found', () => {
         // Arrange
         const invalidBreakpoints = {
           xs: '0px',
@@ -35,95 +53,111 @@ describe('breakpoints function', () => {
           xxl: '1400px',
         };
 
+        const expected = `${ERROR_PREFIX}The following breakpoints are invalid: \`md: wtf, lg: 992, xl: px1200\`. Use values with pixel units (e.g., '200px').`;
+
         // Act
-        const result = () =>
-          createBreakpointsApi({
+        const received = () =>
+          breakpointsApi({
             breakpoints: invalidBreakpoints,
             errorPrefix: ERROR_PREFIX,
           });
 
         // Assert
-        expect(result).toThrowError(
-          `${ERROR_PREFIX}The following breakpoints are invalid: \`md: wtf, lg: 992, xl: px1200\`. Use values with pixel units (e.g., '200px').`
-        );
+        expect(received).toThrowError(expected);
       });
     });
 
-    describe('up method', () => {
-      it('should throw an error for an invalid breakpoint key', () => {
-        // Act
-        const result = () => breakpointsApi.up(INVALID_BREAKPOINT_KEY);
+    describe('methods', () => {
+      let up = null;
+      let down = null;
+      let between = null;
+      let only = null;
 
-        // Assert
-        expect(result).toThrowError(
-          `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
-        );
-      });
-    });
+      // Arrange
+      beforeAll(() => {
+        breakpointsApi = require('.').createBreakpointsApi({
+          breakpoints: DEFAULT_BREAKPOINTS,
+          errorPrefix: ERROR_PREFIX,
+        });
 
-    describe('down method', () => {
-      it('should throw an error for an invalid breakpoint key', () => {
-        // Act
-        const result = () => breakpointsApi.down(INVALID_BREAKPOINT_KEY);
-        // Assert
-        expect(result).toThrowError(
-          `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
-        );
+        up = breakpointsApi.up;
+        down = breakpointsApi.down;
+        only = breakpointsApi.only;
+        between = breakpointsApi.between;
       });
 
-      it('should throw an error when the value is equal 0', () => {
-        // Act
-        const result = () => breakpointsApi.down('xs');
+      describe('up', () => {
+        it('throws an error for an invalid breakpoint key', () => {
+          // Act
+          const received = () => up(INVALID_BREAKPOINT_KEY);
 
-        // Assert
-        expect(result).toThrow(
-          `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`
-        );
-      });
-    });
-
-    describe('between method', () => {
-      it('should throw an error for invalid breakpoint keys', () => {
-        // Act and Assert
-        expect(() =>
-          breakpointsApi.between(INVALID_BREAKPOINT_KEY, 'sm')
-        ).toThrowError(
-          `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
-        );
-
-        // Act and Assert
-        expect(() =>
-          breakpointsApi.between('sm', INVALID_BREAKPOINT_KEY)
-        ).toThrowError(
-          `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
-        );
+          // Assert
+          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+        });
       });
 
-      it('should throw an error when the last breakpoint less than max breakpoint', () => {
-        // Act and Assert
-        expect(() => breakpointsApi.between('xl', 'xs')).toThrow(
-          `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`
-        );
+      describe('down', () => {
+        it('throws an error for an invalid breakpoint key', () => {
+          // Act
+          const received = () => down(INVALID_BREAKPOINT_KEY);
+
+          // Assert
+          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+        });
+
+        it('throws an error when the value is equal 0', () => {
+          // Arrange
+          const expected = `${ERROR_PREFIX}\`xs: 0px\` cannot be assigned as minimum breakpoint.`;
+
+          // Act and Assert
+          expect(() => down('xs')).toThrow(expected);
+        });
       });
 
-      it('does not throw an error when max is equal to min value', () => {
-        // Act and Assert
-        expect(() => breakpointsApi.between('sm', 'sm')).not.toThrow(
-          `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`
-        );
+      describe('between', () => {
+        it('throws an error for invalid breakpoint keys', () => {
+          // Act
+          const receivedForFirst = () => between(INVALID_BREAKPOINT_KEY, 'sm');
+
+          // Assert
+          expect(receivedForFirst).toThrowError(
+            EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY
+          );
+
+          // Act
+          const receivedForSecond = () => between('sm', INVALID_BREAKPOINT_KEY);
+
+          // Assert
+          expect(receivedForSecond).toThrowError(
+            EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY
+          );
+        });
+
+        it('throws an error when the last breakpoint less than max breakpoint', () => {
+          // Act
+          const received = () => between('xl', 'xs');
+
+          // Assert
+          expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE);
+        });
+
+        it('does not throw an error when max is equal to min value', () => {
+          // Act
+          const received = () => between('sm', 'sm');
+
+          // Assert
+          expect(received).not.toThrow(EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE);
+        });
       });
-    });
 
-    describe('only method', () => {
-      // Act and Assert
-      it('should throw an error for an invalid breakpoint key', () => {
-        // Act
-        const result = () => breakpointsApi.only(INVALID_BREAKPOINT_KEY);
+      describe('only', () => {
+        it('throws an error for an invalid breakpoint key', () => {
+          // Act
+          const received = () => only(INVALID_BREAKPOINT_KEY);
 
-        // Assert
-        expect(result).toThrowError(
-          `${ERROR_PREFIX}breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in xs, sm, md, lg, xl, xxl.`
-        );
+          // Assert
+          expect(received).toThrowError(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
+        });
       });
     });
   });
