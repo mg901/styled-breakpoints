@@ -1,9 +1,5 @@
 const { DEFAULT_BREAKPOINTS } = require('../constants');
 
-// jest.mock('../calc-max-width', () => ({
-//   calcMaxWidth: jest.fn((value) => `calc(${value} - 1px)`),
-// }));
-
 describe('breakpoints function', () => {
   let breakpointsApi = null;
   let calcMaxWidth = null;

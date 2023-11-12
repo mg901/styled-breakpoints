@@ -1,5 +1,4 @@
 const { useState, useLayoutEffect, useEffect } = require('react');
-const { getMatches } = require('../get-matches');
 
 const isBrowser = typeof window !== 'undefined';
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
@@ -16,6 +15,7 @@ const useMediaQuery = (query = '') => {
   useEnhancedEffect(() => {
     let mounted = true;
     const mediaQueryList = window.matchMedia(query.replace(/^@media\s*/, ''));
+
     const handleChange = () => {
       if (!mounted) return;
 
@@ -47,3 +47,12 @@ const useMediaQuery = (query = '') => {
 };
 
 exports.useMediaQuery = useMediaQuery;
+
+function getMatches(query) {
+  // Prevents SSR issues
+  if (typeof window !== 'undefined') {
+    return window.matchMedia(query).matches;
+  }
+
+  return false;
+}
