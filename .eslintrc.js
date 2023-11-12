@@ -32,12 +32,4 @@ module.exports = {
       },
     },
   },
-  overrides: [
-    {
-      files: ['*.spec.js'],
-      rules: {
-        'no-shadow': 0,
-      },
-    },
-  ],
 };

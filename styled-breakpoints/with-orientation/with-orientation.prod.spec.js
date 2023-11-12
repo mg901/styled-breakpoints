@@ -1,21 +1,31 @@
-const { withOrientation } = require('./with-orientation.prod');
-
 describe('withOrientation function', () => {
-  describe('in production', () => {
+  let withOrientation = null;
+
+  // Arrange
+  beforeAll(() => {
+    jest.resetModules();
+    process.env.NODE_ENV = 'production';
+
+    withOrientation = require('.').withOrientation;
+  });
+
+  describe('production environment', () => {
     // Arrange
     const mediaQuery = '(min-width: 768px)';
 
     it.each(['landscape', 'portrait'])(
-      'should return a media query with orientation for %s',
+      'returns a media query with orientation for %s',
       (orientation) => {
         // Act
-        const result = withOrientation({
+        const received = withOrientation({
           orientation,
           mediaQuery,
         });
 
         // Assert
-        expect(result).toBe(`${mediaQuery} and (orientation: ${orientation})`);
+        expect(received).toBe(
+          `${mediaQuery} and (orientation: ${orientation})`
+        );
       }
     );
   });

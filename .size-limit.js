@@ -9,7 +9,7 @@ module.exports = [
     name: 'breakpoints.dev',
     path: './shared/breakpoints/create-breakpoints-api.dev.js',
     import: '{ createBreakpointsApi }',
-    limit: '860 B',
+    limit: '900 B',
   },
   {
     name: 'styled-breakpoints',

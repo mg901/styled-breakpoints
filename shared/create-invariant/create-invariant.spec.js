@@ -1,26 +1,34 @@
-const { createInvariant } = require('./create-invariant');
+const {
+  createInvariant,
+  DEFAULT_PREFIX,
+  DEFAULT_MESSAGE,
+} = require('./create-invariant');
 
 describe('createInvariant function', () => {
   const invariant = createInvariant();
 
-  it('should throw an error with the default error prefix if the condition is false', () => {
-    // Act & Assert
-    expect(() => invariant(false)).toThrowError('[prefix]: Invariant failed');
+  it('throws an error with the default error prefix if the condition is false', () => {
+    // Act
+    const received = () => invariant(false);
+
+    // Assert
+    expect(received).toThrowError(`${DEFAULT_PREFIX}${DEFAULT_MESSAGE}`);
   });
 
-  it('should throw an error with the specified error prefix if the condition is false', () => {
+  it('throws an error with the specified error prefix if the condition is false', () => {
     // Arrange
     const CUSTOM_PREFIX = 'Custom prefix: ';
     const invariantWithCustomPrefix = createInvariant(CUSTOM_PREFIX);
 
-    // Act & Assert
-    expect(() => invariantWithCustomPrefix(false)).toThrowError(
-      `${CUSTOM_PREFIX}Invariant failed`
-    );
+    // Act
+    const received = () => invariantWithCustomPrefix(false);
+
+    // Assert
+    expect(received).toThrowError(`${CUSTOM_PREFIX}${DEFAULT_MESSAGE}`);
   });
 
   it.each([1, -1, true, {}, [], Symbol('test'), 'hi'])(
-    'should not throw if the condition is truthy (%p)',
+    'does not throw if the condition is truthy (%p)',
     (value) => {
       // Act & Assert
       expect(() => invariant(value)).not.toThrow();
@@ -28,7 +36,7 @@ describe('createInvariant function', () => {
   );
 
   it.each([undefined, null, false, +0, -0, NaN, ''])(
-    'should throw if the condition is falsy',
+    'throws if the condition is falsy',
     (value) => {
       // Act & Assert
       expect(() => invariant(value)).toThrow();

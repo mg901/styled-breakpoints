@@ -1,12 +1,22 @@
 const { DEFAULT_BREAKPOINTS } = require('../constants');
-const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
 
 describe('breakpoints function', () => {
-  const breakpointsApi = createBreakpointsApi({
-    breakpoints: DEFAULT_BREAKPOINTS,
+  let breakpointsApi = null;
+  let calcMaxWidth = null;
+
+  beforeAll(() => {
+    jest.resetModules();
+    process.env.NODE_ENV = 'production';
+
+    breakpointsApi = require('.').createBreakpointsApi({
+      breakpoints: DEFAULT_BREAKPOINTS,
+    });
+
+    calcMaxWidth = require('../calc-max-width').calcMaxWidth;
   });
-  describe('in production', () => {
-    it('should have all the necessary methods', () => {
+
+  describe('production environment', () => {
+    it('has all the necessary methods', () => {
       // Arrange
       const expectedMethods = [
         'keys',
@@ -28,7 +38,7 @@ describe('breakpoints function', () => {
     });
 
     describe('keys method', () => {
-      it('should return an array of correct breakpoint keys', () => {
+      it('returns an array of correct breakpoint keys', () => {
         // Act and Assert
         expect(breakpointsApi.keys).toEqual(Object.keys(DEFAULT_BREAKPOINTS));
       });
@@ -45,8 +55,8 @@ describe('breakpoints function', () => {
         ['xxl', undefined],
       ];
 
-      test.each(testCases)(
-        'should return the correct next breakpoint key for %s',
+      it.each(testCases)(
+        'returns the correct next breakpoint key for %s',
         (currentKey, expectedNextKey) => {
           // Act and Assert
           expect(breakpointsApi.getNextKey(currentKey)).toBe(expectedNextKey);
@@ -57,7 +67,7 @@ describe('breakpoints function', () => {
     describe('up method', () => {
       // Act
       it.each(Object.entries(DEFAULT_BREAKPOINTS))(
-        'should return the correct minimum value for breakpoint %s',
+        'returns the correct minimum value for breakpoint %s',
         (breakpoint, expectedValue) => {
           // Act and Assert
           expect(breakpointsApi.up(breakpoint)).toBe(expectedValue);
@@ -66,12 +76,9 @@ describe('breakpoints function', () => {
     });
 
     describe('down method', () => {
-      // Arrange
-      const { calcMaxWidth } = require('../calc-max-width');
-
       // Act
       it.each(Object.entries(DEFAULT_BREAKPOINTS))(
-        'should calculate the correct maximum value for breakpoint %s',
+        'calculates the correct maximum value for breakpoint %s',
         (breakpoint, expectedWidth) => {
           // Act and Assert
           expect(breakpointsApi.down(breakpoint)).toBe(
@@ -83,7 +90,6 @@ describe('breakpoints function', () => {
 
     describe('between method', () => {
       // Arrange
-      const { calcMaxWidth } = require('../calc-max-width');
       const testCases = [
         ['xs', 'sm'],
         ['xs', 'md'],
@@ -103,7 +109,7 @@ describe('breakpoints function', () => {
       ];
 
       it.each(testCases)(
-        'should calculate the range between %s and %s',
+        'calculates the range between %s and %s',
         (min, max) => {
           // Act
           const expectedMin = DEFAULT_BREAKPOINTS[min];
@@ -120,7 +126,6 @@ describe('breakpoints function', () => {
 
     describe('only method', () => {
       // Arrange
-      const { calcMaxWidth } = require('../calc-max-width');
       const { xs, sm, md, lg, xl, xxl } = DEFAULT_BREAKPOINTS;
 
       const testCases = {
@@ -133,7 +138,7 @@ describe('breakpoints function', () => {
 
       // Act
       it.each(Object.entries(testCases))(
-        'should return correct min and max values for %s',
+        'returns correct min and max values for %s',
         (key, { min, max }) => {
           if (key !== 'xxl') {
             // Act and Assert
