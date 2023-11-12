@@ -68,15 +68,23 @@ describe('breakpoints function', () => {
     });
 
     describe('methods', () => {
+      let up = null;
+      let down = null;
+      let between = null;
+      let only = null;
+
       // Arrange
       beforeAll(() => {
         breakpointsApi = require('.').createBreakpointsApi({
           breakpoints: DEFAULT_BREAKPOINTS,
           errorPrefix: ERROR_PREFIX,
         });
-      });
 
-      const { up, down, between, only } = breakpointsApi;
+        up = breakpointsApi.up;
+        down = breakpointsApi.down;
+        only = breakpointsApi.only;
+        between = breakpointsApi.between;
+      });
 
       describe('up', () => {
         it('throws an error for an invalid breakpoint key', () => {
