@@ -11,6 +11,7 @@ describe('useMediaQuery', () => {
     '(min-width: 1000px)': false,
   };
 
+  // Arrange
   const setupMockMediaQuery = () => {
     window.matchMedia = jest.fn((query) => ({
       matches: matches[query] || false,
