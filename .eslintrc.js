@@ -1,6 +1,11 @@
 module.exports = {
-  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:prettier/recommended',
+    'plugin:jest/recommended',
+  ],
+  plugins: ['prettier', 'jest'],
   env: {
     es2021: true,
     node: true,
