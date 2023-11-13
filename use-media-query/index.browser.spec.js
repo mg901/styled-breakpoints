@@ -11,21 +11,16 @@ describe('useMediaQuery', () => {
     '(min-width: 1000px)': false,
   };
 
-  // Arrange
-  const setupMockMediaQuery = () => {
-    window.matchMedia = jest.fn((query) => ({
-      matches: matches[query] || false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-    }));
-  };
-
   describe('In Safari Browser less than v14', () => {
     // Arrange
     beforeEach(() => {
-      setupMockMediaQuery();
+      window.matchMedia = jest.fn((query) => ({
+        matches: matches[query] || false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      }));
     });
 
     test('returns true if media query matches', () => {
@@ -65,7 +60,13 @@ describe('useMediaQuery', () => {
   describe('In other browsers', () => {
     // Arrange
     beforeEach(() => {
-      setupMockMediaQuery();
+      window.matchMedia = jest.fn((query) => ({
+        matches: matches[query] || false,
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+      }));
     });
 
     test('returns true if media query matches', () => {
