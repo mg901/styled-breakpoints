@@ -5,7 +5,12 @@ const {
 } = require('./create-invariant');
 
 describe('createInvariant function', () => {
-  const invariant = createInvariant();
+  let invariant = null;
+
+  // Arrange
+  beforeEach(() => {
+    invariant = createInvariant();
+  });
 
   it('throws an error with the default error prefix if the condition is false', () => {
     // Act

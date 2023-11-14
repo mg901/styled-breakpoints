@@ -39,8 +39,11 @@ describe('breakpoints function', () => {
 
     describe('keys method', () => {
       it('returns an array of correct breakpoint keys', () => {
+        // Arrange
+        const expected = Object.keys(DEFAULT_BREAKPOINTS);
+
         // Act and Assert
-        expect(breakpointsApi.keys).toEqual(Object.keys(DEFAULT_BREAKPOINTS));
+        expect(breakpointsApi.keys).toEqual(expected);
       });
     });
 
@@ -57,9 +60,9 @@ describe('breakpoints function', () => {
 
       it.each(testCases)(
         'returns the correct next breakpoint key for %s',
-        (currentKey, expectedNextKey) => {
+        (key, value) => {
           // Act and Assert
-          expect(breakpointsApi.getNextKey(currentKey)).toBe(expectedNextKey);
+          expect(breakpointsApi.getNextKey(key)).toBe(value);
         }
       );
     });
@@ -68,9 +71,9 @@ describe('breakpoints function', () => {
       // Act
       it.each(Object.entries(DEFAULT_BREAKPOINTS))(
         'returns the correct minimum value for breakpoint %s',
-        (breakpoint, expectedValue) => {
+        (key, value) => {
           // Act and Assert
-          expect(breakpointsApi.up(breakpoint)).toBe(expectedValue);
+          expect(breakpointsApi.up(key)).toBe(value);
         }
       );
     });
@@ -79,11 +82,12 @@ describe('breakpoints function', () => {
       // Act
       it.each(Object.entries(DEFAULT_BREAKPOINTS))(
         'calculates the correct maximum value for breakpoint %s',
-        (breakpoint, expectedWidth) => {
-          // Act and Assert
-          expect(breakpointsApi.down(breakpoint)).toBe(
-            calcMaxWidth(expectedWidth)
-          );
+        (key, value) => {
+          // Act
+          const received = breakpointsApi.down(key);
+
+          // Assert
+          expect(received).toBe(calcMaxWidth(value));
         }
       );
     });
@@ -110,16 +114,14 @@ describe('breakpoints function', () => {
 
       it.each(testCases)(
         'calculates the range between %s and %s',
-        (min, max) => {
-          // Act
-          const expectedMin = DEFAULT_BREAKPOINTS[min];
-          const expectedMax = calcMaxWidth(DEFAULT_BREAKPOINTS[max]);
+        (minKey, maxKey) => {
+          // Arrange
+          const min = DEFAULT_BREAKPOINTS[minKey];
+          const max = calcMaxWidth(DEFAULT_BREAKPOINTS[maxKey]);
+          const expected = { min, max };
 
           // Act and Assert
-          expect(breakpointsApi.between(min, max)).toEqual({
-            min: expectedMin,
-            max: expectedMax,
-          });
+          expect(breakpointsApi.between(minKey, maxKey)).toEqual(expected);
         }
       );
     });
@@ -148,6 +150,7 @@ describe('breakpoints function', () => {
       );
 
       it('returns correct value for last breakpoint', () => {
+        // Act and Assert
         expect(breakpointsApi.only('xxl')).toEqual(xxl);
       });
     });
