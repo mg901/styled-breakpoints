@@ -68,6 +68,7 @@ describe('breakpoints function', () => {
     });
 
     describe('methods', () => {
+      // Arrange
       let up = null;
       let down = null;
       let between = null;

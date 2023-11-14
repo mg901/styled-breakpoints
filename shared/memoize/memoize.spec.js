@@ -3,10 +3,10 @@ const { memoize } = require('./memoize');
 describe('memoize function', () => {
   describe('basic functionality', () => {
     it('returns a memoized function', () => {
-      // Act
+      // Arrange
       const memoized = memoize(() => {});
 
-      // Assert
+      // Act and Assert
       expect(typeof memoized).toBe('function');
     });
   });
@@ -15,11 +15,9 @@ describe('memoize function', () => {
     it('caches the result for the same arguments', () => {
       // Arrange
       const fn = jest.fn((a, b) => a + b);
-
-      // Act
       const memoized = memoize(fn);
 
-      // Assert
+      // Act and Assert
       expect(memoized(1, 2)).toBe(3);
       expect(memoized(1, 2)).toBe(3);
       expect(fn).toHaveBeenCalledTimes(1);
@@ -28,14 +26,13 @@ describe('memoize function', () => {
     it('caches the result for different arguments', () => {
       // Arrange
       const fn = jest.fn((a, b, c) => a + b + c);
-
-      // Act
       const memoized = memoize(fn);
 
-      // Assert
+      // Act and Assert
       expect(memoized(1, 2, 3)).toBe(6);
       expect(memoized(2, 3, 4)).toBe(9);
       expect(fn).toHaveBeenCalledTimes(2);
+
       expect(memoized(1, 2, 3)).toBe(6);
       expect(fn).toHaveBeenCalledTimes(2);
     });
@@ -45,14 +42,13 @@ describe('memoize function', () => {
     it('works with different types of arguments', () => {
       // Arrange
       const fn = jest.fn((a, b, c) => a + b.length + c);
-
-      // Act
       const memoized = memoize(fn);
 
-      // Assert
+      // Act and Assert
       expect(memoized(1, 'foo', true)).toBe(5);
       expect(memoized(1, 'foo', true)).toBe(5);
       expect(fn).toHaveBeenCalledTimes(1);
+
       expect(memoized(1, 'foobar', true)).toBe(8);
       expect(memoized(1, 'foo', true)).toBe(5);
       expect(fn).toHaveBeenCalledTimes(2);
@@ -61,14 +57,13 @@ describe('memoize function', () => {
     it('works with objects and arrays', () => {
       // Arrange
       const fn = jest.fn((a, b, c) => a.x + b.length + c[0]);
-
-      // Act
       const memoized = memoize(fn);
 
-      // Assert
+      // Act and Assert
       expect(memoized({ x: 1 }, 'foo', [true])).toBe(5);
       expect(memoized({ x: 1 }, 'foo', [true])).toBe(5);
       expect(fn).toHaveBeenCalledTimes(1);
+
       expect(memoized({ x: 2 }, 'foobar', [false])).toBe(8);
       expect(memoized({ x: 1 }, 'foo', [true])).toBe(5);
       expect(fn).toHaveBeenCalledTimes(2);
@@ -82,10 +77,9 @@ describe('memoize function', () => {
         throw new Error();
       });
 
-      // Act
       const memoized = memoize(fn);
 
-      // Assert
+      // Act and Assert
       expect(() => memoized(1)).toThrow();
       expect(() => memoized(1)).toThrow();
       expect(fn).toHaveBeenCalledTimes(2);
