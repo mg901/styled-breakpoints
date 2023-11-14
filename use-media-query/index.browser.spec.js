@@ -6,6 +6,7 @@ const { renderHook } = require('@testing-library/react');
 const { useMediaQuery } = require('./use-media-query');
 
 describe('useMediaQuery', () => {
+  // Arrange
   const matches = {
     '(min-width: 500px)': true,
     '(min-width: 1000px)': false,
@@ -40,7 +41,7 @@ describe('useMediaQuery', () => {
     });
 
     test('updates when media query changes', () => {
-      // Arrange and Act
+      // Act
       const { result, rerender } = renderHook(
         ({ query }) => useMediaQuery(query),
         { initialProps: { query: '(min-width: 500px)' } }
@@ -86,7 +87,7 @@ describe('useMediaQuery', () => {
     });
 
     test('updates when media query changes', () => {
-      // Arrange and Act
+      // Act
       const { result, rerender } = renderHook(
         ({ query }) => useMediaQuery(query),
         { initialProps: { query: '(min-width: 500px)' } }
