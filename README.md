@@ -1,4 +1,4 @@
-<div align="left">
+<div align="right">
   <a href="https:///pr.new/mg901/styled-breakpoints">
     <img
       alt="Open in Codeflow"
