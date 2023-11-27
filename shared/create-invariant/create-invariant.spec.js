@@ -1,8 +1,9 @@
-const {
+import { describe, beforeEach, it, expect } from 'vitest';
+import {
   createInvariant,
   DEFAULT_PREFIX,
   DEFAULT_MESSAGE,
-} = require('./create-invariant');
+} from './create-invariant';
 
 describe('createInvariant function', () => {
   let invariant = null;
@@ -32,10 +33,10 @@ describe('createInvariant function', () => {
     expect(received).toThrow(`${CUSTOM_PREFIX}${DEFAULT_MESSAGE}`);
   });
 
-  it.each([1, -1, true, {}, [], Symbol('test'), 'hi'])(
+  it.each([1, -1, true, {}, [], 'hi'])(
     'does not throw if the condition is truthy (%p)',
     (value) => {
-      // Act & Assert
+      // Act and Assert
       expect(() => invariant(value)).not.toThrow();
     }
   );

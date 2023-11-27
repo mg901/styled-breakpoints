@@ -1,9 +1,11 @@
-describe('withOrientation function', () => {
+import { describe, beforeAll, vi, it, expect } from 'vitest';
+
+describe('withOrientation', () => {
   let withOrientation = null;
 
   // Arrange
   beforeAll(() => {
-    jest.resetModules();
+    vi.resetModules();
     process.env.NODE_ENV = 'development';
 
     withOrientation = require('.').withOrientation;
@@ -17,7 +19,7 @@ describe('withOrientation function', () => {
       const INVALID_ORIENTATION = 'invalid';
       const expected = `\`${INVALID_ORIENTATION}\` is invalid orientation. Please use ${VALID_ORIENTATIONS}`;
 
-      const invariantMock = jest.fn((condition, message) => {
+      const invariantMock = vi.fn((condition, message) => {
         if (!condition) throw new Error(message);
       });
 

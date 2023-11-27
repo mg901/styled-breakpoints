@@ -7,8 +7,9 @@
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
-    "test": "cross-env jest --coverage",
-    "test:watch": "cross-env jest --coverage --watch",
+    "test": "cross-env vitest run",
+    "test:watch": "cross-env vitest",
+    "test:coverage": "cross-env vitest run --coverage",
     "lint": "cross-env eslint . --fix.",
     "pretty": "cross-env prettier './**/**/**.{json,js,ts}' --write",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
@@ -68,6 +69,8 @@
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
+    "@vitest/coverage-istanbul": "^0.34.6",
+    "@vitest/coverage-v8": "^0.34.6",
     "all-contributors-cli": "^6.17.4",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
@@ -78,18 +81,18 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-vitest": "^0.3.10",
     "husky": "^8.0.3",
-    "jest": "^29.0.0",
-    "jest-environment-jsdom": "^29.5.0",
+    "jsdom": "^23.0.0",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "size-limit": "^9.0.0"
+    "size-limit": "^9.0.0",
+    "vitest": "^0.34.6"
   }
 }

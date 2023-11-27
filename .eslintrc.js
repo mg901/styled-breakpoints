@@ -1,15 +1,14 @@
 module.exports = {
+  plugins: ['prettier', 'vitest'],
   extends: [
     'airbnb',
     'airbnb/hooks',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended',
+    'plugin:vitest/recommended',
   ],
-  plugins: ['prettier', 'jest'],
   env: {
     es2021: true,
     node: true,
-    jest: true,
     browser: true,
   },
   ignorePatterns: ['**/*.d.ts'],
@@ -37,4 +36,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['*.config.js', '*config.mjs'],
+      rules: {
+        'import/no-default-export': 0,
+      },
+    },
+  ],
 };
