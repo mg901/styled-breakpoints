@@ -1,12 +1,13 @@
-const { memoize } = require('./memoize');
+import { describe, it, expect, vi } from 'vitest';
+import { memoize } from './memoize';
 
-describe('memoize function', () => {
+describe('memoize', () => {
   describe('basic functionality', () => {
     it('returns a memoized function', () => {
-      // Arrange
+      // Act
       const memoized = memoize(() => {});
 
-      // Act and Assert
+      // Assert
       expect(typeof memoized).toBe('function');
     });
   });
@@ -14,7 +15,7 @@ describe('memoize function', () => {
   describe('caching behavior', () => {
     it('caches the result for the same arguments', () => {
       // Arrange
-      const fn = jest.fn((a, b) => a + b);
+      const fn = vi.fn((a, b) => a + b);
       const memoized = memoize(fn);
 
       // Act and Assert
@@ -25,10 +26,12 @@ describe('memoize function', () => {
 
     it('caches the result for different arguments', () => {
       // Arrange
-      const fn = jest.fn((a, b, c) => a + b + c);
+      const fn = vi.fn((a, b, c) => a + b + c);
+
+      // Act
       const memoized = memoize(fn);
 
-      // Act and Assert
+      // Assert
       expect(memoized(1, 2, 3)).toBe(6);
       expect(memoized(2, 3, 4)).toBe(9);
       expect(fn).toHaveBeenCalledTimes(2);
@@ -41,10 +44,12 @@ describe('memoize function', () => {
   describe('argument types', () => {
     it('works with different types of arguments', () => {
       // Arrange
-      const fn = jest.fn((a, b, c) => a + b.length + c);
+      const fn = vi.fn((a, b, c) => a + b.length + c);
+
+      // Act
       const memoized = memoize(fn);
 
-      // Act and Assert
+      // Assert
       expect(memoized(1, 'foo', true)).toBe(5);
       expect(memoized(1, 'foo', true)).toBe(5);
       expect(fn).toHaveBeenCalledTimes(1);
@@ -56,10 +61,12 @@ describe('memoize function', () => {
 
     it('works with objects and arrays', () => {
       // Arrange
-      const fn = jest.fn((a, b, c) => a.x + b.length + c[0]);
+      const fn = vi.fn((a, b, c) => a.x + b.length + c[0]);
+
+      // Act
       const memoized = memoize(fn);
 
-      // Act and Assert
+      // Assert
       expect(memoized({ x: 1 }, 'foo', [true])).toBe(5);
       expect(memoized({ x: 1 }, 'foo', [true])).toBe(5);
       expect(fn).toHaveBeenCalledTimes(1);
@@ -73,13 +80,14 @@ describe('memoize function', () => {
   describe('error handling', () => {
     it('does not cache errors', () => {
       // Arrange
-      const fn = jest.fn(() => {
+      const fn = vi.fn(() => {
         throw new Error();
       });
 
+      // Act
       const memoized = memoize(fn);
 
-      // Act and Assert
+      // Assert
       expect(() => memoized(1)).toThrow();
       expect(() => memoized(1)).toThrow();
       expect(fn).toHaveBeenCalledTimes(2);

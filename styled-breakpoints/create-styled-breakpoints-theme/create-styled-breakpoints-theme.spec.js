@@ -1,8 +1,7 @@
-const {
-  createStyledBreakpointsTheme,
-} = require('./create-styled-breakpoints-theme');
+import { describe, it, expect } from 'vitest';
+import { createStyledBreakpointsTheme } from './create-styled-breakpoints-theme';
 
-describe('styled breakpoints', () => {
+describe('createStyledBreakpointsTheme', () => {
   describe('default breakpoints', () => {
     // Arrange
     const { breakpoints } = createStyledBreakpointsTheme();
@@ -106,15 +105,15 @@ describe('styled breakpoints', () => {
       }).breakpoints;
 
       // Act and Assert
-      expect(up('xLarge')).toEqual('@media (min-width: 1200px)');
+      expect(up('xLarge')).toBe('@media (min-width: 1200px)');
 
-      expect(down('medium')).toEqual('@media (max-width: 639.98px)');
+      expect(down('medium')).toBe('@media (max-width: 639.98px)');
 
-      expect(between('medium', 'large')).toEqual(
+      expect(between('medium', 'large')).toBe(
         '@media (min-width: 640px) and (max-width: 1023.98px)'
       );
 
-      expect(only('xxLarge')).toEqual('@media (min-width: 1440px)');
+      expect(only('xxLarge')).toBe('@media (min-width: 1440px)');
     });
   });
 });

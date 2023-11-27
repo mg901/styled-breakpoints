@@ -1,9 +1,11 @@
-describe('withOrientation function', () => {
+import { describe, beforeAll, vi, it, expect } from 'vitest';
+
+describe('withOrientation', () => {
   let withOrientation = null;
 
   // Arrange
   beforeAll(() => {
-    jest.resetModules();
+    vi.resetModules();
     process.env.NODE_ENV = 'production';
 
     withOrientation = require('.').withOrientation;
