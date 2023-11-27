@@ -1,6 +1,7 @@
-const { DEFAULT_BREAKPOINTS } = require('../constants');
+import { describe, beforeAll, vi, beforeEach, it, expect } from 'vitest';
+import { DEFAULT_BREAKPOINTS } from '../constants';
 
-describe('breakpoints function', () => {
+describe('createBreakpointsApi', () => {
   // Arrange
   let ERROR_PREFIX;
   let INVALID_BREAKPOINT_KEY;
@@ -11,7 +12,7 @@ describe('breakpoints function', () => {
 
   // Arrange
   beforeAll(() => {
-    jest.resetModules();
+    vi.resetModules();
     process.env.NODE_ENV = 'development';
 
     ERROR_PREFIX = '[breakpoints]: ';

@@ -1,9 +1,8 @@
-/**
- * @jest-environment jsdom
- */
+// @vitest-environment jsdom
 
-const { renderHook } = require('@testing-library/react');
-const { useMediaQuery } = require('./use-media-query');
+import { describe, beforeEach, vi, it, expect } from 'vitest';
+import { renderHook } from '@testing-library/react';
+import { useMediaQuery } from './use-media-query';
 
 describe('useMediaQuery', () => {
   // Arrange
@@ -15,16 +14,16 @@ describe('useMediaQuery', () => {
   describe('In Safari Browser less than v14', () => {
     // Arrange
     beforeEach(() => {
-      window.matchMedia = jest.fn((query) => ({
+      window.matchMedia = vi.fn((query) => ({
         matches: matches[query] || false,
         media: query,
         onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
       }));
     });
 
-    test('returns true if media query matches', () => {
+    it('returns true if media query matches', () => {
       // Act
       const { result } = renderHook(() => useMediaQuery('(min-width: 500px)'));
 
@@ -32,7 +31,7 @@ describe('useMediaQuery', () => {
       expect(result.current).toBe(true);
     });
 
-    test('returns false if media query does not match', () => {
+    it('returns false if media query does not match', () => {
       // Act
       const { result } = renderHook(() => useMediaQuery('(min-width: 1200px)'));
 
@@ -40,7 +39,7 @@ describe('useMediaQuery', () => {
       expect(result.current).toBe(false);
     });
 
-    test('updates when media query changes', () => {
+    it('updates when media query changes', () => {
       // Act
       const { result, rerender } = renderHook(
         ({ query }) => useMediaQuery(query),
@@ -61,16 +60,16 @@ describe('useMediaQuery', () => {
   describe('In other browsers', () => {
     // Arrange
     beforeEach(() => {
-      window.matchMedia = jest.fn((query) => ({
+      window.matchMedia = vi.fn((query) => ({
         matches: matches[query] || false,
         media: query,
         onchange: null,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
       }));
     });
 
-    test('returns true if media query matches', () => {
+    it('returns true if media query matches', () => {
       // Act
       const { result } = renderHook(() => useMediaQuery('(min-width: 500px)'));
 
@@ -78,7 +77,7 @@ describe('useMediaQuery', () => {
       expect(result.current).toBe(true);
     });
 
-    test('returns false if media query does not match', () => {
+    it('returns false if media query does not match', () => {
       // Act
       const { result } = renderHook(() => useMediaQuery('(min-width: 1200px)'));
 
@@ -86,7 +85,7 @@ describe('useMediaQuery', () => {
       expect(result.current).toBe(false);
     });
 
-    test('updates when media query changes', () => {
+    it('updates when media query changes', () => {
       // Act
       const { result, rerender } = renderHook(
         ({ query }) => useMediaQuery(query),
