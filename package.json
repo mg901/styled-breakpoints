@@ -7,8 +7,9 @@
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
-    "test": "cross-env vitest --coverage",
-    "test:watch": "cross-env vitest --coverage --watch",
+    "test": "cross-env vitest run",
+    "test:watch": "cross-env vitest",
+    "test:coverage": "cross-env vitest run --coverage",
     "lint": "cross-env eslint . --fix.",
     "pretty": "cross-env prettier './**/**/**.{json,js,ts}' --write",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
