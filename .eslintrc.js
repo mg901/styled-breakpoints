@@ -36,4 +36,12 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['*.config.js', '*config.mjs'],
+      rules: {
+        'import/no-default-export': 0,
+      },
+    },
+  ],
 };
