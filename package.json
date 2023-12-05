@@ -69,8 +69,8 @@
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
-    "@vitest/coverage-istanbul": "^0.34.6",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@vitest/coverage-istanbul": "^1.0.1",
+    "@vitest/coverage-v8": "^1.0.1",
     "all-contributors-cli": "^6.17.4",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
@@ -93,6 +93,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^9.0.0",
-    "vitest": "^0.34.6"
+    "vitest": "^1.0.1"
   }
 }
