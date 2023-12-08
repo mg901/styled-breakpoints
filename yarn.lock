@@ -1480,9 +1480,9 @@
     test-exclude "^6.0.0"
 
 "@vitest/coverage-v8@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@vitest/coverage-v8/-/coverage-v8-1.0.1.tgz#b1249ca6e8f2617e56c7a15caa546e8b1abae4c7"
-  integrity sha512-Z4a7ig4VjUCT/P+LRB3IZrBRXb9xWRUM8rSBH9cKgfrU1Oe01/K2WJKtGshOnQwXZoSfQtwCGpbnHmB/qJwjcw==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@vitest/coverage-v8/-/coverage-v8-1.0.2.tgz#a2019f45ed715a31862294a265a3c842b5134c1f"
+  integrity sha512-WCTbfnvFPqH8TGVPNnPXcLBK/tbMX5GGZ/Lc9EuYvVX4xbO0ULKLzWDbVU37C2Y2YIlNu/VP1kp7QKUZolUDgA==
   dependencies:
     "@ampproject/remapping" "^2.2.1"
     "@bcoe/v8-coverage" "^0.2.3"
