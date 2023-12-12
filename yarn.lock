@@ -3308,9 +3308,9 @@ eslint-plugin-react@^7.21.5:
     string.prototype.matchall "^4.0.8"
 
 eslint-plugin-vitest@^0.3.10:
-  version "0.3.15"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-vitest/-/eslint-plugin-vitest-0.3.15.tgz#2daf4deb73836c5a6e662e2b88646a1772ee025a"
-  integrity sha512-ZUUd9ARKR3p0W7zoWg0irmQW9aM+SlJYZOoFOBemmgwQIHLxtdRLodQGP48nYf8jLdCGFDQqPyaltQQKsa9UMw==
+  version "0.3.16"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vitest/-/eslint-plugin-vitest-0.3.16.tgz#3ba6689a3e1bb8120a5b04a6dabcf030f4509226"
+  integrity sha512-gqsbIZYK0YTiWGyRG2CwAGNA50fuqLkNXGKK2lVmyjBbqBj+rKH7m3JhVQ31AkVX229JkW4vBu0u33PAi5OhTA==
   dependencies:
     "@typescript-eslint/utils" "^6.13.2"
 
