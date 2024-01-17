@@ -1,3 +1,10 @@
+## [12.1.10](https://github.com/mg901/styled-breakpoints/compare/v12.1.9...v12.1.10) (2024-01-17)
+
+
+### Bug Fixes
+
+* update an Emotion logo path ([#1747](https://github.com/mg901/styled-breakpoints/issues/1747)) ([2af9974](https://github.com/mg901/styled-breakpoints/commit/2af99743abd707ffe42ff84dbb14f560fd031582))
+
 ## [12.1.9](https://github.com/mg901/styled-breakpoints/compare/v12.1.8...v12.1.9) (2023-11-12)
 
 
