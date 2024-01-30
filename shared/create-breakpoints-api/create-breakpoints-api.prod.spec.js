@@ -19,14 +19,7 @@ describe('createBreakpointsApi', () => {
   describe('production environment', () => {
     it('has all the necessary methods', () => {
       // Arrange
-      const expectedMethods = [
-        'keys',
-        'getNextKey',
-        'up',
-        'down',
-        'between',
-        'only',
-      ];
+      const expectedMethods = ['keys', 'getNextKey', 'up', 'down', 'between'];
 
       // Act and Assert
       expect(Object.keys(breakpointsApi)).toEqual(expectedMethods);
@@ -35,7 +28,6 @@ describe('createBreakpointsApi', () => {
       expect(breakpointsApi.up).toBeInstanceOf(Function);
       expect(breakpointsApi.down).toBeInstanceOf(Function);
       expect(breakpointsApi.between).toBeInstanceOf(Function);
-      expect(breakpointsApi.only).toBeInstanceOf(Function);
     });
 
     describe('keys property', () => {
@@ -138,34 +130,6 @@ describe('createBreakpointsApi', () => {
             expect(received).toEqual({ min, max });
           }
         );
-      });
-
-      describe('only', () => {
-        // Arrange
-        const { xs, sm, md, lg, xl, xxl } = DEFAULT_BREAKPOINTS;
-
-        const testCases = {
-          xs: { min: xs, max: sm },
-          sm: { min: sm, max: md },
-          md: { min: md, max: lg },
-          xl: { min: xl, max: xxl },
-        };
-
-        it.each(Object.entries(testCases))(
-          'returns correct min and max values for %s',
-          (key, { min, max }) => {
-            // Act and Assert
-            expect(breakpointsApi.only(key)).toEqual({
-              min,
-              max: calcMaxWidth(max),
-            });
-          }
-        );
-
-        it('returns correct value for last breakpoint', () => {
-          // Act and Assert
-          expect(breakpointsApi.only('xxl')).toEqual(xxl);
-        });
       });
     });
   });

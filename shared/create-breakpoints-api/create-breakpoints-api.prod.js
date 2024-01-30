@@ -33,11 +33,7 @@ exports.createBreakpointsApi = ({ breakpoints }) => {
    * @returns {string|undefined} - The key of the next breakpoint, or undefined if the current key is the last one.
    */
   const getNextKey = (key) => {
-    const currentIndex = indexMap[key];
-    const nextIndex = currentIndex + 1;
-    const isNotLastIndex = currentIndex < keys.length - 1;
-
-    return isNotLastIndex ? keys[nextIndex] : undefined;
+    return keys[indexMap[key] + 1];
   };
 
   /**
@@ -51,20 +47,11 @@ exports.createBreakpointsApi = ({ breakpoints }) => {
     max: down(max),
   });
 
-  /**
-   * Get a range based on a single breakpoint key.
-   * @param {string} key - The breakpoint key.
-   * @returns {string|Object} - The minimum or a range object based on the provided key.
-   */
-  const only = (key) =>
-    key !== keys.at(-1) ? between(key, getNextKey(key)) : up(key);
-
   return {
     keys,
     getNextKey,
     up,
     down,
     between,
-    only,
   };
 };

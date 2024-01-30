@@ -73,7 +73,6 @@ describe('createBreakpointsApi', () => {
       let up = null;
       let down = null;
       let between = null;
-      let only = null;
 
       // Arrange
       beforeAll(() => {
@@ -84,7 +83,6 @@ describe('createBreakpointsApi', () => {
 
         up = breakpointsApi.up;
         down = breakpointsApi.down;
-        only = breakpointsApi.only;
         between = breakpointsApi.between;
       });
 
@@ -149,16 +147,6 @@ describe('createBreakpointsApi', () => {
 
           // Assert
           expect(received).not.toThrow(EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE);
-        });
-      });
-
-      describe('only', () => {
-        it('throws an error for an invalid breakpoint key', () => {
-          // Act
-          const received = () => only(INVALID_BREAKPOINT_KEY);
-
-          // Assert
-          expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
         });
       });
     });
