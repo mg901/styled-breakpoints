@@ -49,8 +49,8 @@ exports.createStyledBreakpointsTheme = ({
    */
   function up(min, orientation) {
     return withOrientationOrNot(
-      orientation,
-      withMedia(withMinWidth(api.up(min)))
+      withMedia(withMinWidth(api.up(min))),
+      orientation
     );
   }
 
@@ -63,8 +63,8 @@ exports.createStyledBreakpointsTheme = ({
    */
   function down(max, orientation) {
     return withOrientationOrNot(
-      orientation,
-      withMedia(withMaxWidth(api.down(max)))
+      withMedia(withMaxWidth(api.down(max))),
+      orientation
     );
   }
 
@@ -78,8 +78,8 @@ exports.createStyledBreakpointsTheme = ({
    */
   function between(min, max, orientation) {
     return withOrientationOrNot(
-      orientation,
-      withMinAndMaxMedia(api.between(min, max))
+      withMinAndMaxMedia(api.between(min, max)),
+      orientation
     );
   }
 
@@ -91,12 +91,12 @@ exports.createStyledBreakpointsTheme = ({
    * @returns {String} - The media query string.
    */
   function only(key, orientation) {
-    return withOrientationOrNot(
-      orientation,
-      typeof api.only(key) === 'object'
-        ? withMinAndMaxMedia(api.only(key))
-        : withMedia(withMinWidth(api.up(key)))
-    );
+    const mediaQuery =
+      key === api.keys.at(-1)
+        ? withMedia(withMinWidth(api.up(key)))
+        : withMinAndMaxMedia(api.between(key, api.getNextKey(key)));
+
+    return withOrientationOrNot(mediaQuery, orientation);
   }
 
   /**
@@ -106,7 +106,7 @@ exports.createStyledBreakpointsTheme = ({
    * @param {String} mediaQuery - The media query string.
    * @returns {String} - The media query with or without orientation.
    */
-  function withOrientationOrNot(orientation, mediaQuery) {
+  function withOrientationOrNot(mediaQuery, orientation) {
     return orientation
       ? withOrientation({
           mediaQuery,
