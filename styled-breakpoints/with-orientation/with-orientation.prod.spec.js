@@ -20,8 +20,8 @@ describe('withOrientation', () => {
       (orientation) => {
         // Act
         const received = withOrientation({
-          orientation,
           mediaQuery,
+          orientation,
         });
 
         // Assert

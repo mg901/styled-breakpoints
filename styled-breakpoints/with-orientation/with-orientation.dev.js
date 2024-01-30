@@ -3,8 +3,10 @@ const {
 } = require('./with-orientation.prod');
 
 exports.withOrientation = ({ mediaQuery, orientation, invariant }) => {
+  const isValid = orientation === 'portrait' || orientation === 'landscape';
+
   invariant(
-    orientation === 'portrait' || orientation === 'landscape',
+    isValid,
     `\`${orientation}\` is invalid orientation. Please use \`landscape\` or \`portrait\`.`
   );
 
