@@ -7,7 +7,7 @@ module.exports = {
     'plugin:vitest/recommended',
   ],
   env: {
-    es2021: true,
+    es2023: true,
     node: true,
     browser: true,
   },
