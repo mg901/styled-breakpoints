@@ -1,3 +1,10 @@
+## [13.1.2](https://github.com/mg901/styled-breakpoints/compare/v13.1.1...v13.1.2) (2024-02-04)
+
+
+### Bug Fixes
+
+* **docs:** fix anchor for the `up` function ([#1774](https://github.com/mg901/styled-breakpoints/issues/1774)) ([74539a2](https://github.com/mg901/styled-breakpoints/commit/74539a2f71163bd1dc0b41f02cb997910a7ef21a))
+
 ## [13.1.1](https://github.com/mg901/styled-breakpoints/compare/v13.1.0...v13.1.1) (2024-02-04)
 
 

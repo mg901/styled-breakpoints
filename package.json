@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "13.1.1",
+  "version": "13.1.2",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
   "main": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.js",
   "types": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.d.ts",
