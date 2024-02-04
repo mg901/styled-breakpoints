@@ -1,12 +1,3 @@
-<div align="right">
-  <a href="https:///pr.new/mg901/styled-breakpoints">
-    <img
-      alt="Open in Codeflow"
-      src="https://developer.stackblitz.com/img/open_in_codeflow_small.svg"
-    />
-  </a>
-</div>
-
 <div align="center">
 <h1>
 
@@ -45,8 +36,8 @@ styled-breakpoints <br>
   <p>
 
 </div>
-
-[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
+<br >
+<br >
 
 # Breakpoints
 
@@ -121,7 +112,6 @@ From largest to smallest
 - core concepts
 - available breakpoints
 - [quick start](#quick-start)
-- migration from v11
 - [media queries](#media-queries)
   - [min-width](#min-width)
   - [max-width](#max-width)
@@ -129,8 +119,6 @@ From largest to smallest
   - [between breakpoints](#between-breakpoints)
   - [useMediaQuery hook](#usemediaquery-hook)
 - [customization](#customization)
-  - strict typed breakpoints
-  - merge with another theme
 
 <br>
 
@@ -177,22 +165,49 @@ npm install styled-components styled-breakpoints@latest
 yarn add styled-components styled-breakpoints@latest
 ```
 
-`styled.d.ts`
+<br >
+
+#### Configuration
+
+`theme/index.tsx`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import styled { ThemeProvider as Provider } from 'styled-components';
+
+export const theme = createStyledBreakpointsTheme();
+
+type Props = {
+  children: React.ReactNode;
+}
+
+export const ThemeProvider = ({children}: Props) => {
+  return <Provider theme={theme}>{children}</Provider>
+}
+```
+
+<br >
+
+`theme/styled.d.ts`
 
 ```ts
 import 'styled-components';
-import { StyledBreakpointsTheme } from 'styled-breakpoints';
+import { theme } from './theme';
+
+type CustomTheme = typeof theme;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends StyledBreakpointsTheme {}
+  export interface DefaultTheme extends CustomTheme {}
 }
 ```
+
+<br >
 
 `app.tsx`
 
 ```tsx
-import styled { DefaultTheme, ThemeProvider } from 'styled-components';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import styled from 'styled-components';
+import { ThemeProvider } from './theme';
 
 const Box = styled.div`
   display: none;
@@ -200,14 +215,13 @@ const Box = styled.div`
   ${({ theme }) => theme.breakpoints.up('sm')} {
     display: block;
   }
-`
-const theme: DefaultTheme = createStyledBreakpointsTheme();
+`;
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <Box/>
+  <ThemeProvider>
+    <Box />
   </ThemeProvider>
-)
+);
 ```
 
 </details>
@@ -226,23 +240,49 @@ npm install @emotion/{styled,react} styled-breakpoints@latest
 yarn add @emotion/{styled,react} styled-breakpoints@latest
 ```
 
-`emotion.d.ts`
+<br >
+
+#### Configuration
+
+`theme/index.tsx`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import { ThemeProvider as Provider } from '@emotion/react';
+
+export const theme = createStyledBreakpointsTheme();
+
+type Props = {
+  children: React.ReactNode;
+};
+
+export const ThemeProvider = ({ children }: Props) => {
+  return <Provider theme={theme}>{children}</Provider>;
+};
+```
+
+<br >
+
+`theme/emotion.d.ts`
 
 ```ts
 import '@emotion/react';
-import { StyledBreakpointsTheme } from 'styled-breakpoints';
+import { theme } from './theme';
+
+type CustomTheme = typeof theme;
 
 declare module '@emotion/react' {
-  export interface Theme extends StyledBreakpointsTheme {}
+  export interface Theme extends CustomTheme {}
 }
 ```
+
+<br >
 
 `app.tsx`
 
 ```tsx
-import styled, from '@emotion/styled';
-import { Theme, ThemeProvider } from '@emotion/react';
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+import styled from '@emotion/styled';
+import { ThemeProvider } from './theme';
 
 const Box = styled.div`
   display: none;
@@ -252,10 +292,8 @@ const Box = styled.div`
   }
 `;
 
-const theme: Theme = createStyledBreakpointsTheme();
-
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider>
     <Box />
   </ThemeProvider>
 );
@@ -264,72 +302,6 @@ const App = () => (
 </details>
 
 <br>
-
-<details><summary><h2>🏎️&nbsp; Migration from <a href="https://github.com/mg901/styled-breakpoints/tree/v11.2.3" target="_blank">v11.2.3</a></h2></summary>
-
-### Theme
-
-The `createTheme` function has been replaced with `createStyledBreakpointsTheme`.
-
-```diff
-- import { createTheme } from "styled-breakpoints";
-
-- const theme = createTheme();
-
-
-
-+ import { createStyledBreakpointsTheme } from "styled-breakpoints";
-
-+ const theme = createStyledBreakpointsTheme();
-```
-
-### Breakpoint Functions
-
-Additionally, the functions `up`, `down`, `between`, and `only` have been moved to the theme object. This means that you no longer need to import them individually each time you want to use them.
-
-```diff
-- import { up } from "styled-breakpoints";
-
-- const Box = styled.div`
--  ${up('md')} {
--     background-color: red;
--  }
-
-
-+ const Box = styled.div`
-+  ${({ theme }) => theme.breakpoints.up('md')} {
-+     background-color: red;
-+  }
-`
-```
-
-### Hooks
-
-```diff
-- import { up } from 'styled-breakpoints';
-- import { useBreakpoint } from 'styled-breakpoints/react-styled';
-
-or
-
-- import { up } from 'styled-breakpoints';
-- import { useBreakpoint } from 'styled-breakpoints/react-emotion';
-
-- const Example = () => {
--   const isMd = useBreakpoint(only('md'));
--
--   return <Layout>{isMd && </Box>}</Layout>
-- }
-
-+ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
-
-+ const Example = () => {
-+   const isMd = useMediaQuery(useTheme()?.breakpoints.only('md'));
-+
-+   return <Layout>{isMd && </Box>}</Layout>
-+ }
-```
-
-</details>
 
 ## Media queries
 
@@ -496,7 +468,7 @@ features:
 <details><summary><strong>Type declaration</strong></summary>
 
 ```ts
- declare function useMediaQuery(query?: string) => boolean
+ declare function useMediaQuery(query: string) => boolean
 ```
 
 </details>
@@ -507,7 +479,7 @@ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const isMd = useMediaQuery(useTheme()?.breakpoints.only('md'));
+  const isMd = useMediaQuery(useTheme().breakpoints.only('md'));
 
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
@@ -517,86 +489,11 @@ const SomeComponent = () => {
 
 ## Customization
 
-  <details><summary><h3> ⚙️ Strict Typed Breakpoints</h3></summary>
+<h3>🎨 Merge with another theme</h3>
 
-`app.tsx`
-
-```tsx
-import styled, { DefaultTheme } from 'styled-components'; // or from '@emotion/react'
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const breakpoints = {
-  small: '0px',
-  medium: '640px',
-  large: '1024px',
-  xLarge: '1200px',
-  xxLarge: '1440px',
-} as const;
-
-const theme: DefaultTheme = createStyledBreakpointsTheme({
-  breakpoints,
-});
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Box />
-  </ThemeProvider>
-);
-```
-
-  <details open><summary><h4>💅 Styled Components</h4></summary>
-
-`styled.d.ts`
-
-```ts
-import 'styled-components';
-import { MediaQueries } from 'styled-breakpoints';
-import { breakpoints } from './app';
-
-type Min = keyof typeof breakpoints;
-
-// For max values remove the first key.
-type Max = Exclude<keyof typeof breakpoints, 'small'>;
-
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    breakpoints: MediaQueries<Min, Max>;
-  }
-}
-```
-
-  </details>
-
-  <details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
-
-`emotion.d.ts`
-
-```ts
-import '@emotion/react';
-import { MediaQueries } from 'styled-breakpoints';
-import { breakpoints } from './app';
-
-type Min = keyof typeof breakpoints;
-
-// For max values remove the first key.
-type Max = Exclude<keyof typeof breakpoints, 'small'>;
-
-declare module '@emotion/react' {
-  export interface Theme extends {
-    breakpoints: MediaQueries<Min, Max>;
-  }
-}
-```
-
-  </details>
-</details>
-
-<details><summary><h3>🎨 Merge with another theme</h3></summary>
-
-`app.tsx`
+`theme/index.tsx`
 
 ```tsx
-import { DefaultTheme, ThemeProvider } from 'styled-components'; // or from '@emotion/react';
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 export const primaryTheme = {
@@ -608,55 +505,13 @@ export const primaryTheme = {
   },
 } as const;
 
-const const theme: DefaultTheme = {
+export const theme = {
   ...primaryTheme,
   ...createStyledBreakpointsTheme(),
-}
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Box />
-  </ThemeProvider>
-);
+} as const;
 ```
 
-  <details open><summary><h4>💅 Styled Components</h4></summary>
-
-`styled.d.ts`
-
-```ts
-import 'styled-components';
-import { StyledBreakpointsTheme } from 'styled-breakpoints';
-import { primaryTheme } from './app';
-
-type PrimaryTheme = typeof primaryTheme;
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends StyledBreakpointsTheme, PrimaryTheme {}
-}
-```
-
-  </details>
-
-  <details><summary><h4><g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji> Emotion</h4></summary>
-
-`emotion.d.ts`
-
-```ts
-import '@emotion/react';
-import { StyledBreakpointsTheme } from 'styled-breakpoints';
-import { primaryTheme } from './app';
-
-type PrimaryTheme = typeof primaryTheme;
-
-declare module '@emotion/react' {
-  export interface Theme extends PrimaryTheme, StyledBreakpointsTheme {}
-}
-```
-
-  </details>
-
-</details>
+<br>
 
 ## License
 

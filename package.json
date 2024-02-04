@@ -2,8 +2,8 @@
   "name": "styled-breakpoints",
   "version": "12.1.10",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.js",
+  "types": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.d.ts",
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
