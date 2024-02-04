@@ -1,3 +1,17 @@
+# [13.0.0](https://github.com/mg901/styled-breakpoints/compare/v12.1.10...v13.0.0) (2024-02-04)
+
+
+### Features
+
+*  🎸 add strict types ([#1771](https://github.com/mg901/styled-breakpoints/issues/1771)) ([281cc60](https://github.com/mg901/styled-breakpoints/commit/281cc60a83a115581e46bc638eae8e0262deb698))
+
+
+### BREAKING CHANGES
+
+* 🧨 remove StyledBreakpointsTheme & MediaQueries types
+
+* build: add `semantic-release-githubsquash` plugin
+
 ## [12.1.10](https://github.com/mg901/styled-breakpoints/compare/v12.1.9...v12.1.10) (2024-01-17)
 
 
