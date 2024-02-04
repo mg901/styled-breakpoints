@@ -489,7 +489,7 @@ export const theme = createStyledBreakpointsTheme({
 
 <br>
 
-<h3>🎨 Merge With another theme</h3>
+<h3>🎨 Merge with Another Theme</h3>
 
 <br>
 
