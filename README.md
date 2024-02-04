@@ -43,6 +43,8 @@ styled-breakpoints <br>
 
 Breakpoints serve as adjustable widths that determine the behavior of your responsive layout across different device or viewport sizes.
 
+<br>
+
 ## Preview
 
 For **own** components.
@@ -60,6 +62,8 @@ const Box = styled.div`
   }
 `;
 ```
+
+<br>
 
 For **third party** components.
 
@@ -85,6 +89,8 @@ From smallest to largest
   </a>
 </div>
 
+<br>
+
 ### Desktop First
 
 From largest to smallest
@@ -95,7 +101,9 @@ From largest to smallest
   </a>
 </div>
 
-### hooks API
+<br>
+
+### Hooks API
 
 <div>
   <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
@@ -112,13 +120,15 @@ From largest to smallest
 - core concepts
 - available breakpoints
 - [quick start](#quick-start)
-- [media queries](#media-queries)
-  - [min-width](#min-width)
-  - [max-width](#max-width)
-  - [single breakpoint](#single-breakpoint)
-  - [between breakpoints](#between-breakpoints)
-  - [useMediaQuery hook](#usemediaquery-hook)
-- [customization](#customization)
+- [`Media Queries` API](#media-queries-api)
+
+  - [`up` - min-width](#up---min-width)
+  - [`down` - max-width](#down---max-width)
+  - [`only` - single breakpoint](#only---single-breakpoint)
+  - [`between` - between breakpoints](#between---between-breakpoints)
+  - [customization](#customization)
+
+- [`useMediaQuery` hook](#usemediaquery-hook)
 
 <br>
 
@@ -285,11 +295,13 @@ const App = () => (
 
 <br>
 
-## Media queries
+## Media queries API
 
-- 🚀 Caching is implemented in all functions to optimize performance.
+🚀 Caching is implemented in all functions to optimize performance.
 
-### Min-width
+### `up` - min-width
+
+<br>
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -312,6 +324,7 @@ const Box = styled.div`
 `;
 ```
 
+<br>
 <details><summary><strong>Convert to pure css: </strong></summary>
 
 ```css
@@ -324,9 +337,11 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### Max-width
+### `down` - max-width
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
+
+<br>
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -349,6 +364,7 @@ const Box = styled.div`
 `;
 ```
 
+<br>
 <details><summary><strong>Convert to: </strong></summary>
 
 ```css
@@ -359,14 +375,18 @@ const Box = styled.div`
 
 </details>
 
+<br>
+
 > <strong>Why subtract .02px?</strong> Browsers don’t currently support [range context queries](https://www.w3.org/TR/mediaqueries-4/#range-context), so we work around the limitations of [min- and max- prefixes](https://www.w3.org/TR/mediaqueries-4/#mq-min-max) and viewports with fractional widths (which can occur under certain conditions on high-dpi devices, for instance) by using values with higher precision.
 
 <hr/>
 <br>
 
-### Single breakpoint
+### `only` - single breakpoint
 
 There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
+
+<br>
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -389,6 +409,7 @@ const Box = styled.div`
 `;
 ```
 
+<br>
 <details><summary><strong>Convert to: </strong></summary>
 
 ```css
@@ -401,9 +422,11 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### Between breakpoints
+### `between` - between breakpoints
 
 Similarly, media queries may span multiple breakpoint widths.
+
+<br>
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -427,6 +450,7 @@ const Box = styled.div`
 `;
 ```
 
+<br>
 <details><summary><strong>Convert to: </strong></summary>
 
 ```css
@@ -437,7 +461,6 @@ const Box = styled.div`
 
 </details>
 <hr/>
-
 <br>
 
 ## Customization
@@ -510,7 +533,8 @@ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const isMd = useMediaQuery(useTheme().breakpoints.only('md'));
+  const { breakpoints } = useTheme();
+  const isMd = useMediaQuery(breakpoints.only('md'));
 
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
