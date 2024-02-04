@@ -40,13 +40,7 @@ exports.createStyledBreakpointsTheme = ({
     },
   };
 
-  /**
-   * Creates a media query for a minimum width breakpoint.
-   *
-   * @param {String} min - The minimum breakpoint value.
-   * @param {String} orientation - Optional orientation value.
-   * @returns {String} - The media query string.
-   */
+  // Creates a media query for a minimum width breakpoint.
   function up(min, orientation) {
     return withOrientationOrNot(
       withMedia(withMinWidth(api.up(min))),
@@ -54,13 +48,7 @@ exports.createStyledBreakpointsTheme = ({
     );
   }
 
-  /**
-   * Creates a media query for a maximum width breakpoint.
-   *
-   * @param {String} max - The maximum breakpoint value.
-   * @param {String} orientation - Optional orientation value.
-   * @returns {String} - The media query string.
-   */
+  // Creates a media query for a maximum width breakpoint.
   function down(max, orientation) {
     return withOrientationOrNot(
       withMedia(withMaxWidth(api.down(max))),
@@ -68,44 +56,26 @@ exports.createStyledBreakpointsTheme = ({
     );
   }
 
-  /**
-   * Creates a media query for a range between two breakpoints.
-   *
-   * @param {String} min - The minimum breakpoint value.
-   * @param {String} max - The maximum breakpoint value.
-   * @param {String} orientation - Optional orientation value.
-   * @returns {String} - The media query string.
-   */
+  // Creates a media query for a range between two breakpoints.
   function between(min, max, orientation) {
     return withOrientationOrNot(
-      withMinAndMaxMedia(api.between(min, max)),
+      withRangeMedia(api.between(min, max)),
       orientation
     );
   }
 
-  /**
-   * Creates a media query for a specific breakpoint or range.
-   *
-   * @param {String} key - The breakpoint key.
-   * @param {String} orientation - Optional orientation value.
-   * @returns {String} - The media query string.
-   */
+  // Creates a media query for a specific breakpoint or range.
   function only(key, orientation) {
-    const mediaQuery =
-      key === api.keys.at(-1)
-        ? withMedia(withMinWidth(api.up(key)))
-        : withMinAndMaxMedia(api.between(key, api.getNextKey(key)));
+    const isLastKey = key === api.keys.at(-1);
+
+    const mediaQuery = isLastKey
+      ? withMedia(withMinWidth(api.up(key)))
+      : withRangeMedia(api.between(key, api.getNextKey(key)));
 
     return withOrientationOrNot(mediaQuery, orientation);
   }
 
-  /**
-   * Applies orientation if provided or returns the media query.
-   *
-   * @param {String} orientation - Optional orientation value.
-   * @param {String} mediaQuery - The media query string.
-   * @returns {String} - The media query with or without orientation.
-   */
+  // Applies orientation if provided or returns the media query.
   function withOrientationOrNot(mediaQuery, orientation) {
     return orientation
       ? withOrientation({
@@ -115,40 +85,20 @@ exports.createStyledBreakpointsTheme = ({
         })
       : mediaQuery;
   }
-
-  /**
-   * @param {String} value - The minimum width value.
-   * @returns {String} - The media query string.
-   */
-  function withMinWidth(value) {
-    return `(min-width: ${value})`;
-  }
-
-  /**
-   * @param {String} value - The media query string.
-   * @returns {String} - The media query wrapped with '@media'.
-   */
-  function withMedia(value) {
-    return `@media ${value}`;
-  }
-
-  /**
-   * @param {String} value - The maximum width value.
-   * @returns {String} - The media query string.
-   */
-  function withMaxWidth(value) {
-    return `(max-width: ${value})`;
-  }
-
-  /**
-   * Creates a media query string for a range between minimum and maximum widths.
-   *
-   * @param {Object} options - The range options with minimum and maximum values.
-   * @param {String} options.min - The minimum width value.
-   * @param {String} options.max - The maximum width value.
-   * @returns {String} - The media query string for the range.
-   */
-  function withMinAndMaxMedia({ min, max }) {
-    return `${withMedia(withMinWidth(min))} and ${withMaxWidth(max)}`;
-  }
 };
+
+function withMinWidth(value) {
+  return `(min-width: ${value})`;
+}
+
+function withMedia(value) {
+  return `@media ${value}`;
+}
+
+function withMaxWidth(value) {
+  return `(max-width: ${value})`;
+}
+
+function withRangeMedia({ min, max }) {
+  return `${withMedia(withMinWidth(min))} and ${withMaxWidth(max)}`;
+}
