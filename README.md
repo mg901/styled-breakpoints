@@ -122,10 +122,10 @@ From largest to smallest
 - [quick start](#quick-start)
 - [`Media Queries` API](#media-queries-api)
 
-  - [`up` - min-width](#up---min-width)
-  - [`down` - max-width](#down---max-width)
-  - [`only` - single breakpoint](#only---single-breakpoint)
-  - [`between` - between breakpoints](#between---between-breakpoints)
+  - [min-width - `up`](#min-width---up)
+  - [max-width - `down`](#max-width---down)
+  - [single breakpoint - `only`](#single-breakpoint---only)
+  - [breakpoints range - `between`](#breakpoints-range---between)
   - [customization](#customization)
 
 - [`useMediaQuery` hook](#usemediaquery-hook)
@@ -297,9 +297,11 @@ const App = () => (
 
 ## Media queries API
 
-🚀 Caching is implemented in all functions to optimize performance.
+- 🚀 Caching is implemented in all functions to optimize performance.
 
-### `up` - min-width
+<br>
+
+### Min-width `up`
 
 <br>
 
@@ -337,7 +339,7 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### `down` - max-width
+### Max-width - `down`
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
@@ -382,7 +384,7 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### `only` - single breakpoint
+### Single breakpoint - `only`
 
 There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
@@ -422,7 +424,7 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### `between` - between breakpoints
+### Breakpoints range - `between`
 
 Similarly, media queries may span multiple breakpoint widths.
 
@@ -467,6 +469,8 @@ const Box = styled.div`
 
 <h3>🛠️ Custom breakpoints</h3>
 
+<br>
+
 `theme/config.ts`
 
 ```tsx
@@ -486,6 +490,8 @@ export const theme = createStyledBreakpointsTheme({
 <br>
 
 <h3>🎨 Merge With another theme</h3>
+
+<br>
 
 `theme/config.ts`
 
