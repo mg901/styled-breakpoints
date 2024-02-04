@@ -1,3 +1,10 @@
+## [13.1.1](https://github.com/mg901/styled-breakpoints/compare/v13.1.0...v13.1.1) (2024-02-04)
+
+
+### Bug Fixes
+
+* **docs:** improve the doc's structure ([#1773](https://github.com/mg901/styled-breakpoints/issues/1773)) ([575d293](https://github.com/mg901/styled-breakpoints/commit/575d2934734521d9958780f40b15d463c87eaaa1))
+
 # [13.1.0](https://github.com/mg901/styled-breakpoints/compare/v13.0.0...v13.1.0) (2024-02-04)
 
 
