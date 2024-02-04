@@ -6,13 +6,15 @@ const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 /**
  * Custom hook for handling media queries.
  *
- * @param {string} [query=''] - The media query to match.
+ * @param {string} query - The media query to match.
  * @returns {boolean} - `true` if the media query matches, otherwise `false`.
  */
-const useMediaQuery = (query = '') => {
-  const [isMatch, setIsMatch] = useState(getMatches(query));
+const useMediaQuery = (query) => {
+  const [isMatch, setIsMatch] = useState(isBrowser && getMatches(query));
 
   useEnhancedEffect(() => {
+    if (!isBrowser) return;
+
     let mounted = true;
     const mediaQueryList = window.matchMedia(query.replace(/^@media\s*/, ''));
 
@@ -24,14 +26,14 @@ const useMediaQuery = (query = '') => {
 
     // Safari < 14 can't use addEventListener on a MediaQueryList
     // https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList#Browser_compatibility
-    if (mediaQueryList.addListener) {
-      mediaQueryList.addListener(handleChange);
-    } else {
-      mediaQueryList.addEventListener('change', handleChange);
-    }
+    const listenerMethod = mediaQueryList.addListener
+      ? 'addListener'
+      : 'addEventListener';
+    mediaQueryList[listenerMethod]('change', handleChange);
 
     setIsMatch(mediaQueryList.matches);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       mounted = false;
 
@@ -49,10 +51,5 @@ const useMediaQuery = (query = '') => {
 exports.useMediaQuery = useMediaQuery;
 
 function getMatches(query) {
-  // Prevents SSR issues
-  if (typeof window !== 'undefined') {
-    return window.matchMedia(query).matches;
-  }
-
-  return false;
+  return window.matchMedia(query).matches;
 }
