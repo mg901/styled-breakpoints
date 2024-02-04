@@ -1,3 +1,10 @@
+# [13.1.0](https://github.com/mg901/styled-breakpoints/compare/v13.0.0...v13.1.0) (2024-02-04)
+
+
+### Features
+
+* **docs:** add an example for custom breakpoints ([#1772](https://github.com/mg901/styled-breakpoints/issues/1772)) ([d65e3d8](https://github.com/mg901/styled-breakpoints/commit/d65e3d87284713641e7e9f354c53752d8d21befe))
+
 # [13.0.0](https://github.com/mg901/styled-breakpoints/compare/v12.1.10...v13.0.0) (2024-02-04)
 
 
