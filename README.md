@@ -169,21 +169,12 @@ yarn add styled-components styled-breakpoints@latest
 
 #### Configuration
 
-`theme/index.tsx`
+`theme/config.ts`
 
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-import styled { ThemeProvider as Provider } from 'styled-components';
 
 export const theme = createStyledBreakpointsTheme();
-
-type Props = {
-  children: React.ReactNode;
-}
-
-export const ThemeProvider = ({children}: Props) => {
-  return <Provider theme={theme}>{children}</Provider>
-}
 ```
 
 <br >
@@ -192,7 +183,7 @@ export const ThemeProvider = ({children}: Props) => {
 
 ```ts
 import 'styled-components';
-import { theme } from './theme';
+import { theme } from './theme/config';
 
 type CustomTheme = typeof theme;
 
@@ -206,8 +197,8 @@ declare module 'styled-components' {
 `app.tsx`
 
 ```tsx
-import styled from 'styled-components';
-import { ThemeProvider } from './theme';
+import styled { ThemeProvider } from 'styled-components';
+import { theme } from './theme/config';
 
 const Box = styled.div`
   display: none;
@@ -218,7 +209,7 @@ const Box = styled.div`
 `;
 
 const App = () => (
-  <ThemeProvider>
+  <ThemeProvider theme={theme}>
     <Box />
   </ThemeProvider>
 );
@@ -244,21 +235,12 @@ yarn add @emotion/{styled,react} styled-breakpoints@latest
 
 #### Configuration
 
-`theme/index.tsx`
+`theme/config.ts`
 
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-import { ThemeProvider as Provider } from '@emotion/react';
 
 export const theme = createStyledBreakpointsTheme();
-
-type Props = {
-  children: React.ReactNode;
-};
-
-export const ThemeProvider = ({ children }: Props) => {
-  return <Provider theme={theme}>{children}</Provider>;
-};
 ```
 
 <br >
@@ -267,7 +249,7 @@ export const ThemeProvider = ({ children }: Props) => {
 
 ```ts
 import '@emotion/react';
-import { theme } from './theme';
+import { theme } from './theme/config';
 
 type CustomTheme = typeof theme;
 
@@ -281,8 +263,8 @@ declare module '@emotion/react' {
 `app.tsx`
 
 ```tsx
-import styled from '@emotion/styled';
-import { ThemeProvider } from './theme';
+import styled, { ThemeProvider } from '@emotion/styled';
+import { theme } from './theme/config';
 
 const Box = styled.div`
   display: none;
@@ -293,7 +275,7 @@ const Box = styled.div`
 `;
 
 const App = () => (
-  <ThemeProvider>
+  <ThemeProvider theme={theme}>
     <Box />
   </ThemeProvider>
 );
@@ -455,15 +437,64 @@ const Box = styled.div`
 
 </details>
 <hr/>
+
 <br>
 
-### useMediaQuery hook
+## Customization
+
+<h3>🛠️ Custom breakpoints</h3>
+
+`theme/config.ts`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+
+export const theme = createStyledBreakpointsTheme({
+  breakpoints: {
+    small: '100px',
+    medium: '200px',
+    large: '300px',
+    xLarge: '400px',
+    xxLarge: '500px',
+  },
+});
+```
+
+<br>
+
+<h3>🎨 Merge With another theme</h3>
+
+`theme/config.ts`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+
+export const primaryTheme = {
+  fonts: ['sans-serif', 'Roboto'],
+  fontSizes: {
+    small: '1em',
+    medium: '2em',
+    large: '3em',
+  },
+} as const;
+
+export const theme = {
+  ...primaryTheme,
+  ...createStyledBreakpointsTheme(),
+};
+```
+
+<br>
+
+## `useMediaQuery` hook
 
 features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
 - ⚙️ It supports SSR (server-side rendering).
 - 📦 Minified and gzipped size 324b.
+
+<br>
 
 <details><summary><strong>Type declaration</strong></summary>
 
@@ -483,32 +514,6 @@ const SomeComponent = () => {
 
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
-```
-
-<br>
-
-## Customization
-
-<h3>🎨 Merge with another theme</h3>
-
-`theme/index.tsx`
-
-```tsx
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const primaryTheme = {
-  fonts: ['sans-serif', 'Roboto'],
-  fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
-  },
-} as const;
-
-export const theme = {
-  ...primaryTheme,
-  ...createStyledBreakpointsTheme(),
-} as const;
 ```
 
 <br>
