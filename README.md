@@ -120,15 +120,15 @@ From largest to smallest
 - core concepts
 - available breakpoints
 - [quick start](#quick-start)
-- [`Media Queries` API](#media-queries-api)
+- [Media Queries API](#media-queries-api)
 
-  - [min-width - `up`](#min-width---up)
-  - [max-width - `down`](#max-width---down)
-  - [single breakpoint - `only`](#single-breakpoint---only)
-  - [breakpoints range - `between`](#breakpoints-range---between)
+  - [min-width - up](#min-width---up)
+  - [max-width - down](#max-width---down)
+  - [single breakpoint - only](#single-breakpoint---only)
+  - [breakpoints range - between](#breakpoints-range---between)
   - [customization](#customization)
 
-- [`useMediaQuery` hook](#usemediaquery-hook)
+- [useMediaQuery hook](#usemediaquery-hook)
 
 <br>
 
@@ -301,7 +301,7 @@ const App = () => (
 
 <br>
 
-### Min-width `up`
+### Min-width - `up`
 
 <br>
 
