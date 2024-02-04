@@ -1,16 +1,11 @@
 const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
 const { createInvariant } = require('../create-invariant');
 
-/**
- * Creates an object with breakpoints.
- * @param {Object} options - The options for creating the theme.
- * @param {Object} options.breakpoints - An object defining breakpoints.
- * @param {String} options.errorPrefix - The error prefix for validation.
- * @returns {Object} - An object with breakpoint functions.
- */
-exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
-  // Create an object for input validation
-  const invariant = createInvariant(errorPrefix);
+const DEFAULT_ERROR_PREFIX = '[breakpoints]: ';
+exports.DEFAULT_ERROR_PREFIX = DEFAULT_ERROR_PREFIX;
+
+exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
+  const invariant = createInvariant(errorPrefix || DEFAULT_ERROR_PREFIX);
   const validation = createValidation({
     invariant,
     breakpoints,
@@ -18,27 +13,16 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
 
   validation.validateBreakpoints();
 
-  // Create a breakpoints API
   const api = createBreakpointsApi({
     breakpoints,
   });
 
-  /**
-   * Get the minimum breakpoint value.
-   * @param {string} min - The breakpoint key.
-   * @returns {string} - The minimum breakpoint value.
-   */
   const up = (min) => {
     validation.validateKey(min);
 
     return api.up(min);
   };
 
-  /**
-   * Get the maximum breakpoint value using calcMaxWidth.
-   * @param {string} max - The breakpoint key.
-   * @returns {string} - The maximum breakpoint value.
-   */
   const down = (max) => {
     validation.validateKey(max);
     validation.validateNonZeroValue(max);
@@ -46,12 +30,6 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
     return api.down(max);
   };
 
-  /**
-   * Get a range between two breakpoints.
-   * @param {string} min - The minimum breakpoint key.
-   * @param {string} max - The maximum breakpoint key.
-   * @returns {Object} - An object with 'min' and 'max' properties containing the corresponding breakpoint values.
-   */
   const between = (min, max) => {
     validation.validateKey(min);
     validation.validateKey(max);
@@ -60,11 +38,6 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix }) => {
     return api.between(min, max);
   };
 
-  /**
-   * Get a range based on a single breakpoint key.
-   * @param {string} key - The breakpoint key.
-   * @returns {string|Object} - The minimum or a range object based on the provided key.
-   */
   const only = (key) => {
     validation.validateKey(key);
 
@@ -94,6 +67,7 @@ function createValidation({ invariant, breakpoints }) {
 
   function validateBreakpoints() {
     const VALID_PATTERN = /^\d+px$/;
+
     const invalidBreakpoints = keys.reduce((acc, key) => {
       // Check the validity of breakpoint values
       if (!VALID_PATTERN.test(breakpoints[key].trim())) {
@@ -113,17 +87,16 @@ function createValidation({ invariant, breakpoints }) {
   }
 
   function validateKey(key) {
-    // Check if the specified breakpoint exists
     invariant(
       breakpoints[key],
-      `breakpoint \`${key}\` not found in ${keys.join(', ')}.`
+      `Breakpoint \`${key}\` not found in ${keys.join(', ')}.`
     );
   }
 
+  // Check that a breakpoint is not equal to 0.
   function validateNonZeroValue(key) {
     const value = breakpoints[key];
 
-    // Check that the breakpoint is not 0
     invariant(
       removeUnits(value) !== 0,
       `\`${key}: ${value}\` cannot be assigned as minimum breakpoint.`
@@ -133,11 +106,10 @@ function createValidation({ invariant, breakpoints }) {
   function validateMaxIsGreaterOrEqualToMin(min, max) {
     const diff = removeUnits(breakpoints[max]) - removeUnits(breakpoints[min]);
 
-    // Check that `max` is greater than or equal to `min`
     invariant(diff >= 0, 'The `max` value cannot be less than the `min`.');
   }
 }
 
 function removeUnits(value) {
-  return parseInt(value, 10);
+  return parseInt(value, 10) || 0;
 }
