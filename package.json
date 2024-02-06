@@ -7,11 +7,12 @@
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
-    "test": "cross-env vitest run",
-    "test:watch": "cross-env vitest",
-    "test:coverage": "cross-env vitest run --coverage",
+    "test:unit": "cross-env vitest run",
+    "test:unit:watch": "cross-env vitest",
+    "test:unit:coverage": "cross-env vitest run --coverage",
+    "test:bench": "cross-env vitest bench",
     "lint": "cross-env eslint . --fix.",
-    "pretty": "cross-env prettier './**/**/**.{json,js,ts}' --write",
+    "format": "cross-env prettier './**/**/**.{json,js,ts}' --write",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
     "size": "cross-env size-limit",
     "semantic-release": "cross-env semantic-release",
@@ -93,6 +94,6 @@
     "react-dom": "^18.2.0",
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^11.0.2",
-    "vitest": "^1.0.1"
+    "vitest": "^1.2.2"
   }
 }
