@@ -9,7 +9,7 @@ describe('createBreakpointsApi', () => {
     vi.resetModules();
     process.env.NODE_ENV = 'production';
 
-    breakpointsApi = require('.').createBreakpointsApi({
+    breakpointsApi = require('./index').createBreakpointsApi({
       breakpoints: DEFAULT_BREAKPOINTS,
     });
 

@@ -13,7 +13,7 @@ module.exports = [
   },
   {
     name: 'styled-breakpoints',
-    path: './styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.js',
+    path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
     limit: '900 B',
   },
@@ -26,7 +26,7 @@ module.exports = [
   {
     name: 'styled-breakpoints + useMediaQuery',
     import: {
-      './styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.js':
+      './styled-breakpoints/create-styled-breakpoints-theme/index.js':
         '{ createStyledBreakpointsTheme }',
       './use-media-query/index.js': '{ useMediaQuery }',
     },

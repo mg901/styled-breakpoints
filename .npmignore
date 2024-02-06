@@ -17,5 +17,7 @@ package-lock.json
 CHANGELOG.md
 .husky
 *.config.js
+*.config.mjs
+*.config.cjs
 .size-limit.js
 .eslingignore

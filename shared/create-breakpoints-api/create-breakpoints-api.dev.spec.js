@@ -15,7 +15,7 @@ describe('createBreakpointsApi', () => {
     vi.resetModules();
     process.env.NODE_ENV = 'development';
 
-    breakpointsApi = require('.').createBreakpointsApi;
+    breakpointsApi = require('./index').createBreakpointsApi;
 
     ERROR_PREFIX = '[breakpoints]: ';
     INVALID_BREAKPOINT_KEY = 'invalid';

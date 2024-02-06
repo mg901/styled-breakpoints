@@ -2,7 +2,7 @@
 
 import { describe, beforeEach, vi, it, expect } from 'vitest';
 import { renderHook } from '@testing-library/react';
-import { useMediaQuery } from './use-media-query';
+import { useMediaQuery } from './index';
 
 describe('useMediaQuery', () => {
   // Arrange
