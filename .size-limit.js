@@ -1,13 +1,13 @@
 module.exports = [
   {
     name: 'createBreakpointsApi',
-    path: './shared/create-breakpoints-api/create-breakpoints-api.prod.js',
+    path: './shared/create-breakpoints-api/index.prod.js',
     import: '{ createBreakpointsApi }',
     limit: '360 B',
   },
   {
     name: 'breakpoints.dev',
-    path: './shared/create-breakpoints-api/create-breakpoints-api.dev.js',
+    path: './shared/create-breakpoints-api/index.dev.js',
     import: '{ createBreakpointsApi }',
     limit: '950 B',
   },

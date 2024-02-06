@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === 'production') {
-  exports.withOrientation = require('./with-orientation.prod').withOrientation;
+  module.exports = require('./index.prod');
 } else {
-  exports.withOrientation = require('./with-orientation.dev').withOrientation;
+  module.exports = require('./index.dev');
 }
