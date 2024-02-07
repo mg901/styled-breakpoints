@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "exclude": ["**/errors.ts"]
+}

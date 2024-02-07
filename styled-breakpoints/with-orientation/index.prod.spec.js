@@ -1,16 +1,7 @@
-import { describe, beforeAll, vi, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
+import { withOrientation } from './index.prod';
 
 describe('withOrientation', () => {
-  let withOrientation = null;
-
-  // Arrange
-  beforeAll(() => {
-    vi.resetModules();
-    process.env.NODE_ENV = 'production';
-
-    withOrientation = require('.').withOrientation;
-  });
-
   describe('production environment', () => {
     // Arrange
     const mediaQuery = '(min-width: 768px)';

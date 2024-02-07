@@ -1,3 +1,7 @@
+/**
+ * UnionToIntersection<{ foo: string } | { bar: string }> =
+ *  { foo: string } & { bar: string }.
+ */
 type UnionToIntersection<U> = (
   U extends unknown ? (arg: U) => 0 : never
 ) extends (arg: infer I) => 0
@@ -17,15 +21,21 @@ type LastInUnion<U> =
 /**
  * UnionToTuple<1 | 2> = [1, 2].
  */
-export type UnionToTuple<U, Last = LastInUnion<U>> = [U] extends [never]
+type UnionToTuple<U, Last = LastInUnion<U>> = [U] extends [never]
   ? []
   : [...UnionToTuple<Exclude<U, Last>>, Last];
 
+/**
+ * HeadlessTuple<[1, 2]> = [1]
+ */
 type HeadlessTuple<T extends any[]> = T extends [infer _, ...infer Tail]
   ? Tail
   : never;
 
-export type OmitFirst<T> = HeadlessTuple<UnionToTuple<T>>[number];
+/**
+ * OmitFirstInUnion<1 | 2> = 1
+ */
+export type OmitFirstInUnion<T> = HeadlessTuple<UnionToTuple<T>>[number];
 
 export type Breakpoints = Record<string, `${string}px`>;
 export type ErrorPrefix = `[${string}]: `;
@@ -61,5 +71,6 @@ interface StyledBreakpointsTheme<Min, Max> {
 export function createStyledBreakpointsTheme<
   T extends Breakpoints = DefaultBreakpoints,
   Keys extends keyof T = DefaultBreakpointKeys,
-  KeysWithoutFirst extends OmitFirst<Keys> = OmitFirst<DefaultBreakpointKeys>,
+  KeysWithoutFirst extends
+    OmitFirstInUnion<Keys> = OmitFirstInUnion<DefaultBreakpointKeys>,
 >(options?: Options<T>): StyledBreakpointsTheme<Keys, KeysWithoutFirst>;

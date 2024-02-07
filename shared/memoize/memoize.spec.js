@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { memoize } from './memoize';
+import { memoize } from './index';
 
 describe('memoize', () => {
   describe('basic functionality', () => {

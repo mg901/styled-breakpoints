@@ -68,8 +68,11 @@ const Box = styled.div`
 For **third party** components.
 
 ```tsx
+import { useTheme } from 'styled-components'; // or '@emotion/react'
+
 const Layout = () => {
-  const isMd = useMediaQuery(useTheme()?.breakpoints.up('md'));
+  // You could use hooks API
+  const isMd = useMediaQuery(useTheme().breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
@@ -309,7 +312,7 @@ const App = () => (
 
 ```ts
   declare function up(
-    min: string,
+    min: T,
     orientation?: 'portrait' | 'landscape'
   ) => string
 ```
@@ -327,7 +330,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Convert to pure css: </strong></summary>
+<details><summary><strong>Will be converted to pure css:  </strong></summary>
 
 ```css
 @media (min-width: 768px) {
@@ -367,7 +370,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Convert to: </strong></summary>
+<details><summary><strong>Will be converted to pure css: </strong></summary>
 
 ```css
 @media (max-width: 767.98px) {
@@ -412,7 +415,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Convert to: </strong></summary>
+<details><summary><strong>Will be converted to pure css: </strong></summary>
 
 ```css
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -453,7 +456,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Convert to: </strong></summary>
+<details><summary><strong>Will be converted to pure css: </strong></summary>
 
 ```css
 @media (min-width: 768px) and (max-width: 1199.98px) {

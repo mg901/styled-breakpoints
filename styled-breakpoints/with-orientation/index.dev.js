@@ -1,6 +1,4 @@
-const {
-  withOrientation: withOrientationRaw,
-} = require('./with-orientation.prod');
+const { withOrientation: withOrientationRaw } = require('./index.prod');
 
 exports.withOrientation = ({ mediaQuery, orientation, invariant }) => {
   const isValid = orientation === 'portrait' || orientation === 'landscape';
