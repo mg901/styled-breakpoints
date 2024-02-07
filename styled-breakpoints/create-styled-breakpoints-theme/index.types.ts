@@ -1,4 +1,6 @@
-import { describe, beforeAll, it, assertType, expectTypeOf } from 'vitest';
+/* istanbul ignore file */
+
+import { describe, it, assertType, expectTypeOf } from 'vitest';
 import { createStyledBreakpointsTheme } from './index';
 
 describe('createStyledBreakpointsTheme', () => {

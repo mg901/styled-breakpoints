@@ -1,10 +1,6 @@
 name: check branch
 
-on:
-  push:
-    branches: ['master', 'alpha', 'beta']
-  pull_request:
-    branches: ['master', 'alpha', 'beta']
+on: pull_request
 
 jobs:
   check-branch:
@@ -40,9 +36,3 @@ jobs:
 
       - name: Check size
         run: yarn test:size
-
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
