@@ -1,6 +1,7 @@
 {
   "name": "styled-breakpoints",
   "version": "13.1.2",
+  "license": "MIT",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
   "main": "./styled-breakpoints/create-styled-breakpoints-theme/index.js",
   "types": "./styled-breakpoints/create-styled-breakpoints-theme/index.d.ts",
@@ -21,7 +22,6 @@
     "contributors:generate": "cross-env all-contributors generate",
     "prepare": "husky install"
   },
-  "license": "MIT",
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
   "repository": {
     "type": "git",
