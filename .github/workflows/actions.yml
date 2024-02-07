@@ -1,12 +1,13 @@
-name: release
+name: check branch
+
 on:
   push:
-    branches:
-      - master
-      - beta
-      - alpha
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
 jobs:
-  release:
+  check-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,13 +25,18 @@ jobs:
       - name: Unit Tests
         run: yarn test:unit:coverage
 
-      - name: Test TypeScript types
+      - name: Test types
         run: yarn test:types
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check size
         run: yarn size

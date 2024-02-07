@@ -21,3 +21,4 @@ CHANGELOG.md
 *.config.cjs
 .size-limit.js
 .eslingignore
+*/**/*.types.ts

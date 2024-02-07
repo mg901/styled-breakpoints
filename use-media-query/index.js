@@ -3,15 +3,12 @@ const { useState, useLayoutEffect, useEffect } = require('react');
 const isBrowser = typeof window !== 'undefined';
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
-exports.useMediaQuery = useMediaQuery;
-
 /**
  * Custom hook for handling media queries.
- *
  * @param {string} query - The media query to match.
  * @returns {boolean} - `true` if the media query matches, otherwise `false`.
  */
-function useMediaQuery(query) {
+exports.useMediaQuery = function useMediaQuery(query) {
   const [isMatch, setIsMatch] = useState(isBrowser && getMatches(query));
 
   useEnhancedEffect(() => {
@@ -48,7 +45,7 @@ function useMediaQuery(query) {
   }, [query]);
 
   return isMatch;
-}
+};
 
 function getMatches(query) {
   return window.matchMedia(query).matches;

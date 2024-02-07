@@ -4,7 +4,7 @@ import { describe, beforeEach, vi, it, expect } from 'vitest';
 import { renderHook } from '@testing-library/react';
 import { useMediaQuery } from './index';
 
-describe('useMediaQuery', () => {
+describe('useMediaQuery hook', () => {
   // Arrange
   const matches = {
     '(min-width: 500px)': true,

@@ -3,3 +3,5 @@
 
 yarn size
 yarn test:unit
+yarn test:types
+yarn test:size

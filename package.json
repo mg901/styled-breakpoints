@@ -9,8 +9,9 @@
     "commit": "cross-env git-cz",
     "test:unit": "cross-env vitest run",
     "test:unit:watch": "cross-env vitest",
-    "test:unit:coverage": "cross-env vitest run --coverage",
-    "test:bench": "cross-env vitest bench",
+    "test:unit:coverage": "cross-env vitest --coverage run",
+    "test:types": "npx check-dts",
+    "test:bench": "cross-env vitest run bench",
     "lint": "cross-env eslint . --fix.",
     "format": "cross-env prettier './**/**/**.{json,js,ts}' --write",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
@@ -72,6 +73,7 @@
     "@vitest/coverage-istanbul": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1",
     "all-contributors-cli": "^6.17.4",
+    "check-dts": "^0.7.2",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
@@ -94,6 +96,7 @@
     "react-dom": "^18.2.0",
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^11.0.2",
+    "typescript": "^5.3.3",
     "vitest": "^1.2.2"
   }
 }
