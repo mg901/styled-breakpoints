@@ -5,6 +5,7 @@ const DEFAULT_ERROR_PREFIX = '[breakpoints]: ';
 exports.DEFAULT_ERROR_PREFIX = DEFAULT_ERROR_PREFIX;
 
 exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
+  /* istanbul ignore next */
   const invariant = createInvariant(errorPrefix || DEFAULT_ERROR_PREFIX);
   const validation = createValidation({
     invariant,
