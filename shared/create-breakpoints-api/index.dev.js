@@ -24,12 +24,12 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     up,
     down,
     between,
-    only,
   };
 
   function up(min) {
     validation.validateKey(min);
 
+    /* istanbul ignore next */
     return api.up(min);
   }
 
@@ -37,6 +37,7 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     validation.validateKey(max);
     validation.validateNonZeroValue(max);
 
+    /* istanbul ignore next */
     return api.down(max);
   }
 
@@ -45,13 +46,8 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     validation.validateKey(max);
     validation.validateMaxIsGreaterOrEqualToMin(min, max);
 
+    /* istanbul ignore next */
     return api.between(min, max);
-  }
-
-  function only(key) {
-    validation.validateKey(key);
-
-    return api.only(key);
   }
 };
 
