@@ -71,8 +71,8 @@ For **third party** components.
 import { useTheme } from 'styled-components'; // or '@emotion/react'
 
 const Layout = () => {
-  const { breakpoints } = useTheme();
-  const isMd = useMediaQuery(breakpoints.up('md'));
+  // You could use hooks API
+  const isMd = useMediaQuery(useTheme().breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
