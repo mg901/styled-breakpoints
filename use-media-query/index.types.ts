@@ -1,5 +1,4 @@
 /* istanbul ignore file */
-
 import { describe, it, assertType, expectTypeOf } from 'vitest';
 import { useMediaQuery } from './index';
 

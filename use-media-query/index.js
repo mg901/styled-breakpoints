@@ -1,5 +1,6 @@
 const { useState, useLayoutEffect, useEffect } = require('react');
 
+/* istanbul ignore next */
 const isBrowser = typeof window !== 'undefined';
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
@@ -12,6 +13,7 @@ exports.useMediaQuery = function useMediaQuery(query) {
   const [isMatch, setIsMatch] = useState(isBrowser && getMatches(query));
 
   useEnhancedEffect(() => {
+    /* istanbul ignore next */
     if (!isBrowser) return;
 
     let mounted = true;
