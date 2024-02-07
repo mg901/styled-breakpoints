@@ -2,6 +2,7 @@ const { useState, useLayoutEffect, useEffect } = require('react');
 
 /* istanbul ignore next */
 const isBrowser = typeof window !== 'undefined';
+/* istanbul ignore next */
 const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
 
 /**
