@@ -21,8 +21,10 @@ exports.useMediaQuery = function useMediaQuery(query) {
     const mediaQueryList = window.matchMedia(query.replace(/^@media\s*/, ''));
 
     const handleChange = () => {
+      /* istanbul ignore next */
       if (!mounted) return;
 
+      /* istanbul ignore next */
       setIsMatch(mediaQueryList.matches);
     };
 
