@@ -1,3 +1,10 @@
+## [13.1.3](https://github.com/mg901/styled-breakpoints/compare/v13.1.2...v13.1.3) (2024-02-07)
+
+
+### Bug Fixes
+
+* remove unused files ([#1780](https://github.com/mg901/styled-breakpoints/issues/1780)) ([8e97249](https://github.com/mg901/styled-breakpoints/commit/8e972493ee2faeeebe62d86df2e633226ef828a4))
+
 ## [13.1.2](https://github.com/mg901/styled-breakpoints/compare/v13.1.1...v13.1.2) (2024-02-04)
 
 
