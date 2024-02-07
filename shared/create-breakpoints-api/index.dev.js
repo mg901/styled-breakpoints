@@ -4,9 +4,12 @@ const { createInvariant } = require('../create-invariant');
 const DEFAULT_ERROR_PREFIX = '[breakpoints]: ';
 exports.DEFAULT_ERROR_PREFIX = DEFAULT_ERROR_PREFIX;
 
-exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
+exports.createBreakpointsApi = ({
+  breakpoints,
   /* istanbul ignore next */
-  const invariant = createInvariant(errorPrefix || DEFAULT_ERROR_PREFIX);
+  errorPrefix = DEFAULT_ERROR_PREFIX,
+}) => {
+  const invariant = createInvariant(errorPrefix);
   const validation = createValidation({
     invariant,
     breakpoints,
