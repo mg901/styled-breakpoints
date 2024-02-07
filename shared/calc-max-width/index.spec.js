@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calcMaxWidth } from './calc-max-width';
+import { calcMaxWidth } from './index';
 
 describe('calcMaxWidth', () => {
   it('calculates the maximum breakpoint correctly', () => {

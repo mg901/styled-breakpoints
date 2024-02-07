@@ -1,4 +1,4 @@
-const { createBreakpointsApi } = require('./create-breakpoints-api.prod');
+const { createBreakpointsApi: coreApi } = require('./index.prod');
 const { createInvariant } = require('../create-invariant');
 
 const DEFAULT_ERROR_PREFIX = '[breakpoints]: ';
@@ -13,36 +13,9 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
 
   validation.validateBreakpoints();
 
-  const api = createBreakpointsApi({
+  const api = coreApi({
     breakpoints,
   });
-
-  const up = (min) => {
-    validation.validateKey(min);
-
-    return api.up(min);
-  };
-
-  const down = (max) => {
-    validation.validateKey(max);
-    validation.validateNonZeroValue(max);
-
-    return api.down(max);
-  };
-
-  const between = (min, max) => {
-    validation.validateKey(min);
-    validation.validateKey(max);
-    validation.validateMaxIsGreaterOrEqualToMin(min, max);
-
-    return api.between(min, max);
-  };
-
-  const only = (key) => {
-    validation.validateKey(key);
-
-    return api.only(key);
-  };
 
   return {
     keys: api.keys,
@@ -53,6 +26,33 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     between,
     only,
   };
+
+  function up(min) {
+    validation.validateKey(min);
+
+    return api.up(min);
+  }
+
+  function down(max) {
+    validation.validateKey(max);
+    validation.validateNonZeroValue(max);
+
+    return api.down(max);
+  }
+
+  function between(min, max) {
+    validation.validateKey(min);
+    validation.validateKey(max);
+    validation.validateMaxIsGreaterOrEqualToMin(min, max);
+
+    return api.between(min, max);
+  }
+
+  function only(key) {
+    validation.validateKey(key);
+
+    return api.only(key);
+  }
 };
 
 function createValidation({ invariant, breakpoints }) {

@@ -1,6 +1,10 @@
 name: check branch
 
-on: pull_request
+on:
+  push:
+    branches: ['master', 'alpha', 'beta']
+  pull_request:
+    branches: ['master', 'alpha', 'beta']
 
 jobs:
   check-branch:
@@ -18,18 +22,27 @@ jobs:
       - name: Linting
         run: yarn lint
 
-      - name: Test
-        run: yarn test:coverage
+      - name: Unit Tests
+        run: yarn test:unit:coverage
+
+      - name: Test types
+        run: yarn test:types
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Check size
-        run: yarn size
-
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check size
+        run: yarn test:size
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

@@ -1,9 +1,5 @@
 import { describe, beforeEach, it, expect } from 'vitest';
-import {
-  createInvariant,
-  DEFAULT_PREFIX,
-  DEFAULT_MESSAGE,
-} from './create-invariant';
+import { createInvariant, DEFAULT_PREFIX, DEFAULT_MESSAGE } from './index';
 
 describe('createInvariant function', () => {
   let invariant = null;

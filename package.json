@@ -1,25 +1,27 @@
 {
   "name": "styled-breakpoints",
   "version": "13.1.2",
+  "license": "MIT",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
-  "main": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.js",
-  "types": "./styled-breakpoints/create-styled-breakpoints-theme/create-styled-breakpoints-theme.d.ts",
+  "main": "./styled-breakpoints/create-styled-breakpoints-theme/index.js",
+  "types": "./styled-breakpoints/create-styled-breakpoints-theme/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "commit": "cross-env git-cz",
-    "test": "cross-env vitest run",
-    "test:watch": "cross-env vitest",
-    "test:coverage": "cross-env vitest run --coverage",
+    "test:unit": "cross-env vitest run",
+    "test:unit:watch": "cross-env vitest",
+    "test:unit:coverage": "cross-env vitest --coverage run",
+    "test:types": "npx check-dts",
+    "test:bench": "cross-env vitest run bench",
+    "test:size": "cross-env size-limit",
     "lint": "cross-env eslint . --fix.",
-    "pretty": "cross-env prettier './**/**/**.{json,js,ts}' --write",
+    "format": "cross-env prettier './**/**/**.{json,js,ts}' --write",
     "coverage": "cross-env cat ./coverage/lcov.info | coveralls",
-    "size": "cross-env size-limit",
     "semantic-release": "cross-env semantic-release",
     "contributors:add": "cross-env all-contributors add",
     "contributors:generate": "cross-env all-contributors generate",
     "prepare": "husky install"
   },
-  "license": "MIT",
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
   "repository": {
     "type": "git",
@@ -71,6 +73,7 @@
     "@vitest/coverage-istanbul": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1",
     "all-contributors-cli": "^6.17.4",
+    "check-dts": "^0.7.2",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
@@ -93,6 +96,7 @@
     "react-dom": "^18.2.0",
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^11.0.2",
-    "vitest": "^1.0.1"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
   }
 }

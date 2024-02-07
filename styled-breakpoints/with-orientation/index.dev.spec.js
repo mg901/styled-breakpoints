@@ -1,16 +1,7 @@
-import { describe, beforeAll, vi, it, expect } from 'vitest';
+import { describe, vi, it, expect } from 'vitest';
+import { withOrientation } from './index.dev';
 
 describe('withOrientation', () => {
-  let withOrientation = null;
-
-  // Arrange
-  beforeAll(() => {
-    vi.resetModules();
-    process.env.NODE_ENV = 'development';
-
-    withOrientation = require('.').withOrientation;
-  });
-
   describe('development environment', () => {
     it('throws an error when an invalid orientation is provided', () => {
       // Arrange

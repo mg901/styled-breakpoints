@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createStyledBreakpointsTheme } from './create-styled-breakpoints-theme';
+import { createStyledBreakpointsTheme } from './index';
 
 describe('createStyledBreakpointsTheme', () => {
   describe('default breakpoints', () => {

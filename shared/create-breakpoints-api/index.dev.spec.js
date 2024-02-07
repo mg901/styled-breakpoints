@@ -1,5 +1,6 @@
-import { describe, beforeAll, vi, it, expect } from 'vitest';
+import { describe, beforeAll, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
+import { createBreakpointsApi } from './index.dev';
 
 describe('createBreakpointsApi', () => {
   // Arrange
@@ -8,15 +9,8 @@ describe('createBreakpointsApi', () => {
   let EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY;
   let EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE;
 
-  let breakpointsApi;
-
   // Arrange
   beforeAll(() => {
-    vi.resetModules();
-    process.env.NODE_ENV = 'development';
-
-    breakpointsApi = require('.').createBreakpointsApi;
-
     ERROR_PREFIX = '[breakpoints]: ';
     INVALID_BREAKPOINT_KEY = 'invalid';
     EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY = `${ERROR_PREFIX}Breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in ${Object.keys(
@@ -31,7 +25,7 @@ describe('createBreakpointsApi', () => {
       it('does not throw an error if all breakpoints are valid', () => {
         // Act
         const received = () =>
-          breakpointsApi({
+          createBreakpointsApi({
             breakpoints: DEFAULT_BREAKPOINTS,
             errorPrefix: ERROR_PREFIX,
           });
@@ -55,7 +49,7 @@ describe('createBreakpointsApi', () => {
 
         // Act
         const received = () =>
-          breakpointsApi({
+          createBreakpointsApi({
             breakpoints: invalidBreakpoints,
             errorPrefix: ERROR_PREFIX,
           });
@@ -70,10 +64,11 @@ describe('createBreakpointsApi', () => {
       let up = null;
       let down = null;
       let between = null;
+      let breakpointsApi = null;
 
       // Arrange
       beforeAll(() => {
-        breakpointsApi = require('.').createBreakpointsApi({
+        breakpointsApi = createBreakpointsApi({
           breakpoints: DEFAULT_BREAKPOINTS,
           errorPrefix: ERROR_PREFIX,
         });
