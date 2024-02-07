@@ -2,9 +2,9 @@ name: check branch
 
 on:
   push:
-    branches: ['master']
+    branches: ['master', 'alpha', 'beta']
   pull_request:
-    branches: ['master']
+    branches: ['master', 'alpha', 'beta']
 
 jobs:
   check-branch:
@@ -39,7 +39,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check size
-        run: yarn size
+        run: yarn test:size
 
       - name: Release
         env:

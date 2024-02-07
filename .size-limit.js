@@ -3,25 +3,25 @@ module.exports = [
     name: 'createBreakpointsApi',
     path: './shared/create-breakpoints-api/index.prod.js',
     import: '{ createBreakpointsApi }',
-    limit: '360 B',
+    limit: '273 B',
   },
   {
     name: 'breakpoints.dev',
     path: './shared/create-breakpoints-api/index.dev.js',
     import: '{ createBreakpointsApi }',
-    limit: '950 B',
+    limit: '790 B',
   },
   {
     name: 'styled-breakpoints',
     path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '900 B',
+    limit: '693 B',
   },
   {
     name: 'useMediaQuery',
     path: './use-media-query/index.js',
     import: '{ useMediaQuery }',
-    limit: '350 B',
+    limit: '313 B',
   },
   {
     name: 'styled-breakpoints + useMediaQuery',
@@ -30,6 +30,6 @@ module.exports = [
         '{ createStyledBreakpointsTheme }',
       './use-media-query/index.js': '{ useMediaQuery }',
     },
-    limit: '1.1 kB',
+    limit: '908 kB',
   },
 ];
