@@ -68,8 +68,11 @@ const Box = styled.div`
 For **third party** components.
 
 ```tsx
+import { useTheme } from 'styled-components'; // or '@emotion/react'
+
 const Layout = () => {
-  const isMd = useMediaQuery(useTheme().breakpoints.up('md'));
+  const { breakpoints } = useTheme();
+  const isMd = useMediaQuery(breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
