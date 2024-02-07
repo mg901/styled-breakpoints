@@ -1,15 +1,13 @@
-import { describe, beforeAll, vi, it, expect } from 'vitest';
+import { describe, beforeAll, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
+import { createBreakpointsApi } from './index.prod';
 
 describe('createBreakpointsApi', () => {
   let breakpointsApi = null;
   let calcMaxWidth = null;
 
   beforeAll(() => {
-    vi.resetModules();
-    process.env.NODE_ENV = 'production';
-
-    breakpointsApi = require('./index').createBreakpointsApi({
+    breakpointsApi = createBreakpointsApi({
       breakpoints: DEFAULT_BREAKPOINTS,
     });
 
