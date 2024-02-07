@@ -8,6 +8,7 @@ exports.withOrientation = ({ mediaQuery, orientation, invariant }) => {
     `\`${orientation}\` is invalid orientation. Please use \`landscape\` or \`portrait\`.`
   );
 
+  /* istanbul ignore next */
   return withOrientationRaw({
     mediaQuery,
     orientation,

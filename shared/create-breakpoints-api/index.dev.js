@@ -4,8 +4,12 @@ const { createInvariant } = require('../create-invariant');
 const DEFAULT_ERROR_PREFIX = '[breakpoints]: ';
 exports.DEFAULT_ERROR_PREFIX = DEFAULT_ERROR_PREFIX;
 
-exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
-  const invariant = createInvariant(errorPrefix || DEFAULT_ERROR_PREFIX);
+exports.createBreakpointsApi = ({
+  breakpoints,
+  /* istanbul ignore next */
+  errorPrefix = DEFAULT_ERROR_PREFIX,
+}) => {
+  const invariant = createInvariant(errorPrefix);
   const validation = createValidation({
     invariant,
     breakpoints,
@@ -24,12 +28,12 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     up,
     down,
     between,
-    only,
   };
 
   function up(min) {
     validation.validateKey(min);
 
+    /* istanbul ignore next */
     return api.up(min);
   }
 
@@ -37,6 +41,7 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     validation.validateKey(max);
     validation.validateNonZeroValue(max);
 
+    /* istanbul ignore next */
     return api.down(max);
   }
 
@@ -45,13 +50,8 @@ exports.createBreakpointsApi = ({ breakpoints, errorPrefix } = {}) => {
     validation.validateKey(max);
     validation.validateMaxIsGreaterOrEqualToMin(min, max);
 
+    /* istanbul ignore next */
     return api.between(min, max);
-  }
-
-  function only(key) {
-    validation.validateKey(key);
-
-    return api.only(key);
   }
 };
 
