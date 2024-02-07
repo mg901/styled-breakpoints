@@ -22,3 +22,5 @@ CHANGELOG.md
 .size-limit.js
 .eslingignore
 */**/*.types.ts
+.eslintignore
+tsconfig.json
