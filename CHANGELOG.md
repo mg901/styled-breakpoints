@@ -1,3 +1,21 @@
+# [14.0.0](https://github.com/mg901/styled-breakpoints/compare/v13.1.4...v14.0.0) (2024-02-08)
+
+
+### Features
+
+* **use-media-query:** no longer supports Safari < 14 ([#1782](https://github.com/mg901/styled-breakpoints/issues/1782)) ([f50a5a1](https://github.com/mg901/styled-breakpoints/commit/f50a5a1bc681cb6bb15f6d7b1607870eb830ed5c))
+
+
+### BREAKING CHANGES
+
+* **use-media-query:** 🧨 useMediaQuery hook no longer supports Safari < 14
+
+* test: add `istanbul ignore` comment
+
+* refactor(use-media-query): replace state with matches
+
+* test: add `instnbul ignore`  comment
+
 ## [13.1.4](https://github.com/mg901/styled-breakpoints/compare/v13.1.3...v13.1.4) (2024-02-07)
 
 
