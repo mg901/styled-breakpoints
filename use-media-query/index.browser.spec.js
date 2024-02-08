@@ -1,105 +1,70 @@
 // @vitest-environment jsdom
 
-import { describe, beforeEach, vi, it, expect } from 'vitest';
-import { renderHook } from '@testing-library/react';
+import { describe, beforeAll, beforeEach, vi, it, expect } from 'vitest';
+import { configure, renderHook } from '@testing-library/react';
 import { useMediaQuery } from './index';
 
 describe('useMediaQuery hook', () => {
   // Arrange
-  const matches = {
-    '(min-width: 500px)': true,
-    '(min-width: 1000px)': false,
-  };
+  let matches = null;
 
-  describe('In Safari Browser less than v14', () => {
-    // Arrange
-    beforeEach(() => {
-      window.matchMedia = vi.fn((query) => ({
-        matches: matches[query] || false,
-        media: query,
-        onchange: null,
-        addListener: vi.fn(),
-        removeListener: vi.fn(),
-      }));
-    });
+  beforeAll(() => {
+    configure({ reactStrictMode: true });
 
-    it('returns true if media query matches', () => {
-      // Act
-      const { result } = renderHook(() => useMediaQuery('(min-width: 500px)'));
-
-      // Assert
-      expect(result.current).toBe(true);
-    });
-
-    it('returns false if media query does not match', () => {
-      // Act
-      const { result } = renderHook(() => useMediaQuery('(min-width: 1200px)'));
-
-      // Assert
-      expect(result.current).toBe(false);
-    });
-
-    it('updates when media query changes', () => {
-      // Act
-      const { result, rerender } = renderHook(
-        ({ query }) => useMediaQuery(query),
-        { initialProps: { query: '(min-width: 500px)' } }
-      );
-
-      // Assert
-      expect(result.current).toBe(true);
-
-      // Act
-      rerender({ query: '(max-width: 800px)' });
-
-      // Assert
-      expect(result.current).toBe(false);
-    });
+    matches = {
+      '(min-width: 500px)': true,
+      '(min-width: 1000px)': false,
+    };
   });
 
-  describe('In other browsers', () => {
-    // Arrange
-    beforeEach(() => {
-      window.matchMedia = vi.fn((query) => ({
-        matches: matches[query] || false,
-        media: query,
-        onchange: null,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-      }));
-    });
+  // Arrange
+  beforeEach(() => {
+    window.matchMedia = vi.fn((query) => ({
+      matches: matches[query] || false,
+      media: query,
+      onchange: null,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    }));
+  });
 
-    it('returns true if media query matches', () => {
-      // Act
-      const { result } = renderHook(() => useMediaQuery('(min-width: 500px)'));
+  it('returns true if media query matches', () => {
+    // Act
+    const { result, unmount } = renderHook(() =>
+      useMediaQuery('(min-width: 500px)')
+    );
 
-      // Assert
-      expect(result.current).toBe(true);
-    });
+    // Assert
+    expect(result.current).toBe(true);
+    unmount();
+  });
 
-    it('returns false if media query does not match', () => {
-      // Act
-      const { result } = renderHook(() => useMediaQuery('(min-width: 1200px)'));
+  it('returns false if media query does not match', () => {
+    // Act
+    const { result, unmount } = renderHook(() =>
+      useMediaQuery('(min-width: 1200px)')
+    );
 
-      // Assert
-      expect(result.current).toBe(false);
-    });
+    // Assert
+    expect(result.current).toBe(false);
+    unmount();
+  });
 
-    it('updates when media query changes', () => {
-      // Act
-      const { result, rerender } = renderHook(
-        ({ query }) => useMediaQuery(query),
-        { initialProps: { query: '(min-width: 500px)' } }
-      );
+  it('updates when media query changes', () => {
+    // Act
+    const { result, rerender, unmount } = renderHook(
+      ({ query }) => useMediaQuery(query),
+      { initialProps: { query: '(min-width: 500px)' } }
+    );
 
-      // Assert
-      expect(result.current).toBe(true);
+    // Assert
+    expect(result.current).toBe(true);
 
-      // Act
-      rerender({ query: '(max-width: 800px)' });
+    // Act
+    rerender({ query: '(max-width: 800px)' });
 
-      // Assert
-      expect(result.current).toBe(false);
-    });
+    // Assert
+    expect(result.current).toBe(false);
+    unmount();
   });
 });

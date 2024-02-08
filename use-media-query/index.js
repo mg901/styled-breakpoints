@@ -1,22 +1,23 @@
 const { useState, useLayoutEffect, useEffect } = require('react');
 
+exports.useMediaQuery = useMediaQuery;
+
 /* istanbul ignore next */
-const isBrowser = typeof window !== 'undefined';
+const IS_BROWSER = typeof window !== 'undefined';
 /* istanbul ignore next */
-const useEnhancedEffect = isBrowser ? useLayoutEffect : useEffect;
+const useEnhancedEffect = IS_BROWSER ? useLayoutEffect : useEffect;
+
+exports.useMediaQuery = useMediaQuery;
 
 /**
  * Custom hook for handling media queries.
  * @param {string} query - The media query to match.
  * @returns {boolean} - `true` if the media query matches, otherwise `false`.
  */
-exports.useMediaQuery = function useMediaQuery(query) {
-  const [isMatch, setIsMatch] = useState(isBrowser && getMatches(query));
+function useMediaQuery(query) {
+  const [state, setState] = useState(IS_BROWSER && getInitialState(query));
 
   useEnhancedEffect(() => {
-    /* istanbul ignore next */
-    if (!isBrowser) return;
-
     let mounted = true;
     const mediaQueryList = window.matchMedia(query.replace(/^@media\s*/, ''));
 
@@ -25,33 +26,21 @@ exports.useMediaQuery = function useMediaQuery(query) {
       if (!mounted) return;
 
       /* istanbul ignore next */
-      setIsMatch(mediaQueryList.matches);
+      setState(mediaQueryList.matches);
     };
 
-    // Safari < 14 can't use addEventListener on a MediaQueryList
-    // https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList#Browser_compatibility
-    const listenerMethod = mediaQueryList.addListener
-      ? 'addListener'
-      : 'addEventListener';
-    mediaQueryList[listenerMethod]('change', handleChange);
+    setState(mediaQueryList.matches);
 
-    setIsMatch(mediaQueryList.matches);
-
-    // eslint-disable-next-line consistent-return
     return () => {
       mounted = false;
 
-      if (mediaQueryList.addListener) {
-        mediaQueryList.removeListener(handleChange);
-      } else {
-        mediaQueryList.removeEventListener('change', handleChange);
-      }
+      mediaQueryList.removeEventListener('change', handleChange);
     };
   }, [query]);
 
-  return isMatch;
-};
+  return state;
+}
 
-function getMatches(query) {
+function getInitialState(query) {
   return window.matchMedia(query).matches;
 }
