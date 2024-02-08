@@ -15,7 +15,7 @@ exports.useMediaQuery = useMediaQuery;
  * @returns {boolean} - `true` if the media query matches, otherwise `false`.
  */
 function useMediaQuery(query) {
-  const [state, setState] = useState(getInitialState(query));
+  const [state, setState] = useState(IS_BROWSER && getInitialState(query));
 
   useEnhancedEffect(() => {
     let mounted = true;
@@ -28,6 +28,7 @@ function useMediaQuery(query) {
       setState(mediaQueryList.matches);
     };
 
+    /* istanbul ignore next */
     setState(mediaQueryList.matches);
 
     return () => {
