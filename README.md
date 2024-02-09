@@ -524,7 +524,7 @@ features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
 - ⚙️ It supports SSR (server-side rendering).
-- 📦 Minified and gzipped size 324b.
+- 📦 Minified and gzipped size 284b.
 
 <br>
 
