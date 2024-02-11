@@ -57,37 +57,76 @@ describe('createStyledBreakpointsTheme', () => {
       type Max = 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
       describe('up', () => {
-        // Act and Assert
-        expectTypeOf(theme.breakpoints.up).parameters.toMatchTypeOf<
-          [min: Min, orientation?: Orientation]
-        >();
+        it('accepts correct types', () => {
+          // Act and Assert
+          expectTypeOf(theme.breakpoints.up).parameters.toMatchTypeOf<
+            [min: Min, orientation?: Orientation]
+          >();
 
-        // @ts-expect-error
-        assertType(theme.breakpoints.up('42'));
+          // @ts-expect-error
+          assertType(theme.breakpoints.up('42'));
+        });
+
+        it('returns correct types', () => {
+          // Arrange
+          const result = theme.breakpoints.up('xs');
+
+          // Act and Assert
+          expectTypeOf(result).toBeString();
+
+          // @ts-expect-error
+          assertType(expectTypeOf(result).toBeUndefined());
+        });
       });
 
       describe('down', () => {
-        // Act and Assert
-        expectTypeOf(theme.breakpoints.down).parameters.toMatchTypeOf<
-          [max: Max, orientation?: Orientation]
-        >();
+        it('accepts correct type', () => {
+          // Act and Assert
+          expectTypeOf(theme.breakpoints.down).parameters.toMatchTypeOf<
+            [max: Max, orientation?: Orientation]
+          >();
 
-        // @ts-expect-error
-        assertType(theme.breakpoints.down('xs'));
+          // @ts-expect-error
+          assertType(theme.breakpoints.down('xs'));
+        });
+
+        it('returns correct type', () => {
+          // Arrange
+          const result = theme.breakpoints.down('md');
+
+          // Act and Assert
+          expectTypeOf(result).toBeString();
+
+          // @ts-expect-error
+          assertType(expectTypeOf(result).toBeUndefined());
+        });
       });
 
       describe('only', () => {
-        // Act and Assert
-        expectTypeOf(theme.breakpoints.only).parameters.toMatchTypeOf<
-          [key: Min, orientation?: Orientation]
-        >();
+        it('accepts correct type', () => {
+          // Act and Assert
+          expectTypeOf(theme.breakpoints.only).parameters.toMatchTypeOf<
+            [key: Min, orientation?: Orientation]
+          >();
 
-        // @ts-expect-error
-        assertType(theme.breakpoints.only('42'));
+          // @ts-expect-error
+          assertType(theme.breakpoints.only('42'));
+        });
+
+        it('returns correct type', () => {
+          // Arrange
+          const result = theme.breakpoints.only('md');
+
+          // Act and Assert
+          expectTypeOf(result).toBeString();
+
+          // @ts-expect-error
+          assertType(expectTypeOf(result).toBeUndefined());
+        });
       });
 
       describe('between', () => {
-        it('infers default breakpoints correctly', () => {
+        it('accepts correct types', () => {
           // Act and Assert
           expectTypeOf(theme.breakpoints.between).parameters.toMatchTypeOf<
             [min: Min, max: Max, orientation?: Orientation]
@@ -95,6 +134,17 @@ describe('createStyledBreakpointsTheme', () => {
 
           // @ts-expect-error
           assertType(theme.breakpoints.between('xs', 'xs'));
+        });
+
+        it('returns correct type', () => {
+          // Arrange
+          const result = theme.breakpoints.between('sm', 'md');
+
+          // Act and Assert
+          expectTypeOf(result).toBeString();
+
+          // @ts-expect-error
+          assertType(expectTypeOf(result).toBeUndefined());
         });
       });
     });
