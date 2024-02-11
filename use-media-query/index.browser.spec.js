@@ -28,6 +28,11 @@ describe('useMediaQuery hook', () => {
     }));
   });
 
+  it('should be a function', () => {
+    // Act and Assert
+    expect(useMediaQuery).toBeInstanceOf(Function);
+  });
+
   it('returns true if media query matches', () => {
     // Act
     const { result, unmount } = renderHook(() =>
