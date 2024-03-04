@@ -59,7 +59,7 @@ const Box = styled.div`
 
 <br>
 
-Inside components.
+Outside components.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
@@ -76,7 +76,7 @@ const Layout = () => {
 
 ## Examples
 
-### 🚩 Mobile First
+### 👉🏻 Mobile First
 
 From smallest to largest
 
@@ -88,7 +88,7 @@ From smallest to largest
 
 <br>
 
-### 🚩 Desktop First
+### 👉🏻 Desktop First
 
 From largest to smallest
 
@@ -100,7 +100,7 @@ From largest to smallest
 
 <br>
 
-### 🚩 Hooks API
+### 👉🏻 Hooks API
 
 <div>
   <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
@@ -112,7 +112,7 @@ From largest to smallest
 
 <br>
 
-## 🚩 Documentation
+## 📖 Documentation
 
 - [core concepts](#core-concepts)
 - [getting started](#getting-started)
@@ -269,7 +269,7 @@ declare module 'styled-components' {
 <g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
 Emotion</h4>
 
-##### Installation
+##### 🚩 Installation
 
 ```sh
 npm install @emotion/{styled,react}
@@ -324,7 +324,7 @@ const App = () => (
 
 ## Media queries API
 
-- 🚀 Caching is implemented in all functions to optimize performance.
+🚀 Caching is implemented in all functions to optimize performance.
 
 <br>
 
