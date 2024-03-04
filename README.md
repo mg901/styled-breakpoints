@@ -39,9 +39,9 @@ styled-breakpoints <br>
 <br >
 <br >
 
-## Preview 👀
+## 🌼 Preview
 
-For **own** components.
+Inside components.
 
 ```tsx
 const Box = styled.div`
@@ -59,7 +59,7 @@ const Box = styled.div`
 
 <br>
 
-For **third party** components.
+Inside components.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
@@ -76,7 +76,7 @@ const Layout = () => {
 
 ## Examples
 
-### Mobile First
+### 🚩 Mobile First
 
 From smallest to largest
 
@@ -88,7 +88,7 @@ From smallest to largest
 
 <br>
 
-### Desktop First
+### 🚩 Desktop First
 
 From largest to smallest
 
@@ -100,7 +100,7 @@ From largest to smallest
 
 <br>
 
-### Hooks API
+### 🚩 Hooks API
 
 <div>
   <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
@@ -112,7 +112,7 @@ From largest to smallest
 
 <br>
 
-## Documentation
+## 🚩 Documentation
 
 - [core concepts](#core-concepts)
 - [getting started](#getting-started)
@@ -137,11 +137,10 @@ From largest to smallest
 - **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
 
 <br>
-<br>
 
-## 🚀 Getting Started
+## Getting Started
 
-### Installation
+### 🚩 Installation
 
 ```sh
 npm install styled-breakpoints@latest
@@ -153,9 +152,9 @@ yarn add styled-breakpoints@latest
 
 <br >
 
-### ⚙️ Configuration
+### Configuration
 
-#### Available breakpoints
+#### 🚩 Available breakpoints
 
 Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
 
@@ -188,7 +187,7 @@ export const theme = createStyledBreakpointsTheme();
 
 #### 🛠️ Customization
 
-##### Breakpoints
+##### 🚩 Breakpoints
 
 `theme/config.ts`
 
@@ -232,7 +231,7 @@ export const theme = {
 
 <details open><summary><h4>💅 Styled Components</h4></summary>
 
-##### Installation
+##### 🚩 Installation
 
 ```sh
 npm install styled-components
@@ -308,7 +307,7 @@ const Box = styled.div`
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Box />
+    <Box>🥳</Box>
   </ThemeProvider>
 );
 ```
