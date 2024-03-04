@@ -183,7 +183,8 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 export const theme = createStyledBreakpointsTheme();
 ```
 
-<br >
+<hr/>
+<br>
 
 #### 🛠️ Customization
 
@@ -229,7 +230,10 @@ export const theme = {
 };
 ```
 
-<details open><summary><h4>💅 Styled Components</h4></summary>
+<hr>
+<br>
+
+<h4>💅 Styled Components</h4>
 
 ##### 🚩 Installation
 
@@ -258,9 +262,12 @@ declare module 'styled-components' {
 
 </details>
 
-<details><summary><h4>
+<hr>
+<br>
+
+<h4>
 <g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
-Emotion</h4></summary>
+Emotion</h4>
 
 ##### Installation
 
@@ -287,9 +294,8 @@ declare module '@emotion/react' {
 }
 ```
 
-</details>
-
-<br >
+<hr/>
+<br>
 
 `app.tsx`
 
@@ -517,6 +523,7 @@ const SomeComponent = () => {
 };
 ```
 
+<hr/>
 <br>
 
 ## License
