@@ -6,7 +6,13 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reporter: ['lcov'],
-      exclude: [...configDefaults.exclude, '*/**/*.types.ts'],
+      exclude: [
+        ...configDefaults.exclude,
+        '*/**/*.types.ts',
+        '*.config.js',
+        '.eslintrc.js',
+        '.size-limit.js',
+      ],
     },
   },
 });
