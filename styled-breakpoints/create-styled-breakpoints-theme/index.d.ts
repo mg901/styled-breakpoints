@@ -40,8 +40,6 @@ export type OmitFirstInUnion<T> = HeadlessTuple<UnionToTuple<T>>[number];
 export type Breakpoints = Record<string, `${string}px`>;
 export type ErrorPrefix = `[${string}]: `;
 
-export type Orientation = 'portrait' | 'landscape';
-
 declare const DEFAULT_BREAKPOINTS: {
   readonly xs: '0px';
   readonly sm: '576px';
@@ -61,10 +59,10 @@ export type Options<T extends Breakpoints> = {
 
 interface StyledBreakpointsTheme<Min, Max> {
   breakpoints: {
-    up(min: Min, orientation?: Orientation): string;
-    down(max: Max, orientation?: Orientation): string;
-    between(min: Min, max: Max, orientation?: Orientation): string;
-    only(key: Min, orientation?: Orientation): string;
+    up(min: Min, orientation?: 'portrait' | 'landscape'): string;
+    down(max: Max, orientation?: 'portrait' | 'landscape'): string;
+    between(min: Min, max: Max, orientation?: 'portrait' | 'landscape'): string;
+    only(key: Min, orientation?: 'portrait' | 'landscape'): string;
   };
 }
 
