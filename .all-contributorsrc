@@ -1,1 +1,129 @@
-undefined
+{
+  "projectName": "styled-breakpoints",
+  "projectOwner": "mg901",
+  "repoType": "github",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "mg901",
+      "name": "mg901",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7874664?v=4",
+      "profile": "https://github.com/mg901",
+      "contributions": [
+        "question",
+        "code",
+        "design",
+        "doc",
+        "example",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "promotion",
+        "research",
+        "review",
+        "test",
+        "tool",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "stuneak",
+      "name": "Abu Shamsutdinov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22033385?v=4",
+      "profile": "http://t.me/stuneak",
+      "contributions": ["bug", "code", "example", "ideas", "review", "talk"]
+    },
+    {
+      "login": "sergeysova",
+      "name": "Sova",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5620073?v=4",
+      "profile": "https://sergeysova.com/",
+      "contributions": ["code", "example", "ideas", "review", "talk"]
+    },
+    {
+      "login": "jussikinnula",
+      "name": "Jussi Kinnula",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7287118?v=4",
+      "profile": "https://jussikinnula.com/",
+      "contributions": ["bug", "code"]
+    },
+    {
+      "login": "rafauke",
+      "name": "Rafał Wyszomirski",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9576167?v=4",
+      "profile": "https://github.com/rafauke",
+      "contributions": ["doc"]
+    },
+    {
+      "login": "GR34SE",
+      "name": "Adrian Celczyński",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35396312?v=4",
+      "profile": "https://afflite.com/",
+      "contributions": ["bug", "code"]
+    },
+    {
+      "login": "samholmes",
+      "name": "Sam Holmes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/517469?v=4",
+      "profile": "https://github.com/samholmes",
+      "contributions": ["code", "ideas"]
+    },
+    {
+      "login": "Ontopic",
+      "name": "Ontopic",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1599991?v=4",
+      "profile": "https://github.com/Ontopic",
+      "contributions": ["ideas"]
+    },
+    {
+      "login": "iRyanBell",
+      "name": "Ryan Bell",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25379378?v=4",
+      "profile": "https://github.com/iRyanBell",
+      "contributions": ["ideas"]
+    },
+    {
+      "login": "tremby",
+      "name": "Bart Nagel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/199635?v=4",
+      "profile": "https://bartnagel.ca/",
+      "contributions": ["bug", "code", "example", "ideas"]
+    },
+    {
+      "login": "mckelveygreg",
+      "name": "Greg McKelvey",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16110122?v=4",
+      "profile": "https://mckelveygreg.github.io/",
+      "contributions": ["code"]
+    },
+    {
+      "login": "bdefore",
+      "name": "Buck DeFore",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142472?v=4",
+      "profile": "https://github.com/bdefore",
+      "contributions": ["ideas"]
+    },
+    {
+      "login": "pierreburel",
+      "name": "Pierre Burel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37228?v=4",
+      "profile": "https://www.pierreburel.com/",
+      "contributions": ["bug"]
+    },
+    {
+      "login": "flagoon",
+      "name": "Pawel Kochanek",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20648154?v=4",
+      "profile": "https://github.com/flagoon",
+      "contributions": ["bug", "code"]
+    },
+    {
+      "login": "iandjx",
+      "name": "Ian Christopher B. de Jesus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3683356?v=4",
+      "profile": "https://github.com/iandjx",
+      "contributions": ["bug"]
+    }
+  ]
+}
+
