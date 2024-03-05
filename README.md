@@ -299,6 +299,8 @@ declare module '@emotion/react' {
 
 ### 🚀 Integration to App
 
+<br>
+
 `app.tsx`
 
 ```tsx
