@@ -233,7 +233,7 @@ export const theme = {
 <hr>
 <br>
 
-<h4>💅 Styled Components</h4>
+<h4>💅 Using with Styled Components</h4>
 
 ##### 🚩 Installation
 
@@ -267,7 +267,7 @@ declare module 'styled-components' {
 
 <h4>
 <g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
-Emotion</h4>
+Using with Emotion</h4>
 
 ##### 🚩 Installation
 
