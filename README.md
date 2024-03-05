@@ -31,9 +31,9 @@ styled-breakpoints <br>
     <img src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" alt="Styled Components Logo" width="80">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;<strong>OR</strong>&nbsp;&nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/emotion-js/emotion/main/emotion.png" alt="Emotion logo" width="80">
+<a href="https://emotion.sh/docs/introduction" rel="nofollow"><img src="https://raw.githubusercontent.com/emotion-js/emotion/main/emotion.png" alt="Emotion logo" width="80"></a>
 
-  <p>
+<p>
 
 </div>
 <br >
@@ -41,7 +41,7 @@ styled-breakpoints <br>
 
 ## 🌼 Preview
 
-Inside components.
+**Inside** components.
 
 ```tsx
 const Box = styled.div`
@@ -59,7 +59,7 @@ const Box = styled.div`
 
 <br>
 
-Outside components.
+**Outside** components.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
@@ -115,7 +115,7 @@ From largest to smallest
 ## 📖 Documentation
 
 - [core concepts](#core-concepts)
-- [getting started](#getting-started)
+- 🚩 [getting started](#getting-started)
 - [Media Queries API](#media-queries-api)
 
   - [min-width - up](#min-width---up)
