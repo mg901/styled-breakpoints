@@ -31,23 +31,17 @@ styled-breakpoints <br>
     <img src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" alt="Styled Components Logo" width="80">
   </a>
   &nbsp;&nbsp;&nbsp;&nbsp;<strong>OR</strong>&nbsp;&nbsp;&nbsp;
-<img src="https://raw.githubusercontent.com/emotion-js/emotion/main/emotion.png" alt="Emotion logo" width="80">
+<a href="https://emotion.sh/docs/introduction" rel="nofollow"><img src="https://raw.githubusercontent.com/emotion-js/emotion/main/emotion.png" alt="Emotion logo" width="80"></a>
 
-  <p>
+<p>
 
 </div>
 <br >
 <br >
 
-# Breakpoints
+## 🌼 Preview
 
-Breakpoints serve as adjustable widths that determine the behavior of your responsive layout across different device or viewport sizes.
-
-<br>
-
-## Preview
-
-For **own** components.
+**Inside** components.
 
 ```tsx
 const Box = styled.div`
@@ -65,14 +59,14 @@ const Box = styled.div`
 
 <br>
 
-For **third party** components.
+**Outside** components.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
 
 const Layout = () => {
-  // You could use hooks API
-  const isMd = useMediaQuery(useTheme().breakpoints.up('md'));
+  const { breakpoints } = useTheme();
+  const isMd = useMediaQuery(breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
@@ -82,7 +76,7 @@ const Layout = () => {
 
 ## Examples
 
-### Mobile First
+### 👉🏻 Mobile First
 
 From smallest to largest
 
@@ -94,7 +88,7 @@ From smallest to largest
 
 <br>
 
-### Desktop First
+### 👉🏻 Desktop First
 
 From largest to smallest
 
@@ -106,7 +100,7 @@ From largest to smallest
 
 <br>
 
-### Hooks API
+### 👉🏻 Hooks API
 
 <div>
   <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
@@ -118,11 +112,10 @@ From largest to smallest
 
 <br>
 
-## Documentation
+## 📖 Documentation
 
-- core concepts
-- available breakpoints
-- [quick start](#quick-start)
+- [core concepts](#core-concepts)
+- 🚩 [getting started](#getting-started)
 - [Media Queries API](#media-queries-api)
 
   - [min-width - up](#min-width---up)
@@ -135,7 +128,7 @@ From largest to smallest
 
 <br>
 
-<details><summary><h2>Core concepts</h2></summary>
+## 🧐 Core concepts
 
 - **Breakpoints act as the fundamental elements of responsive design**. They enable you to control when your layout can adapt to a specific viewport or device size.
 
@@ -143,13 +136,31 @@ From largest to smallest
 
 - **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
 
-</details>
+<br>
 
-<details><summary><h2>Available breakpoints</h2></summary>
+## Getting Started
+
+### 🚩 Installation
+
+```sh
+npm install styled-breakpoints@latest
+
+# or
+
+yarn add styled-breakpoints@latest
+```
+
+<br >
+
+### Configuration
+
+#### 🚩 Available breakpoints
 
 Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
 
 Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
+
+<br>
 
 ```tsx
 const breakpoints = {
@@ -162,25 +173,7 @@ const breakpoints = {
 };
 ```
 
-</details>
-
-## Quick start
-
-<details open><summary><h3>💅 Styled Components</h3></summary>
-
-#### Installation
-
-```sh
-npm install styled-components styled-breakpoints@latest
-
-# or
-
-yarn add styled-components styled-breakpoints@latest
-```
-
-<br >
-
-#### Configuration
+<br>
 
 `theme/config.ts`
 
@@ -190,7 +183,69 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 export const theme = createStyledBreakpointsTheme();
 ```
 
-<br >
+<hr/>
+<br>
+
+#### Customization
+
+##### 🚩 Breakpoints
+
+`theme/config.ts`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+
+export const theme = createStyledBreakpointsTheme({
+  breakpoints: {
+    small: '100px',
+    medium: '200px',
+    large: '300px',
+    xLarge: '400px',
+    xxLarge: '500px',
+  },
+});
+```
+
+<br>
+
+##### 🎨 Merge with Another Theme
+
+`theme/config.ts`
+
+```tsx
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
+
+export const primaryTheme = {
+  fonts: ['sans-serif', 'Roboto'],
+  fontSizes: {
+    small: '1em',
+    medium: '2em',
+    large: '3em',
+  },
+} as const;
+
+export const theme = {
+  ...primaryTheme,
+  ...createStyledBreakpointsTheme(),
+};
+```
+
+<hr>
+<br>
+
+<h4>💅 Using with Styled Components</h4>
+
+##### 🚩 Installation
+
+```sh
+npm install styled-components
+
+# or
+
+yarn add styled-components
+```
+
+<br>
 
 `theme/styled.d.ts`
 
@@ -205,55 +260,23 @@ declare module 'styled-components' {
 }
 ```
 
-<br >
-
-`app.tsx`
-
-```tsx
-import styled { ThemeProvider } from 'styled-components';
-import { theme } from './theme/config';
-
-const Box = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.breakpoints.up('sm')} {
-    display: block;
-  }
-`;
-
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Box />
-  </ThemeProvider>
-);
-```
-
 </details>
 
-<details><summary><h3>
-<g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
-Emotion</h3></summary>
+<hr>
+<br>
 
-#### Installation
+<h4>
+<g-emoji class="g-emoji" alias="woman_singer" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f469-1f3a4.png">👩&zwj;🎤</g-emoji>
+Using with Emotion</h4>
+
+##### 🚩 Installation
 
 ```sh
-npm install @emotion/{styled,react} styled-breakpoints@latest
+npm install @emotion/{styled,react}
 
 # or
 
-yarn add @emotion/{styled,react} styled-breakpoints@latest
-```
-
-<br >
-
-#### Configuration
-
-`theme/config.ts`
-
-```tsx
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const theme = createStyledBreakpointsTheme();
+yarn add @emotion/{styled,react}
 ```
 
 <br >
@@ -271,12 +294,17 @@ declare module '@emotion/react' {
 }
 ```
 
-<br >
+<hr/>
+<br>
+
+### 🚀 Integration to App
+
+<br>
 
 `app.tsx`
 
 ```tsx
-import styled, { ThemeProvider } from '@emotion/styled';
+import styled { ThemeProvider } from 'styled-components'; // or '@emotion/react'
 import { theme } from './theme/config';
 
 const Box = styled.div`
@@ -289,7 +317,7 @@ const Box = styled.div`
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Box />
+    <Box>🥳</Box>
   </ThemeProvider>
 );
 ```
@@ -300,7 +328,7 @@ const App = () => (
 
 ## Media queries API
 
-- 🚀 Caching is implemented in all functions to optimize performance.
+🚀 Caching is implemented in all functions to optimize performance.
 
 <br>
 
@@ -330,7 +358,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Will be converted to pure css:  </strong></summary>
+<strong>Will be converted to pure css:  </strong>
 
 ```css
 @media (min-width: 768px) {
@@ -370,7 +398,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Will be converted to pure css: </strong></summary>
+<strong>Will be converted to pure css: </strong>
 
 ```css
 @media (max-width: 767.98px) {
@@ -415,7 +443,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Will be converted to pure css: </strong></summary>
+<strong>Will be converted to pure css: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -456,7 +484,7 @@ const Box = styled.div`
 ```
 
 <br>
-<details><summary><strong>Will be converted to pure css: </strong></summary>
+<strong>Will be converted to pure css: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -468,62 +496,12 @@ const Box = styled.div`
 <hr/>
 <br>
 
-## Customization
-
-<h3>🛠️ Custom breakpoints</h3>
-
-<br>
-
-`theme/config.ts`
-
-```tsx
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const theme = createStyledBreakpointsTheme({
-  breakpoints: {
-    small: '100px',
-    medium: '200px',
-    large: '300px',
-    xLarge: '400px',
-    xxLarge: '500px',
-  },
-});
-```
-
-<br>
-
-<h3>🎨 Merge with Another Theme</h3>
-
-<br>
-
-`theme/config.ts`
-
-```tsx
-import { createStyledBreakpointsTheme } from 'styled-breakpoints';
-
-export const primaryTheme = {
-  fonts: ['sans-serif', 'Roboto'],
-  fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
-  },
-} as const;
-
-export const theme = {
-  ...primaryTheme,
-  ...createStyledBreakpointsTheme(),
-};
-```
-
-<br>
-
 ## `useMediaQuery` hook
 
 features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
-- ⚙️ It supports SSR (server-side rendering).
+- 💪🏻 It supports SSR (server-side rendering).
 - 📦 Minified and gzipped size 284b.
 
 <br>
@@ -549,6 +527,7 @@ const SomeComponent = () => {
 };
 ```
 
+<hr/>
 <br>
 
 ## License
