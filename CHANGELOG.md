@@ -1,3 +1,10 @@
+# [14.1.0](https://github.com/mg901/styled-breakpoints/compare/v14.0.0...v14.1.0) (2024-03-05)
+
+
+### Features
+
+* 🎸 improve type inference for orientation ([#1803](https://github.com/mg901/styled-breakpoints/issues/1803)) ([727f647](https://github.com/mg901/styled-breakpoints/commit/727f647f0ed56d5f908656a24529bd8da554c4b7))
+
 # [14.0.0](https://github.com/mg901/styled-breakpoints/compare/v13.1.4...v14.0.0) (2024-02-08)
 
 
