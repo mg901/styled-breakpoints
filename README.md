@@ -538,6 +538,9 @@ Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
+<hr>
+<br>
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
