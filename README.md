@@ -186,7 +186,7 @@ export const theme = createStyledBreakpointsTheme();
 <hr/>
 <br>
 
-#### 🛠️ Customization
+#### Customization
 
 ##### 🚩 Breakpoints
 
@@ -296,6 +296,8 @@ declare module '@emotion/react' {
 
 <hr/>
 <br>
+
+### Integration to Your App
 
 `app.tsx`
 
