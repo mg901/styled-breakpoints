@@ -568,6 +568,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/iandjx"><img src="https://avatars.githubusercontent.com/u/3683356?v=4?s=100" width="100px;" alt="Ian Christopher B. de Jesus"/><br /><sub><b>Ian Christopher B. de Jesus</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Aiandjx" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/daviddelusenet"><img src="https://avatars.githubusercontent.com/u/1398418?v=4?s=100" width="100px;" alt="David de Lusenet"/><br /><sub><b>David de Lusenet</b></sub></a><br /><a href="https://github.com/mg901/styled-breakpoints/issues?q=author%3Adaviddelusenet" title="Bug reports">🐛</a> <a href="#ideas-daviddelusenet" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
