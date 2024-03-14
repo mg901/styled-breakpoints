@@ -4793,7 +4793,7 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jiti@^1.19.1:
+jiti@^1.19.1, jiti@^1.21.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
@@ -7016,13 +7016,14 @@ sigstore@^2.2.0:
     "@sigstore/verify" "^0.1.0"
 
 size-limit@^11.0.2:
-  version "11.0.3"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.0.3.tgz#5c95c117ce2e6b50533b7f731c7b5f523c90feed"
-  integrity sha512-opXC+dOlwaKMyCx89WQq5J+LE+WdqtAFwaNwKNJv8xTCNMq6NIIY5LdayTRuRWWdsQM7hvI27afjtofN/m0gIw==
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.1.0.tgz#f0386fac40bfc26f4d8940e9d4824135e8391691"
+  integrity sha512-HvqVEUDJ3y/XL69pR3vxTavPr6s4S9ScJhHjLEjpctF0Ymgo1StmHgFeQoyQYb/1ip7olkWxJG3wRcZk1hZcPg==
   dependencies:
     bytes-iec "^3.1.1"
     chokidar "^3.6.0"
     globby "^14.0.1"
+    jiti "^1.21.0"
     lilconfig "^3.1.1"
     nanospinner "^1.1.0"
     picocolors "^1.0.0"
