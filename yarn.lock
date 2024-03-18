@@ -7022,9 +7022,9 @@ sigstore@^2.2.0:
     "@sigstore/verify" "^0.1.0"
 
 size-limit@^11.0.2:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.1.0.tgz#f0386fac40bfc26f4d8940e9d4824135e8391691"
-  integrity sha512-HvqVEUDJ3y/XL69pR3vxTavPr6s4S9ScJhHjLEjpctF0Ymgo1StmHgFeQoyQYb/1ip7olkWxJG3wRcZk1hZcPg==
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.1.1.tgz#13235ba218ca9d273e1b64d7ecd9195e37de0b2f"
+  integrity sha512-0d06gwp+hBuhNQyAyewalfMLhGCnjt15MyDxqouzxN4+85vjAUdRKSNuR1kcyxaS9Ml98q120U0PgRPocPJWiw==
   dependencies:
     bytes-iec "^3.1.1"
     chokidar "^3.6.0"
