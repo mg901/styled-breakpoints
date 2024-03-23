@@ -158,10 +158,6 @@ yarn add styled-breakpoints@latest
 
 Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
 
-Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
-
-<br>
-
 ```tsx
 const breakpoints = {
   xs: '0px',
@@ -173,7 +169,9 @@ const breakpoints = {
 };
 ```
 
-<br>
+Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
+
+#### 🚩 Default Configuration
 
 `theme/config.ts`
 
@@ -253,10 +251,10 @@ yarn add styled-components
 import 'styled-components';
 import { theme } from './theme/config';
 
-type CustomTheme = typeof theme;
+type MyTheme = typeof theme;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends CustomTheme {}
+  export interface DefaultTheme extends MyTheme {}
 }
 ```
 
@@ -287,10 +285,10 @@ yarn add @emotion/{styled,react}
 import '@emotion/react';
 import { theme } from './theme/config';
 
-type CustomTheme = typeof theme;
+type MyTheme = typeof theme;
 
 declare module '@emotion/react' {
-  export interface Theme extends CustomTheme {}
+  export interface Theme extends MyTheme {}
 }
 ```
 
