@@ -171,6 +171,8 @@ const breakpoints = {
 
 Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
 
+<br>
+
 #### 🚩 Default Configuration
 
 `theme/config.ts`
