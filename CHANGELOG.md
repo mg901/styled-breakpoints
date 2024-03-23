@@ -1,3 +1,10 @@
+## [14.1.2](https://github.com/mg901/styled-breakpoints/compare/v14.1.1...v14.1.2) (2024-03-23)
+
+
+### Bug Fixes
+
+* improve documentation ([#1834](https://github.com/mg901/styled-breakpoints/issues/1834)) ([6a63d49](https://github.com/mg901/styled-breakpoints/commit/6a63d490f88213b95d5fa4233ca0dce44b7f3391))
+
 ## [14.1.1](https://github.com/mg901/styled-breakpoints/compare/v14.1.0...v14.1.1) (2024-03-23)
 
 
