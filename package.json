@@ -67,7 +67,7 @@
     "@semantic-release/release-notes-generator": "^13.0.0",
     "@size-limit/file": "^11.0.2",
     "@size-limit/webpack": "^11.0.2",
-    "@testing-library/dom": "^9.2.0",
+    "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@vitest/coverage-istanbul": "^1.0.1",
