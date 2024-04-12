@@ -1,3 +1,10 @@
+## [14.1.3](https://github.com/mg901/styled-breakpoints/compare/v14.1.2...v14.1.3) (2024-04-12)
+
+
+### Bug Fixes
+
+* **use-media-query:** hook doesn't observe viewport changes ([#1853](https://github.com/mg901/styled-breakpoints/issues/1853)) ([242e849](https://github.com/mg901/styled-breakpoints/commit/242e849299fcc46064903bb9f936cf7d7143d8fc))
+
 ## [14.1.2](https://github.com/mg901/styled-breakpoints/compare/v14.1.1...v14.1.2) (2024-03-25)
 
 
