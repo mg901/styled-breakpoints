@@ -130,6 +130,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/1398418?v=4",
       "profile": "https://github.com/daviddelusenet",
       "contributions": ["bug", "ideas"]
+    },
+    {
+      "login": "AdlerJS",
+      "name": "Dan Adler",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82471930?v=4",
+      "profile": "https://github.com/AdlerJS",
+      "contributions": ["bug"]
     }
   ]
 }
