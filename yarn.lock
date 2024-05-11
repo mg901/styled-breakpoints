@@ -6987,9 +6987,9 @@ sigstore@^2.2.0:
     "@sigstore/verify" "^0.1.0"
 
 size-limit@^11.0.2:
-  version "11.1.2"
-  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.1.2.tgz#cef39f51d3557e3e24080528caf2df1856ecaaa7"
-  integrity sha512-W9V/QR98fiLgGg+S77DNy7usExpz7HCdDAqm2t2Q77GWCV//wWUC6hyZA9QXKk1x6bxMMTzq1vmncw5Cve/43w==
+  version "11.1.3"
+  resolved "https://registry.yarnpkg.com/size-limit/-/size-limit-11.1.3.tgz#93b35d151b5ae801a9f1ce82c0e5fb361f05c625"
+  integrity sha512-MSbQGmiiWPrEP1bXZKoWjeqq35GkqQz6FpgStIDES3QdXIZ34AQWKnP/QvLGTyDd6kTSfVFGSuJb1su9IGhZoQ==
   dependencies:
     bytes-iec "^3.1.1"
     chokidar "^3.6.0"
