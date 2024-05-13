@@ -1,19 +1,13 @@
-import { describe, beforeAll, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
 import { createBreakpointsApi } from './index.prod';
+import { calcMaxWidth } from '../calc-max-width';
+
+const breakpointsApi = createBreakpointsApi({
+  breakpoints: DEFAULT_BREAKPOINTS,
+});
 
 describe('createBreakpointsApi', () => {
-  let breakpointsApi = null;
-  let calcMaxWidth = null;
-
-  beforeAll(() => {
-    breakpointsApi = createBreakpointsApi({
-      breakpoints: DEFAULT_BREAKPOINTS,
-    });
-
-    calcMaxWidth = require('../calc-max-width').calcMaxWidth;
-  });
-
   describe('production environment', () => {
     it('has all the necessary methods', () => {
       // Arrange

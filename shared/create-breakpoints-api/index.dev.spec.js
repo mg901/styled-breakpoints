@@ -2,24 +2,15 @@ import { describe, beforeAll, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
 import { createBreakpointsApi } from './index.dev';
 
+const ERROR_PREFIX = '[breakpoints]: ';
+const INVALID_BREAKPOINT_KEY = 'invalid';
+const EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY = `${ERROR_PREFIX}Breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in ${Object.keys(
+  DEFAULT_BREAKPOINTS
+).join(', ')}.`;
+
+const EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE = `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`;
+
 describe('createBreakpointsApi', () => {
-  // Arrange
-  let ERROR_PREFIX;
-  let INVALID_BREAKPOINT_KEY;
-  let EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY;
-  let EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE;
-
-  // Arrange
-  beforeAll(() => {
-    ERROR_PREFIX = '[breakpoints]: ';
-    INVALID_BREAKPOINT_KEY = 'invalid';
-    EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY = `${ERROR_PREFIX}Breakpoint \`${INVALID_BREAKPOINT_KEY}\` not found in ${Object.keys(
-      DEFAULT_BREAKPOINTS
-    ).join(', ')}.`;
-
-    EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE = `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`;
-  });
-
   describe('development environment', () => {
     describe('breakpoints validation', () => {
       it('does not throw an error if all breakpoints are valid', () => {
