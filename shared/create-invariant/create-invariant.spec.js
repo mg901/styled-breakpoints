@@ -1,14 +1,9 @@
-import { describe, beforeEach, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { createInvariant, DEFAULT_PREFIX, DEFAULT_MESSAGE } from './index';
 
+const invariant = createInvariant();
+
 describe('createInvariant function', () => {
-  let invariant = null;
-
-  // Arrange
-  beforeEach(() => {
-    invariant = createInvariant();
-  });
-
   it('throws an error with the default error prefix if the condition is false', () => {
     // Act
     const received = () => invariant(false);
