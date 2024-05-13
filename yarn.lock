@@ -1233,9 +1233,9 @@
   integrity sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==
 
 "@size-limit/file@^11.0.2":
-  version "11.1.2"
-  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-11.1.2.tgz#34dfef49f73d3979e159e3dd0e9fa2995725708a"
-  integrity sha512-zktWwhO7MxVwQXbrZzy0VKfM5mZK3Aza1G3XbWRP8q+/3+irPKCz2fmyYJqJAJVwC9U1jAs6xEPlTJzxKgEAmw==
+  version "11.1.3"
+  resolved "https://registry.yarnpkg.com/@size-limit/file/-/file-11.1.3.tgz#fbee64c403b1eebae98a84afc176a9e55ead43b5"
+  integrity sha512-O4Q4Vr7CInM3kq5GlpgGM7sDLAtbCPVVyN0raNBFBYovhUEmEruEu/qXrGVdeEaA47wXOpMdZ9cYJVTkKNAV2g==
 
 "@size-limit/webpack@^11.0.2":
   version "11.1.2"
