@@ -1238,9 +1238,9 @@
   integrity sha512-O4Q4Vr7CInM3kq5GlpgGM7sDLAtbCPVVyN0raNBFBYovhUEmEruEu/qXrGVdeEaA47wXOpMdZ9cYJVTkKNAV2g==
 
 "@size-limit/webpack@^11.0.2":
-  version "11.1.3"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-11.1.3.tgz#765f6b6bc2383da1e40eb4a58ffc4fd7248d6570"
-  integrity sha512-UDqIzFGaHOAdDQR70riOzzjFvgUaBS5pj5zcJh6jPD3HuG448MMJ3o4OEd3L+X3VJ0szDbcHHKswDcl49inQ0A==
+  version "11.1.4"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-11.1.4.tgz#9eb65b921954608823daa366687b012b2af401f0"
+  integrity sha512-ikkvhPID8smxuBpO0VO2cgTutHcY3INPtVO4z9Qzb/ZdLV4zQ0MwtxWA9mZz92p+wLvTBKkMrewCdUYO2CIIaQ==
   dependencies:
     nanoid "^5.0.7"
     webpack "^5.91.0"
