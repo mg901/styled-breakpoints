@@ -73,7 +73,7 @@
     "@vitest/coverage-istanbul": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1",
     "all-contributors-cli": "^6.17.4",
-    "check-dts": "^0.7.2",
+    "check-dts": "^0.8.0",
     "commitizen": "^4.2.1",
     "coveralls": "^3.1.0",
     "cross-env": "^7.0.2",
