@@ -2598,17 +2598,6 @@ conventional-changelog-writer@^8.0.0:
     meow "^13.0.0"
     semver "^7.5.2"
 
-conventional-changelog-writer@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/conventional-changelog-writer/-/conventional-changelog-writer-8.0.0.tgz#81522ed40400a4ca8ab78a42794aae9667c745ae"
-  integrity sha512-TQcoYGRatlAnT2qEWDON/XSfnVG38JzA7E0wcGScu7RElQBkg9WWgZd1peCWFcWDh1xfb2CfsrcvOn1bbSzztA==
-  dependencies:
-    "@types/semver" "^7.5.5"
-    conventional-commits-filter "^5.0.0"
-    handlebars "^4.7.7"
-    meow "^13.0.0"
-    semver "^7.5.2"
-
 conventional-commit-types@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/conventional-commit-types/-/conventional-commit-types-3.0.0.tgz#7c9214e58eae93e85dd66dbfbafe7e4fffa2365b"
@@ -2621,11 +2610,6 @@ conventional-commits-filter@^2.0.0, conventional-commits-filter@^2.0.7:
   dependencies:
     lodash.ismatch "^4.4.0"
     modify-values "^1.0.0"
-
-conventional-commits-filter@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/conventional-commits-filter/-/conventional-commits-filter-4.0.0.tgz#845d713e48dc7d1520b84ec182e2773c10c7bf7f"
-  integrity sha512-rnpnibcSOdFcdclpFwWa+pPlZJhXE7l+XK04zxhbWrhgpR96h33QLz8hITTXbcYICxVr3HZFtbtUAQ+4LdBo9A==
 
 conventional-commits-filter@^5.0.0:
   version "5.0.0"
@@ -6531,9 +6515,9 @@ prettier@^2:
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
 prettier@^3.1.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.0.tgz#d173ea0524a691d4c0b1181752f2b46724328cdf"
-  integrity sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.1.tgz#e68935518dd90bb7ec4821ba970e68f8de16e1ac"
+  integrity sha512-7CAwy5dRsxs8PHXT3twixW9/OEll8MLE0VRPCJyl7CkS6VHGPSlsVaWTiASPTyGyYRyApxlaWTzwUxVNrhcwDg==
 
 pretty-format@^27.0.2:
   version "27.5.1"
