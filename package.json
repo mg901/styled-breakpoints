@@ -69,7 +69,7 @@
     "@size-limit/webpack": "^11.0.2",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^15.0.0",
+    "@testing-library/react": "^16.0.0",
     "@vitest/coverage-istanbul": "^1.0.1",
     "@vitest/coverage-v8": "^1.0.1",
     "all-contributors-cli": "^6.17.4",
