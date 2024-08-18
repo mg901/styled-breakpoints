@@ -154,7 +154,7 @@ yarn add styled-breakpoints@latest
 
 ### Configuration
 
-#### File Structure
+#### 🚩 File Structure
 
 ```js
  theme/
@@ -333,8 +333,6 @@ const App = () => (
 );
 ```
 
-</details>
-
 <br>
 
 ## Media queries API
@@ -344,8 +342,6 @@ const App = () => (
 <br>
 
 ### 👉🏻 Min-width - `up`
-
-<br>
 
 ```tsx
 const Box = styled.div`
@@ -366,7 +362,6 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
@@ -394,8 +389,6 @@ const Box = styled.div`
   display: none;
 }
 ```
-
-</details>
 
 <br>
 
@@ -429,7 +422,6 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
@@ -458,7 +450,6 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
