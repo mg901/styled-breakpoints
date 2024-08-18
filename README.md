@@ -65,8 +65,8 @@ const Box = styled.div`
 import { useTheme } from 'styled-components'; // or '@emotion/react'
 
 const Layout = () => {
-  const { breakpoints } = useTheme();
-  const isMd = useMediaQuery(breakpoints.up('md'));
+  const { up } = useTheme().breakpoints;
+  const isMd = useMediaQuery(up('md'));
 
   return <>{isMd && <Box />}</>;
 };
@@ -154,6 +154,17 @@ yarn add styled-breakpoints@latest
 
 ### Configuration
 
+#### 🚩 File Structure
+
+```js
+ theme/
+ ├── index.ts
+ └── styled.d.ts // or emotion.d.ts
+ app.tsx
+```
+
+<br>
+
 #### 🚩 Available breakpoints
 
 Styled Breakpoints includes six default breakpoints, often referred to as grid tiers, for building responsive designs. These breakpoints can be [customized](#customization).
@@ -175,7 +186,7 @@ Each breakpoint has been carefully selected to accommodate containers with width
 
 #### 🚩 Default Configuration
 
-`theme/config.ts`
+`theme/index.ts`
 
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
@@ -190,7 +201,7 @@ export const theme = createStyledBreakpointsTheme();
 
 ##### 🚩 Breakpoints
 
-`theme/config.ts`
+`theme/index.ts`
 
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
@@ -210,7 +221,7 @@ export const theme = createStyledBreakpointsTheme({
 
 ##### 🎨 Merge with Another Theme
 
-`theme/config.ts`
+`theme/index.ts`
 
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
@@ -251,12 +262,12 @@ yarn add styled-components
 
 ```ts
 import 'styled-components';
-import { theme } from './theme/config';
+import { theme } from './index';
 
-type MyTheme = typeof theme;
+type ThemeConfig = typeof theme;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends MyTheme {}
+  export interface DefaultTheme extends ThemeConfig {}
 }
 ```
 
@@ -285,19 +296,19 @@ yarn add @emotion/{styled,react}
 
 ```ts
 import '@emotion/react';
-import { theme } from './theme/config';
+import { theme } from './index';
 
-type MyTheme = typeof theme;
+type ThemeConfig = typeof theme;
 
 declare module '@emotion/react' {
-  export interface Theme extends MyTheme {}
+  export interface Theme extends ThemeConfig {}
 }
 ```
 
 <hr/>
 <br>
 
-### 🚀 Integration to App
+### 🚀 Integration to Your App
 
 <br>
 
@@ -305,7 +316,7 @@ declare module '@emotion/react' {
 
 ```tsx
 import styled { ThemeProvider } from 'styled-components'; // or '@emotion/react'
-import { theme } from './theme/config';
+import { theme } from './theme';
 
 const Box = styled.div`
   display: none;
@@ -317,12 +328,10 @@ const Box = styled.div`
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Box>🥳</Box>
+    <Box />
   </ThemeProvider>
 );
 ```
-
-</details>
 
 <br>
 
@@ -332,20 +341,7 @@ const App = () => (
 
 <br>
 
-### Min-width - `up`
-
-<br>
-
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
-  declare function up(
-    min: T,
-    orientation?: 'portrait' | 'landscape'
-  ) => string
-```
-
-</details>
+### 👉🏻 Min-width - `up`
 
 ```tsx
 const Box = styled.div`
@@ -358,7 +354,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will be converted to pure css:  </strong>
+<strong>Will convert to vanilla css:  </strong>
 
 ```css
 @media (min-width: 768px) {
@@ -366,26 +362,14 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
-### Max-width - `down`
+### 👉🏻 Max-width - `down`
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
 <br>
-
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
-  declare function down(
-    max: string,
-    orientation?: 'portrait' | 'landscape'
-  ) => string
-```
-
-</details>
 
 ```tsx
 const Box = styled.div`
@@ -398,15 +382,13 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will be converted to pure css: </strong>
+<strong>Will convert to vanilla css: </strong>
 
 ```css
 @media (max-width: 767.98px) {
   display: none;
 }
 ```
-
-</details>
 
 <br>
 
@@ -415,22 +397,11 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### Single breakpoint - `only`
+### 👉🏻 Single breakpoint - `only`
 
 There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
 <br>
-
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
-  declare function only(
-    name: string,
-    orientation?: 'portrait' | 'landscape'
-  ) => string
-```
-
-</details>
 
 ```tsx
 const Box = styled.div`
@@ -443,7 +414,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will be converted to pure css: </strong>
+<strong>Will convert to vanilla css: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -451,27 +422,14 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
-### Breakpoints range - `between`
+### 👉🏻 Breakpoints range - `between`
 
 Similarly, media queries may span multiple breakpoint widths.
 
 <br>
-
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
- declare function between(
-    min: string,
-    max: string,
-    orientation?: 'portrait' | 'landscape'
-  ) => string
-```
-
-</details>
 
 ```tsx
 const Box = styled.div`
@@ -484,7 +442,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will be converted to pure css: </strong>
+<strong>Will convert to vanilla css: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -492,11 +450,10 @@ const Box = styled.div`
 }
 ```
 
-</details>
 <hr/>
 <br>
 
-## `useMediaQuery` hook
+## 👉🏻 `useMediaQuery` hook
 
 features:
 
@@ -520,8 +477,8 @@ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const { breakpoints } = useTheme();
-  const isMd = useMediaQuery(breakpoints.only('md'));
+  const { only } = useTheme().breakpoints;
+  const isMd = useMediaQuery(only('md'));
 
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
@@ -534,7 +491,7 @@ const SomeComponent = () => {
 
 MIT License
 
-Copyright (c) 2018-2019 [Maxim Alyoshin](https://github.com/mg901).
+Copyright (c) 2018-2024 [Maxim Alyoshin](https://github.com/mg901).
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
