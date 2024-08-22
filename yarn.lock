@@ -2248,14 +2248,14 @@ chardet@^0.7.0:
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
 check-dts@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/check-dts/-/check-dts-0.8.0.tgz#b8de08daafd32fa517bb98ab052f76246e930f53"
-  integrity sha512-iub3DpbFX86JU+AI5+dPEIkE2K8P7AOaYwC06dnguiy4Y+KWYlz2ANwDIK0ghQ39QCbMsA39rOleVguUv73O3g==
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/check-dts/-/check-dts-0.8.2.tgz#941a3ed8d877b7fbd4f14dd836b3cbd234607695"
+  integrity sha512-+G9GREoEYIS/mLleQCIcsUdX6AyrURr8UENN3PzzBIe/mO2dKN/eNxsLu2atNrkjkY7ri1Gn5rjiy44IFgFxCw==
   dependencies:
     fast-glob "^3.3.2"
     nanospinner "^1.1.0"
     picocolors "^1.0.1"
-    vfile-location "^5.0.2"
+    vfile-location "^5.0.3"
 
 check-error@^1.0.3:
   version "1.0.3"
@@ -8159,10 +8159,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vfile-location@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/vfile-location/-/vfile-location-5.0.2.tgz#220d9ca1ab6f8b2504a4db398f7ebc149f9cb464"
-  integrity sha512-NXPYyxyBSH7zB5U6+3uDdd6Nybz6o6/od9rk8bp9H8GR3L+cm/fC0uUTbqBmUTnMCUDslAGBOIKNfvvb+gGlDg==
+vfile-location@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/vfile-location/-/vfile-location-5.0.3.tgz#cb9eacd20f2b6426d19451e0eafa3d0a846225c3"
+  integrity sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==
   dependencies:
     "@types/unist" "^3.0.0"
     vfile "^6.0.0"
