@@ -17,7 +17,7 @@ type TailOfTuple<T extends any[]> = T extends [infer _, ...infer Tail]
   ? Tail
   : never;
 
-export type TailOfUnion<T> = TailOfTuple<TuplifyUnion<T>>[number];
+type TailOfUnion<T> = TailOfTuple<TuplifyUnion<T>>[number];
 
 export type Breakpoints = Record<string, `${string}px`>;
 export type ErrorPrefix = `[${string}]: `;
