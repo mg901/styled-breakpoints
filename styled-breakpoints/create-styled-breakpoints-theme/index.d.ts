@@ -1,41 +1,23 @@
-/**
- * UnionToIntersection<{ foo: string } | { bar: string }> =
- *  { foo: string } & { bar: string }.
- */
-type UnionToIntersection<U> = (
-  U extends unknown ? (arg: U) => 0 : never
-) extends (arg: infer I) => 0
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+  k: infer I
+) => void
   ? I
   : never;
 
-/**
- * LastInUnion<1 | 2> = 2.
- */
-type LastInUnion<U> =
-  UnionToIntersection<U extends unknown ? (x: U) => 0 : never> extends (
-    x: infer L
-  ) => 0
-    ? L
+type LastOf<T> =
+  UnionToIntersection<T extends any ? () => T : never> extends () => infer R
+    ? R
     : never;
 
-/**
- * UnionToTuple<1 | 2> = [1, 2].
- */
-type UnionToTuple<U, Last = LastInUnion<U>> = [U] extends [never]
+type TuplifyUnion<T, Last = LastOf<T>> = [T] extends [never]
   ? []
-  : [...UnionToTuple<Exclude<U, Last>>, Last];
+  : [...TuplifyUnion<Exclude<T, Last>>, Last];
 
-/**
- * HeadlessTuple<[1, 2]> = [1]
- */
-type HeadlessTuple<T extends any[]> = T extends [infer _, ...infer Tail]
+type TailOfTuple<T extends any[]> = T extends [infer _, ...infer Tail]
   ? Tail
   : never;
 
-/**
- * OmitFirstInUnion<1 | 2> = 1
- */
-export type OmitFirstInUnion<T> = HeadlessTuple<UnionToTuple<T>>[number];
+export type TailOfUnion<T> = TailOfTuple<TuplifyUnion<T>>[number];
 
 export type Breakpoints = Record<string, `${string}px`>;
 export type ErrorPrefix = `[${string}]: `;
@@ -70,5 +52,5 @@ export function createStyledBreakpointsTheme<
   T extends Breakpoints = DefaultBreakpoints,
   Keys extends keyof T = DefaultBreakpointKeys,
   KeysWithoutFirst extends
-    OmitFirstInUnion<Keys> = OmitFirstInUnion<DefaultBreakpointKeys>,
+    TailOfUnion<Keys> = TailOfUnion<DefaultBreakpointKeys>,
 >(options?: Options<T>): StyledBreakpointsTheme<Keys, KeysWithoutFirst>;
