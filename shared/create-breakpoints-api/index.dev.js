@@ -17,7 +17,7 @@ const { createInvariant } = require('../create-invariant');
  *  up(min: string): `${string}px`,
  *  down(max: string): `${string}px`,
  *  between(min: string, max: string): { min: `${string}px`, max: `${string}px` }
- * }}
+ * }} An object containing methods and properties for managing breakpoints.
  */
 exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
   const validation = createValidation({
@@ -44,7 +44,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
    * Get the minimum breakpoint value.
    *
    * @param {string} min - The key of the breakpoint.
-   * @returns {`${string}px`} - The minimum breakpoint value.
+   * @returns {`${string}px`} The minimum breakpoint value.
    */
   function up(min) {
     validation.validateKey(min);
@@ -57,7 +57,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
    * Get the maximum breakpoint value.
    *
    * @param {string} max - The key of the breakpoint.
-   * @returns {`${string}px`} - The maximum breakpoint value.
+   * @returns {`${string}px`} The maximum breakpoint value.
    */
   function down(max) {
     validation.validateKey(max);
@@ -72,7 +72,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
    *
    * @param {string} min - The key for the minimum breakpoint.
    * @param {string} max - The key for the maximum breakpoint.
-   * @returns {{ min: `${string}px`, max: `${string}px` }}
+   * @returns {{ min: `${string}px`, max: `${string}px` }} An object containing the minimum and maximum breakpoint values.
    */
   function between(min, max) {
     validation.validateKey(min);
@@ -97,7 +97,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
  *  validateKey(key: string): void,
  *  validateNonZeroValue(key: string): void,
  *  validateMaxIsGreaterOrEqualToMin(min: string, max: string): void
- * }}
+ * }} An object containing methods for validating breakpoints and handling errors.
  */
 function createValidation({ errorPrefix, breakpoints }) {
   const invariant = createInvariant(errorPrefix);
@@ -111,18 +111,23 @@ function createValidation({ errorPrefix, breakpoints }) {
     validateMaxIsGreaterOrEqualToMin,
   };
 
+  /**
+   * Validates all breakpoints to ensure they follow the correct format.
+   * If any breakpoint value does not match the expected format, an error is thrown.
+   *
+   * @throws {Error} Throws an error if any breakpoint values are invalid.
+   */
   function validateBreakpoints() {
-    const VALID_PATTERN = /^\d+px$/;
-
     /**
+     * Checks if a breakpoint value is valid and collects invalid ones.
      *
-     * @param {string[]} acc
-     * @param {string} key
-     * @returns  {string[]}
+     * @param {string[]} acc - Accumulator array that collects invalid breakpoints.
+     * @param {string} key - The key for the current breakpoint being checked.
+     * @returns {string[]} The updated accumulator array containing invalid breakpoints.
      */
     const reducer = (acc, key) => {
       // Check the validity of breakpoint values
-      if (!VALID_PATTERN.test(breakpoints[key].trim())) {
+      if (!breakpoints[key].trim().endsWith('px')) {
         acc.push(`${key}: ${breakpoints[key]}`);
       }
 
