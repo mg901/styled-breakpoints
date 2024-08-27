@@ -10,7 +10,7 @@
  *
  * @template {(...args: any[]) => any} T
  * @param {T} fn - The function to be memoized.
- * @returns {MemoizeFn<T>} - The memoized function.
+ * @returns {MemoizeFn<T>} The memoized function.
  */
 exports.memoize = (fn) => {
   const cache = new Map();

@@ -4,6 +4,7 @@
  * @typedef {Object} Options
  * @property {string} mediaQuery - The media query string (e.g., '@media screen').
  * @property {string} orientation - The orientation type (e.g., 'portrait' or 'landscape').
+ * @property {(condition: boolean, message?: string) => void} [invariant] - An invariant function.
  */
 
 /**
