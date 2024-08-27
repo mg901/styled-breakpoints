@@ -1,6 +1,7 @@
 import { describe, beforeAll, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
 import { createBreakpointsApi } from './index.dev';
+import { calcMaxWidth } from '../calc-max-width';
 
 const ERROR_PREFIX = '[breakpoints]: ';
 const INVALID_BREAKPOINT_KEY = 'invalid';
@@ -77,6 +78,17 @@ describe('createBreakpointsApi', () => {
           // Assert
           expect(received).toThrow(EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY);
         });
+
+        // Arrange
+        const testCases = Object.entries(DEFAULT_BREAKPOINTS);
+
+        it.each(testCases)(
+          'returns the correct minimum value for breakpoint %s',
+          (key, value) => {
+            // Act and Assert
+            expect(breakpointsApi.up(key)).toBe(value);
+          }
+        );
       });
 
       describe('down', () => {
@@ -95,6 +107,20 @@ describe('createBreakpointsApi', () => {
           // Act and Assert
           expect(() => down('xs')).toThrow(expected);
         });
+
+        // Arrange
+        const testCases = Object.entries(DEFAULT_BREAKPOINTS);
+
+        it.each(testCases)(
+          'calculates the correct maximum value for breakpoint %s',
+          (key, value) => {
+            // Act
+            const received = breakpointsApi.down(key);
+
+            // Assert
+            expect(received).toBe(calcMaxWidth(value));
+          }
+        );
       });
 
       describe('between', () => {
