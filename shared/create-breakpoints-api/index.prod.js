@@ -17,7 +17,7 @@ const { calcMaxWidth } = require('../calc-max-width');
  *    min: `${string}px` | undefined,
  *    max: `${string}px` | undefined
  *  }
- * }} - An object with breakpoint functions
+ * }} An object containing methods and properties for managing breakpoints.
  */
 exports.createBreakpointsApi = ({ breakpoints }) => {
   /**
