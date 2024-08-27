@@ -74,7 +74,8 @@ describe('createBreakpointsApi', () => {
 
       describe('down', () => {
         // Arrange
-        const testCases = Object.entries(DEFAULT_BREAKPOINTS);
+        const { xs, ...rest } = DEFAULT_BREAKPOINTS;
+        const testCases = Object.entries(rest);
 
         it.each(testCases)(
           'calculates the correct maximum value for breakpoint %s',

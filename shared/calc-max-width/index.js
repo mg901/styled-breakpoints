@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Calculates the maximum breakpoint width based on the provided minimum width value.
  *
@@ -8,6 +10,6 @@
  * See https://bugs.webkit.org/show_bug.cgi?id=178261
  *
  * @param {string} value - The minimum breakpoint width value.
- * @returns {string} - The calculated maximum breakpoint width.
+ * @returns {`${string}px`} - The calculated maximum breakpoint width.
  */
 exports.calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;
