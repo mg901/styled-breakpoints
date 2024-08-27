@@ -1,3 +1,5 @@
+// @ts-check
+
 const { useState, useLayoutEffect, useEffect } = require('react');
 
 exports.useMediaQuery = useMediaQuery;
@@ -11,8 +13,9 @@ exports.useMediaQuery = useMediaQuery;
 
 /**
  * Custom hook for handling media queries.
+ *
  * @param {string} query - The media query to match.
- * @returns {boolean} - `true` if the media query matches, otherwise `false`.
+ * @returns {boolean} - `true` if the media query matches the current state, `false` otherwise.
  */
 function useMediaQuery(query) {
   const [isMatch, setIsMatch] = useState(IS_BROWSER && getInitialState(query));
@@ -30,7 +33,6 @@ function useMediaQuery(query) {
     };
 
     mediaQueryList.addEventListener('change', handleChange);
-
     setIsMatch(mediaQueryList.matches);
 
     return () => {
@@ -43,6 +45,12 @@ function useMediaQuery(query) {
   return isMatch;
 }
 
+/**
+ * Gets the initial state of a media query.
+ *
+ * @param {string} query - The media query string.
+ * @returns {boolean} - `true` if the media query matches the current state, `false` otherwise.
+ */
 function getInitialState(query) {
   return window.matchMedia(query).matches;
 }
