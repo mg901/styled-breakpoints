@@ -1244,12 +1244,12 @@
   integrity sha512-oz/XBVUJh95GpzDb9/f4sEQD/ACJ9zEKSRgBtvMUTN0c+O/9uq+RzvFeXFN2Kjpx3Dmur1ta+oZsp3zQFxlb3Q==
 
 "@size-limit/webpack@^11.0.2":
-  version "11.1.4"
-  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-11.1.4.tgz#9eb65b921954608823daa366687b012b2af401f0"
-  integrity sha512-ikkvhPID8smxuBpO0VO2cgTutHcY3INPtVO4z9Qzb/ZdLV4zQ0MwtxWA9mZz92p+wLvTBKkMrewCdUYO2CIIaQ==
+  version "11.1.5"
+  resolved "https://registry.yarnpkg.com/@size-limit/webpack/-/webpack-11.1.5.tgz#02615fa6d5bb48cf5bbe2725dec7db260f906945"
+  integrity sha512-h4uJINq5/Y8qJ2oiATg4SGDgszn07b4TFWWT/w58OGt2+avrLSWgUfVM+ghkhplzKWLJK/UtvcqTg6ym2XnU9w==
   dependencies:
     nanoid "^5.0.7"
-    webpack "^5.91.0"
+    webpack "^5.94.0"
 
 "@testing-library/dom@^10.0.0":
   version "10.4.0"
@@ -8297,7 +8297,7 @@ webpack-sources@^3.2.3:
   resolved "https://registry.yarnpkg.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
   integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
-webpack@^5.91.0:
+webpack@^5.94.0:
   version "5.94.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.94.0.tgz#77a6089c716e7ab90c1c67574a28da518a20970f"
   integrity sha512-KcsGn50VT+06JH/iunZJedYGUJS5FGjow8wb9c0v5n1Om8O1g4L6LjtfxwlXIATopoQu+vOXXa7gYisWxCoPyg==
