@@ -1,7 +1,7 @@
-type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
-  k: infer I
-) => void
-  ? I
+type UnionToIntersection<U> = (
+  U extends any ? (arg: U) => void : never
+) extends (arg: infer R) => void
+  ? R
   : never;
 
 type LastOf<T> =
@@ -9,15 +9,15 @@ type LastOf<T> =
     ? R
     : never;
 
-type TuplifyUnion<T, Last = LastOf<T>> = [T] extends [never]
+type UnionToTuple<T, Last = LastOf<T>> = [T] extends [never]
   ? []
-  : [...TuplifyUnion<Exclude<T, Last>>, Last];
+  : [...UnionToTuple<Exclude<T, Last>>, Last];
 
 type TailOfTuple<T extends any[]> = T extends [infer _, ...infer Tail]
   ? Tail
   : never;
 
-type TailOfUnion<T> = TailOfTuple<TuplifyUnion<T>>[number];
+type TailOfUnion<T> = TailOfTuple<UnionToTuple<T>>[number];
 
 export type Breakpoints = Record<string, `${string}px`>;
 export type ErrorPrefix = `[${string}]: `;
