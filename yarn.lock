@@ -1347,9 +1347,9 @@
   integrity sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==
 
 "@types/react@^19.0.1":
-  version "19.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.2.tgz#9363e6b3ef898c471cb182dd269decc4afc1b4f6"
-  integrity sha512-USU8ZI/xyKJwFTpjSVIrSeHBVAGagkHQKPNbxeWwql/vDmnTIBgx+TJnhFnj1NXgz8XfprU0egV2dROLGpsBEg==
+  version "19.0.3"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.3.tgz#7867240defc1a3686f151644ac886a7e8e0868f4"
+  integrity sha512-UavfHguIjnnuq9O67uXfgy/h3SRJbidAYvNjLceB+2RIKVRBzVsh0QO+Pw6BCSQqFS9xwzKfwstXx0m6AbAREA==
   dependencies:
     csstype "^3.0.2"
 
@@ -4533,14 +4533,6 @@ import-fresh@^3.2.1, import-fresh@^3.3.0:
   dependencies:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
-
-import-from-esm@^1.0.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/import-from-esm/-/import-from-esm-1.3.3.tgz#eea1c4ad86a54bf425b3b71fca56d50215ccc6b7"
-  integrity sha512-U3Qt/CyfFpTUv6LOP2jRTLYjphH6zg3okMfHbyqRa/W2w6hr8OsJWVggNlR4jxuojQy81TgTJTxgSkyoteRGMQ==
-  dependencies:
-    debug "^4.3.4"
-    import-meta-resolve "^4.0.0"
 
 import-from-esm@^2.0.0:
   version "2.0.0"
