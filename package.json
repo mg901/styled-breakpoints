@@ -71,8 +71,8 @@
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^19.0.1",
-    "@vitest/coverage-istanbul": "^1.0.1",
-    "@vitest/coverage-v8": "^3.0.5",
+    "@vitest/coverage-istanbul": "^3.0.6",
+    "@vitest/coverage-v8": "^3.0.6",
     "all-contributors-cli": "^6.17.4",
     "check-dts": "^0.8.0",
     "commitizen": "^4.2.1",
@@ -98,6 +98,6 @@
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^11.0.2",
     "typescript": "^5.3.3",
-    "vitest": "^1.2.2"
+    "vitest": "^3.0.6"
   }
 }
