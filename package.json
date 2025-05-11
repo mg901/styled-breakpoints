@@ -20,7 +20,7 @@
     "semantic-release": "cross-env semantic-release",
     "contributors:add": "cross-env all-contributors add",
     "contributors:generate": "cross-env all-contributors generate",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "homepage": "https://github.com/mg901/styled-breakpoints#readme",
   "repository": {
@@ -89,7 +89,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-vitest": "^0.4.0",
     "git-cz": "^4.9.0",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
