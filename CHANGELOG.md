@@ -1,3 +1,10 @@
+## [14.1.5](https://github.com/mg901/styled-breakpoints/compare/v14.1.4...v14.1.5) (2025-05-11)
+
+
+### Bug Fixes
+
+* **readme:** set correct path for github workflow status ([#2087](https://github.com/mg901/styled-breakpoints/issues/2087)) ([20c96fc](https://github.com/mg901/styled-breakpoints/commit/20c96fcf51d424af3925ccb0efef745f6cd512e5))
+
 ## [14.1.4](https://github.com/mg901/styled-breakpoints/compare/v14.1.3...v14.1.4) (2024-08-18)
 
 
