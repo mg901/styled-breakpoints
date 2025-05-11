@@ -1,6 +1,3 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-yarn test:unit
-yarn test:types
-yarn test:size
+pnpm test:unit
+pnpm test:types
+pnpm test:size
