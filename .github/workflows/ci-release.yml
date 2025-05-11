@@ -1,6 +1,7 @@
-name: release
+name: CI & Release
 
 on:
+  pull_request:
   push:
     branches: ['master', 'alpha', 'beta']
 
@@ -8,23 +9,22 @@ jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 'lts/*'
-          cache: 'yarn'
-
+          version: '10'
+          run_install: true
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Linting
-        run: yarn lint
+        run: pnpm lint
 
       - name: Unit Tests
-        run: yarn test:unit:coverage
+        run: pnpm test:unit:coverage
 
       - name: Test types
-        run: yarn test:types
+        run: pnpm test:types
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
@@ -37,7 +37,21 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check size
-        run: yarn test:size
+        run: pnpm test:size
+
+  release:
+    if: github.event_name == 'push'
+    needs: check-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '10'
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Release
         env:
