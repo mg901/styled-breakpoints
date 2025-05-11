@@ -5,7 +5,7 @@
 styled-breakpoints <br>
 
 <a href="https://github.com/mg901/styled-breakpoints/actions?query=workflow%3Arelease">
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mg901/styled-breakpoints/ci-release.yml?branch=master&style=flat-square">
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mg901/styled-breakpoints/release.yml?branch=master&style=flat-square">
 </a>
 
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
