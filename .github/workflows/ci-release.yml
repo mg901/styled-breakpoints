@@ -1,16 +1,20 @@
-name: check branch
+name: CI & Release
 
-on: pull_request
+on:
+  pull_request:
+  push:
+    branches: ['master', 'alpha', 'beta']
 
 jobs:
   check-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v4
         with:
           version: '10'
           run_install: true
+
       - name: Install dependencies
         run: pnpm install
 
@@ -35,3 +39,23 @@ jobs:
 
       - name: Check size
         run: pnpm test:size
+
+  release:
+    if: github.event_name == 'push'
+    needs: check-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '10'
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
