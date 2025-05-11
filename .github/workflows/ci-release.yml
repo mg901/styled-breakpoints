@@ -10,14 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 'lts/*'
-          cache: 'pnpm'
-
-      - name: Install pnpm
-        run: npx pnpm install
-
+          run_install: true
       - name: Install dependencies
         run: pnpm install
 
@@ -48,14 +43,10 @@ jobs:
     needs: check-branch
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 'lts/*'
-          cache: 'pnpm'
-
-      - name: Install pnpm
-        run: npx pnpm install
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install
