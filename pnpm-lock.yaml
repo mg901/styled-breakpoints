@@ -46,7 +46,7 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: ^16.0.0
-        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 16.3.0(@testing-library/dom@10.4.0)(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.1))(react@19.1.1)
       '@types/react':
         specifier: ^19.0.1
         version: 19.1.8
@@ -118,10 +118,10 @@ importers:
         version: 3.6.2
       react:
         specifier: ^19.0.0
-        version: 19.1.0
+        version: 19.1.1
       react-dom:
         specifier: ^19.0.0
-        version: 19.1.0(react@19.1.0)
+        version: 19.1.0(react@19.1.1)
       semantic-release:
         specifier: ^24.2.3
         version: 24.2.7(typescript@5.8.3)
@@ -3459,8 +3459,8 @@ packages:
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
+  react@19.1.1:
+    resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
     engines: {node: '>=0.10.0'}
 
   read-package-up@11.0.0:
@@ -5156,12 +5156,12 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.0)(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.0)(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.1))(react@19.1.1)':
     dependencies:
       '@babel/runtime': 7.27.1
       '@testing-library/dom': 10.4.0
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.1.1
+      react-dom: 19.1.0(react@19.1.1)
     optionalDependencies:
       '@types/react': 19.1.8
 
@@ -8025,16 +8025,16 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-dom@19.1.0(react@19.1.0):
+  react-dom@19.1.0(react@19.1.1):
     dependencies:
-      react: 19.1.0
+      react: 19.1.1
       scheduler: 0.26.0
 
   react-is@16.13.1: {}
 
   react-is@17.0.2: {}
 
-  react@19.1.0: {}
+  react@19.1.1: {}
 
   read-package-up@11.0.0:
     dependencies:
