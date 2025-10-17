@@ -95,7 +95,7 @@
     "prettier": "^3.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "semantic-release": "^24.2.3",
+    "semantic-release": "^25.0.0",
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^11.0.2",
     "typescript": "^5.3.3",
