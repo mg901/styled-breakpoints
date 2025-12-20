@@ -471,7 +471,7 @@ const SomeComponent = () => {
   const { only } = useTheme().breakpoints;
   const isMd = useMediaQuery(only('md'));
 
-  return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
+  return <Box>{isMd && <Box />}</Box>;
 };
 ```
 
@@ -489,9 +489,17 @@ declare function useMediaQuery(
 ): boolean;
 ```
 
-- `query` - The media query to track.
-- `defaultValue` - Value returned on the server. Default `false`.
-- `initializeWithValue` - If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
+#### Arguments
+
+- `query` – The CSS media query to track.
+
+- `options.defaultValue` – Value returned on the server for SSR. Defaults to false.
+
+- `options.initializeWithValue` – If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
+
+#### Returns
+
+- `boolean` – The current state of the media query.
 
 <hr/>
 <br>
