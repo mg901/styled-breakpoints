@@ -1,6 +1,6 @@
 // @ts-check
 
-const { createBreakpointsApi: coreApi } = require('./index.prod');
+const { createBreakpoints: bpProd } = require('./index.prod');
 const { createInvariant } = require('../create-invariant');
 
 /**
@@ -19,7 +19,7 @@ const { createInvariant } = require('../create-invariant');
  *  between(min: string, max: string): { min: `${string}px`, max: `${string}px` }
  * }} An object containing methods and properties for managing breakpoints.
  */
-exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
+exports.createBreakpoints = ({ errorPrefix, breakpoints }) => {
   const validation = createValidation({
     errorPrefix,
     breakpoints,
@@ -27,14 +27,14 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
 
   validation.validateBreakpoints();
 
-  const api = coreApi({
+  const bp = bpProd({
     breakpoints,
   });
 
   return {
-    keys: api.keys,
+    keys: bp.keys,
     invariant: validation.invariant,
-    getNextKey: api.getNextKey,
+    getNextKey: bp.getNextKey,
     up,
     down,
     between,
@@ -50,7 +50,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
     validation.validateKey(min);
 
     // @ts-ignore /* istanbul ignore next */
-    return api.up(min);
+    return bp.up(min);
   }
 
   /**
@@ -64,7 +64,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
     validation.validateNonZeroValue(max);
 
     // @ts-ignore /* istanbul ignore next */
-    return api.down(max);
+    return bp.down(max);
   }
 
   /**
@@ -80,7 +80,7 @@ exports.createBreakpointsApi = ({ errorPrefix, breakpoints }) => {
     validation.validateMaxIsGreaterOrEqualToMin(min, max);
 
     // @ts-ignore /* istanbul ignore next */
-    return api.between(min, max);
+    return bp.between(min, max);
   }
 };
 

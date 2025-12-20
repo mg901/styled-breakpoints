@@ -1,13 +1,13 @@
 import { describe, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
-import { createBreakpointsApi } from './index.prod';
+import { createBreakpoints } from './index.prod';
 import { calcMaxWidth } from '../calc-max-width';
 
-const breakpointsApi = createBreakpointsApi({
+const breakpointsApi = createBreakpoints({
   breakpoints: DEFAULT_BREAKPOINTS,
 });
 
-describe('createBreakpointsApi', () => {
+describe('createBreakpoints', () => {
   describe('production environment', () => {
     it('has all the necessary methods', () => {
       // Arrange
