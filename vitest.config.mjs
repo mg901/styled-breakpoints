@@ -3,6 +3,7 @@ import { defineConfig, configDefaults } from 'vitest/config';
 
 export default defineConfig({
   test: {
+    environment: 'jsdom', // вместо node
     coverage: {
       provider: 'istanbul',
       reporter: ['lcov'],

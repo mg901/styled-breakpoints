@@ -1,43 +1,49 @@
 // @ts-check
-
 const { useState, useLayoutEffect, useEffect } = require('react');
 
-exports.useMediaQuery = useMediaQuery;
-
-/* istanbul ignore next */
-const IS_BROWSER = typeof window !== 'undefined';
-/* istanbul ignore next */
-const useEnhancedEffect = IS_BROWSER ? useLayoutEffect : useEffect;
+const IS_SERVER = typeof window === 'undefined';
+const useIsomorphicLayoutEffect = IS_SERVER ? useEffect : useLayoutEffect;
 
 exports.useMediaQuery = useMediaQuery;
 
 /**
- * Custom hook for handling media queries.
- *
- * @param {string} query - The media query to match.
- * @returns {boolean} - `true` if the media query matches the current state, `false` otherwise.
+ * @param {string} query
+ * @param {{ defaultValue?: boolean, initializeWithValue?: boolean }} [options]
+ * @returns {boolean}
  */
-function useMediaQuery(query) {
-  const [isMatch, setIsMatch] = useState(IS_BROWSER && getInitialState(query));
+function useMediaQuery(
+  query,
+  { defaultValue = false, initializeWithValue = true } = {}
+) {
+  function getMatches() {
+    if (IS_SERVER) return defaultValue;
 
-  useEnhancedEffect(() => {
-    let mounted = true;
-    const mediaQueryList = window.matchMedia(query.replace(/^@media\s*/, ''));
+    return window.matchMedia(normalizeQuery(query)).matches;
+  }
 
-    const handleChange = () => {
-      /* istanbul ignore next */
-      if (!mounted) return;
+  const [isMatch, setIsMatch] = useState(() => {
+    if (initializeWithValue) {
+      return getMatches();
+    }
 
-      /* istanbul ignore next */
-      setIsMatch(mediaQueryList.matches);
-    };
+    /* istanbul ignore next */
+    return defaultValue;
+  });
 
+  function handleChange() {
+    setIsMatch(getMatches());
+  }
+
+  useIsomorphicLayoutEffect(() => {
+    if (IS_SERVER) return;
+
+    const mediaQueryList = window.matchMedia(normalizeQuery(query));
+
+    handleChange();
     mediaQueryList.addEventListener('change', handleChange);
-    setIsMatch(mediaQueryList.matches);
 
+    // eslint-disable-next-line consistent-return
     return () => {
-      mounted = false;
-
       mediaQueryList.removeEventListener('change', handleChange);
     };
   }, [query]);
@@ -46,11 +52,10 @@ function useMediaQuery(query) {
 }
 
 /**
- * Gets the initial state of a media query.
  *
- * @param {string} query - The media query string.
- * @returns {boolean} - `true` if the media query matches the current state, `false` otherwise.
+ * @param {string} query
+ * @returns {string}
  */
-function getInitialState(query) {
-  return window.matchMedia(query).matches;
+function normalizeQuery(query) {
+  return query.replace(/^@media\s*/, '');
 }

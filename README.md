@@ -117,7 +117,6 @@ From largest to smallest
 - [core concepts](#core-concepts)
 - 🚩 [getting started](#getting-started)
 - [Media Queries API](#media-queries-api)
-
   - [min-width - up](#min-width---up)
   - [max-width - down](#max-width---down)
   - [single breakpoint - only](#single-breakpoint---only)
@@ -459,17 +458,9 @@ features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
 - 💪🏻 It supports SSR (server-side rendering).
-- 📦 Minified and gzipped size 284b.
+- 📦 Minified and gzipped size 313b.
 
 <br>
-
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
- declare function useMediaQuery(query: string) => boolean
-```
-
-</details>
 
 ```tsx
 import { useTheme } from 'styled-components'; // or from '@emotion/react'
@@ -480,9 +471,35 @@ const SomeComponent = () => {
   const { only } = useTheme().breakpoints;
   const isMd = useMediaQuery(only('md'));
 
-  return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
+  return <Box>{isMd && <Box />}</Box>;
 };
 ```
+
+### API
+
+#### Type Declarations
+
+```ts
+declare function useMediaQuery(
+  query: string,
+  options?: {
+    defaultValue?: boolean;
+    initializeWithValue?: boolean;
+  }
+): boolean;
+```
+
+#### Arguments
+
+- `query` – The CSS media query to track.
+
+- `options.defaultValue` – Value returned on the server for SSR. Defaults to false.
+
+- `options.initializeWithValue` – If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
+
+#### Returns
+
+- `boolean` – The current state of the media query.
 
 <hr/>
 <br>
@@ -491,7 +508,7 @@ const SomeComponent = () => {
 
 MIT License
 
-Copyright (c) 2018-2024 [Maxim Alyoshin](https://github.com/mg901).
+Copyright (c) 2018-2025 [Maxim Alyoshin](https://github.com/mg901).
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
