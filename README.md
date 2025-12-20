@@ -117,7 +117,6 @@ From largest to smallest
 - [core concepts](#core-concepts)
 - 🚩 [getting started](#getting-started)
 - [Media Queries API](#media-queries-api)
-
   - [min-width - up](#min-width---up)
   - [max-width - down](#max-width---down)
   - [single breakpoint - only](#single-breakpoint---only)
@@ -463,14 +462,6 @@ features:
 
 <br>
 
-<details><summary><strong>Type declaration</strong></summary>
-
-```ts
- declare function useMediaQuery(query: string) => boolean
-```
-
-</details>
-
 ```tsx
 import { useTheme } from 'styled-components'; // or from '@emotion/react'
 import { useMediaQuery } from 'styled-breakpoints/use-media-query';
@@ -483,6 +474,24 @@ const SomeComponent = () => {
   return <AnotherComponent>{isMd && <Box />}</AnotherComponent>;
 };
 ```
+
+### API
+
+#### Type Declarations
+
+```ts
+declare function useMediaQuery(
+  query: string,
+  options?: {
+    defaultValue?: boolean;
+    initializeWithValue?: boolean;
+  }
+): boolean;
+```
+
+- `query` - The media query to track.
+- `defaultValue` - Value returned on the server. Default `false`.
+- `initializeWithValue` - If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
 
 <hr/>
 <br>
