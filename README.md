@@ -458,7 +458,7 @@ features:
 
 - 🧐 optimal performance by dynamically monitoring document changes in media queries.
 - 💪🏻 It supports SSR (server-side rendering).
-- 📦 Minified and gzipped size 284b.
+- 📦 Minified and gzipped size 313b.
 
 <br>
 
@@ -500,7 +500,7 @@ declare function useMediaQuery(
 
 MIT License
 
-Copyright (c) 2018-2024 [Maxim Alyoshin](https://github.com/mg901).
+Copyright (c) 2018-2025 [Maxim Alyoshin](https://github.com/mg901).
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
 
