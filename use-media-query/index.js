@@ -15,6 +15,12 @@ function useMediaQuery(
   query,
   { defaultValue = false, initializeWithValue = true } = {}
 ) {
+  function getMatches() {
+    if (IS_SERVER) return defaultValue;
+
+    return window.matchMedia(normalizeQuery(query)).matches;
+  }
+
   const [isMatch, setIsMatch] = useState(() => {
     if (initializeWithValue) {
       return getMatches();
@@ -23,10 +29,8 @@ function useMediaQuery(
     return defaultValue;
   });
 
-  function getMatches() {
-    if (IS_SERVER) return defaultValue;
-
-    return window.matchMedia(normalizeQuery(query)).matches;
+  function handleChange() {
+    setIsMatch(getMatches());
   }
 
   useIsomorphicLayoutEffect(() => {
@@ -42,10 +46,6 @@ function useMediaQuery(
       mediaQueryList.removeEventListener('change', handleChange);
     };
   }, [query]);
-
-  function handleChange() {
-    setIsMatch(getMatches());
-  }
 
   return isMatch;
 }
