@@ -1,3 +1,10 @@
+## [14.1.7](https://github.com/mg901/styled-breakpoints/compare/v14.1.6...v14.1.7) (2025-12-20)
+
+
+### Bug Fixes
+
+* release previously failed version due to deployment issue ([#2181](https://github.com/mg901/styled-breakpoints/issues/2181)) ([f82f2b3](https://github.com/mg901/styled-breakpoints/commit/f82f2b3e98946a0f65cc6742f3907c9afc111db3))
+
 ## [14.1.6](https://github.com/mg901/styled-breakpoints/compare/v14.1.5...v14.1.6) (2025-12-20)
 
 
