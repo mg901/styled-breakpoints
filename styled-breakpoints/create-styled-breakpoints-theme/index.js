@@ -1,7 +1,7 @@
 // @ts-check
 
-const { createBreakpointsApi } = require('../../shared/create-breakpoints-api');
-const { memoize } = require('../../shared/memoize');
+const { createBreakpoints } = require('../../core/create-breakpoints');
+const { memoize } = require('../memoize');
 const { withOrientation } = require('../with-orientation');
 
 /**
@@ -53,7 +53,7 @@ exports.createStyledBreakpointsTheme = ({
   breakpoints,
   errorPrefix,
 } = DEFAULT_OPTIONS) => {
-  const api = createBreakpointsApi({
+  const api = createBreakpoints({
     errorPrefix,
     breakpoints,
   });

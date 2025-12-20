@@ -1,6 +1,6 @@
 import { describe, beforeAll, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
-import { createBreakpointsApi } from './index.dev';
+import { createBreakpoints } from './index.dev';
 import { calcMaxWidth } from '../calc-max-width';
 
 const ERROR_PREFIX = '[breakpoints]: ';
@@ -11,13 +11,13 @@ const EXPECTED_ERROR_MESSAGE_FOR_INVALID_KEY = `${ERROR_PREFIX}Breakpoint \`${IN
 
 const EXPECTED_ERROR_MESSAGE_FOR_MAX_VALUE = `${ERROR_PREFIX}The \`max\` value cannot be less than the \`min\`.`;
 
-describe('createBreakpointsApi', () => {
+describe('createBreakpoints', () => {
   describe('development environment', () => {
     describe('breakpoints validation', () => {
       it('does not throw an error if all breakpoints are valid', () => {
         // Act
         const received = () =>
-          createBreakpointsApi({
+          createBreakpoints({
             breakpoints: DEFAULT_BREAKPOINTS,
             errorPrefix: ERROR_PREFIX,
           });
@@ -41,7 +41,7 @@ describe('createBreakpointsApi', () => {
 
         // Act
         const received = () =>
-          createBreakpointsApi({
+          createBreakpoints({
             breakpoints: invalidBreakpoints,
             errorPrefix: ERROR_PREFIX,
           });
@@ -60,7 +60,7 @@ describe('createBreakpointsApi', () => {
 
       // Arrange
       beforeAll(() => {
-        breakpointsApi = createBreakpointsApi({
+        breakpointsApi = createBreakpoints({
           breakpoints: DEFAULT_BREAKPOINTS,
           errorPrefix: ERROR_PREFIX,
         });

@@ -21,7 +21,7 @@ const { calcMaxWidth } = require('../calc-max-width');
  *  }
  * }} An object containing methods and properties for managing breakpoints.
  */
-exports.createBreakpointsApi = ({ breakpoints }) => {
+exports.createBreakpoints = ({ breakpoints }) => {
   /**
    * @type {Record<string, number>}
    */
