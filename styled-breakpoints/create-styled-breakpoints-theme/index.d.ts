@@ -51,6 +51,6 @@ interface StyledBreakpointsTheme<Min, Max> {
 export function createStyledBreakpointsTheme<
   T extends Breakpoints = DefaultBreakpoints,
   Keys extends keyof T = DefaultBreakpointKeys,
-  KeysWithoutFirst extends
-    TailOfUnion<Keys> = TailOfUnion<DefaultBreakpointKeys>,
+  KeysWithoutFirst extends TailOfUnion<Keys> =
+    TailOfUnion<DefaultBreakpointKeys>,
 >(options?: Options<T>): StyledBreakpointsTheme<Keys, KeysWithoutFirst>;

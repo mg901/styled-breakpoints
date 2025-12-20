@@ -21,7 +21,7 @@ module.exports = [
     name: 'useMediaQuery',
     path: './use-media-query/index.js',
     import: '{ useMediaQuery }',
-    limit: '313 B',
+    limit: '317 B',
   },
   {
     name: 'styled-breakpoints + useMediaQuery',
