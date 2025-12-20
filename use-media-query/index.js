@@ -26,6 +26,7 @@ function useMediaQuery(
       return getMatches();
     }
 
+    /* istanbul ignore next */
     return defaultValue;
   });
 
