@@ -1,7 +1,7 @@
 // @ts-check
 
 const { createBreakpoints } = require('../../core/create-breakpoints');
-const { memoize } = require('../../core/memoize');
+const { memoize } = require('../memoize');
 const { withOrientation } = require('../with-orientation');
 
 /**
