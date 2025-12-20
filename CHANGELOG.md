@@ -1,3 +1,10 @@
+## [14.1.6](https://github.com/mg901/styled-breakpoints/compare/v14.1.5...v14.1.6) (2025-12-20)
+
+
+### Bug Fixes
+
+* **use-media-query:** prevent errors on server by handling window and useLayoutEffect correctly ([#2180](https://github.com/mg901/styled-breakpoints/issues/2180)) ([b94d168](https://github.com/mg901/styled-breakpoints/commit/b94d168fc7bbff8bd64c903616af084f7088cee8))
+
 ## [14.1.5](https://github.com/mg901/styled-breakpoints/compare/v14.1.4...v14.1.5) (2025-05-11)
 
 
