@@ -1,7 +1,7 @@
 // @ts-check
 
-const { createBreakpointsApi } = require('../../shared/create-breakpoints-api');
-const { memoize } = require('../../shared/memoize');
+const { createBreakpointsApi } = require('../../core/create-breakpoints-api');
+const { memoize } = require('../../core/memoize');
 const { withOrientation } = require('../with-orientation');
 
 /**
