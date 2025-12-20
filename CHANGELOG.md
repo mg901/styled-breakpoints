@@ -1,3 +1,10 @@
+## [14.1.9](https://github.com/mg901/styled-breakpoints/compare/v14.1.8...v14.1.9) (2025-12-20)
+
+
+### Bug Fixes
+
+* redeploy v4.1.8 due to failed npm release ([#2184](https://github.com/mg901/styled-breakpoints/issues/2184)) ([a309813](https://github.com/mg901/styled-breakpoints/commit/a309813d7b72b7087de47ba50dca2b9095f5f16a))
+
 ## [14.1.8](https://github.com/mg901/styled-breakpoints/compare/v14.1.7...v14.1.8) (2025-12-20)
 
 
