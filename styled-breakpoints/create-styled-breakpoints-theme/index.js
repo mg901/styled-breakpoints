@@ -53,7 +53,7 @@ exports.createStyledBreakpointsTheme = ({
   breakpoints,
   errorPrefix,
 } = DEFAULT_OPTIONS) => {
-  const api = createBreakpoints({
+  const bp = createBreakpoints({
     errorPrefix,
     breakpoints,
   });
@@ -76,7 +76,7 @@ exports.createStyledBreakpointsTheme = ({
    */
   function up(min, orientation) {
     return withOrientationOrNot(
-      withMedia(withMinWidth(api.up(min))),
+      withMedia(withMinWidth(bp.up(min))),
       orientation
     );
   }
@@ -90,7 +90,7 @@ exports.createStyledBreakpointsTheme = ({
    */
   function down(max, orientation) {
     return withOrientationOrNot(
-      withMedia(withMaxWidth(api.down(max))),
+      withMedia(withMaxWidth(bp.down(max))),
       orientation
     );
   }
@@ -105,7 +105,7 @@ exports.createStyledBreakpointsTheme = ({
    */
   function between(min, max, orientation) {
     return withOrientationOrNot(
-      withRangeMedia(api.between(min, max)),
+      withRangeMedia(bp.between(min, max)),
       orientation
     );
   }
@@ -121,12 +121,12 @@ exports.createStyledBreakpointsTheme = ({
    * @returns {string} A media query string that targets a specific screen size segment, using minimum and maximum breakpoint widths.
    */
   function only(key, orientation) {
-    const isLastKey = key === api.keys.at(-1);
+    const isLastKey = key === bp.keys[bp.keys.length - 1];
 
     const mediaQuery = isLastKey
-      ? withMedia(withMinWidth(api.up(key)))
+      ? withMedia(withMinWidth(bp.up(key)))
       : // @ts-ignore
-        withRangeMedia(api.between(key, api.getNextKey(key)));
+        withRangeMedia(bp.between(key, bp.getNextKey(key)));
 
     return withOrientationOrNot(mediaQuery, orientation);
   }
@@ -143,7 +143,7 @@ exports.createStyledBreakpointsTheme = ({
       ? withOrientation({
           mediaQuery,
           orientation,
-          invariant: api.invariant && api.invariant,
+          invariant: bp.invariant && bp.invariant,
         })
       : mediaQuery;
   }
