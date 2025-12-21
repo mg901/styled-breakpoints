@@ -493,9 +493,10 @@ declare function useMediaQuery(
 
 - `query` – The CSS media query to track.
 
-- `options.defaultValue` – Value returned on the server for SSR. Defaults to false.
+- **options**
+  - `defaultValue` – Value returned on the server for SSR. Defaults to `false`.
 
-- `options.initializeWithValue` – If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
+  - `initializeWithValue` – If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
 
 #### Returns
 
