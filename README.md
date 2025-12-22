@@ -491,16 +491,22 @@ declare function useMediaQuery(
 
 #### Arguments
 
-- `query` – The CSS media query to track.
+- `query`  
+  CSS media query to evaluate.  
+  Accepts values with or without the `@media` prefix.
 
-- **options**
-  - `defaultValue` – Value returned on the server for SSR. Defaults to `false`.
+- `options` _(optional)_
+  - `defaultValue` _(default: `false`)_  
+    Value used during SSR and as a fallback.
 
-  - `initializeWithValue` – If `true` (default), reads the media query immediately on the client. For SSR, set `false` to use `defaultValue`.
+  - `initializeWithValue` _(default: `true`)_  
+    Whether to evaluate the media query immediately on the client.  
+    Set to `false` in SSR scenarios to avoid hydration mismatch.
 
 #### Returns
 
-- `boolean` – The current state of the media query.
+- `boolean`  
+  `true` if the media query currently matches the viewport.
 
 <hr/>
 <br>
