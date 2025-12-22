@@ -1,3 +1,10 @@
+# [14.2.0](https://github.com/mg901/styled-breakpoints/compare/v14.1.11...v14.2.0) (2025-12-22)
+
+
+### Features
+
+* add JSDoc for `useMediaQuery` to improve IDE hints and SSR understanding ([#2187](https://github.com/mg901/styled-breakpoints/issues/2187)) ([cc7ca1e](https://github.com/mg901/styled-breakpoints/commit/cc7ca1e7d141dde5bf0ef7603f60021c1dfa943b))
+
 ## [14.1.11](https://github.com/mg901/styled-breakpoints/compare/v14.1.10...v14.1.11) (2025-12-21)
 
 
