@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     name: 'createBreakpoints',
     path: './core/create-breakpoints/index.prod.js',
