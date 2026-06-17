@@ -1,8 +1,5 @@
 // @ts-check
-const { useState, useLayoutEffect, useEffect } = require('react');
-
-const IS_SERVER = typeof window === 'undefined';
-const useIsomorphicLayoutEffect = IS_SERVER ? useEffect : useLayoutEffect;
+const { useSyncExternalStore } = require('react');
 
 exports.useMediaQuery = useMediaQuery;
 
@@ -27,51 +24,35 @@ exports.useMediaQuery = useMediaQuery;
  * @returns {boolean}
  * `true` if the media query matches the current viewport.
  */
-function useMediaQuery(
-  query,
-  { defaultValue = false, initializeWithValue = true } = {}
-) {
-  function getMatches() {
-    if (IS_SERVER) return defaultValue;
+function useMediaQuery(query, { getServerSnapshot = () => false } = {}) {
+  const normalized = normalize(query);
 
-    return window.matchMedia(normalizeQuery(query)).matches;
-  }
-
-  const [isMatch, setIsMatch] = useState(() => {
-    if (initializeWithValue) {
-      return getMatches();
-    }
-
-    /* istanbul ignore next */
-    return defaultValue;
-  });
-
-  function handleChange() {
-    setIsMatch(getMatches());
-  }
-
-  useIsomorphicLayoutEffect(() => {
-    if (IS_SERVER) return;
-
-    const mediaQueryList = window.matchMedia(normalizeQuery(query));
-
-    handleChange();
-    mediaQueryList.addEventListener('change', handleChange);
-
-    // eslint-disable-next-line consistent-return
-    return () => {
-      mediaQueryList.removeEventListener('change', handleChange);
-    };
-  }, [query]);
-
-  return isMatch;
+  return useSyncExternalStore(
+    (listener) => subscribe(normalized, listener),
+    () => getSnapshot(normalized),
+    getServerSnapshot
+  );
 }
+
+const subscribe = (query, listener) => {
+  const mql = window.matchMedia(normalize(query));
+
+  mql.addEventListener('change', listener);
+
+  return () => {
+    mql.removeEventListener('change', listener);
+  };
+};
+
+const getSnapshot = (query) => {
+  return window.matchMedia(normalize(query)).matches;
+};
 
 /**
  *
  * @param {string} query
  * @returns {string}
  */
-function normalizeQuery(query) {
+function normalize(query) {
   return query.replace(/^@media\s*/, '');
 }
