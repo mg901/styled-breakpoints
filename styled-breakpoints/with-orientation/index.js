@@ -1,7 +1,7 @@
 /* istanbul ignore file */
+import { withOrientation as prod } from './index.prod.js';
+import { withOrientation as dev } from './index.dev.js';
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./index.prod');
-} else {
-  module.exports = require('./index.dev');
-}
+const withOrientation = process.env.NODE_ENV === 'production' ? prod : dev;
+
+export { withOrientation };
