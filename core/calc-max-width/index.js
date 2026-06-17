@@ -12,4 +12,4 @@
  * @param {string} value - The minimum breakpoint width value.
  * @returns {`${string}px`} - The calculated maximum breakpoint width.
  */
-exports.calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;
+export const calcMaxWidth = (value) => `${parseInt(value, 10) - 0.02}px`;

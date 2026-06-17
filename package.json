@@ -2,6 +2,7 @@
   "name": "styled-breakpoints",
   "version": "14.2.0",
   "license": "MIT",
+  "type": "module",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
   "main": "./styled-breakpoints/create-styled-breakpoints-theme/index.js",
   "types": "./styled-breakpoints/create-styled-breakpoints-theme/index.d.ts",
