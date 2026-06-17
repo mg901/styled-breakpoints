@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { withOrientation } from './index.prod';
+import { withOrientation } from './index.prod.js';
 
 describe('withOrientation', () => {
   describe('production environment', () => {

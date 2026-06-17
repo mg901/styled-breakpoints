@@ -1,21 +1,21 @@
-module.exports = [
+export default [
   {
     name: 'createBreakpoints',
     path: './core/create-breakpoints/index.prod.js',
     import: '{ createBreakpoints }',
-    limit: '280 B',
+    limit: '160 B',
   },
   {
     name: 'breakpoints.dev',
     path: './core/create-breakpoints/index.dev.js',
     import: '{ createBreakpoints }',
-    limit: '790 B',
+    limit: '600 B',
   },
   {
     name: 'styled-breakpoints',
     path: './styled-breakpoints/create-styled-breakpoints-theme/index.js',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '693 B',
+    limit: '500 B',
   },
   {
     name: 'useMediaQuery',
@@ -30,6 +30,6 @@ module.exports = [
         '{ createStyledBreakpointsTheme }',
       './use-media-query/index.js': '{ useMediaQuery }',
     },
-    limit: '908 kB',
+    limit: '630 B',
   },
 ];

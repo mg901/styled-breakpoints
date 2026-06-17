@@ -1,6 +1,6 @@
 // @ts-check
 
-exports.DEFAULT_BREAKPOINTS = {
+export const DEFAULT_BREAKPOINTS = {
   xs: '0px',
   sm: '576px',
   md: '768px',

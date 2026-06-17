@@ -13,5 +13,5 @@
  * @param {Options} options - Options for generating the media query.
  * @returns - The media query string with orientation criteria.
  */
-exports.withOrientation = ({ mediaQuery, orientation }) =>
+export const withOrientation = ({ mediaQuery, orientation }) =>
   `${mediaQuery} and (orientation: ${orientation})`;
