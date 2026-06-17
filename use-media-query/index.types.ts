@@ -15,9 +15,7 @@ describe('useMediaQuery hook', () => {
   it('accepts optional options object', () => {
     expectTypeOf(useMediaQuery)
       .parameter(1)
-      .toEqualTypeOf<
-        { defaultValue?: boolean; initializeWithValue?: boolean } | undefined
-      >();
+      .toEqualTypeOf<{ getServerSnapshot?: () => boolean } | undefined>();
   });
 
   it('returns a boolean type', () => {
