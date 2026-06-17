@@ -52,9 +52,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "react": ">= 16.8.0",
-    "react-dom": ">= 16.8.0"
+    "peerDependencies": {
+    "react": ">= 19.0.0",
+    "react-dom": ">= 19.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.0",
@@ -93,8 +93,8 @@
     "jsdom": "^29.0.0",
     "lint-staged": "^17.0.2",
     "prettier": "^3.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "semantic-release": "^25.0.0",
     "semantic-release-githubsquash": "^0.2.12",
     "size-limit": "^12.0.1",
