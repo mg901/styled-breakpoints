@@ -1,6 +1,6 @@
 // @ts-check
 
-const { withOrientation: withOrientationProd } = require('./index.prod');
+import { withOrientation as withOrientationProd } from './index.prod.js';
 
 /**
  * @typedef {Object} Options
@@ -15,7 +15,7 @@ const { withOrientation: withOrientationProd } = require('./index.prod');
  * @param {Options} options - Options for generating the media query.
  * @returns - The media query string with orientation criteria.
  */
-exports.withOrientation = ({ mediaQuery, orientation, invariant }) => {
+export const withOrientation = ({ mediaQuery, orientation, invariant }) => {
   const isValid = orientation === 'portrait' || orientation === 'landscape';
 
   invariant(

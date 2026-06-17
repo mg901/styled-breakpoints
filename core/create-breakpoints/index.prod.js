@@ -1,6 +1,6 @@
 // @ts-check
 
-const { calcMaxWidth } = require('../calc-max-width');
+import { calcMaxWidth } from '../calc-max-width/index.js';
 /**
  * Creates an object with breakpoints
  *
@@ -21,7 +21,7 @@ const { calcMaxWidth } = require('../calc-max-width');
  *  }
  * }} An object containing methods and properties for managing breakpoints.
  */
-exports.createBreakpoints = ({ breakpoints }) => {
+export const createBreakpoints = ({ breakpoints }) => {
   /**
    * @type {Record<string, number>}
    */

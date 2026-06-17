@@ -1,6 +1,4 @@
-const { useSyncExternalStore } = require('react');
-
-exports.useMediaQuery = useMediaQuery;
+import { useSyncExternalStore } from 'react';
 
 /**
  * React hook for checking whether a CSS media query matches.
@@ -16,7 +14,7 @@ exports.useMediaQuery = useMediaQuery;
  * @returns {boolean}
  * `true` if the media query matches the current viewport.
  */
-function useMediaQuery(query, { getServerSnapshot = () => false } = {}) {
+export function useMediaQuery(query, { getServerSnapshot = () => false } = {}) {
   const normalized = normalize(query);
 
   return useSyncExternalStore(

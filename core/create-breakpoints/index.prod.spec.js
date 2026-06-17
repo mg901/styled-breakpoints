@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { DEFAULT_BREAKPOINTS } from '../constants';
-import { createBreakpoints } from './index.prod';
-import { calcMaxWidth } from '../calc-max-width';
+import { createBreakpoints } from './index.prod.js';
+import { calcMaxWidth } from '../calc-max-width/index.js';
 
 const breakpointsApi = createBreakpoints({
   breakpoints: DEFAULT_BREAKPOINTS,

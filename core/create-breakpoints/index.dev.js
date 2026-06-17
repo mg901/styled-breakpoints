@@ -1,7 +1,7 @@
 // @ts-check
 
-const { createBreakpoints: bpProd } = require('./index.prod');
-const { createInvariant } = require('../create-invariant');
+import { createBreakpoints as core } from './index.prod.js';
+import { createInvariant } from '../create-invariant/index.js';
 
 /**
  * Creates an API for managing breakpoints.
@@ -19,7 +19,7 @@ const { createInvariant } = require('../create-invariant');
  *  between(min: string, max: string): { min: `${string}px`, max: `${string}px` }
  * }} An object containing methods and properties for managing breakpoints.
  */
-exports.createBreakpoints = ({ errorPrefix, breakpoints }) => {
+export const createBreakpoints = ({ errorPrefix, breakpoints }) => {
   const validation = createValidation({
     errorPrefix,
     breakpoints,
@@ -27,7 +27,7 @@ exports.createBreakpoints = ({ errorPrefix, breakpoints }) => {
 
   validation.validateBreakpoints();
 
-  const bp = bpProd({
+  const bp = core({
     breakpoints,
   });
 

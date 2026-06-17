@@ -1,8 +1,8 @@
 // @ts-check
 
-const { createBreakpoints } = require('../../core/create-breakpoints');
-const { memoize } = require('../memoize');
-const { withOrientation } = require('../with-orientation');
+import { createBreakpoints } from '../../core/create-breakpoints/index.js';
+import { memoize } from '../memoize/index.js';
+import { withOrientation } from '../with-orientation/index.js';
 
 /**
  * Default configuration options for creating breakpoints.
@@ -49,7 +49,7 @@ const DEFAULT_OPTIONS = {
  * @param {Options} options - Configuration object with error prefix and breakpoints.
  * @returns {StyledBreakpointsTheme} A theme object with breakpoint functions.
  */
-exports.createStyledBreakpointsTheme = ({
+export const createStyledBreakpointsTheme = ({
   breakpoints,
   errorPrefix,
 } = DEFAULT_OPTIONS) => {

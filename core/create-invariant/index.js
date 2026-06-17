@@ -1,7 +1,7 @@
 // @ts-check
 
-const DEFAULT_PREFIX = '[prefix]: ';
-const DEFAULT_MESSAGE = 'Invariant failed';
+export const DEFAULT_PREFIX = '[prefix]: ';
+export const DEFAULT_MESSAGE = 'Invariant failed';
 
 /**
  * Creates an invariant function that raises an error when a condition is not met.
@@ -9,7 +9,7 @@ const DEFAULT_MESSAGE = 'Invariant failed';
  * @param {string} [errorPrefix='[prefix]: '] - The prefix to add to the error message.
  * @returns {(condition: boolean, message?: string) => void} - An invariant function.
  */
-const createInvariant =
+export const createInvariant =
   (errorPrefix = DEFAULT_PREFIX) =>
   /**
    * Throws an error if the provided condition is false.
@@ -23,9 +23,3 @@ const createInvariant =
       throw new Error(errorPrefix + message);
     }
   };
-
-module.exports = {
-  DEFAULT_PREFIX,
-  DEFAULT_MESSAGE,
-  createInvariant,
-};
