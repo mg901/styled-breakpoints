@@ -37,7 +37,7 @@ jobs:
         run: pnpm test:unit:coverage
 
       - name: Type Checking
-        run: pnpm test:types
+        run: pnpm test:typecheck
 
       - name: Benchmarking
         run: pnpm test:bench
