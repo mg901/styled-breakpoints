@@ -1,5 +1,9 @@
 export default {
-  branch: 'master',
+  branches: [
+    'master',
+    { name: 'beta', prerelease: true },
+    { name: 'alpha', prerelease: true },
+  ],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
