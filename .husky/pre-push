@@ -1,3 +1,3 @@
 pnpm test:unit
-pnpm test:types
-pnpm test:size
+pnpm test:typecheck
+pnpm size
