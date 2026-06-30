@@ -24,7 +24,7 @@ styled-breakpoints <br>
 
 </h1>
 
-<p>Simple and powerful tool for creating media queries with SSR support.</p>
+<p>Powerful CSS-in-JS media queries with SSR support.</p>
 
 <p>
 <a href="https://www.styled-components.com" rel="nofollow">
@@ -59,14 +59,14 @@ const Box = styled.div`
 
 <br>
 
-**Outside** components.
+**Outside** of components.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
 
 const Layout = () => {
-  const { up } = useTheme().breakpoints;
-  const isMd = useMediaQuery(up('md'));
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
 };
@@ -100,7 +100,7 @@ From largest to smallest
 
 <br>
 
-### 👉🏻 Hooks API
+### 👉🏻 Hook API
 
 <div>
   <a href="https://codesandbox.io/s/styled-components-hooks-api-6q6w8?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fapp.tsx&theme=dark">
@@ -120,7 +120,7 @@ From largest to smallest
   - [min-width - up](#min-width---up)
   - [max-width - down](#max-width---down)
   - [single breakpoint - only](#single-breakpoint---only)
-  - [breakpoints range - between](#breakpoints-range---between)
+  - [range of breakpoints - between](#range-of-breakpoints---between)
   - [customization](#customization)
 
 - [useMediaQuery hook](#usemediaquery-hook)
@@ -133,7 +133,7 @@ From largest to smallest
 
 - **Utilize media queries to structure your CSS based on breakpoints**. Media queries are CSS features that allow you to selectively apply styles depending on a defined set of browser and operating system parameters. The most commonly used media query property is <code>min-width</code>.
 
-- **The objective is mobile-first, responsive design**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are then added to adjust the design for larger devices. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
+- **The primary goal is mobile-first responsive design.**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are progressively added for larger screens. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
 
 <br>
 
@@ -170,16 +170,20 @@ Styled Breakpoints includes six default breakpoints, often referred to as grid t
 
 ```tsx
 const breakpoints = {
-  xs: '0px',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-  xxl: '1400px',
+  values: {
+    xs: '0px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+    xxl: '1400px',
+  }
 };
 ```
 
-Each breakpoint has been carefully selected to accommodate containers with widths that are multiples of 12. The breakpoints also represent a subset of common device sizes and viewport dimensions, although they do not specifically target every use case or device. Instead, they provide a robust and consistent foundation for building designs that cater to nearly any device.
+Each breakpoint is based on common responsive design conventions and aligns with container widths that are multiples of 12. These breakpoints also correspond to widely used viewport ranges, but they are not tied to specific devices.
+
+Instead, they provide a consistent foundation for building responsive layouts that work across most screen sizes.
 
 <br>
 
@@ -207,11 +211,12 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 export const theme = createStyledBreakpointsTheme({
   breakpoints: {
-    small: '100px',
-    medium: '200px',
-    large: '300px',
-    xLarge: '400px',
-    xxLarge: '500px',
+    values: {
+      phone: '0px',
+      mobile: '200px',
+      laptop: '300px',
+      desktop: '400px',
+    }
   },
 });
 ```
@@ -225,19 +230,21 @@ export const theme = createStyledBreakpointsTheme({
 ```tsx
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
-export const primaryTheme = {
-  fonts: ['sans-serif', 'Roboto'],
+const mainTheme = {
+  fonts: ["sans-serif", "Lato"],
   fontSizes: {
-    small: '1em',
-    medium: '2em',
-    large: '3em',
+    small: "1em",
+    medium: "2em",
+    large: "3em",
   },
 } as const;
 
 export const theme = {
-  ...primaryTheme,
+  ...mainTheme,
   ...createStyledBreakpointsTheme(),
 };
+
+export type AppThemeType = typeof theme;
 ```
 
 <hr>
@@ -260,13 +267,11 @@ yarn add styled-components
 `theme/styled.d.ts`
 
 ```ts
-import 'styled-components';
-import { theme } from './index';
+import "styled-components";
+import { AppThemeType } from "./index";
 
-type ThemeConfig = typeof theme;
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeConfig {}
+declare module "styled-components" {
+  export interface DefaultTheme extends AppThemeType {}
 }
 ```
 
@@ -294,27 +299,27 @@ yarn add @emotion/{styled,react}
 `theme/emotion.d.ts`
 
 ```ts
-import '@emotion/react';
-import { theme } from './index';
+import "@emotion/react";
+import { AppThemeType } from "./index";
 
-type ThemeConfig = typeof theme;
-
-declare module '@emotion/react' {
-  export interface Theme extends ThemeConfig {}
+declare module "@emotion/react" {
+  export interface Theme extends AppThemeType {}
 }
 ```
 
 <hr/>
 <br>
 
-### 🚀 Integration to Your App
+### 🚀 Integration into Your App
 
 <br>
 
 `app.tsx`
 
 ```tsx
-import styled { ThemeProvider } from 'styled-components'; // or '@emotion/react'
+import { ThemeProvider } from 'styled-components'; // or '@emotion/react'
+import styled from "styled-components"; // or '@emotion/styled'
+
 import { theme } from './theme';
 
 const Box = styled.div`
@@ -336,11 +341,11 @@ const App = () => (
 
 ## Media queries API
 
-🚀 Caching is implemented in all functions to optimize performance.
+🚀 All media query functions cache their results to improve performance.
 
 <br>
 
-### 👉🏻 Min-width - `up`
+### Min-width - `up`
 
 ```tsx
 const Box = styled.div`
@@ -353,7 +358,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will convert to vanilla css:  </strong>
+<strong>Will be converted to CSS:  </strong>
 
 ```css
 @media (min-width: 768px) {
@@ -364,7 +369,7 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### 👉🏻 Max-width - `down`
+### Max-width - `down`
 
 We occasionally use media queries that go in the other direction (the given screen size or smaller):
 
@@ -381,7 +386,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will convert to vanilla css: </strong>
+<strong>Will be converted to CSS: </strong>
 
 ```css
 @media (max-width: 767.98px) {
@@ -396,7 +401,7 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### 👉🏻 Single breakpoint - `only`
+### Single breakpoint - `only`
 
 There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
@@ -413,7 +418,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will convert to vanilla css: </strong>
+<strong>Will be converted to CSS: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -424,9 +429,9 @@ const Box = styled.div`
 <hr/>
 <br>
 
-### 👉🏻 Breakpoints range - `between`
+### Range of breakpoints - `between`
 
-Similarly, media queries may span multiple breakpoint widths.
+Use `between` to target a range of breakpoints.
 
 <br>
 
@@ -441,7 +446,7 @@ const Box = styled.div`
 ```
 
 <br>
-<strong>Will convert to vanilla css: </strong>
+<strong>Will be converted to CSS: </strong>
 
 ```css
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -456,9 +461,9 @@ const Box = styled.div`
 
 features:
 
-- 🧐 optimal performance by dynamically monitoring document changes in media queries.
-- 💪🏻 It supports SSR (server-side rendering).
-- 📦 Minified and gzipped size 313b.
+- 🧐 Reactive media query tracking with optimal performance
+- 💪🏻 SSR-safe via `getServerSnapshot`
+- 📦 Lightweight and minimal overhead
 
 <br>
 
@@ -468,8 +473,8 @@ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const { only } = useTheme().breakpoints;
-  const isMd = useMediaQuery(only('md'));
+  const theme = useTheme()
+  const isMd = useMediaQuery(theme.breakpoints.only('md'));
 
   return <Box>{isMd && <Box />}</Box>;
 };
@@ -483,8 +488,7 @@ const SomeComponent = () => {
 declare function useMediaQuery(
   query: string,
   options?: {
-    defaultValue?: boolean;
-    initializeWithValue?: boolean;
+    getServerSnapshot: () => boolean
   }
 ): boolean;
 ```
@@ -495,13 +499,9 @@ declare function useMediaQuery(
   CSS media query to evaluate.  
   Accepts values with or without the `@media` prefix.
 
-- `options` _(optional)_
-  - `defaultValue` _(default: `false`)_  
-    Value used during SSR and as a fallback.
-
-  - `initializeWithValue` _(default: `true`)_  
-    Whether to evaluate the media query immediately on the client.  
-    Set to `false` in SSR scenarios to avoid hydration mismatch.
+- `options` _(optional)_  
+  - `getServerSnapshot`  
+    Function used during SSR to provide a stable boolean value for the initial render.
 
 #### Returns
 
@@ -515,9 +515,7 @@ declare function useMediaQuery(
 
 MIT License
 
-Copyright (c) 2018-2025 [Maxim Alyoshin](https://github.com/mg901).
-
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENCE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/mg901/styled-breakpoints/blob/master/LICENSE) file for details.
 
 <hr>
 <br>
