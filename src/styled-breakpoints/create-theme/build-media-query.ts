@@ -1,4 +1,8 @@
-export const buildMediaQuery = (min, max, orientation) => {
+export const buildMediaQuery = (
+  min: string | null,
+  max: string | null,
+  orientation?: 'landscape' | 'portrait'
+) => {
   const parts = [];
 
   if (min) parts.push(`(width >= ${min})`);

@@ -1,661 +1,567 @@
 # [14.2.0](https://github.com/mg901/styled-breakpoints/compare/v14.1.11...v14.2.0) (2025-12-22)
 
-
 ### Features
 
-* add JSDoc for `useMediaQuery` to improve IDE hints and SSR understanding ([#2187](https://github.com/mg901/styled-breakpoints/issues/2187)) ([cc7ca1e](https://github.com/mg901/styled-breakpoints/commit/cc7ca1e7d141dde5bf0ef7603f60021c1dfa943b))
+- add JSDoc for `useMediaQuery` to improve IDE hints and SSR understanding ([#2187](https://github.com/mg901/styled-breakpoints/issues/2187)) ([cc7ca1e](https://github.com/mg901/styled-breakpoints/commit/cc7ca1e7d141dde5bf0ef7603f60021c1dfa943b))
 
 ## [14.1.11](https://github.com/mg901/styled-breakpoints/compare/v14.1.10...v14.1.11) (2025-12-21)
 
-
 ### Bug Fixes
 
-* redeploy v4.1.10 due to failed npm release ([#2186](https://github.com/mg901/styled-breakpoints/issues/2186)) ([606567c](https://github.com/mg901/styled-breakpoints/commit/606567cbeaff436b850f70336cac37b3788ff9ab))
+- redeploy v4.1.10 due to failed npm release ([#2186](https://github.com/mg901/styled-breakpoints/issues/2186)) ([606567c](https://github.com/mg901/styled-breakpoints/commit/606567cbeaff436b850f70336cac37b3788ff9ab))
 
 ## [14.1.10](https://github.com/mg901/styled-breakpoints/compare/v14.1.9...v14.1.10) (2025-12-21)
 
-
 ### Bug Fixes
 
-* redeploy v4.1.9 due to failed npm release ([#2185](https://github.com/mg901/styled-breakpoints/issues/2185)) ([258bb71](https://github.com/mg901/styled-breakpoints/commit/258bb71b0f14d521c217038761f6b1963e9a59bb))
+- redeploy v4.1.9 due to failed npm release ([#2185](https://github.com/mg901/styled-breakpoints/issues/2185)) ([258bb71](https://github.com/mg901/styled-breakpoints/commit/258bb71b0f14d521c217038761f6b1963e9a59bb))
 
 ## [14.1.9](https://github.com/mg901/styled-breakpoints/compare/v14.1.8...v14.1.9) (2025-12-20)
 
-
 ### Bug Fixes
 
-* redeploy v4.1.8 due to failed npm release ([#2184](https://github.com/mg901/styled-breakpoints/issues/2184)) ([a309813](https://github.com/mg901/styled-breakpoints/commit/a309813d7b72b7087de47ba50dca2b9095f5f16a))
+- redeploy v4.1.8 due to failed npm release ([#2184](https://github.com/mg901/styled-breakpoints/issues/2184)) ([a309813](https://github.com/mg901/styled-breakpoints/commit/a309813d7b72b7087de47ba50dca2b9095f5f16a))
 
 ## [14.1.8](https://github.com/mg901/styled-breakpoints/compare/v14.1.7...v14.1.8) (2025-12-20)
 
-
 ### Bug Fixes
 
-* redeploy v4.1.7 due to failed npm release ([#2182](https://github.com/mg901/styled-breakpoints/issues/2182)) ([9405144](https://github.com/mg901/styled-breakpoints/commit/9405144ec4e6b63e6c96af64f2750f119d0bbd81))
+- redeploy v4.1.7 due to failed npm release ([#2182](https://github.com/mg901/styled-breakpoints/issues/2182)) ([9405144](https://github.com/mg901/styled-breakpoints/commit/9405144ec4e6b63e6c96af64f2750f119d0bbd81))
 
 ## [14.1.7](https://github.com/mg901/styled-breakpoints/compare/v14.1.6...v14.1.7) (2025-12-20)
 
-
 ### Bug Fixes
 
-* release previously failed version due to deployment issue ([#2181](https://github.com/mg901/styled-breakpoints/issues/2181)) ([f82f2b3](https://github.com/mg901/styled-breakpoints/commit/f82f2b3e98946a0f65cc6742f3907c9afc111db3))
+- release previously failed version due to deployment issue ([#2181](https://github.com/mg901/styled-breakpoints/issues/2181)) ([f82f2b3](https://github.com/mg901/styled-breakpoints/commit/f82f2b3e98946a0f65cc6742f3907c9afc111db3))
 
 ## [14.1.6](https://github.com/mg901/styled-breakpoints/compare/v14.1.5...v14.1.6) (2025-12-20)
 
-
 ### Bug Fixes
 
-* **use-media-query:** prevent errors on server by handling window and useLayoutEffect correctly ([#2180](https://github.com/mg901/styled-breakpoints/issues/2180)) ([b94d168](https://github.com/mg901/styled-breakpoints/commit/b94d168fc7bbff8bd64c903616af084f7088cee8))
+- **use-media-query:** prevent errors on server by handling window and useLayoutEffect correctly ([#2180](https://github.com/mg901/styled-breakpoints/issues/2180)) ([b94d168](https://github.com/mg901/styled-breakpoints/commit/b94d168fc7bbff8bd64c903616af084f7088cee8))
 
 ## [14.1.5](https://github.com/mg901/styled-breakpoints/compare/v14.1.4...v14.1.5) (2025-05-11)
 
-
 ### Bug Fixes
 
-* **readme:** set correct path for github workflow status ([#2087](https://github.com/mg901/styled-breakpoints/issues/2087)) ([20c96fc](https://github.com/mg901/styled-breakpoints/commit/20c96fcf51d424af3925ccb0efef745f6cd512e5))
+- **readme:** set correct path for github workflow status ([#2087](https://github.com/mg901/styled-breakpoints/issues/2087)) ([20c96fc](https://github.com/mg901/styled-breakpoints/commit/20c96fcf51d424af3925ccb0efef745f6cd512e5))
 
 ## [14.1.4](https://github.com/mg901/styled-breakpoints/compare/v14.1.3...v14.1.4) (2024-08-18)
 
-
 ### Bug Fixes
 
-* **docs:** readme was improved ([#1942](https://github.com/mg901/styled-breakpoints/issues/1942)) ([26a5d24](https://github.com/mg901/styled-breakpoints/commit/26a5d244ac21c9e9c65d6e06e8696ca917b6148c))
+- **docs:** readme was improved ([#1942](https://github.com/mg901/styled-breakpoints/issues/1942)) ([26a5d24](https://github.com/mg901/styled-breakpoints/commit/26a5d244ac21c9e9c65d6e06e8696ca917b6148c))
 
 ## [14.1.3](https://github.com/mg901/styled-breakpoints/compare/v14.1.2...v14.1.3) (2024-04-12)
 
-
 ### Bug Fixes
 
-* **use-media-query:** hook doesn't observe viewport changes ([#1853](https://github.com/mg901/styled-breakpoints/issues/1853)) ([242e849](https://github.com/mg901/styled-breakpoints/commit/242e849299fcc46064903bb9f936cf7d7143d8fc))
+- **use-media-query:** hook doesn't observe viewport changes ([#1853](https://github.com/mg901/styled-breakpoints/issues/1853)) ([242e849](https://github.com/mg901/styled-breakpoints/commit/242e849299fcc46064903bb9f936cf7d7143d8fc))
 
 ## [14.1.2](https://github.com/mg901/styled-breakpoints/compare/v14.1.1...v14.1.2) (2024-03-25)
 
-
 ### Bug Fixes
 
-* improve documentation ([#1834](https://github.com/mg901/styled-breakpoints/issues/1834)) ([6a63d49](https://github.com/mg901/styled-breakpoints/commit/6a63d490f88213b95d5fa4233ca0dce44b7f3391))
+- improve documentation ([#1834](https://github.com/mg901/styled-breakpoints/issues/1834)) ([6a63d49](https://github.com/mg901/styled-breakpoints/commit/6a63d490f88213b95d5fa4233ca0dce44b7f3391))
 
 ## [14.1.2](https://github.com/mg901/styled-breakpoints/compare/v14.1.1...v14.1.2) (2024-03-23)
 
-
 ### Bug Fixes
 
-* improve documentation ([#1834](https://github.com/mg901/styled-breakpoints/issues/1834)) ([6a63d49](https://github.com/mg901/styled-breakpoints/commit/6a63d490f88213b95d5fa4233ca0dce44b7f3391))
+- improve documentation ([#1834](https://github.com/mg901/styled-breakpoints/issues/1834)) ([6a63d49](https://github.com/mg901/styled-breakpoints/commit/6a63d490f88213b95d5fa4233ca0dce44b7f3391))
 
 ## [14.1.1](https://github.com/mg901/styled-breakpoints/compare/v14.1.0...v14.1.1) (2024-03-23)
 
-
 ### Bug Fixes
 
-* **docs:** improve documentation ([#1833](https://github.com/mg901/styled-breakpoints/issues/1833)) ([a244fbc](https://github.com/mg901/styled-breakpoints/commit/a244fbcd274310cfb8bc46db4ddaeccdaa65eaef))
+- **docs:** improve documentation ([#1833](https://github.com/mg901/styled-breakpoints/issues/1833)) ([a244fbc](https://github.com/mg901/styled-breakpoints/commit/a244fbcd274310cfb8bc46db4ddaeccdaa65eaef))
 
 # [14.1.0](https://github.com/mg901/styled-breakpoints/compare/v14.0.0...v14.1.0) (2024-03-05)
 
-
 ### Features
 
-* 🎸 improve type inference for orientation ([#1803](https://github.com/mg901/styled-breakpoints/issues/1803)) ([727f647](https://github.com/mg901/styled-breakpoints/commit/727f647f0ed56d5f908656a24529bd8da554c4b7))
+- 🎸 improve type inference for orientation ([#1803](https://github.com/mg901/styled-breakpoints/issues/1803)) ([727f647](https://github.com/mg901/styled-breakpoints/commit/727f647f0ed56d5f908656a24529bd8da554c4b7))
 
 # [14.0.0](https://github.com/mg901/styled-breakpoints/compare/v13.1.4...v14.0.0) (2024-02-08)
 
-
 ### Features
 
-* **use-media-query:** no longer supports Safari < 14 ([#1782](https://github.com/mg901/styled-breakpoints/issues/1782)) ([f50a5a1](https://github.com/mg901/styled-breakpoints/commit/f50a5a1bc681cb6bb15f6d7b1607870eb830ed5c))
-
+- **use-media-query:** no longer supports Safari < 14 ([#1782](https://github.com/mg901/styled-breakpoints/issues/1782)) ([f50a5a1](https://github.com/mg901/styled-breakpoints/commit/f50a5a1bc681cb6bb15f6d7b1607870eb830ed5c))
 
 ### BREAKING CHANGES
 
-* **use-media-query:** 🧨 useMediaQuery hook no longer supports Safari < 14
+- **use-media-query:** 🧨 useMediaQuery hook no longer supports Safari < 14
 
-* test: add `istanbul ignore` comment
+- test: add `istanbul ignore` comment
 
-* refactor(use-media-query): replace state with matches
+- refactor(use-media-query): replace state with matches
 
-* test: add `instnbul ignore`  comment
+- test: add `instnbul ignore` comment
 
 ## [13.1.4](https://github.com/mg901/styled-breakpoints/compare/v13.1.3...v13.1.4) (2024-02-07)
 
-
 ### Bug Fixes
 
-* remove unused files ([#1781](https://github.com/mg901/styled-breakpoints/issues/1781)) ([55b881b](https://github.com/mg901/styled-breakpoints/commit/55b881b77bad392368b953740db2d1ec95d0eb07))
+- remove unused files ([#1781](https://github.com/mg901/styled-breakpoints/issues/1781)) ([55b881b](https://github.com/mg901/styled-breakpoints/commit/55b881b77bad392368b953740db2d1ec95d0eb07))
 
 ## [13.1.3](https://github.com/mg901/styled-breakpoints/compare/v13.1.2...v13.1.3) (2024-02-07)
 
-
 ### Bug Fixes
 
-* remove unused files ([#1780](https://github.com/mg901/styled-breakpoints/issues/1780)) ([8e97249](https://github.com/mg901/styled-breakpoints/commit/8e972493ee2faeeebe62d86df2e633226ef828a4))
+- remove unused files ([#1780](https://github.com/mg901/styled-breakpoints/issues/1780)) ([8e97249](https://github.com/mg901/styled-breakpoints/commit/8e972493ee2faeeebe62d86df2e633226ef828a4))
 
 ## [13.1.2](https://github.com/mg901/styled-breakpoints/compare/v13.1.1...v13.1.2) (2024-02-04)
 
-
 ### Bug Fixes
 
-* **docs:** fix anchor for the `up` function ([#1774](https://github.com/mg901/styled-breakpoints/issues/1774)) ([74539a2](https://github.com/mg901/styled-breakpoints/commit/74539a2f71163bd1dc0b41f02cb997910a7ef21a))
+- **docs:** fix anchor for the `up` function ([#1774](https://github.com/mg901/styled-breakpoints/issues/1774)) ([74539a2](https://github.com/mg901/styled-breakpoints/commit/74539a2f71163bd1dc0b41f02cb997910a7ef21a))
 
 ## [13.1.1](https://github.com/mg901/styled-breakpoints/compare/v13.1.0...v13.1.1) (2024-02-04)
 
-
 ### Bug Fixes
 
-* **docs:** improve the doc's structure ([#1773](https://github.com/mg901/styled-breakpoints/issues/1773)) ([575d293](https://github.com/mg901/styled-breakpoints/commit/575d2934734521d9958780f40b15d463c87eaaa1))
+- **docs:** improve the doc's structure ([#1773](https://github.com/mg901/styled-breakpoints/issues/1773)) ([575d293](https://github.com/mg901/styled-breakpoints/commit/575d2934734521d9958780f40b15d463c87eaaa1))
 
 # [13.1.0](https://github.com/mg901/styled-breakpoints/compare/v13.0.0...v13.1.0) (2024-02-04)
 
-
 ### Features
 
-* **docs:** add an example for custom breakpoints ([#1772](https://github.com/mg901/styled-breakpoints/issues/1772)) ([d65e3d8](https://github.com/mg901/styled-breakpoints/commit/d65e3d87284713641e7e9f354c53752d8d21befe))
+- **docs:** add an example for custom breakpoints ([#1772](https://github.com/mg901/styled-breakpoints/issues/1772)) ([d65e3d8](https://github.com/mg901/styled-breakpoints/commit/d65e3d87284713641e7e9f354c53752d8d21befe))
 
 # [13.0.0](https://github.com/mg901/styled-breakpoints/compare/v12.1.10...v13.0.0) (2024-02-04)
 
-
 ### Features
 
-*  🎸 add strict types ([#1771](https://github.com/mg901/styled-breakpoints/issues/1771)) ([281cc60](https://github.com/mg901/styled-breakpoints/commit/281cc60a83a115581e46bc638eae8e0262deb698))
-
+- 🎸 add strict types ([#1771](https://github.com/mg901/styled-breakpoints/issues/1771)) ([281cc60](https://github.com/mg901/styled-breakpoints/commit/281cc60a83a115581e46bc638eae8e0262deb698))
 
 ### BREAKING CHANGES
 
-* 🧨 remove StyledBreakpointsTheme & MediaQueries types
+- 🧨 remove StyledBreakpointsTheme & MediaQueries types
 
-* build: add `semantic-release-githubsquash` plugin
+- build: add `semantic-release-githubsquash` plugin
 
 ## [12.1.10](https://github.com/mg901/styled-breakpoints/compare/v12.1.9...v12.1.10) (2024-01-17)
 
-
 ### Bug Fixes
 
-* update an Emotion logo path ([#1747](https://github.com/mg901/styled-breakpoints/issues/1747)) ([2af9974](https://github.com/mg901/styled-breakpoints/commit/2af99743abd707ffe42ff84dbb14f560fd031582))
+- update an Emotion logo path ([#1747](https://github.com/mg901/styled-breakpoints/issues/1747)) ([2af9974](https://github.com/mg901/styled-breakpoints/commit/2af99743abd707ffe42ff84dbb14f560fd031582))
 
 ## [12.1.9](https://github.com/mg901/styled-breakpoints/compare/v12.1.8...v12.1.9) (2023-11-12)
 
-
 ### Bug Fixes
 
-* fix the infinite loop during orientation validation ([#1668](https://github.com/mg901/styled-breakpoints/issues/1668)) ([c8f7ae6](https://github.com/mg901/styled-breakpoints/commit/c8f7ae648c95540b7214e06233397f2f2439a393))
+- fix the infinite loop during orientation validation ([#1668](https://github.com/mg901/styled-breakpoints/issues/1668)) ([c8f7ae6](https://github.com/mg901/styled-breakpoints/commit/c8f7ae648c95540b7214e06233397f2f2439a393))
 
 ## [12.1.8](https://github.com/mg901/styled-breakpoints/compare/v12.1.7...v12.1.8) (2023-11-08)
 
-
 ### Bug Fixes
 
-* optimize 'only' method for O(1) performance ([#1657](https://github.com/mg901/styled-breakpoints/issues/1657)) ([3c8c92c](https://github.com/mg901/styled-breakpoints/commit/3c8c92c9ca257a73cd6ea0db11b84c518a803165))
+- optimize 'only' method for O(1) performance ([#1657](https://github.com/mg901/styled-breakpoints/issues/1657)) ([3c8c92c](https://github.com/mg901/styled-breakpoints/commit/3c8c92c9ca257a73cd6ea0db11b84c518a803165))
 
 ## [12.1.7](https://github.com/mg901/styled-breakpoints/compare/v12.1.6...v12.1.7) (2023-11-08)
 
-
 ### Bug Fixes
 
-* **styled-breakpoints:** remove shared cache for public methods ([#1656](https://github.com/mg901/styled-breakpoints/issues/1656)) ([ad2ae03](https://github.com/mg901/styled-breakpoints/commit/ad2ae0370b61b1bb7fccfbaa70b53916b4f88753))
+- **styled-breakpoints:** remove shared cache for public methods ([#1656](https://github.com/mg901/styled-breakpoints/issues/1656)) ([ad2ae03](https://github.com/mg901/styled-breakpoints/commit/ad2ae0370b61b1bb7fccfbaa70b53916b4f88753))
 
 ## [12.1.6](https://github.com/mg901/styled-breakpoints/compare/v12.1.5...v12.1.6) (2023-11-04)
 
-
 ### Bug Fixes
 
-* remove `styled-components` from dev-deps ([efa2a55](https://github.com/mg901/styled-breakpoints/commit/efa2a558fcf4ea95f8b2b2775d03affbfd39d9ad))
+- remove `styled-components` from dev-deps ([efa2a55](https://github.com/mg901/styled-breakpoints/commit/efa2a558fcf4ea95f8b2b2775d03affbfd39d9ad))
 
 ## [12.1.5](https://github.com/mg901/styled-breakpoints/compare/v12.1.4...v12.1.5) (2023-07-20)
 
-
 ### Bug Fixes
 
-* **docs:** add `[@latest](https://github.com/latest)` tag to the installation instructions ([#1562](https://github.com/mg901/styled-breakpoints/issues/1562)) ([b914155](https://github.com/mg901/styled-breakpoints/commit/b9141556485551da08e09f1fb30a95f1eed63745))
+- **docs:** add `[@latest](https://github.com/latest)` tag to the installation instructions ([#1562](https://github.com/mg901/styled-breakpoints/issues/1562)) ([b914155](https://github.com/mg901/styled-breakpoints/commit/b9141556485551da08e09f1fb30a95f1eed63745))
 
 ## [12.1.4](https://github.com/mg901/styled-breakpoints/compare/v12.1.3...v12.1.4) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **docs:** remove unused types ([#1558](https://github.com/mg901/styled-breakpoints/issues/1558)) ([cffdd5e](https://github.com/mg901/styled-breakpoints/commit/cffdd5ef3a62b3f814c08bb7df46ee0f95ec97c5))
+- **docs:** remove unused types ([#1558](https://github.com/mg901/styled-breakpoints/issues/1558)) ([cffdd5e](https://github.com/mg901/styled-breakpoints/commit/cffdd5ef3a62b3f814c08bb7df46ee0f95ec97c5))
 
 ## [12.1.3](https://github.com/mg901/styled-breakpoints/compare/v12.1.2...v12.1.3) (2023-07-18)
 
-
 ### Bug Fixes
 
-* **docs:** add correct types for the `theme` ([#1554](https://github.com/mg901/styled-breakpoints/issues/1554)) ([c7effb1](https://github.com/mg901/styled-breakpoints/commit/c7effb10d09846b18e50075a872ab7193e7de363))
+- **docs:** add correct types for the `theme` ([#1554](https://github.com/mg901/styled-breakpoints/issues/1554)) ([c7effb1](https://github.com/mg901/styled-breakpoints/commit/c7effb10d09846b18e50075a872ab7193e7de363))
 
 ## [12.1.2](https://github.com/mg901/styled-breakpoints/compare/v12.1.1...v12.1.2) (2023-07-08)
 
-
 ### Bug Fixes
 
-* **docs:** reorganize documentation structure ([#1546](https://github.com/mg901/styled-breakpoints/issues/1546)) ([b70a1e9](https://github.com/mg901/styled-breakpoints/commit/b70a1e9b8ce86d5a302d29e7ef60e7eb8870c672))
+- **docs:** reorganize documentation structure ([#1546](https://github.com/mg901/styled-breakpoints/issues/1546)) ([b70a1e9](https://github.com/mg901/styled-breakpoints/commit/b70a1e9b8ce86d5a302d29e7ef60e7eb8870c672))
 
 ## [12.1.1](https://github.com/mg901/styled-breakpoints/compare/v12.1.0...v12.1.1) (2023-06-11)
 
-
 ### Bug Fixes
 
-* **docs:** add import of `MediaQueries` type to `Strict Typed Breakpoints` section ([1799035](https://github.com/mg901/styled-breakpoints/commit/179903509c3afdfdbc04106964adbd0339434cc0))
+- **docs:** add import of `MediaQueries` type to `Strict Typed Breakpoints` section ([1799035](https://github.com/mg901/styled-breakpoints/commit/179903509c3afdfdbc04106964adbd0339434cc0))
 
 # [12.1.0](https://github.com/mg901/styled-breakpoints/compare/v12.0.4...v12.1.0) (2023-06-09)
 
-
 ### Features
 
-* add strict types for default and custom media queries ([8794580](https://github.com/mg901/styled-breakpoints/commit/879458052f52b511208723d76cf9d5f1ea0b1ab8)), closes [#1390](https://github.com/mg901/styled-breakpoints/issues/1390)
+- add strict types for default and custom media queries ([8794580](https://github.com/mg901/styled-breakpoints/commit/879458052f52b511208723d76cf9d5f1ea0b1ab8)), closes [#1390](https://github.com/mg901/styled-breakpoints/issues/1390)
 
 ## [12.0.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.3...v12.0.4) (2023-05-29)
 
-
 ### Bug Fixes
 
-* fix a bug that occurred when passing custom breakpoints ([225ee5b](https://github.com/mg901/styled-breakpoints/commit/225ee5b7a055e0bdb62407297d9982578a1d39e7))
+- fix a bug that occurred when passing custom breakpoints ([225ee5b](https://github.com/mg901/styled-breakpoints/commit/225ee5b7a055e0bdb62407297d9982578a1d39e7))
 
 ## [12.0.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.2...v12.0.3) (2023-05-23)
 
-
 ### Bug Fixes
 
-* add banner in support of Ukraine ([c6bab5a](https://github.com/mg901/styled-breakpoints/commit/c6bab5af254071e025fe862b8558c75e9d1e8c20))
-* fix typography in documentation ([acb747c](https://github.com/mg901/styled-breakpoints/commit/acb747c32252eff19dc61f873f0f06a2970e81db))
-* fix typography in documentation ([#1504](https://github.com/mg901/styled-breakpoints/issues/1504)) ([e2611b0](https://github.com/mg901/styled-breakpoints/commit/e2611b0b90bda8c11c9f3c5d80d72dd2de3a4385))
+- add banner in support of Ukraine ([c6bab5a](https://github.com/mg901/styled-breakpoints/commit/c6bab5af254071e025fe862b8558c75e9d1e8c20))
+- fix typography in documentation ([acb747c](https://github.com/mg901/styled-breakpoints/commit/acb747c32252eff19dc61f873f0f06a2970e81db))
+- fix typography in documentation ([#1504](https://github.com/mg901/styled-breakpoints/issues/1504)) ([e2611b0](https://github.com/mg901/styled-breakpoints/commit/e2611b0b90bda8c11c9f3c5d80d72dd2de3a4385))
 
 ## [12.0.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.1...v12.0.2) (2023-05-23)
 
-
 ### Bug Fixes
 
-* fix broken link to `useMediaQuery` hook ([51ee3d6](https://github.com/mg901/styled-breakpoints/commit/51ee3d655374282050138901becdb31134f3d017))
+- fix broken link to `useMediaQuery` hook ([51ee3d6](https://github.com/mg901/styled-breakpoints/commit/51ee3d655374282050138901becdb31134f3d017))
 
 ## [12.0.1](https://github.com/mg901/styled-breakpoints/compare/v12.0.0...v12.0.1) (2023-05-23)
 
-
 ### Bug Fixes
 
-* add guide for migration from `useBreakpoint` to `useMediaQuery` ([3beb3d3](https://github.com/mg901/styled-breakpoints/commit/3beb3d3037f1fc592a0e156d511a6149228becc7))
+- add guide for migration from `useBreakpoint` to `useMediaQuery` ([3beb3d3](https://github.com/mg901/styled-breakpoints/commit/3beb3d3037f1fc592a0e156d511a6149228becc7))
 
 # [12.0.0](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0) (2023-05-23)
 
-
 ### Features
 
-* add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
-* add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
-* add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
-* add correct types for `DefaultStyledBreakpointsTheme` ([#1494](https://github.com/mg901/styled-breakpoints/issues/1494)) ([fcf7463](https://github.com/mg901/styled-breakpoints/commit/fcf74639dec5a8d29d9469adf860ed31e97deca5))
-* add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
-* remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
-* set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
-
+- add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
+- add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
+- add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
+- add correct types for `DefaultStyledBreakpointsTheme` ([#1494](https://github.com/mg901/styled-breakpoints/issues/1494)) ([fcf7463](https://github.com/mg901/styled-breakpoints/commit/fcf74639dec5a8d29d9469adf860ed31e97deca5))
+- add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
+- remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
+- set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
 
 ### BREAKING CHANGES
 
-* remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
-Remove `react-styled` and `react-emotion` directoies.
+- remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
+  Remove `react-styled` and `react-emotion` directoies.
 
 # [12.0.0-beta.7](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.6...v12.0.0-beta.7) (2023-05-23)
 
-
 ### Features
 
-* add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
+- add `docs` for v12 ([1b8d610](https://github.com/mg901/styled-breakpoints/commit/1b8d6106f83f2b11eba78464133c14502b8852c7))
 
 # [12.0.0-beta.6](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.5...v12.0.0-beta.6) (2023-05-12)
 
-
 ### Features
 
-* add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
+- add correct types for styled breakpoints ([1d4bc62](https://github.com/mg901/styled-breakpoints/commit/1d4bc62292c8211dba7c8e70a20df356b0c9025d))
 
 # [12.0.0-beta.5](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.4...v12.0.0-beta.5) (2023-05-11)
 
-
 ### Features
 
-* add correct types for `DefaultStyledBreakpointsTheme` ([#1494](https://github.com/mg901/styled-breakpoints/issues/1494)) ([fcf7463](https://github.com/mg901/styled-breakpoints/commit/fcf74639dec5a8d29d9469adf860ed31e97deca5))
+- add correct types for `DefaultStyledBreakpointsTheme` ([#1494](https://github.com/mg901/styled-breakpoints/issues/1494)) ([fcf7463](https://github.com/mg901/styled-breakpoints/commit/fcf74639dec5a8d29d9469adf860ed31e97deca5))
 
 # [12.0.0-beta.4](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.3...v12.0.0-beta.4) (2023-05-11)
 
-
 ### Features
 
-* set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
+- set `options` as optional argument ([#1493](https://github.com/mg901/styled-breakpoints/issues/1493)) ([f35715a](https://github.com/mg901/styled-breakpoints/commit/f35715a2702c722f7a681b8b273432c3b9f1c1d3))
 
 # [12.0.0-beta.3](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.2...v12.0.0-beta.3) (2023-05-11)
 
-
 ### Features
 
-* add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
+- add correct types for `createStyledBreakpointsTheme` ([86fe548](https://github.com/mg901/styled-breakpoints/commit/86fe5482166092a51bf491e7f128581efd72f92a))
 
 # [12.0.0-beta.2](https://github.com/mg901/styled-breakpoints/compare/v12.0.0-beta.1...v12.0.0-beta.2) (2023-05-11)
 
-
 ### Features
 
-* add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
+- add `useMediaQuery` hook ([dcceefb](https://github.com/mg901/styled-breakpoints/commit/dcceefb70d93a12f96d2465bd5b30f12efcccda6))
 
 # [12.0.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.3...v12.0.0-beta.1) (2023-05-11)
 
-
 ### Features
 
-* remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
-
+- remove `createTheme`, `up`, `down`, `between`, `only` ([6b9ac35](https://github.com/mg901/styled-breakpoints/commit/6b9ac3557ff5f4d346fbae1ff619fffb28b58e4b)), closes [#1453](https://github.com/mg901/styled-breakpoints/issues/1453) [#1449](https://github.com/mg901/styled-breakpoints/issues/1449) [#1486](https://github.com/mg901/styled-breakpoints/issues/1486)
 
 ### BREAKING CHANGES
 
-* remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
-Remove `react-styled` and `react-emotion` directoies.
+- remove functions `createTheme`, `up`, `down`, `between`, `only`,`useBreakpoint`.
+  Remove `react-styled` and `react-emotion` directoies.
 
 ## [11.2.3](https://github.com/mg901/styled-breakpoints/compare/v11.2.2...v11.2.3) (2023-04-27)
 
-
 ### Bug Fixes
 
-* **only:** remove incorrect validation for the minimum breakpoint ([#1479](https://github.com/mg901/styled-breakpoints/issues/1479)) ([b8b9040](https://github.com/mg901/styled-breakpoints/commit/b8b9040af5bebb1feb72314bd481d62292c8e7e6))
+- **only:** remove incorrect validation for the minimum breakpoint ([#1479](https://github.com/mg901/styled-breakpoints/issues/1479)) ([b8b9040](https://github.com/mg901/styled-breakpoints/commit/b8b9040af5bebb1feb72314bd481d62292c8e7e6))
 
 ## [11.2.2](https://github.com/mg901/styled-breakpoints/compare/v11.2.1...v11.2.2) (2023-04-27)
 
-
 ### Bug Fixes
 
-* **between:** remove incorrect validation for the minimum value ([#1475](https://github.com/mg901/styled-breakpoints/issues/1475)) ([66418e0](https://github.com/mg901/styled-breakpoints/commit/66418e063959aff32730bd8a844eb6d3daec518c))
+- **between:** remove incorrect validation for the minimum value ([#1475](https://github.com/mg901/styled-breakpoints/issues/1475)) ([66418e0](https://github.com/mg901/styled-breakpoints/commit/66418e063959aff32730bd8a844eb6d3daec518c))
 
 ## [11.2.1](https://github.com/mg901/styled-breakpoints/compare/v11.2.0...v11.2.1) (2023-04-26)
 
-
 ### Bug Fixes
 
-* **down:** remove validation for last breakpoint ([#1472](https://github.com/mg901/styled-breakpoints/issues/1472)) ([f55e97f](https://github.com/mg901/styled-breakpoints/commit/f55e97f663e7c209c5d11c64db263cdb56fd32ef))
+- **down:** remove validation for last breakpoint ([#1472](https://github.com/mg901/styled-breakpoints/issues/1472)) ([f55e97f](https://github.com/mg901/styled-breakpoints/commit/f55e97f663e7c209c5d11c64db263cdb56fd32ef))
 
 # [11.2.0](https://github.com/mg901/styled-breakpoints/compare/v11.1.5...v11.2.0) (2023-04-25)
 
-
 ### Features
 
-* **down:** add validation for last breakpoint ([8e38d90](https://github.com/mg901/styled-breakpoints/commit/8e38d907954deb6928dab4fe8f4e46c960222790))
+- **down:** add validation for last breakpoint ([8e38d90](https://github.com/mg901/styled-breakpoints/commit/8e38d907954deb6928dab4fe8f4e46c960222790))
 
 ## [11.1.5](https://github.com/mg901/styled-breakpoints/compare/v11.1.4...v11.1.5) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **up:** remove incorrect validation when breakpoint is equal zero ([ae47e05](https://github.com/mg901/styled-breakpoints/commit/ae47e055f41529a8fbd7fdcf8bea89f1eb27ab31))
-
+- **up:** remove incorrect validation when breakpoint is equal zero ([ae47e05](https://github.com/mg901/styled-breakpoints/commit/ae47e055f41529a8fbd7fdcf8bea89f1eb27ab31))
 
 ### Reverts
 
-* revert to v11.1.2 ([90a3b22](https://github.com/mg901/styled-breakpoints/commit/90a3b2277687382acbfea4319b32f954bf6fe250))
+- revert to v11.1.2 ([90a3b22](https://github.com/mg901/styled-breakpoints/commit/90a3b2277687382acbfea4319b32f954bf6fe250))
 
 ## [11.1.2](https://github.com/mg901/styled-breakpoints/compare/v11.1.1...v11.1.2) (2023-04-18)
 
-
 ### Bug Fixes
 
-* change url for `build` badge ([ad19573](https://github.com/mg901/styled-breakpoints/commit/ad19573cdbc5e1053226d375bfa4acfaface5e2e))
+- change url for `build` badge ([ad19573](https://github.com/mg901/styled-breakpoints/commit/ad19573cdbc5e1053226d375bfa4acfaface5e2e))
 
 ## [11.1.1](https://github.com/mg901/styled-breakpoints/compare/v11.1.0...v11.1.1) (2022-07-01)
 
-
 ### Bug Fixes
 
-* createTheme method has wrong types ([#1254](https://github.com/mg901/styled-breakpoints/issues/1254)) ([bd983a1](https://github.com/mg901/styled-breakpoints/commit/bd983a1d86a746f0542b6cc1decb9ba7b8e54034))
+- createTheme method has wrong types ([#1254](https://github.com/mg901/styled-breakpoints/issues/1254)) ([bd983a1](https://github.com/mg901/styled-breakpoints/commit/bd983a1d86a746f0542b6cc1decb9ba7b8e54034))
 
 # [11.1.0](https://github.com/mg901/styled-breakpoints/compare/v11.0.5...v11.1.0) (2022-05-06)
 
-
 ### Features
 
-* bump react to v18 ([#1215](https://github.com/mg901/styled-breakpoints/issues/1215)) ([be3ebbb](https://github.com/mg901/styled-breakpoints/commit/be3ebbb273024f0e36ecbb35855311cb5c658db4))
+- bump react to v18 ([#1215](https://github.com/mg901/styled-breakpoints/issues/1215)) ([be3ebbb](https://github.com/mg901/styled-breakpoints/commit/be3ebbb273024f0e36ecbb35855311cb5c658db4))
 
 ## [11.0.5](https://github.com/mg901/styled-breakpoints/compare/v11.0.4...v11.0.5) (2022-03-31)
 
-
 ### Bug Fixes
 
-* internal changes ([240b527](https://github.com/mg901/styled-breakpoints/commit/240b527be7b7470081e2a3048ddfa0f3760e50d8))
+- internal changes ([240b527](https://github.com/mg901/styled-breakpoints/commit/240b527be7b7470081e2a3048ddfa0f3760e50d8))
 
 ## [11.0.4](https://github.com/mg901/styled-breakpoints/compare/v11.0.3...v11.0.4) (2022-01-23)
 
-
 ### Bug Fixes
 
-* **use-breakpoint:** window access for ssr error fix ([#1154](https://github.com/mg901/styled-breakpoints/issues/1154)) ([888ecc2](https://github.com/mg901/styled-breakpoints/commit/888ecc26a0693c431f873f80d444358e309dea8c))
+- **use-breakpoint:** window access for ssr error fix ([#1154](https://github.com/mg901/styled-breakpoints/issues/1154)) ([888ecc2](https://github.com/mg901/styled-breakpoints/commit/888ecc26a0693c431f873f80d444358e309dea8c))
 
 ## [11.0.3](https://github.com/mg901/styled-breakpoints/compare/v11.0.2...v11.0.3) (2022-01-19)
 
-
 ### Bug Fixes
 
-* **use-breakpoint:** remove rules-of-hooks warning ([#1148](https://github.com/mg901/styled-breakpoints/issues/1148)) ([17c1c88](https://github.com/mg901/styled-breakpoints/commit/17c1c8810913ff6e9b9d8be25dca61dd4edabdbc))
+- **use-breakpoint:** remove rules-of-hooks warning ([#1148](https://github.com/mg901/styled-breakpoints/issues/1148)) ([17c1c88](https://github.com/mg901/styled-breakpoints/commit/17c1c8810913ff6e9b9d8be25dca61dd4edabdbc))
 
 ## [11.0.2](https://github.com/mg901/styled-breakpoints/compare/v11.0.1...v11.0.2) (2022-01-19)
 
-
 ### Bug Fixes
 
-* add type declaration for `createTheme` ([34c3023](https://github.com/mg901/styled-breakpoints/commit/34c302386d51cc772c82f9421076a81f7a6690c6))
+- add type declaration for `createTheme` ([34c3023](https://github.com/mg901/styled-breakpoints/commit/34c302386d51cc772c82f9421076a81f7a6690c6))
 
 ## [11.0.1](https://github.com/mg901/styled-breakpoints/compare/v11.0.0...v11.0.1) (2022-01-19)
 
-
 ### Bug Fixes
 
-* fix export for `createStyledBreakpoints` function ([54f6f9d](https://github.com/mg901/styled-breakpoints/commit/54f6f9da4b22997eeccc01fcd1fa119feea1f8c3))
+- fix export for `createStyledBreakpoints` function ([54f6f9d](https://github.com/mg901/styled-breakpoints/commit/54f6f9da4b22997eeccc01fcd1fa119feea1f8c3))
 
 # [11.0.0](https://github.com/mg901/styled-breakpoints/compare/v10.2.3...v11.0.0) (2022-01-19)
 
-
 ### Code Refactoring
 
-* `up` and `between` functions ([1a6bf94](https://github.com/mg901/styled-breakpoints/commit/1a6bf94eb9aaf495e23f53562523b0a05f7ec87b))
-
+- `up` and `between` functions ([1a6bf94](https://github.com/mg901/styled-breakpoints/commit/1a6bf94eb9aaf495e23f53562523b0a05f7ec87b))
 
 ### BREAKING CHANGES
 
-* add createTheme function  and rewrite `up` and `between` functions
+- add createTheme function and rewrite `up` and `between` functions
 
 ## [10.2.3](https://github.com/mg901/styled-breakpoints/compare/v10.2.2...v10.2.3) (2022-01-11)
 
-
 ### Bug Fixes
 
-* improve documentation ([120f611](https://github.com/mg901/styled-breakpoints/commit/120f611d14ccac2ebd73ffe636cf4296266b3ccf))
+- improve documentation ([120f611](https://github.com/mg901/styled-breakpoints/commit/120f611d14ccac2ebd73ffe636cf4296266b3ccf))
 
 ## [10.2.2](https://github.com/mg901/styled-breakpoints/compare/v10.2.1...v10.2.2) (2022-01-11)
 
-
 ### Bug Fixes
 
-* improved documentatation ([#1136](https://github.com/mg901/styled-breakpoints/issues/1136)) ([3c43ed0](https://github.com/mg901/styled-breakpoints/commit/3c43ed087c25dc1bea99d91f6a793243d9ac5edb))
-* improved documentatation ([#1137](https://github.com/mg901/styled-breakpoints/issues/1137)) ([64446ff](https://github.com/mg901/styled-breakpoints/commit/64446ff900f0b1f9b064f8bed48744de4d65c2eb))
+- improved documentatation ([#1136](https://github.com/mg901/styled-breakpoints/issues/1136)) ([3c43ed0](https://github.com/mg901/styled-breakpoints/commit/3c43ed087c25dc1bea99d91f6a793243d9ac5edb))
+- improved documentatation ([#1137](https://github.com/mg901/styled-breakpoints/issues/1137)) ([64446ff](https://github.com/mg901/styled-breakpoints/commit/64446ff900f0b1f9b064f8bed48744de4d65c2eb))
 
 ## [10.2.1](https://github.com/mg901/styled-breakpoints/compare/v10.2.0...v10.2.1) (2021-12-22)
 
-
 ### Bug Fixes
 
-* improved documentatation ([#1117](https://github.com/mg901/styled-breakpoints/issues/1117)) ([b8c7f92](https://github.com/mg901/styled-breakpoints/commit/b8c7f92421e7e0599fca7a3945dd7a9d7ab0a40c))
+- improved documentatation ([#1117](https://github.com/mg901/styled-breakpoints/issues/1117)) ([b8c7f92](https://github.com/mg901/styled-breakpoints/commit/b8c7f92421e7e0599fca7a3945dd7a9d7ab0a40c))
 
 # [10.2.0](https://github.com/mg901/styled-breakpoints/compare/v10.1.1...v10.2.0) (2021-12-20)
 
-
 ### Features
 
-* add another default breakpoint `xxl: 1400px`, remove conversion… ([#1115](https://github.com/mg901/styled-breakpoints/issues/1115)) ([6fc1bac](https://github.com/mg901/styled-breakpoints/commit/6fc1bac46fd18a9e0e741726b64d0b93f451845e))
+- add another default breakpoint `xxl: 1400px`, remove conversion… ([#1115](https://github.com/mg901/styled-breakpoints/issues/1115)) ([6fc1bac](https://github.com/mg901/styled-breakpoints/commit/6fc1bac46fd18a9e0e741726b64d0b93f451845e))
 
 ## [10.1.1](https://github.com/mg901/styled-breakpoints/compare/v10.1.0...v10.1.1) (2021-12-19)
 
-
 ### Bug Fixes
 
-* fixed behavior when useBreakpoint could not work without ThemeProvider ([4235a79](https://github.com/mg901/styled-breakpoints/commit/4235a791bc6faadcbe62f399e82e599ea1d273f0))
+- fixed behavior when useBreakpoint could not work without ThemeProvider ([4235a79](https://github.com/mg901/styled-breakpoints/commit/4235a791bc6faadcbe62f399e82e599ea1d273f0))
 
 # [10.1.0](https://github.com/mg901/styled-breakpoints/compare/v10.0.1...v10.1.0) (2021-12-19)
 
-
 ### Features
 
-* improved performance ([#1112](https://github.com/mg901/styled-breakpoints/issues/1112)) ([4c052f1](https://github.com/mg901/styled-breakpoints/commit/4c052f186209c755c68b0374c456bde2112c738d))
+- improved performance ([#1112](https://github.com/mg901/styled-breakpoints/issues/1112)) ([4c052f1](https://github.com/mg901/styled-breakpoints/commit/4c052f186209c755c68b0374c456bde2112c738d))
 
 ## [10.0.1](https://github.com/mg901/styled-breakpoints/compare/v10.0.0...v10.0.1) (2021-05-27)
 
-
 ### Bug Fixes
 
-* fix type conflict in `@emotion/react` [[#971](https://github.com/mg901/styled-breakpoints/issues/971)](https://github.com/mg901/styled-breakpoints/issues/971) ([b432588](https://github.com/mg901/styled-breakpoints/commit/b432588dbf7372f7b2a5e92d1ec92c5ad047b5cf))
+- fix type conflict in `@emotion/react` [[#971](https://github.com/mg901/styled-breakpoints/issues/971)](https://github.com/mg901/styled-breakpoints/issues/971) ([b432588](https://github.com/mg901/styled-breakpoints/commit/b432588dbf7372f7b2a5e92d1ec92c5ad047b5cf))
 
 # [10.0.0](https://github.com/mg901/styled-breakpoints/compare/v9.0.12...v10.0.0) (2021-03-03)
 
-
 ### Bug Fixes
 
-* **peer-deps:** replace react "^16.8.0" with  "^17.0.0" [#916](https://github.com/mg901/styled-breakpoints/issues/916) ([938dbff](https://github.com/mg901/styled-breakpoints/commit/938dbff68d4c673e292f25c635025cd17fef2037))
-
+- **peer-deps:** replace react "^16.8.0" with "^17.0.0" [#916](https://github.com/mg901/styled-breakpoints/issues/916) ([938dbff](https://github.com/mg901/styled-breakpoints/commit/938dbff68d4c673e292f25c635025cd17fef2037))
 
 ### BREAKING CHANGES
 
-* **no breaking changes**. Update React to version ^17.x.x.
+- **no breaking changes**. Update React to version ^17.x.x.
 
 ## [9.0.12](https://github.com/mg901/styled-breakpoints/compare/v9.0.11...v9.0.12) (2021-02-25)
 
-
 ### Bug Fixes
 
-* **use-brekpoint:** move the call of the useTheme hook to useBreakpoint ([8a08fdb](https://github.com/mg901/styled-breakpoints/commit/8a08fdbca66ba7a66fb9ceb279704574414a4189))
+- **use-brekpoint:** move the call of the useTheme hook to useBreakpoint ([8a08fdb](https://github.com/mg901/styled-breakpoints/commit/8a08fdbca66ba7a66fb9ceb279704574414a4189))
 
 ## [9.0.11](https://github.com/mg901/styled-breakpoints/compare/v9.0.10...v9.0.11) (2021-02-25)
 
-
 ### Bug Fixes
 
-* **use-brekpoint:** useBreakpoint works without theme ([#911](https://github.com/mg901/styled-breakpoints/issues/911)) ([c58e505](https://github.com/mg901/styled-breakpoints/commit/c58e5050ac209011da5b84a3591a4955482ae2e6))
+- **use-brekpoint:** useBreakpoint works without theme ([#911](https://github.com/mg901/styled-breakpoints/issues/911)) ([c58e505](https://github.com/mg901/styled-breakpoints/commit/c58e5050ac209011da5b84a3591a4955482ae2e6))
 
 ## [9.0.10](https://github.com/mg901/styled-breakpoints/compare/v9.0.9...v9.0.10) (2021-02-24)
 
-
 ### Bug Fixes
 
-* **docs:** fix readme ([de3c0e2](https://github.com/mg901/styled-breakpoints/commit/de3c0e298bf49c92627957a7a5d33d763c5aa82f))
+- **docs:** fix readme ([de3c0e2](https://github.com/mg901/styled-breakpoints/commit/de3c0e298bf49c92627957a7a5d33d763c5aa82f))
 
 ## [9.0.9](https://github.com/mg901/styled-breakpoints/compare/v9.0.8...v9.0.9) (2021-01-12)
 
-
 ### Bug Fixes
 
-* add exception for MediaQueryList event listener for Safari < 14 ([8b989f0](https://github.com/mg901/styled-breakpoints/commit/8b989f0bb51de81e36e587c05a3a13d193f9928d))
+- add exception for MediaQueryList event listener for Safari < 14 ([8b989f0](https://github.com/mg901/styled-breakpoints/commit/8b989f0bb51de81e36e587c05a3a13d193f9928d))
 
 ## [9.0.8](https://github.com/mg901/styled-breakpoints/compare/v9.0.7...v9.0.8) (2020-12-06)
 
-
 ### Bug Fixes
 
-* **use-breakpoint:** eliminated erroneous rehydration after server si… ([#869](https://github.com/mg901/styled-breakpoints/issues/869)) ([385d4e1](https://github.com/mg901/styled-breakpoints/commit/385d4e12ac0b8065c52d162f7b47552e4560f8ed))
+- **use-breakpoint:** eliminated erroneous rehydration after server si… ([#869](https://github.com/mg901/styled-breakpoints/issues/869)) ([385d4e1](https://github.com/mg901/styled-breakpoints/commit/385d4e12ac0b8065c52d162f7b47552e4560f8ed))
 
 ## [9.0.7](https://github.com/mg901/styled-breakpoints/compare/v9.0.6...v9.0.7) (2020-12-05)
 
-
 ### Bug Fixes
 
-* fix readme ([ee61dfd](https://github.com/mg901/styled-breakpoints/commit/ee61dfdbcc2f54b70d839ede831411192485e382))
+- fix readme ([ee61dfd](https://github.com/mg901/styled-breakpoints/commit/ee61dfdbcc2f54b70d839ede831411192485e382))
 
 ## [9.0.6](https://github.com/mg901/styled-breakpoints/compare/v9.0.5...v9.0.6) (2020-12-05)
 
-
 ### Bug Fixes
 
-* rewrite useBreakpoint ([#862](https://github.com/mg901/styled-breakpoints/issues/862)) ([3947016](https://github.com/mg901/styled-breakpoints/commit/3947016bb7ed5b71146b41c76b9a85987d36740f))
+- rewrite useBreakpoint ([#862](https://github.com/mg901/styled-breakpoints/issues/862)) ([3947016](https://github.com/mg901/styled-breakpoints/commit/3947016bb7ed5b71146b41c76b9a85987d36740f))
 
 ## [9.0.5](https://github.com/mg901/styled-breakpoints/compare/v9.0.4...v9.0.5) (2020-12-05)
 
-
 ### Bug Fixes
 
-* fix readme ([#864](https://github.com/mg901/styled-breakpoints/issues/864)) ([6cab552](https://github.com/mg901/styled-breakpoints/commit/6cab552d44d1a7dbf5dd48eccd9459fbf7b0e493))
+- fix readme ([#864](https://github.com/mg901/styled-breakpoints/issues/864)) ([6cab552](https://github.com/mg901/styled-breakpoints/commit/6cab552d44d1a7dbf5dd48eccd9459fbf7b0e493))
 
 ## [9.0.4](https://github.com/mg901/styled-breakpoints/compare/v9.0.3...v9.0.4) (2020-12-05)
 
-
 ### Bug Fixes
 
-* fix typo in package.json on 'down' import ([#861](https://github.com/mg901/styled-breakpoints/issues/861)) ([0caa31f](https://github.com/mg901/styled-breakpoints/commit/0caa31f204aa00b74871894e505e98885981573b))
+- fix typo in package.json on 'down' import ([#861](https://github.com/mg901/styled-breakpoints/issues/861)) ([0caa31f](https://github.com/mg901/styled-breakpoints/commit/0caa31f204aa00b74871894e505e98885981573b))
 
 ## [9.0.3](https://github.com/mg901/styled-breakpoints/compare/v9.0.2...v9.0.3) (2020-12-01)
 
-
 ### Bug Fixes
 
-* fix readme ([#855](https://github.com/mg901/styled-breakpoints/issues/855)) ([e8f94ca](https://github.com/mg901/styled-breakpoints/commit/e8f94ca2a7814c0cbd07aad255aad60e831b28d3))
+- fix readme ([#855](https://github.com/mg901/styled-breakpoints/issues/855)) ([e8f94ca](https://github.com/mg901/styled-breakpoints/commit/e8f94ca2a7814c0cbd07aad255aad60e831b28d3))
 
 ## [9.0.2](https://github.com/mg901/styled-breakpoints/compare/v9.0.1...v9.0.2) (2020-11-30)
 
-
 ### Bug Fixes
 
-* fix readme ([#854](https://github.com/mg901/styled-breakpoints/issues/854)) ([f211a17](https://github.com/mg901/styled-breakpoints/commit/f211a17da913e60921c5074d4d6b0e159056e0a5))
+- fix readme ([#854](https://github.com/mg901/styled-breakpoints/issues/854)) ([f211a17](https://github.com/mg901/styled-breakpoints/commit/f211a17da913e60921c5074d4d6b0e159056e0a5))
 
 ## [9.0.1](https://github.com/mg901/styled-breakpoints/compare/v9.0.0...v9.0.1) (2020-11-16)
 
-
 ### Bug Fixes
 
-* **readme:** fix the link to desktop first ([7c3e867](https://github.com/mg901/styled-breakpoints/commit/7c3e8670cc691030a12a6426e430d2f91e4317c3))
+- **readme:** fix the link to desktop first ([7c3e867](https://github.com/mg901/styled-breakpoints/commit/7c3e8670cc691030a12a6426e430d2f91e4317c3))
 
 # [9.0.0](https://github.com/mg901/styled-breakpoints/compare/v8.2.3...v9.0.0) (2020-11-13)
 
-
 ### Code Refactoring
 
-* replaced default breakpoints ([76bc360](https://github.com/mg901/styled-breakpoints/commit/76bc3600996999a3c1433d9c4c3e30fcbff40db3))
-
+- replaced default breakpoints ([76bc360](https://github.com/mg901/styled-breakpoints/commit/76bc3600996999a3c1433d9c4c3e30fcbff40db3))
 
 ### Features
 
-* add support for emotion ([a4c612c](https://github.com/mg901/styled-breakpoints/commit/a4c612c335a521b286eaa66f94d0c49837ac1d1c))
-
+- add support for emotion ([a4c612c](https://github.com/mg901/styled-breakpoints/commit/a4c612c335a521b286eaa66f94d0c49837ac1d1c))
 
 ### BREAKING CHANGES
 
-* replaced default breakpoints
+- replaced default breakpoints
 
 ## [8.2.3](https://github.com/mg901/styled-breakpoints/compare/v8.2.2...v8.2.3) (2020-11-11)
 
-
 ### Bug Fixes
 
-* **readme:** add build status ([084f643](https://github.com/mg901/styled-breakpoints/commit/084f643784a1b6893ad38d625d7738664ede981e))
+- **readme:** add build status ([084f643](https://github.com/mg901/styled-breakpoints/commit/084f643784a1b6893ad38d625d7738664ede981e))
 
 ## [8.2.2](https://github.com/mg901/styled-breakpoints/compare/v8.2.1...v8.2.2) (2020-11-11)
 
-
 ### Bug Fixes
 
-* fix: remove package-lock.json ([de767aa](https://github.com/mg901/styled-breakpoints/commit/de767aa9978fdf258bb363f51919747cb7182315))
+- fix: remove package-lock.json ([de767aa](https://github.com/mg901/styled-breakpoints/commit/de767aa9978fdf258bb363f51919747cb7182315))
 
 ## [8.2.1](https://github.com/mg901/styled-breakpoints/compare/v8.2.0...v8.2.1) (2020-11-11)
 
-
 ### Bug Fixes
 
-* rename a direactory react-styled with react ([e928b6b](https://github.com/mg901/styled-breakpoints/commit/e928b6bcc0feda172d0bcb10177ce53335b17414))
+- rename a direactory react-styled with react ([e928b6b](https://github.com/mg901/styled-breakpoints/commit/e928b6bcc0feda172d0bcb10177ce53335b17414))
 
 # [8.2.0](https://github.com/mg901/styled-breakpoints/compare/v8.1.3...v8.2.0) (2020-11-11)
 
-
 ### Features
 
-* add useBreakpoint hook for react & styled-components ([#833](https://github.com/mg901/styled-breakpoints/issues/833)) ([708856e](https://github.com/mg901/styled-breakpoints/commit/708856e18c86fdce65db3925ef40192afffefc9e))
+- add useBreakpoint hook for react & styled-components ([#833](https://github.com/mg901/styled-breakpoints/issues/833)) ([708856e](https://github.com/mg901/styled-breakpoints/commit/708856e18c86fdce65db3925ef40192afffefc9e))
 
 ## [8.1.3](https://github.com/mg901/styled-breakpoints/compare/v8.1.2...v8.1.3) (2020-11-11)
 
-
 ### Bug Fixes
 
-* set correct types for useBreakpoint hook ([#829](https://github.com/mg901/styled-breakpoints/issues/829)) ([86e12a5](https://github.com/mg901/styled-breakpoints/commit/86e12a56abb13fec77405635dafb487362239238))
+- set correct types for useBreakpoint hook ([#829](https://github.com/mg901/styled-breakpoints/issues/829)) ([86e12a5](https://github.com/mg901/styled-breakpoints/commit/86e12a56abb13fec77405635dafb487362239238))
 
 ## [8.1.2](https://github.com/mg901/styled-breakpoints/compare/v8.1.1...v8.1.2) (2020-10-03)
 
-
 ### Bug Fixes
 
-* fix readme ([#784](https://github.com/mg901/styled-breakpoints/issues/784)) ([591b994](https://github.com/mg901/styled-breakpoints/commit/591b99406fa6c64403b601961331816343c19758))
+- fix readme ([#784](https://github.com/mg901/styled-breakpoints/issues/784)) ([591b994](https://github.com/mg901/styled-breakpoints/commit/591b99406fa6c64403b601961331816343c19758))
 
 ### Bug Fixes
 

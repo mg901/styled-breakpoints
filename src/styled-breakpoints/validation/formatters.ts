@@ -1,11 +1,11 @@
 export const INDENT = `  `;
 
-export const toUnion = (x) => x.map((k) => `"${k}"`).join(' | ');
+export const toQuoted = (x: readonly string[]) =>
+  x.map<`"${string}"`>((k) => `"${k}"`);
 
-export const formatLines = (...lines) =>
-  `\n\n${lines.map((line) => `${INDENT}${line}`).join('\n')}`;
+export const toQuotedList = (x: readonly string[]) => toQuoted(x).join(', ');
 
-export const formatValue = (val) => {
+export const formatValue = (val: unknown) => {
   if (val === null) {
     return 'null';
   }
