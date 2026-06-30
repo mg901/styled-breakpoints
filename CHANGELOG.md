@@ -1,3 +1,12 @@
+# [14.3.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v14.2.0...v14.3.0-beta.1) (2026-06-30)
+
+
+### Features
+
+* move from common js to es modules ([843f8f8](https://github.com/mg901/styled-breakpoints/commit/843f8f847ea6bd902a719ca5e725675f1440420e))
+* react 16 no longer supported as a  peer-dep ([7591ee6](https://github.com/mg901/styled-breakpoints/commit/7591ee644fcfd28e9b07bc4a43a61198b7fbb752))
+* rewrite useMediaQuery using useSyncExternalStore ([3d2142c](https://github.com/mg901/styled-breakpoints/commit/3d2142c9ebba83466261e0ac533c8784bd589bc3))
+
 # [14.2.0](https://github.com/mg901/styled-breakpoints/compare/v14.1.11...v14.2.0) (2025-12-22)
 
 ### Features
