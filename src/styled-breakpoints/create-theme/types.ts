@@ -2,15 +2,17 @@ import type { DEFAULT_BREAKPOINT_VALUES } from './default-breakpoint-values';
 
 export type Values = Record<string, `${number}px`>;
 
+export type BreakpointsValues<T extends Values> = {
+  values: T;
+};
+
 export type Breakpoints<T extends Values> = {
-  breakpoints: {
-    values: T;
-  };
+  breakpoints: BreakpointsValues<T>;
 };
 
 export type Config<T extends Values> = {
   errorPrefix?: string;
-  breakpoints?: Breakpoints<T>;
+  breakpoints?: BreakpointsValues<T>;
 };
 
 export type ThemeBreakpoints<T> = Readonly<{
