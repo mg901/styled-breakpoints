@@ -21,6 +21,9 @@ styled-breakpoints <br>
 <a href="https://www.npmjs.com/package/styled-breakpoints">
 <img alt="npm version" src="https://img.shields.io/npm/v/styled-breakpoints.svg?style=flat-square">
 </a>
+<a href="https://app.codspeed.io/mg901/styled-breakpoints?utm_source=badge">
+<img alt="CodSpeed" src="https://img.shields.io/endpoint?url=https://codspeed.io/badge.json">
+</a>
 
 </h1>
 

@@ -12,7 +12,7 @@
     "test:unit:watch": "cross-env vitest",
     "test:unit:coverage": "cross-env vitest --coverage run",
     "test:types": "npx check-dts",
-    "test:bench": "cross-env vitest run bench",
+    "test:bench": "cross-env vitest bench",
     "test:size": "cross-env size-limit",
     "lint": "cross-env eslint . --fix.",
     "format": "cross-env prettier './**/**/**.{json,js,ts}' --write",
@@ -57,6 +57,7 @@
     "react-dom": ">= 16.8.0"
   },
   "devDependencies": {
+    "@codspeed/vitest-plugin": "^5.7.1",
     "@commitlint/cli": "^21.0.0",
     "@commitlint/config-conventional": "^20.0.0",
     "@semantic-release/changelog": "^6.0.0",
