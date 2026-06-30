@@ -13,7 +13,7 @@
 
     "strict": true,
     "skipLibCheck": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
   },
   "include": ["src"]
 }
