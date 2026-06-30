@@ -13,6 +13,7 @@ jobs:
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for trusted publishing and npm provenance
+
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js
@@ -20,13 +21,14 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: '10'
-          run_install: true
+          run_install: false
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Linting
         run: pnpm lint
@@ -34,8 +36,11 @@ jobs:
       - name: Unit Tests
         run: pnpm test:unit:coverage
 
-      - name: Test types
+      - name: Type Checking
         run: pnpm test:types
+
+      - name: Benchmarking
+        run: pnpm test:bench
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
@@ -48,7 +53,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check size
-        run: pnpm test:size
+        run: pnpm size
 
   release:
     if: github.event_name == 'push'
@@ -61,14 +66,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
+          cache: "pnpm"
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: '10'
           run_install: false
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
 
       - name: Release
         env:
