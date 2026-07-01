@@ -26,5 +26,6 @@
   "git.autofetch": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "cSpell.words": ["mqls"]
 }
