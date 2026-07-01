@@ -48,7 +48,3 @@ const getSnapshot = (query: string) => {
 function normalize(query: string) {
   return query.replace(/^@media\s*/, '');
 }
-
-useMediaQuery('a', {
-  getServerSnapshot: () => true,
-});
