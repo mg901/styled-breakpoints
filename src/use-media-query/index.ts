@@ -1,10 +1,21 @@
 import { useCallback, useSyncExternalStore } from 'react';
 
-export function useMediaQuery(query, { getServerSnapshot = () => false } = {}) {
+type ServerSnapshot = () => boolean;
+
+type Options = {
+  getServerSnapshot?: ServerSnapshot;
+};
+
+const defaultServerSnapshot = () => false;
+
+export const useMediaQuery = (
+  query: string,
+  { getServerSnapshot = defaultServerSnapshot }: Options = {}
+) => {
   const normalized = normalize(query);
 
   const onStoreChange = useCallback(
-    (listener) => subscribe(normalized, listener),
+    (listener: () => void) => subscribe(normalized, listener),
     [normalized]
   );
 
@@ -18,9 +29,9 @@ export function useMediaQuery(query, { getServerSnapshot = () => false } = {}) {
     getNormalizedSnapshot,
     getServerSnapshot
   );
-}
+};
 
-const subscribe = (query, listener) => {
+const subscribe = (query: string, listener: () => void) => {
   const mql = window.matchMedia(normalize(query));
 
   mql.addEventListener('change', listener);
@@ -30,10 +41,14 @@ const subscribe = (query, listener) => {
   };
 };
 
-const getSnapshot = (query) => {
+const getSnapshot = (query: string) => {
   return window.matchMedia(normalize(query)).matches;
 };
 
-function normalize(query) {
+function normalize(query: string) {
   return query.replace(/^@media\s*/, '');
 }
+
+useMediaQuery('a', {
+  getServerSnapshot: () => true,
+});
