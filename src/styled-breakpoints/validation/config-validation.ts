@@ -38,18 +38,30 @@ export const validateConfig = <T extends Values>(
   errorPrefix: string,
   config: Config<T>
 ) => {
-  const values = config.breakpoints!.values;
-  const entries = Object.entries<string>(values ?? {});
-
-  for (const validator of validators) {
-    const invalid = validator.collect(entries);
-
-    if (invalid.length) {
-      const details = buildErrorDetails(validator.reason, invalid);
-
-      throw new Error(
-        `${errorPrefix}Theme configuration failed:\n\n  ${details}`
-      );
+  try {
+    if (Object.keys(config.breakpoints ?? {}).length === 0) {
+      throw new Error('Reason: "breakpoints" must be defined.');
     }
+
+    if (Object.keys(config.breakpoints?.values ?? {}).length === 0) {
+      throw new Error('Reason: "breakpoints.values" must be defined.');
+    }
+
+    const entries = Object.entries(config.breakpoints!.values);
+
+    for (const validator of validators) {
+      const invalid = validator.collect(entries);
+
+      if (invalid.length) {
+        const details = buildErrorDetails(validator.reason, invalid);
+
+        throw new Error(details);
+      }
+    }
+  } catch (error) {
+    // eslint-disable-next-line preserve-caught-error
+    throw new Error(
+      `${errorPrefix}Theme configuration failed:\n\n  ${(error as Error).message}\n`
+    );
   }
 };

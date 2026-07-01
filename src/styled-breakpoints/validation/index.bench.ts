@@ -1,5 +1,5 @@
 import { bench, describe } from 'vitest';
-import { createStyledBreakpointsTheme } from '..';
+import { createStyledBreakpointsTheme } from '../index';
 
 describe('createStyledBreakpointsTheme dev benchmark', () => {
   bench('theme creation', () => {

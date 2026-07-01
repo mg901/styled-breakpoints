@@ -26,7 +26,8 @@ const withDefaults = <T extends Values>(config?: Config<T>) =>
   }) as Breakpoints<T>;
 
 export const createStyledBreakpointsTheme = <
-  const T extends Values = typeof DEFAULT_BREAKPOINT_VALUES,
+  const T extends Record<string, `${number}px`> =
+    typeof DEFAULT_BREAKPOINT_VALUES,
 >(
   config?: Config<T>
 ): StyledBreakpointsTheme<T> => {
