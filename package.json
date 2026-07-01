@@ -1,6 +1,6 @@
 {
   "name": "styled-breakpoints",
-  "version": "15.0.0-beta.1",
+  "version": "15.0.0",
   "license": "MIT",
   "description": "Simple and powerful css breakpoints for styled-components and emotion",
   "sideEffects": false,
