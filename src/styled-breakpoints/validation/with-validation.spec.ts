@@ -1,10 +1,80 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { withValidation } from './with-validation';
 
 describe('withValidation', () => {
   describe('theme configuration', () => {
-    // @ts-expect-error
-    const createTheme = withValidation(() => {});
+    let createTheme: ReturnType<typeof withValidation>;
+
+    beforeEach(() => {
+      // @ts-expect-error
+      createTheme = withValidation(() => {});
+    });
+
+    it('throws when breakpoints is an empty object', () => {
+      const expected = () => {
+        createTheme({
+          // @ts-expect-error
+          breakpoints: {},
+        });
+      };
+
+      expect(expected).toThrowErrorMatchingInlineSnapshot(`
+        [Error: [styled-breakpoints] › Theme configuration failed:
+
+          Reason: "breakpoints" must be defined.
+        ]
+      `);
+    });
+
+    it('throws then breakpoints is null', () => {
+      const expected = () => {
+        createTheme({
+          // @ts-expect-error
+          breakpoints: null,
+        });
+      };
+
+      expect(expected).toThrowErrorMatchingInlineSnapshot(`
+        [Error: [styled-breakpoints] › Theme configuration failed:
+
+          Reason: "breakpoints" must be defined.
+        ]
+      `);
+    });
+
+    it('throws then breakpoint.values in an empty object', () => {
+      const expected = () => {
+        createTheme({
+          breakpoints: {
+            values: {},
+          },
+        });
+      };
+
+      expect(expected).toThrowErrorMatchingInlineSnapshot(`
+        [Error: [styled-breakpoints] › Theme configuration failed:
+
+          Reason: "breakpoints.values" must be defined.
+        ]
+      `);
+    });
+
+    it('throws when breakpoint.values is null', () => {
+      const expected = () => {
+        createTheme({
+          breakpoints: {
+            // @ts-expect-error
+            values: null,
+          },
+        });
+      };
+
+      expect(expected).toThrowErrorMatchingInlineSnapshot(`
+        [Error: [styled-breakpoints] › Theme configuration failed:
+
+          Reason: "breakpoints.values" must be defined.
+        ]
+      `);
+    });
 
     it('throws for non-string breakpoint values', () => {
       // Arrange
@@ -41,6 +111,7 @@ describe('withValidation', () => {
             - lg: "42n"
             - xl: "[object Map]"
             - xxl: "42"
+
         ]
       `);
     });
@@ -77,6 +148,7 @@ describe('withValidation', () => {
             - md: "wtf"
             - lg: "992"
             - xl: "px1200"
+
         ]
       `);
     });
@@ -106,6 +178,7 @@ describe('withValidation', () => {
             - sm: "576px"
             - md: "768px"
             - lg: "992px"
+
         ]
       `);
     });
