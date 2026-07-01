@@ -1,3 +1,21 @@
+# [15.0.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v14.3.0-beta.1...v15.0.0-beta.1) (2026-07-01)
+
+
+### Features
+
+* 🎸 migrate useMediaQuery to useSyncExternalStore ([b165fcc](https://github.com/mg901/styled-breakpoints/commit/b165fcc5372ab02def5aa0f2f295c83724b96427))
+
+
+### BREAKING CHANGES
+
+* 🧨 Removed defaultValue option from useMediaQuery, Removed
+initializeWithValue option from useMediaQuery, Introduced
+getServerSnapshot as the only SSR mechanism for useMediaQuery, Changed
+SSR behavior to require explicit getServerSnapshot handling, Changed
+theme.breakpoints structure to require values nesting, Changed
+createStyledBreakpointsTheme configuration shape to use
+breakpoints.values,
+
 # [14.3.0-beta.1](https://github.com/mg901/styled-breakpoints/compare/v14.2.0...v14.3.0-beta.1) (2026-06-30)
 
 
