@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowJs": true,
+    "types": ["vitest/globals"],
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+
+    "outDir": "./dist/prod/types",
+    "rootDir": "./src",
+
     "strict": true,
-    "noEmit": true,
-    "jsx": "react"
+    "skipLibCheck": true,
+    "esModuleInterop": true
   },
-  "exclude": ["**/errors.ts"]
+  "include": ["src"]
 }

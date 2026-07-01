@@ -1,3 +1,3 @@
-module.exports = {
-  '*.{j,t}s': ['yarn lint', 'yarn format'],
+export default {
+  '*.{j,t}s': ['pnpm run lint', 'pnpm run format'],
 };
