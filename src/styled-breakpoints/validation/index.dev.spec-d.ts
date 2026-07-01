@@ -1,4 +1,3 @@
-import { describe, expectTypeOf, it } from 'vitest';
 import { createStyledBreakpointsTheme as createTheme } from '../create-theme';
 import { withValidation } from './with-validation';
 
