@@ -8,6 +8,10 @@ styled-breakpoints <br>
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/mg901/styled-breakpoints/ci-release.yml?branch=master&style=flat-square">
 </a>
 
+<a href="https://app.codspeed.io/mg901/styled-breakpoints?utm_source=badge">
+<img alt="CodSpeed" src="https://img.shields.io/endpoint?url=https://codspeed.io/badge.json">
+</a>
+
 <a href="https://coveralls.io/github/mg901/styled-breakpoints?branch=master">
 <img alt="coverage status" src="https://img.shields.io/coverallsCoverage/github/mg901/styled-breakpoints?style=flat-square">
 </a>
