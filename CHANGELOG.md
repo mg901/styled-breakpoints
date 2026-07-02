@@ -1,3 +1,10 @@
+## [15.0.2](https://github.com/mg901/styled-breakpoints/compare/v15.0.1...v15.0.2) (2026-07-02)
+
+
+### Bug Fixes
+
+* 🐛 fix inaccurate wording in README ([#2268](https://github.com/mg901/styled-breakpoints/issues/2268)) ([e0e5f6f](https://github.com/mg901/styled-breakpoints/commit/e0e5f6fad28c77adc4caeab11b990205e0c4ab0e))
+
 ## [15.0.1](https://github.com/mg901/styled-breakpoints/compare/v15.0.0...v15.0.1) (2026-07-02)
 
 
