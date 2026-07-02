@@ -106,8 +106,8 @@ export const buildBreakpointValidators = <T extends Values>(
       validateOrientation(orientation),
     ],
     between: (min: string, max: string, orientation?: string) => [
-      validateBreakpointExist(min, 'First breakpoint'),
       validateRangeArity(min, max),
+      validateBreakpointExist(min, 'First breakpoint'),
       validateBreakpointExist(max, 'Second breakpoint'),
       validateRangeOrder(min, max),
       validateOrientation(orientation),

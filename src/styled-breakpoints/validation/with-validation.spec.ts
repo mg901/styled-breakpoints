@@ -321,25 +321,6 @@ describe('withValidation', () => {
     });
 
     describe('between', () => {
-      it('throws for the first non-existing breakpoint', () => {
-        // Act
-        const invalidMin = () => {
-          theme.breakpoints.between('foo', 'xl');
-        };
-
-        // Assert
-        expect(invalidMin).toThrowErrorMatchingInlineSnapshot(`
-          [Error: [styled-breakpoints] › breakpoints.between() failed:
-
-            - Reason: First breakpoint does not exist.
-
-            - Available: "xs", "sm", "md", "lg", "xl", "xxl"
-
-            - Received: between("foo", "xl")
-          ]
-        `);
-      });
-
       it('throws then less than two arguments', () => {
         // Act
         const expected = () => {
@@ -355,6 +336,25 @@ describe('withValidation', () => {
             - Expected: 2 arguments (min, max)
 
             - Received: between("sm")
+          ]
+        `);
+      });
+
+      it('throws for the first non-existing breakpoint', () => {
+        // Act
+        const invalidMin = () => {
+          theme.breakpoints.between('foo', 'xl');
+        };
+
+        // Assert
+        expect(invalidMin).toThrowErrorMatchingInlineSnapshot(`
+          [Error: [styled-breakpoints] › breakpoints.between() failed:
+
+            - Reason: First breakpoint does not exist.
+
+            - Available: "xs", "sm", "md", "lg", "xl", "xxl"
+
+            - Received: between("foo", "xl")
           ]
         `);
       });
