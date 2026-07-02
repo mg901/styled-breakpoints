@@ -1,12 +1,28 @@
 import { withValidation } from './with-validation';
 
 describe('withValidation', () => {
+  let upMock: ReturnType<typeof vi.fn>;
+  let createThemeMock: any;
+
+  beforeEach(() => {
+    upMock = vi.fn();
+
+    createThemeMock = () => ({
+      breakpoints: {
+        keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+        up: upMock,
+        down: vi.fn(),
+        between: vi.fn(),
+        only: vi.fn(),
+      },
+    });
+  });
+
   describe('theme configuration', () => {
     let createTheme: ReturnType<typeof withValidation>;
 
     beforeEach(() => {
-      // @ts-expect-error
-      createTheme = withValidation(() => {});
+      createTheme = withValidation(createThemeMock);
     });
 
     it('throws when breakpoints is an empty object', () => {
@@ -182,26 +198,27 @@ describe('withValidation', () => {
         ]
       `);
     });
+
+    it('does not throw if the initial breakpoint defined', () => {
+      const expected = () => {
+        createTheme({
+          breakpoints: {
+            values: {
+              xs: '0px',
+            },
+          },
+        });
+      };
+
+      expect(expected).not.toThrow();
+    });
   });
 
   describe('breakpoints input validation', () => {
     let theme: any;
-    let upMock: ReturnType<typeof vi.fn>;
 
     beforeEach(() => {
-      upMock = vi.fn();
-
-      const createThemeMock = () => ({
-        breakpoints: {
-          keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
-          up: upMock,
-          down: vi.fn(),
-          between: vi.fn(),
-          only: vi.fn(),
-        },
-      });
-
-      theme = withValidation(createThemeMock as any)();
+      theme = withValidation(createThemeMock)();
     });
 
     describe('up', () => {
