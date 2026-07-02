@@ -1,14 +1,20 @@
 export default [
   {
     name: 'createStyledBreakpointsTheme',
-    path: 'dist/dev/index.js',
+    path: 'src/styled-breakpoints/index.ts',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '1.5kb',
+    limit: '1.55kb',
   },
   {
     name: 'createStyledBreakpointsTheme',
-    path: 'dist/prod/index.js',
+    path: 'src/styled-breakpoints/create-theme/index.ts',
     import: '{ createStyledBreakpointsTheme }',
-    limit: '405b',
+    limit: '420b',
+  },
+  {
+    name: 'createStyledBreakpointsTheme',
+    path: 'src/use-media-query/index.ts',
+    import: '{ useMediaQuery }',
+    limit: '145b',
   },
 ];

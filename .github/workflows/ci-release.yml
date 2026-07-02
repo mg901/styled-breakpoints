@@ -30,8 +30,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Formatting
+        run: pnpm format
+
       - name: Linting
         run: pnpm lint
+
+      - name: Check size
+        run: pnpm size
 
       - name: Unit Tests
         run: pnpm test:unit:coverage
@@ -69,16 +75,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
-
-      - name: Check size
-        run: pnpm size
 
       - name: Release
         env:
