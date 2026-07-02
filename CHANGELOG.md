@@ -1,3 +1,10 @@
+## [15.0.1](https://github.com/mg901/styled-breakpoints/compare/v15.0.0...v15.0.1) (2026-07-02)
+
+
+### Bug Fixes
+
+* 🐛 move arity check before existence check in between() ([#2267](https://github.com/mg901/styled-breakpoints/issues/2267)) ([658de63](https://github.com/mg901/styled-breakpoints/commit/658de63196c4e8bb5fa1a7dac681dc03325546e8))
+
 # [15.0.0](https://github.com/mg901/styled-breakpoints/compare/v14.2.0...v15.0.0) (2026-07-01)
 
 
