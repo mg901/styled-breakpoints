@@ -45,7 +45,7 @@ styled-breakpoints <br>
 
 ## 🌼 Preview
 
-**Inside** components.
+**Inline** in styles.
 
 ```tsx
 const Box = styled.div`
@@ -63,13 +63,13 @@ const Box = styled.div`
 
 <br>
 
-**Outside** of components.
+Via the **hook**.
 
 ```tsx
 import { useTheme } from 'styled-components'; // or '@emotion/react'
 
 const Layout = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
 
   return <>{isMd && <Box />}</>;
@@ -133,11 +133,11 @@ From largest to smallest
 
 ## 🧐 Core concepts
 
-- **Breakpoints act as the fundamental elements of responsive design**. They enable you to control when your layout can adapt to a specific viewport or device size.
+- **Breakpoints are the foundation of responsive design**. They let you control when your layout adapts to a specific viewport or device size.
 
-- **Utilize media queries to structure your CSS based on breakpoints**. Media queries are CSS features that allow you to selectively apply styles depending on a defined set of browser and operating system parameters. The most commonly used media query property is <code>min-width</code>.
+- **Use media queries to structure your CSS around breakpoints**. Media queries are a CSS feature that lets you apply styles conditionally based on browser and device parameters — most commonly `min-width`.
 
-- **The primary goal is mobile-first responsive design.**. Styled Breakpoints aims to apply the essential styles required for a layout to function at the smallest breakpoint. Additional styles are progressively added for larger screens. This approach optimizes your CSS, enhances rendering speed, and delivers an excellent user experience.
+- **The goal is mobile-first responsive design**. Styled Breakpoints applies the essential styles needed at the smallest breakpoint first, then progressively adds styles for larger screens. This keeps your CSS lean, improves rendering speed, and delivers a better user experience.
 
 <br>
 
@@ -181,13 +181,11 @@ const breakpoints = {
     lg: '992px',
     xl: '1200px',
     xxl: '1400px',
-  }
+  },
 };
 ```
 
-Each breakpoint is based on common responsive design conventions and aligns with container widths that are multiples of 12. These breakpoints also correspond to widely used viewport ranges, but they are not tied to specific devices.
-
-Instead, they provide a consistent foundation for building responsive layouts that work across most screen sizes.
+Each breakpoint follows common responsive design conventions, with widths that are multiples of 12. They align with widely used viewport ranges but aren't tied to specific devices — just a consistent foundation for layouts that work across most screen sizes.
 
 <br>
 
@@ -216,11 +214,12 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 export const theme = createStyledBreakpointsTheme({
   breakpoints: {
     values: {
-      phone: '0px',
+      watch: '0px',
       mobile: '200px',
-      laptop: '300px',
-      desktop: '400px',
-    }
+      tablet: '600px',
+      laptop: '900px',
+      desktop: '1400px',
+    },
   },
 });
 ```
@@ -235,11 +234,11 @@ export const theme = createStyledBreakpointsTheme({
 import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 
 const mainTheme = {
-  fonts: ["sans-serif", "Lato"],
+  fonts: ['sans-serif', 'Lato'],
   fontSizes: {
-    small: "1em",
-    medium: "2em",
-    large: "3em",
+    small: '1em',
+    medium: '2em',
+    large: '3em',
   },
 } as const;
 
@@ -271,10 +270,10 @@ yarn add styled-components
 `theme/styled.d.ts`
 
 ```ts
-import "styled-components";
-import { AppThemeType } from "./index";
+import 'styled-components';
+import { AppThemeType } from './index';
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme extends AppThemeType {}
 }
 ```
@@ -303,10 +302,10 @@ yarn add @emotion/{styled,react}
 `theme/emotion.d.ts`
 
 ```ts
-import "@emotion/react";
-import { AppThemeType } from "./index";
+import '@emotion/react';
+import { AppThemeType } from './index';
 
-declare module "@emotion/react" {
+declare module '@emotion/react' {
   export interface Theme extends AppThemeType {}
 }
 ```
@@ -322,7 +321,7 @@ declare module "@emotion/react" {
 
 ```tsx
 import { ThemeProvider } from 'styled-components'; // or '@emotion/react'
-import styled from "styled-components"; // or '@emotion/styled'
+import styled from 'styled-components'; // or '@emotion/styled'
 
 import { theme } from './theme';
 
@@ -375,7 +374,7 @@ const Box = styled.div`
 
 ### Max-width - `down`
 
-We occasionally use media queries that go in the other direction (the given screen size or smaller):
+Sometimes you need a media query that goes the other direction (the given screen size or smaller):
 
 <br>
 
@@ -407,7 +406,7 @@ const Box = styled.div`
 
 ### Single breakpoint - `only`
 
-There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
+There's also a way to target a single segment of screen sizes using the minimum and maximum breakpoint widths.
 
 <br>
 
@@ -465,9 +464,9 @@ const Box = styled.div`
 
 features:
 
-- 🧐 Reactive media query tracking with optimal performance
-- 💪🏻 SSR-safe via `getServerSnapshot`
-- 📦 Lightweight and minimal overhead
+- 🧐 Reactive media query tracking, optimized for performance
+- 💪🏻 Safe for SSR via `getServerSnapshot`
+- 📦 Lightweight, minimal overhead
 
 <br>
 
@@ -477,7 +476,7 @@ import { useMediaQuery } from 'styled-breakpoints/use-media-query';
 import { Box } from 'third-party-library';
 
 const SomeComponent = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.only('md'));
 
   return <Box>{isMd && <Box />}</Box>;
@@ -492,7 +491,7 @@ const SomeComponent = () => {
 declare function useMediaQuery(
   query: string,
   options?: {
-    getServerSnapshot: () => boolean
+    getServerSnapshot: () => boolean;
   }
 ): boolean;
 ```
@@ -503,7 +502,7 @@ declare function useMediaQuery(
   CSS media query to evaluate.  
   Accepts values with or without the `@media` prefix.
 
-- `options` _(optional)_  
+- `options` _(optional)_
   - `getServerSnapshot`  
     Function used during SSR to provide a stable boolean value for the initial render.
 
