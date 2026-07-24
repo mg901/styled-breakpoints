@@ -1,8 +1,4 @@
-import type {
-  StyledBreakpointsTheme,
-  Values,
-  ThemeBreakpoints,
-} from '../create-theme/types';
+import type { StyledBreakpointsTheme, Values } from '../create-theme/types';
 import { INDENT, toQuotedList } from './formatters';
 
 const buildContext = <T extends Values>({
@@ -160,32 +156,27 @@ export const withBreakpointValidation = <T extends Values>(
   const validators = buildBreakpointValidators<T>(theme);
   type MethodName = keyof typeof validators;
 
-  const breakpoints = (Object.keys(validators) as MethodName[]).reduce(
-    (acc, name) => {
-      return {
-        ...acc,
-        [name]: memoize((...args) => {
-          const issue = validators[name](...args).find(Boolean);
+  const entries = (Object.keys(validators) as MethodName[]).map((name) => [
+    name,
+    memoize((...args) => {
+      const issue = validators[name](...args).find(Boolean);
 
-          if (issue) {
-            const details = buildErrorDetails(issue, name, args);
+      if (issue) {
+        const details = buildErrorDetails(issue, name, args);
 
-            throw new Error(
-              `${errorPrefix}breakpoints.${name}() failed:\n\n${details}\n`
-            );
-          }
+        throw new Error(
+          `${errorPrefix}breakpoints.${name}() failed:\n\n${details}\n`
+        );
+      }
 
-          const method = theme.breakpoints[name] as (...args: any[]) => string;
+      const method = theme.breakpoints[name] as (...args: any[]) => string;
 
-          return method(...args);
-        }),
-      };
-    },
-    {} as ThemeBreakpoints<T>
-  );
+      return method(...args);
+    }),
+  ]);
 
   return {
     ...theme,
-    breakpoints,
+    breakpoints: Object.fromEntries(entries),
   };
 };
