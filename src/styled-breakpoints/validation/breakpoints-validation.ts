@@ -160,19 +160,12 @@ export const withBreakpointValidation = <T extends Values>(
   const validators = buildBreakpointValidators<T>(theme);
   type MethodName = keyof typeof validators;
 
-  type ValidatorEntries = {
-    [K in MethodName]: [K, (typeof validators)[K]];
-  }[MethodName];
-
-  const entries = Object.entries(validators) as ValidatorEntries[];
-
-  return {
-    ...theme,
-    breakpoints: Object.fromEntries(
-      entries.map(([name, validator]) => [
-        name,
-        memoize((...args) => {
-          const issue = validator(...args).find(Boolean);
+  const breakpoints = (Object.keys(validators) as MethodName[]).reduce(
+    (acc, name) => {
+      return {
+        ...acc,
+        [name]: memoize((...args) => {
+          const issue = validators[name](...args).find(Boolean);
 
           if (issue) {
             const details = buildErrorDetails(issue, name, args);
@@ -186,7 +179,13 @@ export const withBreakpointValidation = <T extends Values>(
 
           return method(...args);
         }),
-      ])
-    ) as unknown as ThemeBreakpoints<T>,
+      };
+    },
+    {} as ThemeBreakpoints<T>
+  );
+
+  return {
+    ...theme,
+    breakpoints,
   };
 };
