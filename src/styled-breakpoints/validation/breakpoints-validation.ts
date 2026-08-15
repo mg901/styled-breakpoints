@@ -92,7 +92,7 @@ export const buildBreakpointValidators = <T extends Values>(
     down: (...args: any[]) => [
       validateBreakpointExist(args[0]),
       validateZeroUpperBound(args[0]),
-      validateOrientation(args[2]),
+      validateOrientation(args[1]),
     ],
     between: (...args: any[]) => {
       const min = args[0];
