@@ -103,7 +103,7 @@ export const buildBreakpointValidators = <T extends Values>(
         validateBreakpointExist(min, 'First breakpoint'),
         validateBreakpointExist(max, 'Second breakpoint'),
         validateRangeOrder(min, max),
-        validateOrientation(max),
+        validateOrientation(args[2]),
       ];
     },
     only: (...args: any[]) => [
