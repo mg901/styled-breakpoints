@@ -76,41 +76,39 @@ const createRangeOrderValidator =
           reason: MSG_MIN_GREATER_THAN_MAX,
         };
 
-type BreakpointValidators = {
-  up: (...args: any[]) => ValidationResult[];
-  down: (...args: any[]) => ValidationResult[];
-  between: (...args: any[]) => ValidationResult[];
-  only: (...args: any[]) => ValidationResult[];
-};
-
 export const buildBreakpointValidators = <T extends Values>(
   theme: StyledBreakpointsTheme<T>
-): BreakpointValidators => {
+) => {
   const ctx = buildContext(theme);
   const validateBreakpointExist = createExistenceValidator(ctx);
   const validateZeroUpperBound = createZeroBoundValidator(ctx);
   const validateRangeOrder = createRangeOrderValidator(ctx);
 
   return {
-    up: (min: string, orientation?: string) => [
-      validateBreakpointExist(min),
-      validateOrientation(orientation),
+    up: (...args: any[]) => [
+      validateBreakpointExist(args[0]),
+      validateOrientation(args[1]),
     ],
-    down: (max: string, orientation?: string) => [
-      validateBreakpointExist(max),
-      validateZeroUpperBound(max),
-      validateOrientation(orientation),
+    down: (...args: any[]) => [
+      validateBreakpointExist(args[0]),
+      validateZeroUpperBound(args[0]),
+      validateOrientation(args[2]),
     ],
-    between: (min: string, max: string, orientation?: string) => [
-      validateRangeArity(min, max),
-      validateBreakpointExist(min, 'First breakpoint'),
-      validateBreakpointExist(max, 'Second breakpoint'),
-      validateRangeOrder(min, max),
-      validateOrientation(orientation),
-    ],
-    only: (key: string, orientation?: string) => [
-      validateBreakpointExist(key),
-      validateOrientation(orientation),
+    between: (...args: any[]) => {
+      const min = args[0];
+      const max = args[1];
+
+      return [
+        validateRangeArity(min, max),
+        validateBreakpointExist(min, 'First breakpoint'),
+        validateBreakpointExist(max, 'Second breakpoint'),
+        validateRangeOrder(min, max),
+        validateOrientation(max),
+      ];
+    },
+    only: (...args: any[]) => [
+      validateBreakpointExist(args[0]),
+      validateOrientation(args[1]),
     ],
   };
 };
