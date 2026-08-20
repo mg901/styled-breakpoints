@@ -175,6 +175,9 @@ export const withBreakpointValidation = <T extends Values>(
 
   return {
     ...theme,
-    breakpoints: Object.fromEntries(entries),
+    breakpoints: {
+      ...theme.breakpoints,
+      ...Object.fromEntries(entries),
+    },
   };
 };
