@@ -1,3 +1,10 @@
+## [15.0.3](https://github.com/mg901/styled-breakpoints/compare/v15.0.2...v15.0.3) (2026-08-20)
+
+
+### Bug Fixes
+
+* 🐛 preserve breakpoints.keys in the validated theme ([#2272](https://github.com/mg901/styled-breakpoints/issues/2272)) ([b200aae](https://github.com/mg901/styled-breakpoints/commit/b200aae2c9f38da208a50cff73b460793417ce97))
+
 ## [15.0.2](https://github.com/mg901/styled-breakpoints/compare/v15.0.1...v15.0.2) (2026-07-02)
 
 
