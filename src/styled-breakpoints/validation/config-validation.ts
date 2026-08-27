@@ -34,34 +34,41 @@ const buildErrorDetails = (reason: string, received: [string, string][]) =>
   `${INDENT}Example: ${EXAMPLE_BREAKPOINTS}\n\n` +
   `${INDENT}Received:\n${received.map(formatEntries).join('\n')}\n`;
 
+const findConfigIssue = <T extends Values>({
+  breakpoints,
+}: Config<T>): string | null => {
+  if (!breakpoints || Object.keys(breakpoints).length === 0) {
+    return 'Reason: "breakpoints" must be defined.';
+  }
+
+  const { values } = breakpoints;
+
+  if (!values || Object.keys(values).length === 0) {
+    return 'Reason: "breakpoints.values" must be defined.';
+  }
+
+  const entries = Object.entries(values);
+
+  for (const { reason, collect } of validators) {
+    const invalid = collect(entries);
+
+    if (invalid.length) {
+      return buildErrorDetails(reason, invalid);
+    }
+  }
+
+  return null;
+};
+
 export const validateConfig = <T extends Values>(
   errorPrefix: string,
   config: Config<T>
 ) => {
-  try {
-    if (Object.keys(config.breakpoints ?? {}).length === 0) {
-      throw new Error('Reason: "breakpoints" must be defined.');
-    }
+  const issue = findConfigIssue(config);
 
-    if (Object.keys(config.breakpoints?.values ?? {}).length === 0) {
-      throw new Error('Reason: "breakpoints.values" must be defined.');
-    }
-
-    const entries = Object.entries(config.breakpoints!.values);
-
-    for (const validator of validators) {
-      const invalid = validator.collect(entries);
-
-      if (invalid.length) {
-        const details = buildErrorDetails(validator.reason, invalid);
-
-        throw new Error(details);
-      }
-    }
-  } catch (error) {
-    // eslint-disable-next-line preserve-caught-error
+  if (issue) {
     throw new Error(
-      `${errorPrefix}Theme configuration failed:\n\n  ${(error as Error).message}\n`
+      `${errorPrefix}Theme configuration failed:\n\n  ${issue}\n`
     );
   }
 };
