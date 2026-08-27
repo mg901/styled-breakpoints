@@ -1,6 +1,10 @@
 import type { StyledBreakpointsTheme, Values } from '../create-theme/types';
 import { INDENT, toQuotedList } from './formatters';
 
+type Args = readonly (string | undefined)[];
+
+type MethodName = 'up' | 'down' | 'between' | 'only';
+
 const buildContext = <T extends Values>({
   breakpoints: { keys },
 }: StyledBreakpointsTheme<T>) => ({
@@ -30,8 +34,8 @@ const MSG_MIN_GREATER_THAN_MAX =
 
 const createExistenceValidator =
   (ctx: Ctx) =>
-  (key: string, prefix = 'Breakpoint'): ValidationResult =>
-    ctx.keysSet.has(key)
+  (key: string | undefined, prefix = 'Breakpoint'): ValidationResult =>
+    key !== undefined && ctx.keysSet.has(key)
       ? null
       : {
           reason: `${prefix} ${MSG_NOT_EXIST}`,
@@ -51,7 +55,7 @@ const validateOrientation = (value?: string): ValidationResult =>
 
 const createZeroBoundValidator =
   (ctx: Ctx) =>
-  (key: string): ValidationResult =>
+  (key: string | undefined): ValidationResult =>
     key !== ctx.firstKey
       ? null
       : {
@@ -59,7 +63,10 @@ const createZeroBoundValidator =
           expected: toQuotedList(ctx.keysExceptFirst),
         };
 
-const validateRangeArity = (min: string, max: string): ValidationResult =>
+const validateRangeArity = (
+  min: string | undefined,
+  max: string | undefined
+): ValidationResult =>
   min !== undefined && max !== undefined
     ? null
     : {
@@ -67,65 +74,34 @@ const validateRangeArity = (min: string, max: string): ValidationResult =>
         expected: '2 arguments (min, max)',
       };
 
-const createRangeOrderValidator =
-  (ctx: Ctx) =>
-  (min: string, max: string): ValidationResult =>
-    ctx.keys.indexOf(min) < ctx.keys.indexOf(max)
+const createRangeOrderValidator = (ctx: Ctx) => {
+  // Widened so a missing argument reads as -1 instead of needing a cast.
+  const keys: Args = ctx.keys;
+
+  return (
+    min: string | undefined,
+    max: string | undefined
+  ): ValidationResult =>
+    keys.indexOf(min) < keys.indexOf(max)
       ? null
       : {
           reason: MSG_MIN_GREATER_THAN_MAX,
         };
-
-export const buildBreakpointValidators = <T extends Values>(
-  theme: StyledBreakpointsTheme<T>
-) => {
-  const ctx = buildContext(theme);
-  const validateBreakpointExist = createExistenceValidator(ctx);
-  const validateZeroUpperBound = createZeroBoundValidator(ctx);
-  const validateRangeOrder = createRangeOrderValidator(ctx);
-
-  return {
-    up: (...args: any[]) => [
-      validateBreakpointExist(args[0]),
-      validateOrientation(args[1]),
-    ],
-    down: (...args: any[]) => [
-      validateBreakpointExist(args[0]),
-      validateZeroUpperBound(args[0]),
-      validateOrientation(args[1]),
-    ],
-    between: (...args: any[]) => {
-      const min = args[0];
-      const max = args[1];
-
-      return [
-        validateRangeArity(min, max),
-        validateBreakpointExist(min, 'First breakpoint'),
-        validateBreakpointExist(max, 'Second breakpoint'),
-        validateRangeOrder(min, max),
-        validateOrientation(args[2]),
-      ];
-    },
-    only: (...args: any[]) => [
-      validateBreakpointExist(args[0]),
-      validateOrientation(args[1]),
-    ],
-  };
 };
 
 const NULL_BYTE = '\x00';
 
-const memoize = <T extends (...args: any[]) => unknown>(fn: T) => {
-  const cache = new Map<string, ReturnType<T>>();
+const memoize = <A extends Args, R>(fn: (...args: A) => R) => {
+  const cache = new Map<string, R>();
 
-  return (...args: Parameters<T>): ReturnType<T> => {
+  return (...args: A): R => {
     const key = args.join(NULL_BYTE);
 
     if (cache.has(key)) {
       return cache.get(key)!;
     }
 
-    const value = fn(...args) as ReturnType<T>;
+    const value = fn(...args);
     cache.set(key, value);
 
     return value;
@@ -134,15 +110,15 @@ const memoize = <T extends (...args: any[]) => unknown>(fn: T) => {
 
 const buildErrorDetails = (
   issue: ValidationIssue,
-  methodName: string,
-  args: string[]
+  methodName: MethodName,
+  args: Args
 ) => {
   const lines = [];
 
   lines.push(`- Reason: ${issue.reason}`);
   if (issue.available) lines.push(`- Available: ${issue.available}`);
   if (issue.expected) lines.push(`- Expected: ${issue.expected}`);
-  lines.push(`- Received: ${methodName}(${toQuotedList(args)})`);
+  lines.push(`- Received: ${methodName}(${toQuotedList(args.map(String))})`);
 
   return lines.map((line) => `${INDENT}${line}`).join('\n\n');
 };
@@ -151,13 +127,19 @@ export const withBreakpointValidation = <T extends Values>(
   errorPrefix: string,
   theme: StyledBreakpointsTheme<T>
 ): StyledBreakpointsTheme<T> => {
-  const validators = buildBreakpointValidators<T>(theme);
-  type MethodName = keyof typeof validators;
+  const ctx = buildContext(theme);
+  const validateBreakpointExist = createExistenceValidator(ctx);
+  const validateZeroUpperBound = createZeroBoundValidator(ctx);
+  const validateRangeOrder = createRangeOrderValidator(ctx);
+  const { up, down, between, only } = theme.breakpoints;
 
-  const entries = (Object.keys(validators) as MethodName[]).map((name) => [
-    name,
-    memoize((...args) => {
-      const issue = validators[name](...args).find(Boolean);
+  const guard = <A extends Args>(
+    name: MethodName,
+    method: (...args: A) => string,
+    validate: (args: A) => readonly ValidationResult[]
+  ) =>
+    memoize((...args: A): string => {
+      const issue = validate(args).find(Boolean);
 
       if (issue) {
         const details = buildErrorDetails(issue, name, args);
@@ -167,17 +149,33 @@ export const withBreakpointValidation = <T extends Values>(
         );
       }
 
-      const method = theme.breakpoints[name] as (...args: any[]) => string;
-
       return method(...args);
-    }),
-  ]);
+    });
 
   return {
     ...theme,
     breakpoints: {
       ...theme.breakpoints,
-      ...Object.fromEntries(entries),
+      up: guard('up', up, ([min, orientation]) => [
+        validateBreakpointExist(min),
+        validateOrientation(orientation),
+      ]),
+      down: guard('down', down, ([max, orientation]) => [
+        validateBreakpointExist(max),
+        validateZeroUpperBound(max),
+        validateOrientation(orientation),
+      ]),
+      between: guard('between', between, ([min, max, orientation]) => [
+        validateRangeArity(min, max),
+        validateBreakpointExist(min, 'First breakpoint'),
+        validateBreakpointExist(max, 'Second breakpoint'),
+        validateRangeOrder(min, max),
+        validateOrientation(orientation),
+      ]),
+      only: guard('only', only, ([key, orientation]) => [
+        validateBreakpointExist(key),
+        validateOrientation(orientation),
+      ]),
     },
   };
 };

@@ -12,7 +12,7 @@ describe('withValidation(createStyledBreakpointsTheme) types', () => {
     expectTypeOf(createStyledBreakpointsTheme()).toEqualTypeOf<
       Readonly<{
         breakpoints: Readonly<{
-          keys: readonly string[];
+          keys: readonly DefaultBreakpointKeys[];
           up: (min: DefaultBreakpointKeys, orientation?: Orientation) => string;
           down: (
             max: DefaultBreakpointKeys,
@@ -47,7 +47,7 @@ describe('withValidation(createStyledBreakpointsTheme) types', () => {
     ).toEqualTypeOf<
       Readonly<{
         breakpoints: Readonly<{
-          keys: readonly string[];
+          keys: readonly BreakpointKeys[];
           up: (min: BreakpointKeys, orientation?: Orientation) => string;
           down: (max: BreakpointKeys, orientation?: Orientation) => string;
           between: (

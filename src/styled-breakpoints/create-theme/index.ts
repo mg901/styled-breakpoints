@@ -2,6 +2,7 @@ import type {
   Breakpoints,
   Config,
   StyledBreakpointsTheme,
+  ThemeBreakpoints,
   Values,
 } from './types';
 
@@ -26,31 +27,23 @@ const withDefaults = <T extends Values>(config?: Config<T>) =>
   }) as Breakpoints<T>;
 
 export const createStyledBreakpointsTheme = <
-  const T extends Record<string, `${number}px`> =
-    typeof DEFAULT_BREAKPOINT_VALUES,
+  const T extends Values = typeof DEFAULT_BREAKPOINT_VALUES,
 >(
   config?: Config<T>
 ): StyledBreakpointsTheme<T> => {
   const { keys, ranges } = buildBreakpointsMap<T>(withDefaults<T>(config));
 
-  const up = (min: keyof T & string, orientation?: 'landscape' | 'portrait') =>
+  const up: ThemeBreakpoints<T>['up'] = (min, orientation) =>
     buildMediaQuery(ranges[min].min, null, orientation);
 
-  const down = (
-    max: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
-  ) => buildMediaQuery(null, ranges[max].max, orientation);
+  const down: ThemeBreakpoints<T>['down'] = (max, orientation) =>
+    buildMediaQuery(null, ranges[max].max, orientation);
 
-  const between = (
-    min: keyof T & string,
-    max: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
-  ) => buildMediaQuery(ranges[min].min, ranges[max].max, orientation);
+  const between: ThemeBreakpoints<T>['between'] = (min, max, orientation) =>
+    buildMediaQuery(ranges[min].min, ranges[max].max, orientation);
 
-  const only = (
-    key: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
-  ) => buildMediaQuery(ranges[key].min, ranges[key].end, orientation);
+  const only: ThemeBreakpoints<T>['only'] = (key, orientation) =>
+    buildMediaQuery(ranges[key].min, ranges[key].end, orientation);
 
   return {
     breakpoints: {
