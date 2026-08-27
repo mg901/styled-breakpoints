@@ -1,7 +1,6 @@
 import { createStyledBreakpointsTheme as createTheme } from '../create-theme';
+import type { Orientation } from '../create-theme/types';
 import { withValidation } from './with-validation';
-
-export type Orientation = 'landscape' | 'portrait';
 
 describe('withValidation(createStyledBreakpointsTheme) types', () => {
   const createStyledBreakpointsTheme = withValidation(createTheme);

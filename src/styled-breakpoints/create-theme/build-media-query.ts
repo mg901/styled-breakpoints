@@ -1,7 +1,9 @@
+import type { Orientation } from './types';
+
 export const buildMediaQuery = (
   min: string | null,
   max: string | null,
-  orientation?: 'landscape' | 'portrait'
+  orientation?: Orientation
 ) => {
   const parts = [];
 

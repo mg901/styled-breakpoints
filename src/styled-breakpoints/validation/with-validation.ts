@@ -1,4 +1,8 @@
-import type { Config } from '../create-theme/types';
+import type {
+  Config,
+  StyledBreakpointsTheme,
+  Values,
+} from '../create-theme/types';
 
 import { createStyledBreakpointsTheme } from '../create-theme';
 import type { DEFAULT_BREAKPOINT_VALUES } from '../create-theme/default-breakpoint-values';
@@ -9,10 +13,10 @@ const DEFAULT_ERROR_PREFIX = `[styled-breakpoints] › `;
 
 export const withValidation =
   (createTheme: typeof createStyledBreakpointsTheme) =>
-  <
-    const T extends Record<string, `${number}px`> =
-      typeof DEFAULT_BREAKPOINT_VALUES,
-  >({ errorPrefix = DEFAULT_ERROR_PREFIX, ...config }: Config<T> = {}) => {
+  <const T extends Values = typeof DEFAULT_BREAKPOINT_VALUES>({
+    errorPrefix = DEFAULT_ERROR_PREFIX,
+    ...config
+  }: Config<T> = {}): StyledBreakpointsTheme<T> => {
     const hasConfig = Object.keys(config).length > 0;
 
     if (hasConfig) {

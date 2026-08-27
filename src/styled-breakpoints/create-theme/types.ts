@@ -2,6 +2,8 @@ import type { DEFAULT_BREAKPOINT_VALUES } from './default-breakpoint-values';
 
 export type Values = Record<string, `${number}px`>;
 
+export type Orientation = 'landscape' | 'portrait';
+
 export type BreakpointsValues<T extends Values> = {
   values: T;
 };
@@ -17,20 +19,14 @@ export type Config<T extends Values> = {
 
 export type ThemeBreakpoints<T> = Readonly<{
   keys: readonly string[];
-  up: (min: keyof T & string, orientation?: 'landscape' | 'portrait') => string;
-  down: (
-    max: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
-  ) => string;
+  up: (min: keyof T & string, orientation?: Orientation) => string;
+  down: (max: keyof T & string, orientation?: Orientation) => string;
   between: (
     min: keyof T & string,
     max: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
+    orientation?: Orientation
   ) => string;
-  only: (
-    key: keyof T & string,
-    orientation?: 'landscape' | 'portrait'
-  ) => string;
+  only: (key: keyof T & string, orientation?: Orientation) => string;
 }>;
 
 export type StyledBreakpointsTheme<
