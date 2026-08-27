@@ -162,6 +162,42 @@ describe('useMediaQuery', () => {
     });
   });
 
+  describe('media query list reuse', () => {
+    it('does not resolve a new MediaQueryList on re-render', () => {
+      // Arrange
+      const { rerender } = renderHook(() => {
+        return useMediaQuery('(min-width: 500px)');
+      });
+
+      const afterMount = vi.mocked(window.matchMedia).mock.calls.length;
+
+      // Act
+      rerender();
+      rerender();
+
+      // Assert
+      expect(window.matchMedia).toHaveBeenCalledTimes(afterMount);
+    });
+
+    it('resolves a new one when the query changes', () => {
+      // Arrange
+      const { rerender } = renderHook(({ query }) => useMediaQuery(query), {
+        initialProps: { query: '(min-width: 500px)' },
+      });
+
+      const afterMount = vi.mocked(window.matchMedia).mock.calls.length;
+
+      // Act
+      rerender({ query: '(min-width: 1000px)' });
+
+      // Assert
+      expect(window.matchMedia).toHaveBeenCalledWith('(min-width: 1000px)');
+      expect(vi.mocked(window.matchMedia).mock.calls.length).toBeGreaterThan(
+        afterMount
+      );
+    });
+  });
+
   describe('with multiple instances', () => {
     it('instances tracking different queries remain independent', () => {
       // Arrange
