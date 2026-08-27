@@ -1,17 +1,19 @@
 import type { DEFAULT_BREAKPOINT_VALUES } from './default-breakpoint-values';
 import type { Breakpoints, Values } from './types';
 
+type Key<T> = keyof T & string;
+
 type Range = {
   min: string;
   max: string | null;
   end: string | null;
 };
 
-type Ranges<T extends Values> = Record<keyof T & string, Range>;
+type Ranges<T extends Values> = Record<Key<T>, Range>;
 
 type BreakpointsMap<T extends Values = typeof DEFAULT_BREAKPOINT_VALUES> =
   Readonly<{
-    keys: readonly string[];
+    keys: readonly Key<T>[];
     ranges: Ranges<T>;
   }>;
 
@@ -36,11 +38,11 @@ export const buildBreakpointsMap = <
 }: Breakpoints<T>): BreakpointsMap<T> => {
   const unit = 'px';
 
-  const sorted = Object.entries<string>(values)
-    .map<[string, number]>(([key, val]) => [key, parseInt(val, 10)])
+  const sorted = (Object.entries<string>(values) as [Key<T>, string][])
+    .map<[Key<T>, number]>(([key, val]) => [key, parseInt(val, 10)])
     .sort(([, a], [, b]) => a - b);
 
-  const entries = sorted.map(([key, value], i, arr) => {
+  const entries = sorted.map<[Key<T>, Range]>(([key, value], i, arr) => {
     const next = arr[i + 1];
     const nextVal = next?.[1];
 
@@ -56,6 +58,6 @@ export const buildBreakpointsMap = <
 
   return {
     keys: sorted.map(([key]) => key),
-    ranges: Object.fromEntries(entries),
+    ranges: Object.fromEntries(entries) as Ranges<T>,
   };
 };
