@@ -1,6 +1,6 @@
 export const INDENT = `  `;
 
-export const toQuoted = (x: readonly string[]) =>
+const toQuoted = (x: readonly string[]) =>
   x.map<`"${string}"`>((k) => `"${k}"`);
 
 export const toQuotedList = (x: readonly string[]) => toQuoted(x).join(', ');
