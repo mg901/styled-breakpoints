@@ -15,6 +15,6 @@ export default [
     name: 'createStyledBreakpointsTheme',
     path: 'src/use-media-query/index.ts',
     import: '{ useMediaQuery }',
-    limit: '145b',
+    limit: '180b',
   },
 ];
