@@ -16,7 +16,7 @@ export type Config<T extends Values> = {
 };
 
 export type ThemeBreakpoints<T> = Readonly<{
-  keys: readonly string[];
+  keys: readonly (keyof T & string)[];
   up: (min: keyof T & string, orientation?: 'landscape' | 'portrait') => string;
   down: (
     max: keyof T & string,
