@@ -1,3 +1,15 @@
+## [15.0.4](https://github.com/mg901/styled-breakpoints/compare/v15.0.3...v15.0.4) (2026-08-27)
+
+
+### Bug Fixes
+
+* 🐛 type breakpoints.keys against the config ([b9aa45a](https://github.com/mg901/styled-breakpoints/commit/b9aa45ad579a152e53431895dd784cf5c764d474))
+
+
+### Performance Improvements
+
+* 🐎 cache MediaQueryList per query in useMediaQuery ([bf9fcb2](https://github.com/mg901/styled-breakpoints/commit/bf9fcb2588ab5a223180a86c65f0d688b7f13cfc))
+
 ## [15.0.3](https://github.com/mg901/styled-breakpoints/compare/v15.0.2...v15.0.3) (2026-08-20)
 
 
