@@ -91,7 +91,7 @@ importers:
         version: 17.5.1
       prettier:
         specifier: ^3.9.4
-        version: 3.9.4
+        version: 3.9.8
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -3070,8 +3070,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.9.4:
-    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
+  prettier@3.9.8:
+    resolution: {integrity: sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6766,7 +6766,7 @@ snapshots:
   prettier@2.8.8:
     optional: true
 
-  prettier@3.9.4: {}
+  prettier@3.9.8: {}
 
   pretty-format@27.5.1:
     dependencies:
